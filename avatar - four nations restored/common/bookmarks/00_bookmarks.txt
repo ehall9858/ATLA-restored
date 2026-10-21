@@ -11,8 +11,8 @@ bm_fall_of_chin = {
 		id = 34 # Kyoshi
 		age = 42
 		name = ERA_CHAR_NAME_1
-		title = d_kyoshi_island
-		title_name = d_kyoshi_island
+		title = d_avatar
+		title_name = d_avatar
 		
 		character = {
 			dna = edxlxlkfmtmw
@@ -161,6 +161,23 @@ bm_sozin_coronation = {
 	custom_start = yes				## Choosing "Custom Start" will open this bookmark
 	
 	# Important Characters: Roku, Sozin, Earth King
+
+	selectable_character = {
+		id = 3 # Roku
+		age = 25
+		name = ERA_CHAR_NAME_3
+		title = d_avatar
+		title_name = d_avatar
+
+		character = {
+			dna = 000000a0b00
+			properties = ki0fcg00000000
+			religion = "fire_spirituality"
+			culture = "customPortrait_roku_and_ta_min"
+			government = avatar_team_government
+			dynasty = 536
+		}
+	}
 
 	selectable_character = {
 		id = 2 # Sozin
@@ -453,3 +470,49 @@ bm_airbender = {
 
 # }
 #}
+
+# ---- restored from ATLA-restored 1.4.6 (old Avatar system) ----
+bm_avatar_roku = {
+	name = "BM_AVATAR_ROKU"
+	desc = "BM_BM_AVATAR_ROKU_DESC"
+	date = 764.6.5
+	
+	era = yes						## Will be shown on Era screen.
+	picture = GFX_pick_era_image_3
+	
+	# Important Characters: Roku, Sozin
+
+	selectable_character = {
+		id = 3 # Roku
+		age = 15
+		name = ERA_CHAR_NAME_3
+		title = d_avatar
+		title_name = d_avatar
+
+		character = {
+			dna = 000000a0b00
+			properties = ki0fcg00000000
+			religion = "fire_spirituality"
+			culture = "customPortrait_roku_and_ta_min"
+			government = avatar_team_government
+			dynasty = 536
+		}
+	}
+
+	# selectable_character = {
+	# 	id = 2 # Sozin
+	# 	age = 15
+	# 	name = ERA_CHAR_NAME_8
+	# 	title = e_fire_nation
+	# 	title_name = e_fire_nation
+		
+	# 	character = {
+	# 		dna = 00a000a0b00
+	# 		properties = mh00ce00000000
+	# 		religion = "fire_spirituality"
+	# 		culture = fire_imperial_culture
+	# 		government = fire_feudal_government
+	# 		dynasty = 7
+	# 	}
+	# }
+}

@@ -1,0 +1,242 @@
+namespace = avatar_marriage
+
+# The Avatar can only marry someone they love (see ATLA_MANUAL.txt).
+# Once in a while an eligible Avatar hears of remarkable unlanded people
+# across the world and may send for one of them - falling in love and marrying.
+# Fired manually via the seek_avatar_spouse decision. A 3-year cooldown is
+# applied whichever option is picked, so declining only delays the event.
+character_event = {
+ id = avatar_marriage.1
+ desc = avatar_marriage.1.desc
+ picture = GFX_evt_courtiers_talking
+ is_triggered_only = yes
+ trigger = {
+  is_avatar_trigger = yes
+  is_adult = yes
+  is_married = no
+  NOT = { has_character_flag = avatar_marriage_cooldown }
+  NOT = { any_lover = { is_alive = yes } }
+  # At least one eligible person must exist somewhere, otherwise stay silent.
+  any_playable_ruler = {
+   any_courtier = {
+    is_adult = yes
+    is_married = no
+    is_betrothed = no
+    is_alive = yes
+    is_ruler = no
+    prisoner = no
+    NOT = { trait = incapable }
+    NOT = { trait = on_journey }
+    NOT = { is_close_relative = ROOT }
+    NOT = { age_diff = { who = ROOT years = 12 } }
+    OR = {
+     AND = { NOT = { same_sex = ROOT } NOT = { ROOT = { trait = homosexual } } }
+     AND = { same_sex = ROOT OR = { ROOT = { trait = homosexual } ROOT = { trait = bisexual } } }
+    }
+   }
+  }
+ }
+ immediate = {
+  clr_character_flag = avatar_courtship_candidate_1_found
+  clr_character_flag = avatar_courtship_candidate_2_found
+  clr_character_flag = avatar_courtship_candidate_3_found
+  # Hygiene: stale flags from older implementations.
+  clr_global_flag = avatar_marriage_candidate_1_found
+  clr_global_flag = avatar_marriage_candidate_2_found
+  clr_global_flag = avatar_marriage_candidate_3_found
+  random_character = {
+   limit = {
+    is_adult = yes
+    is_married = no
+    is_betrothed = no
+    is_alive = yes
+    is_ruler = no
+    prisoner = no
+    NOT = { trait = incapable }
+    NOT = { trait = on_journey }
+    NOT = { is_close_relative = ROOT }
+    NOT = { has_character_flag = avatar_courtship_candidate_reserved }
+    NOT = { age_diff = { who = ROOT years = 12 } }
+    OR = {
+     AND = { NOT = { same_sex = ROOT } NOT = { ROOT = { trait = homosexual } } }
+     AND = { same_sex = ROOT OR = { ROOT = { trait = homosexual } ROOT = { trait = bisexual } } }
+    }
+   }
+   save_event_target_as = avatar_spouse_candidate_1
+   set_character_flag = avatar_courtship_candidate_reserved
+   ROOT = { set_character_flag = avatar_courtship_candidate_1_found }
+  }
+  random_character = {
+   limit = {
+    is_adult = yes
+    is_married = no
+    is_betrothed = no
+    is_alive = yes
+    is_ruler = no
+    prisoner = no
+    NOT = { trait = incapable }
+    NOT = { trait = on_journey }
+    NOT = { is_close_relative = ROOT }
+    NOT = { has_character_flag = avatar_courtship_candidate_reserved }
+    NOT = { age_diff = { who = ROOT years = 12 } }
+    OR = {
+     AND = { NOT = { same_sex = ROOT } NOT = { ROOT = { trait = homosexual } } }
+     AND = { same_sex = ROOT OR = { ROOT = { trait = homosexual } ROOT = { trait = bisexual } } }
+    }
+   }
+   save_event_target_as = avatar_spouse_candidate_2
+   set_character_flag = avatar_courtship_candidate_reserved
+   ROOT = { set_character_flag = avatar_courtship_candidate_2_found }
+  }
+  random_character = {
+   limit = {
+    is_adult = yes
+    is_married = no
+    is_betrothed = no
+    is_alive = yes
+    is_ruler = no
+    prisoner = no
+    NOT = { trait = incapable }
+    NOT = { trait = on_journey }
+    NOT = { is_close_relative = ROOT }
+    NOT = { has_character_flag = avatar_courtship_candidate_reserved }
+    NOT = { age_diff = { who = ROOT years = 12 } }
+    OR = {
+     AND = { NOT = { same_sex = ROOT } NOT = { ROOT = { trait = homosexual } } }
+     AND = { same_sex = ROOT OR = { ROOT = { trait = homosexual } ROOT = { trait = bisexual } } }
+    }
+   }
+   save_event_target_as = avatar_spouse_candidate_3
+   set_character_flag = avatar_courtship_candidate_reserved
+   ROOT = { set_character_flag = avatar_courtship_candidate_3_found }
+  }
+ }
+ option = {
+  name = avatar_marriage.1.a
+  trigger = { has_character_flag = avatar_courtship_candidate_1_found }
+  ai_chance = { factor = 20 }
+  add_lover = event_target:avatar_spouse_candidate_1
+  event_target:avatar_spouse_candidate_1 = { add_lover = ROOT }
+  if = {
+   limit = { is_female = yes }
+   add_spouse_matrilineal = event_target:avatar_spouse_candidate_1
+  }
+  if = {
+   limit = { is_female = no }
+   add_spouse = event_target:avatar_spouse_candidate_1
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_1_found }
+   event_target:avatar_spouse_candidate_1 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_2_found }
+   event_target:avatar_spouse_candidate_2 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_3_found }
+   event_target:avatar_spouse_candidate_3 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  clr_character_flag = avatar_courtship_candidate_1_found
+  clr_character_flag = avatar_courtship_candidate_2_found
+  clr_character_flag = avatar_courtship_candidate_3_found
+  set_character_flag = avatar_marriage_cooldown
+  character_event = { id = avatar_marriage.2 days = 1095 }
+ }
+ option = {
+  name = avatar_marriage.1.b
+  trigger = { has_character_flag = avatar_courtship_candidate_2_found }
+  ai_chance = { factor = 20 }
+  add_lover = event_target:avatar_spouse_candidate_2
+  event_target:avatar_spouse_candidate_2 = { add_lover = ROOT }
+  if = {
+   limit = { is_female = yes }
+   add_spouse_matrilineal = event_target:avatar_spouse_candidate_2
+  }
+  if = {
+   limit = { is_female = no }
+   add_spouse = event_target:avatar_spouse_candidate_2
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_1_found }
+   event_target:avatar_spouse_candidate_1 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_2_found }
+   event_target:avatar_spouse_candidate_2 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_3_found }
+   event_target:avatar_spouse_candidate_3 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  clr_character_flag = avatar_courtship_candidate_1_found
+  clr_character_flag = avatar_courtship_candidate_2_found
+  clr_character_flag = avatar_courtship_candidate_3_found
+  set_character_flag = avatar_marriage_cooldown
+  character_event = { id = avatar_marriage.2 days = 1095 }
+ }
+ option = {
+  name = avatar_marriage.1.c
+  trigger = { has_character_flag = avatar_courtship_candidate_3_found }
+  ai_chance = { factor = 20 }
+  add_lover = event_target:avatar_spouse_candidate_3
+  event_target:avatar_spouse_candidate_3 = { add_lover = ROOT }
+  if = {
+   limit = { is_female = yes }
+   add_spouse_matrilineal = event_target:avatar_spouse_candidate_3
+  }
+  if = {
+   limit = { is_female = no }
+   add_spouse = event_target:avatar_spouse_candidate_3
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_1_found }
+   event_target:avatar_spouse_candidate_1 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_2_found }
+   event_target:avatar_spouse_candidate_2 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_3_found }
+   event_target:avatar_spouse_candidate_3 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  clr_character_flag = avatar_courtship_candidate_1_found
+  clr_character_flag = avatar_courtship_candidate_2_found
+  clr_character_flag = avatar_courtship_candidate_3_found
+  set_character_flag = avatar_marriage_cooldown
+  character_event = { id = avatar_marriage.2 days = 1095 }
+ }
+ # Always available: declining still releases the candidates and starts the cooldown.
+ option = {
+  name = avatar_marriage.1.d
+  ai_chance = { factor = 40 }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_1_found }
+   event_target:avatar_spouse_candidate_1 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_2_found }
+   event_target:avatar_spouse_candidate_2 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  if = {
+   limit = { has_character_flag = avatar_courtship_candidate_3_found }
+   event_target:avatar_spouse_candidate_3 = { clr_character_flag = avatar_courtship_candidate_reserved }
+  }
+  clr_character_flag = avatar_courtship_candidate_1_found
+  clr_character_flag = avatar_courtship_candidate_2_found
+  clr_character_flag = avatar_courtship_candidate_3_found
+  set_character_flag = avatar_marriage_cooldown
+  character_event = { id = avatar_marriage.2 days = 1095 }
+ }
+}
+
+# Cooldown cleanup for the courtship event above.
+character_event = {
+ id = avatar_marriage.2
+ hide_window = yes
+ is_triggered_only = yes
+ immediate = {
+  clr_character_flag = avatar_marriage_cooldown
+ }
+}

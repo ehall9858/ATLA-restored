@@ -19,14 +19,14 @@ avatar_system = {
 	name = "RULE_AVATAR_SYSTEM"
 	group = "RULE_GROUP_FOURNATIONS"
 	option = {
-		name = canon_avatars
-		text = "RULE_AVATAR_SYSTEM_OPTION_CANON"
-		desc = "RULE_AVATAR_SYSTEM_CANON_DESC"
+		name = new
+		text = "RULE_AVATAR_SYSTEM_OPTION_NEW"
+		desc = "RULE_AVATAR_SYSTEM_NEW_DESC"
 	}
 	option = {
-		name = random_avatars
-		text = "RULE_AVATAR_SYSTEM_OPTION_RANDOM"
-		desc = "RULE_AVATAR_SYSTEM_RANDOM_DESC"
+		name = old
+		text = "RULE_AVATAR_SYSTEM_OPTION_OLD"
+		desc = "RULE_AVATAR_SYSTEM_OLD_DESC"
 	}
 }
 

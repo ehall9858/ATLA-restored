@@ -1,0 +1,254 @@
+CODE;ENGLISH;;;;;;;;;;;x
+avatar_focus.1.t;The Avatar's Path;;;;;;;;;;;x
+avatar_focus.1.desc;With all four elements mastered, I must decide what kind of Avatar I will become. I can seek wisdom among the spirits, shape the world through diplomacy, wander among its people, or hone my martial skill to meet danger head-on.;;;;;;;;;;;x
+avatar_focus.1.a;Seek spiritual wisdom;;;;;;;;;;;x
+avatar_focus.1.b;Shape the world's politics;;;;;;;;;;;x
+avatar_focus.1.c;Walk among the people;;;;;;;;;;;x
+avatar_focus.1.d;Master the martial path;;;;;;;;;;;x
+pursue_avatar_focus;Pursue Your Avatar Focus;;;;;;;;;;;x
+pursue_avatar_focus_desc;Spend the year developing the path you have chosen as the Avatar.;;;;;;;;;;;x
+choose_avatar_focus;Choose Your Avatar Focus;;;;;;;;;;;x
+choose_avatar_focus_desc;Decide what kind of Avatar you will be: spiritual guide, political leader, wandering sage, or warrior.;;;;;;;;;;;x
+avatar_focus.10.t;A Moment to Follow My Path;;;;;;;;;;;x
+avatar_focus.10.desc;My chosen path calls for attention. I should take time to strengthen the principles I chose to embody.;;;;;;;;;;;x
+avatar_focus.10.a;Meditate and seek spiritual wisdom;;;;;;;;;;;x
+avatar_focus.10.b;Guide the affairs of the world;;;;;;;;;;;x
+avatar_focus.10.c;Walk among the people;;;;;;;;;;;x
+avatar_focus.10.d;Train in the martial arts;;;;;;;;;;;x
+avatar_focus.20.t;Stillness and the Spirit;;;;;;;;;;;x
+avatar_focus.20.desc;The world is loud with fear and desire. I can quiet my mind and listen, or carry a little of that peace into the world.;;;;;;;;;;;x
+avatar_focus.20.a;Meditate until my thoughts grow still;;;;;;;;;;;x
+avatar_focus.20.b;Offer spiritual counsel to those in need;;;;;;;;;;;x
+avatar_focus.30.t;The Weight of Leadership;;;;;;;;;;;x
+avatar_focus.30.desc;People look to the Avatar when rulers cannot agree. I can help them find common ground, or encourage the steady work of good governance.;;;;;;;;;;;x
+avatar_focus.30.a;Mediate a difficult dispute;;;;;;;;;;;x
+avatar_focus.30.b;Help bring order to administration;;;;;;;;;;;x
+avatar_focus.40.t;A World Beyond the Palace;;;;;;;;;;;x
+avatar_focus.40.desc;The lives of ordinary people reveal truths that courts and temples often miss. I can help a struggling community or learn from those I meet.;;;;;;;;;;;x
+avatar_focus.40.a;Help a community in need;;;;;;;;;;;x
+avatar_focus.40.b;Listen to travelers and learn from their stories;;;;;;;;;;;x
+avatar_focus.50.t;Strength Through Practice;;;;;;;;;;;x
+avatar_focus.50.desc;Skill fades without discipline. I can hone my own technique or share what I know with those willing to train.;;;;;;;;;;;x
+avatar_focus.50.a;Undertake demanding personal training;;;;;;;;;;;x
+avatar_focus.50.b;Train alongside trusted companions;;;;;;;;;;;x
+avatar_focus.70.t;A Path Made Strong;;;;;;;;;;;x
+avatar_focus.70.desc;Repeated effort has made my chosen path more than a title. Its lessons now shape the way I meet the world.;;;;;;;;;;;x
+avatar_focus.70.a;Carry these lessons forward;;;;;;;;;;;x
+avatar_focus_inner_peace;Inner Peace;;;;;;;;;;;x
+avatar_focus_diplomatic_momentum;Diplomatic Momentum;;;;;;;;;;;x
+avatar_focus_orderly_governance;Orderly Governance;;;;;;;;;;;x
+avatar_focus_people_first;People First;;;;;;;;;;;x
+avatar_focus_worldly_insight;Worldly Insight;;;;;;;;;;;x
+avatar_focus_combat_discipline;Combat Discipline;;;;;;;;;;;x
+avatar_focus_shared_training;Shared Training;;;;;;;;;;;x
+avatar_focus_seasoned;Seasoned Avatar;;;;;;;;;;;x
+
+avatar_focus.100.t;A Quiet Beyond the Veil;;;;;;;;;;;x
+avatar_focus.100.desc;During a year of meditation, the boundary between the material world and the Spirit World seems unusually thin. I can listen carefully, or risk reaching too far.;;;;;;;;;;;x
+avatar_focus.100.a;Meditate in safety;;;;;;;;;;;x
+avatar_focus.100.b;Force open the spiritual connection;;;;;;;;;;;x
+avatar_focus.101.t;A Pilgrim Seeks Guidance;;;;;;;;;;;x
+avatar_focus.101.desc;A troubled pilgrim has come seeking wisdom. Their questions remind me that spiritual balance is practiced through compassion as much as solitude.;;;;;;;;;;;x
+avatar_focus.101.a;Offer patient guidance;;;;;;;;;;;x
+avatar_focus.101.b;Share a deeper teaching;;;;;;;;;;;x
+avatar_focus.102.t;A Court Full of Knives;;;;;;;;;;;x
+avatar_focus.102.desc;A dispute between powerful courtiers threatens to become a feud. I can settle it openly or risk myself by probing the intrigue behind it.;;;;;;;;;;;x
+avatar_focus.102.a;Resolve the dispute in public;;;;;;;;;;;x
+avatar_focus.102.b;Investigate the hidden plot;;;;;;;;;;;x
+avatar_focus.103.t;The Work of Peace;;;;;;;;;;;x
+avatar_focus.103.desc;Several local rulers have asked for help coordinating their laws and duties. Careful diplomacy may prevent a future crisis.;;;;;;;;;;;x
+avatar_focus.103.a;Build a lasting agreement;;;;;;;;;;;x
+avatar_focus.103.b;Encourage practical compromise;;;;;;;;;;;x
+avatar_focus.104.t;Road Through Hostile Country;;;;;;;;;;;x
+avatar_focus.104.desc;A remote community has asked for help, but the route crosses territory where bandits and soldiers still roam. I can take the safer road or press on quickly.;;;;;;;;;;;x
+avatar_focus.104.a;Take the safer route and aid the village;;;;;;;;;;;x
+avatar_focus.104.b;Travel fast through the dangerous pass;;;;;;;;;;;x
+avatar_focus.105.t;Lessons at the Roadside;;;;;;;;;;;x
+avatar_focus.105.desc;A chance meeting with ordinary travelers offers a view of the world no court could provide. Their stories may prove as valuable as any formal lesson.;;;;;;;;;;;x
+avatar_focus.105.a;Listen and learn from them;;;;;;;;;;;x
+avatar_focus.105.b;Help them on their way;;;;;;;;;;;x
+avatar_focus.106.t;The Edge of Mastery;;;;;;;;;;;x
+avatar_focus.106.desc;My training has reached a point where only the most demanding opponents can challenge me. A controlled lesson is safer, while a full-contact trial could end in disaster.;;;;;;;;;;;x
+avatar_focus.106.a;Practice with strict discipline;;;;;;;;;;;x
+avatar_focus.106.b;Accept the dangerous challenge;;;;;;;;;;;x
+avatar_focus.107.t;A Veteran's Challenge;;;;;;;;;;;x
+avatar_focus.107.desc;Experienced fighters have gathered to test their skills against mine. I can demonstrate technique without needless danger or turn the gathering into a fierce contest.;;;;;;;;;;;x
+avatar_focus.107.a;Train carefully with the veterans;;;;;;;;;;;x
+avatar_focus.107.b;Keep the session controlled;;;;;;;;;;;x
+avatar_focus.108.t;A Shrine in the Mountain Mist;;;;;;;;;;;x
+avatar_focus.108.desc;I find a small shrine where villagers leave offerings for travelers. A quiet blessing may restore my resolve, while a deeper rite could bring me too close to an unseen presence.;;;;;;;;;;;x
+avatar_focus.108.a;Offer a quiet blessing;;;;;;;;;;;x
+avatar_focus.108.b;Attempt the deeper rite;;;;;;;;;;;x
+avatar_focus.109.t;The Unsettled Ancestor;;;;;;;;;;;x
+avatar_focus.109.desc;A family believes an ancestor's spirit has become restless. I can help them make peace, or attempt a demanding ritual that could overwhelm me.;;;;;;;;;;;x
+avatar_focus.109.a;Help the family make peace;;;;;;;;;;;x
+avatar_focus.109.b;Attempt the demanding ritual;;;;;;;;;;;x
+avatar_focus.110.t;A Lesson in Balance;;;;;;;;;;;x
+avatar_focus.110.desc;A young monk asks how to stay calm when the world seems unjust. Teaching them reminds me that wisdom is as much practice as knowledge.;;;;;;;;;;;x
+avatar_focus.110.a;Teach patience and balance;;;;;;;;;;;x
+avatar_focus.110.b;Share a difficult spiritual lesson;;;;;;;;;;;x
+avatar_focus.111.t;A Vision at Dawn;;;;;;;;;;;x
+avatar_focus.111.desc;During meditation, I glimpse a possible future, but visions are easy to mistake for certainty. I can reflect on it carefully or pursue the image with greater intensity.;;;;;;;;;;;x
+avatar_focus.111.a;Reflect without rushing;;;;;;;;;;;x
+avatar_focus.111.b;Pursue the vision intensely;;;;;;;;;;;x
+avatar_focus.112.t;The Disputed Granary;;;;;;;;;;;x
+avatar_focus.112.desc;Two villages argue over grain stores after a poor harvest. A fair settlement could calm the region, though one side may resent compromise.;;;;;;;;;;;x
+avatar_focus.112.a;Hear both villages and arbitrate;;;;;;;;;;;x
+avatar_focus.112.b;Press the leaders into an agreement;;;;;;;;;;;x
+avatar_focus.113.t;A Governor's Petition;;;;;;;;;;;x
+avatar_focus.113.desc;A provincial governor asks for support against corrupt officials. I can insist on a public inquiry or quietly gather evidence first.;;;;;;;;;;;x
+avatar_focus.113.a;Order a public inquiry;;;;;;;;;;;x
+avatar_focus.113.b;Investigate the network personally;;;;;;;;;;;x
+avatar_focus.114.t;The Unpopular Reform;;;;;;;;;;;x
+avatar_focus.114.desc;A modest reform would improve administration but anger influential families. I can build consensus or force the change through.;;;;;;;;;;;x
+avatar_focus.114.a;Build support patiently;;;;;;;;;;;x
+avatar_focus.114.b;Force the reform through;;;;;;;;;;;x
+avatar_focus.115.t;A Meeting Without Banners;;;;;;;;;;;x
+avatar_focus.115.desc;Rival envoys agree to meet discreetly. Their trust could avert conflict, but the secret meeting is vulnerable to discovery.;;;;;;;;;;;x
+avatar_focus.115.a;Keep the meeting cautious;;;;;;;;;;;x
+avatar_focus.115.b;Take a personal risk to secure the accord;;;;;;;;;;;x
+avatar_focus.116.t;Floodwater on the Road;;;;;;;;;;;x
+avatar_focus.116.desc;A flood has cut off a settlement. I can organize help from higher ground or cross a dangerous current to reach those stranded.;;;;;;;;;;;x
+avatar_focus.116.a;Coordinate a safe rescue;;;;;;;;;;;x
+avatar_focus.116.b;Cross the current myself;;;;;;;;;;;x
+avatar_focus.117.t;The Traveling Healer;;;;;;;;;;;x
+avatar_focus.117.desc;A healer traveling between villages has much to teach me about ordinary hardships. I can help distribute supplies or accompany them through a troubled region.;;;;;;;;;;;x
+avatar_focus.117.a;Help distribute supplies;;;;;;;;;;;x
+avatar_focus.117.b;Travel with the healer through danger;;;;;;;;;;;x
+avatar_focus.118.t;A Festival Far From Home;;;;;;;;;;;x
+avatar_focus.118.desc;A small town invites me to join its festival. Taking part may earn goodwill, while staying longer lets me hear concerns that rarely reach rulers.;;;;;;;;;;;x
+avatar_focus.118.a;Join the festival and listen;;;;;;;;;;;x
+avatar_focus.118.b;Spend extra time meeting the townsfolk;;;;;;;;;;;x
+avatar_focus.119.t;Tracks in the Pass;;;;;;;;;;;x
+avatar_focus.119.desc;Travelers report bandits in a mountain pass. I can warn others and take the long route, or try to draw the bandits away from a caravan.;;;;;;;;;;;x
+avatar_focus.119.a;Warn the caravan and detour;;;;;;;;;;;x
+avatar_focus.119.b;Lure the bandits away yourself;;;;;;;;;;;x
+avatar_focus.120.t;The Broken Bridge;;;;;;;;;;;x
+avatar_focus.120.desc;A patrol is trapped beyond a damaged bridge. I can coordinate a careful evacuation or cross under pressure to help secure the far bank.;;;;;;;;;;;x
+avatar_focus.120.a;Organize a careful evacuation;;;;;;;;;;;x
+avatar_focus.120.b;Cross the unstable bridge;;;;;;;;;;;x
+avatar_focus.121.t;A Master's Test;;;;;;;;;;;x
+avatar_focus.121.desc;A respected master offers to test my technique. A controlled bout would still teach me much, while an unrestricted duel would be more dangerous.;;;;;;;;;;;x
+avatar_focus.121.a;Keep the bout controlled;;;;;;;;;;;x
+avatar_focus.121.b;Accept an unrestricted duel;;;;;;;;;;;x
+avatar_focus.122.t;Defending the Training Yard;;;;;;;;;;;x
+avatar_focus.122.desc;A quarrel threatens to turn a training session into a real fight. I can calm the students or demonstrate how to disarm an aggressor.;;;;;;;;;;;x
+avatar_focus.122.a;Calm the students;;;;;;;;;;;x
+avatar_focus.122.b;Disarm the aggressor personally;;;;;;;;;;;x
+avatar_focus.123.t;The Veteran's Warning;;;;;;;;;;;x
+avatar_focus.123.desc;A veteran points out a flaw in my defensive technique. I can practice it slowly or test the correction in a demanding live exercise.;;;;;;;;;;;x
+avatar_focus.123.a;Practice the correction carefully;;;;;;;;;;;x
+avatar_focus.123.b;Test it in a live exercise;;;;;;;;;;;x
+avatar_focus.124.t;A Conflict Close to Home;;;;;;;;;;;x
+avatar_focus.124.desc;Raiders flying no nation's banner have burned three villages in as many weeks, and the local garrison is outmatched. Survivors whisper that their leader duels anyone who challenges them, and has never lost. I can break the raids now, or track the war band to its stronghold and end this for good.;;;;;;;;;;;x
+avatar_focus.124.a;Break up the raids and scatter them;;;;;;;;;;;x
+avatar_focus.124.b;Track them to their stronghold;;;;;;;;;;;x
+avatar_focus.125.t;The Warlord's Stronghold;;;;;;;;;;;x
+avatar_focus.125.desc;The trail ends in a box canyon: palisades, watchfires, and cages holding villagers taken for ransom. Their leader, a scarred earthbender the size of a badgermole, stands on the wall and laughs at my shadow. I could end this tonight, alone, or settle in and starve them out over weeks.;;;;;;;;;;;x
+avatar_focus.125.a;End it tonight, alone;;;;;;;;;;;x
+avatar_focus.125.b;Settle in and starve them out;;;;;;;;;;;x
+avatar_focus.126.t;The Duel;;;;;;;;;;;x
+avatar_focus.126.desc;The warlord keeps their word: at dawn they wait in the canyon alone, while both our followers watch from the walls. Defeating them ends the raids in a single stroke, but they earned that reputation honestly, and one clean hit is all it takes.;;;;;;;;;;;x
+avatar_focus.126.a;Accept single combat;;;;;;;;;;;x
+avatar_focus.126.b;No duels. Attack at dawn;;;;;;;;;;;x
+avatar_focus.127.t;What Waits in the Fog;;;;;;;;;;;x
+avatar_focus.127.desc;Fishermen speak of a fog that rolled in a month ago and never left, and voices in it calling the dead by name. The oldest among them begs me not to go in after his son. I can ward the shoreline from safety, or walk into the fog myself and confront whatever wears those voices.;;;;;;;;;;;x
+avatar_focus.127.a;Perform the warding rite from the shore;;;;;;;;;;;x
+avatar_focus.127.b;Walk into the fog alone;;;;;;;;;;;x
+avatar_focus.128.t;The Knife at the Feast;;;;;;;;;;;x
+avatar_focus.128.desc;Two blood-feuding lords have finally agreed to parley, and my steward has found poison in the wine, twice. If I leave, the talks collapse into war. If I stay through the feast, unguarded, the talks may hold... assuming the third attempt is not aimed at me.;;;;;;;;;;;x
+avatar_focus.128.a;Withdraw under guard;;;;;;;;;;;x
+avatar_focus.128.b;Stay through the feast, unguarded;;;;;;;;;;;x
+avatar_focus.129.t;The Burning Pass;;;;;;;;;;;x
+avatar_focus.129.desc;A rockslide has trapped a caravan in a burning pass, and the wind is turning the whole valley into a furnace. I can organize bucket lines from the ridge, or go down into the smoke myself, where one wrong breath ends an Avatar.;;;;;;;;;;;x
+avatar_focus.129.a;Coordinate the rescue from the ridge;;;;;;;;;;;x
+avatar_focus.129.b;Go down into the smoke myself;;;;;;;;;;;x
+avatar_focus.130.t;Tea With a Sage;;;;;;;;;;;x
+avatar_focus.130.desc;A hermit sage, ninety years old and unbothered by all of it, has invited me to tea. The first cup is silence. By the second, I find myself confessing doubts I have told no one. There is wisdom here, if I have the patience to receive it.;;;;;;;;;;;x
+avatar_focus.130.a;Stay for the third steeping;;;;;;;;;;;x
+avatar_focus.130.b;Ask for their counsel;;;;;;;;;;;x
+avatar_focus.131.t;The Petitioners' Court;;;;;;;;;;;x
+avatar_focus.131.desc;Word that the Avatar holds court has emptied three villages: farmers with boundary stones, widows with debts, a tax collector with more seals than sense. It will take all day. It will be worth it.;;;;;;;;;;;x
+avatar_focus.131.a;Hear every petitioner;;;;;;;;;;;x
+avatar_focus.131.b;Settle the hardest case first;;;;;;;;;;;x
+avatar_focus.132.t;The Roadside Shrine;;;;;;;;;;;x
+avatar_focus.132.desc;On a forgotten stretch of road, a family tends a shrine to a spirit no one else remembers. They feed me, ask for nothing, and apologize for the meagerness of the meal. The least I can do is stop a while.;;;;;;;;;;;x
+avatar_focus.132.a;Restore the shrine with them;;;;;;;;;;;x
+avatar_focus.132.b;Bless their journey onward;;;;;;;;;;;x
+avatar_focus.133.t;Drills at Dawn;;;;;;;;;;;x
+avatar_focus.133.desc;The garrison trains at dawn, and badly. Their captain is embarrassed to ask, but the stances are all wrong and the footwork worse. A week of mornings would make soldiers of them.;;;;;;;;;;;x
+avatar_focus.133.a;Lead the forms myself;;;;;;;;;;;x
+avatar_focus.133.b;Spar with each student;;;;;;;;;;;x
+avatar_focus.140.t;The Brink;;;;;;;;;;;x
+avatar_focus.140.desc;The world narrows to a single point of light. I have stood at the edge of death in a hundred lifetimes, and each time the cycle carried me on, but this time the wheel has stopped, and it is mine to turn. My companions are calling my name from somewhere very far away.;;;;;;;;;;;x
+avatar_focus.140.a;Refuse the void. The cycle will not take me yet;;;;;;;;;;;x
+avatar_focus.140.b;Let go, and let the next life begin;;;;;;;;;;;x
+change_avatar_focus;Walk a Different Path;;;;;;;;;;;x
+change_avatar_focus_desc;Set aside your current path and take up another. Anything you have already mastered stays mastered, but the rank you have reached on the path you leave is lost.;;;;;;;;;;;x
+seek_spirit_counsel;Seek the Counsel of the Departed;;;;;;;;;;;x
+seek_spirit_counsel_desc;Enter the Spirit World where the veil is thin and speak with the Avatars who wore your face before you. Requires a devoted spiritual path.;;;;;;;;;;;x
+convene_conclave;Convene a Conclave of Nations;;;;;;;;;;;x
+convene_conclave_desc;Call the rulers of the world to a table that belongs to none of them. Requires a devoted political path.;;;;;;;;;;;x
+make_great_pilgrimage;Make the Long Pilgrimage;;;;;;;;;;;x
+make_great_pilgrimage_desc;Walk a road nobody maintains any more, to a temple nobody visits. Requires a devoted wandering path.;;;;;;;;;;;x
+hold_grand_tournament;Hold a Grand Tournament;;;;;;;;;;;x
+hold_grand_tournament_desc;Summon every soldier of note to compete beneath the Avatar's eye. Requires a devoted martial path.;;;;;;;;;;;x
+focus_master_spiritual;Master of the Spirit;;;;;;;;;;;x
+focus_master_political;Master of Statecraft;;;;;;;;;;;x
+focus_master_wandering;Master of the Road;;;;;;;;;;;x
+focus_master_martial;Master of War;;;;;;;;;;;x
+avatar_focus_change_cooldown;A New Path;;;;;;;;;;;x
+avatar_focus.2.t;Walk a Different Path;;;;;;;;;;;x
+avatar_focus.2.desc;I have been one kind of Avatar long enough to know its limits, and my own. The other roads are still open to me, though whatever I have learned on this one will not walk them with me.;;;;;;;;;;;x
+avatar_focus.2.a;Seek spiritual wisdom;;;;;;;;;;;x
+avatar_focus.2.b;Shape the world's politics;;;;;;;;;;;x
+avatar_focus.2.c;Walk among the people;;;;;;;;;;;x
+avatar_focus.2.d;Master the martial path;;;;;;;;;;;x
+avatar_focus.210.t;The Path Deepens;;;;;;;;;;;x
+avatar_focus.210.desc;Something has settled in me. The stillness I once had to hunt for now arrives when I call, and the spirits answer more readily than they did a year ago. This is no longer a discipline I practise. It is becoming the shape of who I am.;;;;;;;;;;;x
+avatar_focus.210.a;Let the spirit deepen within me;;;;;;;;;;;x
+avatar_focus.210.b;Carry this stillness to the temples;;;;;;;;;;;x
+avatar_focus.211.t;The World Listens;;;;;;;;;;;x
+avatar_focus.211.desc;The rulers who once humoured me now wait for my word before they move. I have learned which grievances are real and which are theatre, and when silence will do more than any decree. The world's politics no longer simply happen around me.;;;;;;;;;;;x
+avatar_focus.211.a;Let the world's affairs sharpen me;;;;;;;;;;;x
+avatar_focus.211.b;Turn this influence toward peace;;;;;;;;;;;x
+avatar_focus.212.t;The Road Becomes Home;;;;;;;;;;;x
+avatar_focus.212.desc;I have worn through another pair of boots this year, and the roads have begun to feel like home. People no longer bow when I arrive. They wave, and offer me a place by the fire. There is a kind of authority in being welcome everywhere.;;;;;;;;;;;x
+avatar_focus.212.a;Keep walking, and let the road teach me;;;;;;;;;;;x
+avatar_focus.212.b;Give what I have to every village I pass;;;;;;;;;;;x
+avatar_focus.213.t;Mastery Is What Remains;;;;;;;;;;;x
+avatar_focus.213.desc;The forms come without thought now. My body answers before my mind has finished naming the strike, and the soldiers who once watched me drill have started copying how I stand. Mastery, I am learning, is what is left when the thinking stops.;;;;;;;;;;;x
+avatar_focus.213.a;Harden myself further;;;;;;;;;;;x
+avatar_focus.213.b;Drill the Avatar's guard in my methods;;;;;;;;;;;x
+avatar_focus.214.t;One With the Spirit;;;;;;;;;;;x
+avatar_focus.214.desc;I have walked this road until it stopped being a road and became the ground beneath me. The sages would call it mastery. I am not certain that word means what they think it means, only that when I am still, the whole world is still with me.;;;;;;;;;;;x
+avatar_focus.214.a;Accept what I have become;;;;;;;;;;;x
+avatar_focus.214.b;Teach the stillness to those who come after;;;;;;;;;;;x
+avatar_focus.215.t;The Weight of the World;;;;;;;;;;;x
+avatar_focus.215.desc;There is no dispute left in the world that does not sooner or later arrive at my door, and I have stopped resenting it. I know the shape of every quarrel now, and where each one really begins. That, it turns out, was the whole of the lesson.;;;;;;;;;;;x
+avatar_focus.215.a;Take up the burden knowingly;;;;;;;;;;;x
+avatar_focus.215.b;Build something that outlasts me;;;;;;;;;;;x
+avatar_focus.216.t;Every Road Leads Somewhere;;;;;;;;;;;x
+avatar_focus.216.desc;I know the roads now the way a farmer knows his fields: where the floods come, which passes close in winter, which villages will feed a stranger without being asked. There is no map of this. I have simply become it.;;;;;;;;;;;x
+avatar_focus.216.a;Keep the road, always;;;;;;;;;;;x
+avatar_focus.216.b;Leave the knowledge behind for others;;;;;;;;;;;x
+avatar_focus.217.t;The Art That Remains;;;;;;;;;;;x
+avatar_focus.217.desc;There is nothing left to be taught to me by anyone living. What I have now I cannot explain to a student, and I have stopped trying. They learn it by standing beside me long enough to catch it. That is how it was taught to me.;;;;;;;;;;;x
+avatar_focus.217.a;Stand as the Avatar of war;;;;;;;;;;;x
+avatar_focus.217.b;Raise up those who will come after;;;;;;;;;;;x
+avatar_focus.230.t;The Counsel of the Departed;;;;;;;;;;;x
+avatar_focus.230.desc;At the old shrine the veil thins to nothing, and the dead who wore my face before me are waiting. They do not speak in words. They offer me their memory instead: a lifetime of choices, and what each one cost. I can take what they offer, or ask them for something harder.;;;;;;;;;;;x
+avatar_focus.230.a;Take their memory into myself;;;;;;;;;;;x
+avatar_focus.230.b;Ask them what I am afraid to know;;;;;;;;;;;x
+avatar_focus.231.t;A Conclave of Nations;;;;;;;;;;;x
+avatar_focus.231.desc;Seven rulers send envoys to a hall that belongs to none of them. There is no throne here, only a long table and a great deal of suspicion. Someone must speak first, and every person in the room knows exactly who that should be.;;;;;;;;;;;x
+avatar_focus.231.a;Bind them to a common accord;;;;;;;;;;;x
+avatar_focus.231.b;Let them air every grievance before I speak;;;;;;;;;;;x
+avatar_focus.232.t;The Long Pilgrimage;;;;;;;;;;;x
+avatar_focus.232.desc;There is a temple at the end of a road nobody maintains any more, and the people along it have been waiting a long time for someone to walk it. I could go quietly, and arrive where I meant to, or I could go where the need is worst and never arrive at all.;;;;;;;;;;;x
+avatar_focus.232.a;Walk where the need is worst;;;;;;;;;;;x
+avatar_focus.232.b;Seek the temple at the road's end;;;;;;;;;;;x
+avatar_focus.233.t;The Grand Tournament;;;;;;;;;;;x
+avatar_focus.233.desc;The Avatar has called a tournament, and every soldier with a name worth having has come. They will remember who presided over it. They will remember far longer who won it.;;;;;;;;;;;x
+avatar_focus.233.a;Preside, and reward the worthy;;;;;;;;;;;x
+avatar_focus.233.b;Enter the lists myself;;;;;;;;;;;x

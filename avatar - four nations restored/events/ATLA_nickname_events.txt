@@ -1,0 +1,49 @@
+#############################################################
+# THE AVATAR IS NEVER KNOWN BY A NICKNAME
+#
+# The Avatar is only ever "the Avatar".  Every entry in
+# common/nicknames/ carries NOT = { is_avatar_trigger = yes },
+# so the engine will not roll one for the Avatar - but vanilla
+# and other mods also hand out nicknames from events, so this
+# file is the safety net:
+#
+#   atla_nickname.1 - fires from on_acquire_nickname the moment
+#                     anyone is given a nickname.  On the Avatar
+#                     it is taken straight back off again.
+#   atla_nickname.2 - sweeps a nickname the Avatar already had in
+#                     an older save (on_startup + yearly pulse).
+#############################################################
+
+namespace = atla_nickname
+
+# Acquired a nickname - on_action: on_acquire_nickname
+character_event = {
+	id = atla_nickname.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_avatar_trigger = yes
+		has_nickname = yes
+	}
+
+	immediate = {
+		remove_nickname = yes
+	}
+}
+
+# Left-over nickname from before this was installed
+character_event = {
+	id = atla_nickname.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_avatar_trigger = yes
+		has_nickname = yes
+	}
+
+	immediate = {
+		remove_nickname = yes
+	}
+}

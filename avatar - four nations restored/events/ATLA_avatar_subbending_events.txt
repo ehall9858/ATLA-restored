@@ -1,0 +1,612 @@
+##################################################
+# Avatar Sub-Bending
+##################################################
+#
+# Lets the Avatar learn the specialist arts of the elements they command.
+#
+# Why this file exists: every ordinary route to a sub-bending trait tests for
+# the plain element trait (earthbender/firebender/waterbender/airbender) or for
+# a condition no Avatar meets (firelord, sandbender culture, society rank, or
+# being a child with an educator). The Avatar carries avatar_<element>bender
+# instead, so all of those routes miss them and they could never learn a single
+# specialist art.
+#
+# Two ways in:
+#   1. The journey. Meeting the sandbenders during the earth leg of the Avatar
+#      journey (new_avatar_journey.201 -> atla_avatar_sub.1) can end in the
+#      sandbending art, either at once or once earthbending has been learned.
+#   2. Insight. A rare, long-interval moment of understanding for an Avatar who
+#      has already pushed an element to master tier (atla_avatar_sub.10/20/30/40).
+#      Deliberately not guaranteed - many Avatars will never find one.
+#
+# Nothing here can fire for an unrevealed Avatar child: every trigger requires
+# is_revealed_avatar_trigger.
+##################################################
+
+namespace = atla_avatar_sub
+
+
+########################
+# 1. The Way of the Sand  (journey: met the sandbenders)
+########################
+
+narrative_event = {
+	id = atla_avatar_sub.1
+	title = EVTTITLEatla_avatar_sub.1
+	desc = EVTDESCatla_avatar_sub.1
+	picture = GFX_evt_sandbender
+	is_triggered_only = yes
+
+	# Already able to move earth - try to learn their art while you are here.
+	option = {
+		name = EVTOPTAatla_avatar_sub.1
+		trigger = {
+			OR = {
+				trait = earthbender
+				trait = avatar_earthbender
+			}
+			NOT = {
+				trait = sandbender
+			}
+		}
+		random_list = {
+			45 = {
+				add_trait = sandbender
+				prestige = 50
+				modifier = {
+					factor = 1.5
+					trait = patient
+				}
+				modifier = {
+					factor = 1.5
+					trait = diligent
+				}
+			}
+			55 = {
+				prestige = 10
+				modifier = {
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = {
+					factor = 1.25
+					trait = content
+				}
+			}
+		}
+		character_event = {
+			id = avatar.159
+			days = 10
+			random = 20
+		}
+	}
+
+	# Cannot move earth yet - but the dunes and their people are not forgotten.
+	option = {
+		name = EVTOPTBatla_avatar_sub.1
+		trigger = {
+			NOR = {
+				trait = earthbender
+				trait = avatar_earthbender
+			}
+		}
+		set_character_flag = avatar_studied_sandbenders
+		character_event = {
+			id = avatar.159
+			days = 10
+			random = 20
+		}
+	}
+
+	# Move on.
+	option = {
+		name = EVTOPTCatla_avatar_sub.1
+		character_event = {
+			id = avatar.159
+			days = 10
+			random = 20
+		}
+	}
+}
+
+
+# Deferred payoff of the sandbender meeting: fires once earthbending is learned.
+character_event = {
+	id = atla_avatar_sub.2
+	title = EVTTITLEatla_avatar_sub.2
+	desc = EVTDESCatla_avatar_sub.2
+	picture = GFX_evt_sandbender
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = avatar_studied_sandbenders
+		OR = {
+			trait = earthbender
+			trait = avatar_earthbender
+		}
+		NOT = {
+			trait = sandbender
+		}
+		is_adult = yes
+	}
+
+	option = {
+		name = EVTOPTAatla_avatar_sub.2
+		clr_character_flag = avatar_studied_sandbenders
+		random_list = {
+			55 = {
+				add_trait = sandbender
+				prestige = 50
+			}
+			45 = {
+				prestige = 10
+			}
+		}
+	}
+}
+
+
+########################
+# 2. Insights - rare, one element at a time
+########################
+
+# EARTH
+narrative_event = {
+	id = atla_avatar_sub.10
+	title = EVTTITLEatla_avatar_sub.10
+	desc = EVTDESCatla_avatar_sub.10
+	picture = GFX_evt_earth_kingdom
+
+	trigger = {
+		avatar_subbending_ready_trigger = yes
+		OR = {
+			trait = earthbender
+			trait = avatar_earthbender
+		}
+		# at least one earth art still unlearned
+		OR = {
+			NOT = { trait = metalbender }
+			NOT = { trait = lavabender }
+			NOT = { trait = sandbender }
+			NOT = { trait = seismicsense_nonblind }
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 25
+		modifier = {
+			factor = 0.75
+			trait = genius
+		}
+		modifier = {
+			factor = 0.85
+			trait = quick
+		}
+		modifier = {
+			factor = 1.5
+			trait = slow
+		}
+		modifier = {
+			factor = 2
+			trait = imbecile
+		}
+	}
+
+	option = {
+		name = EVTOPTAatla_avatar_sub.10
+		trigger = {
+			NOT = { trait = metalbender }
+			NOT = { trait = lavabender }
+		}
+		random_list = {
+			50 = {
+				add_trait = metalbender
+				prestige = 100
+			}
+			50 = {
+				prestige = 20
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBatla_avatar_sub.10
+		trigger = {
+			NOT = { trait = lavabender }
+			NOT = { trait = metalbender }
+		}
+		random_list = {
+			40 = {
+				add_trait = lavabender
+				prestige = 100
+			}
+			60 = {
+				prestige = 20
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCatla_avatar_sub.10
+		trigger = {
+			NOT = { trait = sandbender }
+		}
+		random_list = {
+			60 = {
+				add_trait = sandbender
+				prestige = 50
+			}
+			40 = {
+				prestige = 20
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDatla_avatar_sub.10
+		trigger = {
+			NOT = { trait = seismicsense_nonblind }
+			NOT = { trait = seismicsense }
+		}
+		random_list = {
+			40 = {
+				add_trait = seismicsense_nonblind
+				prestige = 50
+			}
+			60 = {
+				prestige = 20
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTEatla_avatar_sub.10
+	}
+}
+
+
+# FIRE
+narrative_event = {
+	id = atla_avatar_sub.20
+	title = EVTTITLEatla_avatar_sub.20
+	desc = EVTDESCatla_avatar_sub.20
+	picture = GFX_evt_fire_nation_harbor
+
+	trigger = {
+		avatar_subbending_ready_trigger = yes
+		OR = {
+			trait = firebender
+			trait = avatar_firebender
+		}
+		OR = {
+			NOT = { trait = lightningbender }
+			NOT = { trait = combustionbender }
+			NOT = { trait = smokebender }
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 25
+		modifier = {
+			factor = 0.75
+			trait = genius
+		}
+		modifier = {
+			factor = 0.85
+			trait = quick
+		}
+		modifier = {
+			factor = 1.5
+			trait = slow
+		}
+		modifier = {
+			factor = 2
+			trait = imbecile
+		}
+	}
+
+	option = {
+		name = EVTOPTAatla_avatar_sub.20
+		trigger = {
+			NOT = { trait = lightningbender }
+			NOT = { trait = combustionbender }
+		}
+		random_list = {
+			35 = {
+				add_trait = lightningbender
+				prestige = 150
+			}
+			65 = {
+				prestige = 20
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBatla_avatar_sub.20
+		trigger = {
+			NOT = { trait = combustionbender }
+			NOT = { trait = lightningbender }
+			NOT = { trait = smokebender }
+		}
+		random_list = {
+			30 = {
+				add_trait = combustionbender
+				prestige = 150
+			}
+			70 = {
+				prestige = 20
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCatla_avatar_sub.20
+		trigger = {
+			NOT = { trait = smokebender }
+			NOT = { trait = combustionbender }
+		}
+		random_list = {
+			50 = {
+				add_trait = smokebender
+				prestige = 100
+			}
+			50 = {
+				prestige = 20
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDatla_avatar_sub.20
+	}
+}
+
+
+# WATER
+narrative_event = {
+	id = atla_avatar_sub.30
+	title = EVTTITLEatla_avatar_sub.30
+	desc = EVTDESCatla_avatar_sub.30
+	picture = GFX_evt_northern_water_tribe_wall
+
+	trigger = {
+		avatar_subbending_ready_trigger = yes
+		OR = {
+			trait = waterbender
+			trait = avatar_waterbender
+		}
+		OR = {
+			AND = {
+				is_female = yes
+				NOT = { trait = healer }
+				NOT = { trait = master_healer }
+			}
+			NOT = { trait = bloodbender }
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 25
+		modifier = {
+			factor = 0.75
+			trait = genius
+		}
+		modifier = {
+			factor = 0.85
+			trait = quick
+		}
+		modifier = {
+			factor = 1.5
+			trait = slow
+		}
+		modifier = {
+			factor = 2
+			trait = imbecile
+		}
+	}
+
+	# Healing is a woman's art among the Water Tribes.
+	option = {
+		name = EVTOPTAatla_avatar_sub.30
+		trigger = {
+			is_female = yes
+			NOT = { trait = healer }
+			NOT = { trait = master_healer }
+		}
+		random_list = {
+			60 = {
+				add_trait = healer
+				piety = 50
+			}
+			40 = {
+				piety = 10
+			}
+		}
+	}
+
+	# Bloodbending. Dark, and rare.
+	option = {
+		name = EVTOPTBatla_avatar_sub.30
+		trigger = {
+			NOT = { trait = bloodbender }
+		}
+		random_list = {
+			30 = {
+				add_trait = bloodbender
+				piety = -100
+			}
+			70 = {
+				piety = 10
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCatla_avatar_sub.30
+	}
+}
+
+
+# AIR
+narrative_event = {
+	id = atla_avatar_sub.40
+	title = EVTTITLEatla_avatar_sub.40
+	desc = EVTDESCatla_avatar_sub.40
+	picture = GFX_evt_roku_airgliding
+
+	trigger = {
+		avatar_subbending_ready_trigger = yes
+		OR = {
+			trait = airbender
+			trait = avatar_airbender
+		}
+		OR = {
+			NOT = { trait = levitation }
+			AND = {
+				religion = nomadic_nihilism
+				NOT = { trait = voidbender }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 25
+		modifier = {
+			factor = 0.75
+			trait = genius
+		}
+		modifier = {
+			factor = 0.85
+			trait = quick
+		}
+		modifier = {
+			factor = 1.5
+			trait = slow
+		}
+		modifier = {
+			factor = 2
+			trait = imbecile
+		}
+	}
+
+	# Weightlessness - detachment from the world.
+	option = {
+		name = EVTOPTAatla_avatar_sub.40
+		trigger = {
+			NOT = { trait = levitation }
+			NOT = { trait = voidbender }
+		}
+		random_list = {
+			35 = {
+				add_trait = levitation
+				prestige = 150
+			}
+			65 = {
+				prestige = 20
+			}
+		}
+	}
+
+	# The void. Only for those who already deny the world.
+	option = {
+		name = EVTOPTBatla_avatar_sub.40
+		trigger = {
+			religion = nomadic_nihilism
+			NOT = { trait = voidbender }
+			NOT = { trait = levitation }
+		}
+		random_list = {
+			35 = {
+				add_trait = voidbender
+				prestige = 100
+			}
+			65 = {
+				prestige = 20
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCatla_avatar_sub.40
+	}
+}
+
+
+########################
+# 3. The Healing Hut  (journey: the Northern Water Tribe)
+########################
+#
+# Fired from new_avatar_journey.104, which is reached only on the northern leg
+# of the water journey. Healing at the North is a woman's art - the healer trait
+# itself requires is_female - so the roll is weighted heavily towards female
+# Avatars, but a man may still be taught, rarely. Afterwards the Avatar rejoins
+# the ordinary waterbending training at new_avatar_journey.105.
+
+narrative_event = {
+	id = atla_avatar_sub.50
+	title = EVTTITLEatla_avatar_sub.50
+	desc = EVTDESCatla_avatar_sub.50
+	picture = GFX_evt_northern_water_tribe_temple
+	portrait = event_target:waterbending_master
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAatla_avatar_sub.50
+		trigger = {
+			NOT = { trait = healer }
+			NOT = { trait = master_healer }
+		}
+		character_event = {
+			id = atla_avatar_sub.51
+			days = 30
+		}
+	}
+
+	option = {
+		name = EVTOPTBatla_avatar_sub.50
+		character_event = {
+			id = new_avatar_journey.105
+			days = 30
+		}
+	}
+}
+
+
+character_event = {
+	id = atla_avatar_sub.51
+	title = EVTTITLEatla_avatar_sub.51
+	desc = EVTDESCatla_avatar_sub.51
+	picture = GFX_evt_waterbending_master
+	portrait = event_target:waterbending_master
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAatla_avatar_sub.51
+		random_list = {
+			30 = {
+				add_trait = healer
+				piety = 50
+				modifier = {
+					factor = 6
+					is_female = yes
+				}
+				modifier = {
+					factor = 1.4
+					trait = patient
+				}
+			}
+			70 = {
+				piety = 10
+				modifier = {
+					factor = 0.5
+					is_female = yes
+				}
+			}
+		}
+		character_event = {
+			id = new_avatar_journey.105
+			days = 30
+		}
+	}
+}

@@ -1,0 +1,71 @@
+namespace = BENDORD
+
+# Player asks to join the Waterbending Order.
+character_event = {
+    id = BENDORD.1
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        FROM = { leader = { society_member_of = waterbending_order } }
+    }
+    immediate = {
+        FROM = { leader = { character_event = { id = BENDORD.2 } } }
+    }
+}
+
+character_event = {
+    id = BENDORD.2
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        FROM = { letter_event = { id = BENDORD.3 } }
+    }
+}
+
+letter_event = {
+    id = BENDORD.3
+    desc = EVTDESC_MNM_4452
+    border = GFX_event_letter_frame_religion
+    is_triggered_only = yes
+    immediate = { set_character_flag = society_join_block }
+    option = {
+        name = EVTOPTA_MNM_44511
+        join_society = waterbending_order
+        clr_character_flag = society_join_block
+    }
+}
+
+# Player asks to join the Earthbending Order.
+character_event = {
+    id = BENDORD.4
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        FROM = { leader = { society_member_of = earthbending_order } }
+    }
+    immediate = {
+        FROM = { leader = { character_event = { id = BENDORD.5 } } }
+    }
+}
+
+character_event = {
+    id = BENDORD.5
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        FROM = { letter_event = { id = BENDORD.6 } }
+    }
+}
+
+letter_event = {
+    id = BENDORD.6
+    desc = EVTDESC_MNM_4452
+    border = GFX_event_letter_frame_religion
+    is_triggered_only = yes
+    immediate = { set_character_flag = society_join_block }
+    option = {
+        name = EVTOPTA_MNM_44511
+        join_society = earthbending_order
+        clr_character_flag = society_join_block
+    }
+}

@@ -1,0 +1,100 @@
+# Crisis War: the Avatar's once-in-a-lifetime war to break a colonial,
+# slaving, or great hostile power. Victory shatters the defender's realm
+# by destroying every emperor- and king-tier title they hold.
+crisis_war = {
+	name = CB_CRISIS_WAR
+	war_name = WAR_CRISIS_WAR
+	sprite = 16
+	truce_days = 1825
+	hostile_against_others = yes
+	is_permanent = yes
+	allow_distant = yes
+	can_ask_to_join_war = no
+	attacker_can_call_allies = yes
+	defender_can_call_allies = yes
+
+	can_use = {
+		ROOT = {
+			has_character_flag = avatar_crisis_attacker
+		}
+	}
+
+	can_use_title = {
+		tier = count
+	}
+
+	is_valid = {
+		ROOT = {
+			has_character_flag = avatar_crisis_attacker
+		}
+		FROM = {
+			has_character_flag = avatar_crisis_defender
+		}
+	}
+
+	on_success_title = {
+		FROM = {
+			any_demesne_title = {
+				limit = {
+					OR = {
+						tier = king
+						tier = emperor
+					}
+				}
+				destroy_landed_title = THIS
+			}
+		}
+		ROOT = {
+			prestige = 200
+			piety = 100
+		}
+		FROM = {
+			prestige = -200
+		}
+		ROOT = {
+			clr_character_flag = avatar_crisis_attacker
+		}
+		FROM = {
+			clr_character_flag = avatar_crisis_defender
+		}
+		clr_global_flag = avatar_crisis_active
+	}
+
+	on_fail_title = {
+		ROOT = {
+			prestige = -100
+		}
+		FROM = {
+			prestige = 100
+		}
+		ROOT = {
+			clr_character_flag = avatar_crisis_attacker
+		}
+		FROM = {
+			clr_character_flag = avatar_crisis_defender
+		}
+		clr_global_flag = avatar_crisis_active
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			prestige = -100
+		}
+		FROM = {
+			prestige = 100
+		}
+		ROOT = {
+			clr_character_flag = avatar_crisis_attacker
+		}
+		FROM = {
+			clr_character_flag = avatar_crisis_defender
+		}
+		clr_global_flag = avatar_crisis_active
+	}
+
+	on_success = {
+		ROOT = {
+			prestige = 50
+		}
+	}
+}

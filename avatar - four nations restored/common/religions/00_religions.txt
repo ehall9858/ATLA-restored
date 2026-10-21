@@ -384,8 +384,6 @@ earth_religions = {
 		intermarry = earth_spirituality	
 		
 		character_modifier = {
-			opinion_of_avatar = -100
-			avatar_opinion = -100
 		}
 	}
 
@@ -763,8 +761,6 @@ fire_religions = {
 		intermarry = fire_spirituality
 		
 		character_modifier = {
-			opinion_of_avatar = -50
-			avatar_opinion = -50
 		}
 	}
 
@@ -1568,8 +1564,6 @@ modern_religions = {
 		allow_in_ruler_designer = no
 		
 		character_modifier = {
-			opinion_of_avatar = -100
-			avatar_opinion = -100
 		}
 	}
 }
@@ -1668,8 +1662,6 @@ outlaw_religions = {
 		intermarry = earth_religions
 		
 		character_modifier = {
-			opinion_of_avatar = -50
-			avatar_opinion = -50
 		}
 	}
 	

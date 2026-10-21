@@ -1,0 +1,128 @@
+########################################################################
+# ATLA Bending Training - events
+#
+# The lone grind. Whatever a bender does by themselves, this is where it
+# stops: practice sharpens an untrained or ordinary bender towards the top
+# of ordinary skill, and can never carry anyone into mastery. Only being
+# taught - the orders, the Agni Kai, the Avatar's own road - goes past this.
+#
+# atla_bending_training.1  hidden roll fired by train_your_bending
+# atla_bending_training.2  breakthrough (climbed a tier)
+# atla_bending_training.3  solid practice, no leap
+# atla_bending_training.4  overreach, nothing gained
+# atla_bending_training.9  clears the training cooldown flag
+########################################################################
+
+namespace = atla_bending_training
+
+# The roll. Hidden - the player only ever sees the outcome.
+character_event = {
+	id = atla_bending_training.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# Training alone has a ceiling, and it sits below mastery. The last step is
+		# not won by repetition - it is won by being taught, by an order, or by the
+		# Avatar's own road. See common/scripted_effects/10_atla_bending_rarity_effects.txt.
+		if = {
+			limit = {
+				OR = {
+					trait = powerful_bender
+					trait = master_bender
+					trait = legendary_bender
+				}
+			}
+			# Already at the ceiling of self-teaching. The work keeps the edge sharp
+			# and gives nothing more.
+			random_list = {
+				60 = {
+					prestige = 5
+					character_event = { id = atla_bending_training.3 }
+				}
+				40 = {
+					character_event = { id = atla_bending_training.4 }
+				}
+			}
+		}
+		else_if = {
+			limit = { trait = competent_bender }
+			# Somewhat rarely, and only from here, a bender climbs to powerful.
+			random_list = {
+				12 = {
+					add_trait = powerful_bender
+					prestige = 20
+					character_event = { id = atla_bending_training.2 }
+				}
+				48 = {
+					prestige = 5
+					character_event = { id = atla_bending_training.3 }
+				}
+				40 = {
+					character_event = { id = atla_bending_training.4 }
+				}
+			}
+		}
+		else = {
+			random_list = {
+				30 = {
+					add_trait = competent_bender
+					prestige = 10
+					character_event = { id = atla_bending_training.2 }
+				}
+				45 = {
+					prestige = 5
+					character_event = { id = atla_bending_training.3 }
+				}
+				25 = {
+					character_event = { id = atla_bending_training.4 }
+				}
+			}
+		}
+		character_event = { id = atla_bending_training.9 days = 730 }
+	}
+}
+
+character_event = {
+	id = atla_bending_training.2
+	desc = EVTDESCatla_bending_training.2
+	picture = GFX_evt_kyoshi_training
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAatla_bending_training.2
+	}
+}
+
+character_event = {
+	id = atla_bending_training.3
+	desc = EVTDESCatla_bending_training.3
+	picture = GFX_evt_airnomad_sparring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAatla_bending_training.3
+	}
+}
+
+character_event = {
+	id = atla_bending_training.4
+	desc = EVTDESCatla_bending_training.4
+	picture = GFX_evt_waterbending_sparring_fail
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAatla_bending_training.4
+	}
+}
+
+# Lifts the cooldown so the decision becomes available again.
+character_event = {
+	id = atla_bending_training.9
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = atla_bending_training
+	}
+}

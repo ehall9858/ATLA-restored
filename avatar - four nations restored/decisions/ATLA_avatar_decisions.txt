@@ -1,16 +1,630 @@
-targetted_decisions = {
+decisions = {
+#	play_avatar = {
+#		is_high_prio = yes
+#		only_playable = yes
+#		ai = no
+#
+#		potential = {
+#			is_avatar_trigger = no
+#			event_target:global_avatar = {
+#				is_avatar_trigger = yes
+#				ai = yes
+#			}
+#			has_global_flag = playable_avatar
+#		}
+#		
+#		allow = {
+#			always = yes
+#		}
+#		
+#		effect = {
+#			find_avatar_effect = yes
+#			set_player_character = event_target:global_avatar
+#		}
+#	}
+	
+	check_avatar_decision = {
+		ai = no
+		
+		potential = {
+			NOR = {
+				trait = avatar
+				trait = fullyrealisedavatar
+				has_character_flag = avatar_revealed
+			}
+		}
+		allow = {
+			NOT = {
+				has_character_flag = viewing_avatar_status
+			}
+		}
+		effect = {
+			set_character_flag = viewing_avatar_status
+			character_event = {
+				id = ATLAR.764
+			}
+		}
+	}
+	
+	pursue_avatar_focus = {
+		is_high_prio = yes
+		ai_will_do = { factor = 0.15 }
+		potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+			has_character_flag = avatar_focus_chosen
+			NOT = { has_character_flag = avatar_focus_activity_cooldown }
+			OR = {
+				trait = spiritually_focused_avatar
+				trait = politically_focused_avatar
+				trait = wandering_avatar
+				trait = martial_avatar
+			}
+		}
+		allow = { is_incapable = no NOT = { prisoner = yes } }
+		effect = { character_event = { id = avatar_focus.10 } }
+	}
+
+	# Recovery/manual entry point: guarantees a fully realised Avatar with no
+	# focus trait can always open the choice event, even if the yearly pulse
+	# was missed or a stale avatar_focus_choice_pending flag got stuck.
+	choose_avatar_focus = {
+		is_high_prio = yes
+		ai = no
+		potential = {
+			trait = fullyrealisedavatar
+			NOT = { has_character_flag = avatar_focus_chosen }
+			NOR = {
+				trait = spiritually_focused_avatar
+				trait = politically_focused_avatar
+				trait = wandering_avatar
+				trait = martial_avatar
+			}
+		}
+		allow = { is_incapable = no NOT = { prisoner = yes } }
+		effect = {
+			clr_character_flag = avatar_focus_choice_pending
+			character_event = { id = avatar_focus.1 }
+		}
+	}
+
+	# Manual entry point for the Avatar courtship event: the Avatar can only
+	# marry someone they love, so this looks for love among their own court.
+	seek_avatar_spouse = {
+		is_high_prio = yes
+		ai = no
+		potential = {
+			is_avatar_trigger = yes
+			is_adult = yes
+			is_married = no
+			NOT = { has_character_flag = avatar_marriage_cooldown }
+			NOT = { any_lover = { is_alive = yes } }
+		}
+		allow = { is_incapable = no NOT = { prisoner = yes } }
+		effect = { character_event = { id = avatar_marriage.1 } }
+	}
+
+	ruler_summons_avatar_revolt = {
+		is_high_prio = yes
+		only_rulers = yes
+		
+		potential = {
+			is_title_active = d_avatar
+			NOT = { has_landed_title = d_avatar }
+			NOT = { has_global_flag = avatar_busy }
+			NOT = {
+				primary_title = {
+					rebel = yes
+				}
+			}
+			NOT = { has_any_opinion_modifier = avatar_refused_aid }
+			any_war = { using_cb = peasant_revolt }
+			NOT = { has_character_flag = avatar_aid }
+
+			# avatar isn't busy with mastering elements
+			d_avatar = {
+				owner = {
+					NOT = {
+						has_character_flag = avatar_journey
+					}
+				}
+			}
+		}
+		
+		allow = {
+			NOR = { 
+				religion = way_of_chin
+				religion = fire_nation_imperialism
+				religion = pirate_faith 
+			}
+		}
+		
+		effect = {
+			log = "[Root.GetFullName] summoned the Avatar to help with a revolt."
+			set_character_flag = avatar_aid
+			d_avatar = {
+				owner = {
+					character_event = { id = avatar.179 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.5
+		}
+	
+	}
+
+	# --- Withdrawal from Avatar duties ----------------------------------------
+	# Withdrawal is a voluntary resignation from the Avatar role. While the
+	# flag is set the Avatar cannot open the interference panel, their peace
+	# terms are ignored, and NAE.229 stops advertising them as available.
+	# Staying withdrawn for 11 continuous years gets them declared unworthy
+	# (NAE.233 -> NAE.106). The AI only withdraws when its personality has
+	# genuinely broken down.
+	avatar_withdraw = {
+		is_high_prio = yes
+		ai_will_do = { factor = 1 }
+
+		potential = {
+			is_revealed_avatar_trigger = yes
+			NOT = { has_character_flag = withdrawn_avatar }
+			OR = {
+				ai = no
+				calc_true_if = {
+					amount = 3
+					trait = depressed
+					trait = slothful
+					trait = cynical
+					trait = drunkard
+					trait = cactusaddict
+					trait = envious
+					trait = shy
+				}
+			}
+		}
+
+		allow = {
+			is_incapable = no
+			NOT = { prisoner = yes }
+		}
+
+		effect = {
+			any_player = { character_event = { id = NAE.516 } } #Declares the Avatar has gone into withdrawal
+			set_character_flag = withdrawn_avatar
+		}
+	}
+
+	avatar_end_withdrawal = {
+		is_high_prio = yes
+		ai_will_do = { factor = 1 }
+
+		potential = {
+			is_revealed_avatar_trigger = yes
+			has_character_flag = withdrawn_avatar
+			OR = {
+				ai = no
+				NOT = {
+					calc_true_if = {
+						amount = 3
+						trait = depressed
+						trait = slothful
+						trait = cynical
+						trait = drunkard
+						trait = cactusaddict
+						trait = envious
+						trait = shy
+					}
+				}
+			}
+		}
+
+		allow = {
+			is_incapable = no
+			NOT = { prisoner = yes }
+		}
+
+		effect = {
+			clr_character_flag = withdrawn_avatar
+			any_player = { character_event = { id = NAE.517 } } #Declares the Avatar has come out of withdrawal
+		}
+	}
+
+	# ------------------------------------------------------------------
+	# AVATAR FOCUS EXPANSION
+	# Rank progression, path changes and the per-path signature actions.
+	# ------------------------------------------------------------------
+
+	# Set aside the current path and begin another. Paths already mastered
+	# stay mastered forever, so a long-lived Avatar can master all four.
+	change_avatar_focus = {
+		is_high_prio = yes
+		ai = no
+		potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+			has_character_flag = avatar_focus_chosen
+			NOT = { has_character_modifier = avatar_focus_change_cooldown }
+			NOT = { has_character_flag = avatar_focus_activity_cooldown }
+			NOT = {
+				AND = {
+					OR = { trait = spiritually_focused_avatar trait = focus_master_spiritual }
+					OR = { trait = politically_focused_avatar trait = focus_master_political }
+					OR = { trait = wandering_avatar trait = focus_master_wandering }
+					OR = { trait = martial_avatar trait = focus_master_martial }
+				}
+			}
+		}
+		allow = { is_incapable = no NOT = { prisoner = yes } }
+		effect = { character_event = { id = avatar_focus.2 } }
+	}
+
+	# Unlocked by a devoted spiritual path.
+	seek_spirit_counsel = {
+		is_high_prio = yes
+		ai = no
+		potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+			trait = spiritually_focused_avatar
+			check_variable = { which = avatar_focus_rank value = 3 }
+			NOT = { has_character_flag = avatar_focus_activity_cooldown }
+		}
+		allow = { is_incapable = no NOT = { prisoner = yes } }
+		effect = { character_event = { id = avatar_focus.230 } }
+	}
+
+	# Unlocked by a devoted political path.
+	convene_conclave = {
+		is_high_prio = yes
+		ai = no
+		potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+			trait = politically_focused_avatar
+			check_variable = { which = avatar_focus_rank value = 3 }
+			NOT = { has_character_flag = avatar_focus_activity_cooldown }
+		}
+		allow = { is_incapable = no NOT = { prisoner = yes } }
+		effect = { character_event = { id = avatar_focus.231 } }
+	}
+
+	# Unlocked by a devoted wandering path.
+	make_great_pilgrimage = {
+		is_high_prio = yes
+		ai = no
+		potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+			trait = wandering_avatar
+			check_variable = { which = avatar_focus_rank value = 3 }
+			NOT = { has_character_flag = avatar_focus_activity_cooldown }
+		}
+		allow = { is_incapable = no NOT = { prisoner = yes } }
+		effect = { character_event = { id = avatar_focus.232 } }
+	}
+
+	# Unlocked by a devoted martial path.
+	hold_grand_tournament = {
+		is_high_prio = yes
+		ai = no
+		potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+			trait = martial_avatar
+			check_variable = { which = avatar_focus_rank value = 3 }
+			NOT = { has_character_flag = avatar_focus_activity_cooldown }
+		}
+		allow = { is_incapable = no NOT = { prisoner = yes } }
+		effect = { character_event = { id = avatar_focus.233 } }
+	}
+}
+
+targeted_decisions = {
+	move_avatar = {
+		is_high_prio = yes
+		only_playable = yes
+		filter = independent_rulers
+		ai = no
+		
+		from_potential = {
+			is_landed = no
+			is_avatar_trigger = yes
+		}
+		
+		potential = {
+			# The Avatar roams the whole world, so a destination does not
+			# have to sit inside the Avatar's diplomatic range.
+			# is_within_diplo_range = FROM
+			is_landed = yes
+			# you're not already a tributary
+			FROM = {
+				NOR = {
+					is_tributary = {
+						type = unrevealed_avatar_tributary
+						suzerain = PREV
+					}
+					is_tributary = {
+						type = avatar_tributary
+						suzerain = PREV
+					}
+				}
+			}
+		}
+		
+		allow = {
+			# The Avatar goes where the world needs them. Court opinion,
+			# old feuds, being mid-journey and the distance to the target
+			# no longer bar the road: if the option is offered, it can be
+			# taken. (This also fixed travelling while the Avatar holds no
+			# capital holding, where the old distance check had no origin
+			# and so could never pass.)
+			always = yes
+		}
+		effect = {
+			# Store the clicked ruler as the journey destination BEFORE the
+			# Avatar is asked: avatar_journey_effect and new_avatar_journey.50
+			# both read event_target:avatar_journey_target, and nothing else
+			# ever saved it - so accepting the move silently did nothing.
+			clear_event_target = avatar_journey_target
+			save_event_target_as = avatar_journey_target
+			custom_tooltip = {
+				text = move_avatar_tt
+				FROM = {
+					character_event = {
+						id = new_avatar_journey.10
+					}
+				}
+			}
+		}
+	}
+
+	# A fully realised Avatar can demand an independent colonizer abandon
+	# their colonies. Refusal means trial by combat (avatar_decolonize.2).
+	demand_decolonization = {
+		is_high_prio = yes
+		filter = independent_rulers
+		ai = no
+
+		from_potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+		}
+
+		potential = {
+			is_landed = yes
+			is_adult = yes
+			independent = yes
+			any_realm_province = {
+				OR = {
+					has_province_modifier = colony_1
+					has_province_modifier = colony_2
+					has_province_modifier = colony_3
+				}
+			}
+		}
+
+		allow = {
+			FROM = {
+				is_adult = yes
+				is_incapable = no
+				NOT = { prisoner = yes }
+				NOT = { has_character_flag = avatar_decolonize_cooldown }
+			}
+		}
+
+		effect = {
+			character_event = { id = avatar_decolonize.1 }
+		}
+	}
+
+	# Once in a lifetime, a fully realised Avatar can declare a Crisis War
+	# on a colonial, slaving, or great hostile power. Two years of warning
+	# (avatar_crisis.1), then the war (avatar_crisis.2) with invited allies.
+	# Only one crisis at a time: avatar_crisis_active blocks the rest.
+	declare_crisis_war = {
+		is_high_prio = yes
+		filter = independent_rulers
+		ai = no
+
+		from_potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+		}
+
+		potential = {
+			is_landed = yes
+			is_adult = yes
+			independent = yes
+			NOT = { character = FROM }
+			OR = {
+				any_realm_province = {
+					OR = {
+						has_province_modifier = colony_2
+						has_province_modifier = colony_3
+					}
+				}
+				AND = {
+					has_law = slavery_legal
+					realm_size >= 40
+				}
+				AND = {
+					is_hostile_to_avatar_trigger = yes
+					realm_size >= 60
+				}
+			}
+		}
+
+		allow = {
+			FROM = {
+				is_adult = yes
+				is_incapable = no
+				NOT = { prisoner = yes }
+				NOT = { has_character_flag = avatar_crisis_war_used }
+			}
+			NOT = { has_global_flag = avatar_crisis_active }
+		}
+
+		effect = {
+			save_event_target_as = crisis_target
+			FROM = { character_event = { id = avatar_crisis.1 } }
+		}
+	}
+
+	# Right-click any landed ruler to declare them a Villain of the world.
+	# From_potential = you (the Avatar). potential/allow/effect = the ruler you
+	# right-clicked; FROM = you. Confirmation (and the duel challenge) runs
+	# through avatar_villain.2.
+	#
+	# The ruler must actually be a villain candidate (is_villain_candidate_trigger
+	# - the same test the yearly warning uses), so the declaration is earned
+	# rather than a free source of prestige. There is still no cooldown between
+	# declarations, so a player Avatar can work through a list of them. The AI
+	# never gets this decision (ai = no); it only ever acts through the rare
+	# auto-warning (avatar_villain.1), which keeps its own long cooldown. The
+	# one thing still blocked is a new declaration while an Avatar-villain duel
+	# is unresolved, which would otherwise overwrite the running duel's
+	# combatant_2 / villain_candidate.
+	denounce_villain = {
+		is_high_prio = yes
+		filter = all
+		ai = no
+
+		from_potential = {
+			is_avatar_trigger = yes
+			trait = fullyrealisedavatar
+		}
+
+		potential = {
+			is_landed = yes
+			is_adult = yes
+			NOT = { character = FROM }
+			NOT = { trait = villain }
+			NOT = { has_character_modifier = villain_reprieved }
+		}
+
+		allow = {
+			# The full eligibility test lives in allow, not potential: potential
+			# runs for every ruler in the world each time the menu is opened,
+			# and this one walks their provinces.
+			custom_tooltip = {
+				text = villain_candidate_tt
+				is_villain_candidate_trigger = yes
+			}
+			FROM = {
+				is_adult = yes
+				is_incapable = no
+				NOT = { prisoner = yes }
+				# No villain cooldown: the player may chain declarations.
+				# But never start a new stake mid-duel.
+				NOT = { has_character_flag = avatar_villain_duel }
+			}
+		}
+
+		effect = {
+			save_event_target_as = villain_candidate
+			FROM = { character_event = { id = avatar_villain.2 } }
+		}
+	}
+
+	send_child_to_avatar = {
+		filter = court
+		ai = no
+
+		# from_potential = YOU (the decision taker). potential/allow/effect = the child you right-click; FROM = you.
+		from_potential = {
+			ai = no
+			is_playable = yes
+		}
+
+		potential = {
+			age = 12
+			NOT = { age = 18 }
+			prisoner = no
+			is_avatar_trigger = no
+			NOR = {
+				trait = team_avatar
+				trait = former_team_avatar
+			}
+			OR = {
+				father = { character = FROM }
+				mother = { character = FROM }
+			}
+		}
+
+		allow = {
+			is_incapable = no
+			custom_tooltip = {
+				text = send_child_avatar_alive_tt
+				d_avatar = {
+					has_holder = yes
+					holder_scope = { is_alive = yes }
+				}
+			}
+			custom_tooltip = {
+				text = send_child_avatar_friendly_tt
+				d_avatar = {
+					holder_scope = {
+						NOR = {
+							is_rival = FROM
+							is_foe = FROM
+						}
+						opinion = {
+							who = FROM
+							value >= 0
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = send_child_avatar_team_room_tt
+				d_avatar = {
+					has_holder = yes
+					holder_scope = {
+						NOT = {
+							any_courtier = {
+								count >= 8
+								trait = team_avatar
+							}
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			d_avatar = {
+				holder_scope = { save_event_target_as = team_avatar_host }
+			}
+			custom_tooltip = {
+				text = send_child_to_avatar_tt
+				add_trait = team_avatar
+				set_character_flag = sent_to_avatar
+				move_character = event_target:team_avatar_host
+				FROM = { piety = 25 }
+			}
+		}
+	}
+
+	# ------------------------------------------------------------------
+	# Avatar interference (carried over from the base mod)
+	# ------------------------------------------------------------------
+	# The Avatar may endorse or condemn any ruler at any time, and once per
+	# interference cooldown may step in based on what the world needs. Show
+	# and hide simply toggle whether these options appear on a ruler.
+	# ------------------------------------------------------------------
 
 	## For Player Avatars
-	
+
 	show_avatar_decisions = {
 		ai = no
 		only_playable = yes
 		filter = all_including_me
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar #These are the same size as the targetted decision icons so it shouldn't matter
-		
+
 		from_potential = {
-			trait = avatar
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
 			NOR = {
 				has_character_flag = avatar_decisions_open
@@ -18,37 +632,37 @@ targetted_decisions = {
 				trait = bad_avatar
 			}
 		}
-		
+
 		potential = {
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = { always = yes }
-		
+
 		effect = {
 			FROM = { set_character_flag = avatar_decisions_open }
 		}
 	}
-	
+
 	hide_avatar_decisions = {
 		ai = no
 		only_playable = yes
 		filter = all_including_me
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = { always = yes }
-		
+
 		effect = {
 			FROM = { clr_character_flag = avatar_decisions_open }
 		}
@@ -60,29 +674,30 @@ targetted_decisions = {
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			is_playable = yes
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				NOT = { has_character_modifier = avatars_endorsement }
 				is_hostile_to_avatar_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -91,38 +706,40 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.214 } }
+			FROM = { character_event = { id = NAE.230 } }
 		}
 	}
-	
+
 	give_avatar_condemnation = {
 		ai = no
 		only_playable = yes
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			is_playable = yes
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				NOT = { has_character_modifier = avatars_condemnation }
 				is_hostile_to_avatar_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -131,23 +748,23 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.215 } }
+			FROM = { character_event = { id = NAE.231 } }
 		}
 	}
-	
+
 	avatar_military_support = {
 		ai = no
 		only_playable = yes
 		filter = independent_rulers
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			OR = {
 				war = yes
@@ -161,8 +778,9 @@ targetted_decisions = {
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				custom_tooltip = {
 					text = NAE.AVATAR_RAID_DEC.TT #Must either be at war or a victim of a raid
@@ -184,8 +802,9 @@ targetted_decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -194,32 +813,33 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.218 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
-		
+
 	}
-	
+
 	avatar_enforce_peace = {
 		ai = no
 		only_playable = yes
 		filter = independent_rulers
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			war = yes
 			independent = yes
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				war = yes
 				independent = yes
@@ -231,8 +851,9 @@ targetted_decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -241,38 +862,40 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.217 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
-		
+
 	}
-	
+
 	avatar_offer_protection = {
 		ai = no
 		only_playable = yes
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			is_playable = yes
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				is_hostile_to_avatar_trigger = no
 				is_inaccessible_or_incapable_trigger = no
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -281,27 +904,27 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.205 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
-	
+
 	avatar_end_heresy = {
 		ai = no
 		only_playable = yes
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
 			OR = {
 				is_heretic = no
 				religion = followers_of_kyoshi
 			}
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			NOR = {
 				religion = way_of_chin
@@ -314,8 +937,9 @@ targetted_decisions = {
 			is_playable = yes
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			FROM = {
 				is_heretic = no
 				NOT = { any_liege = { character = ROOT } } #Can't ask your own liege to convert!
@@ -338,8 +962,9 @@ targetted_decisions = {
 				is_inaccessible_or_incapable_trigger = no
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -348,29 +973,30 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.202 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
-	
+
 	avatar_hunt_enemy = {
 		ai = no
 		only_playable = yes
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			is_playable = yes
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			FROM = {
 				any_friend = { trait = team_avatar }
 				has_injury_trigger = no
@@ -387,8 +1013,9 @@ targetted_decisions = {
 				is_inaccessible_or_incapable_trigger = no
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -397,30 +1024,31 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.210 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
-	
+
 	avatar_boost_economy = {
 		ai = no
 		only_playable = yes
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			is_playable = yes
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				is_playable = yes
 				is_hostile_to_avatar_trigger = no
@@ -428,8 +1056,9 @@ targetted_decisions = {
 				wealth < 100 #Much less stringent for the player
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -438,23 +1067,23 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.212 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
-	
+
 	avatar_offer_to_tutor = {
 		ai = no
 		only_playable = yes
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			age < 12
 			war = no
@@ -462,8 +1091,9 @@ targetted_decisions = {
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				age < 12
 				opinion = {
@@ -476,8 +1106,9 @@ targetted_decisions = {
 				is_inaccessible_or_incapable_trigger = no
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -486,23 +1117,23 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.209 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
-	
+
 	avatar_harmonise_realm = {
 		ai = no
 		only_playable = yes
 		filter = independent_rulers
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_avatar
-		
+
 		from_potential = {
-			trait = avatar
+			is_revealed_avatar_trigger = yes
 			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			tier = DUKE
 			war = no
@@ -510,8 +1141,9 @@ targetted_decisions = {
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				tier = DUKE
 				war = no
@@ -524,8 +1156,9 @@ targetted_decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -534,23 +1167,23 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.216 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
-	
+
 	avatar_harmonise_realm_king = {
 		ai = no
 		only_playable = yes
 		filter = independent_rulers
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_fully_realised_avatar
-		
+
 		from_potential = {
-			trait = fully_realised_avatar
+			trait = fullyrealisedavatar
 			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			tier = KING
 			war = no
@@ -558,8 +1191,9 @@ targetted_decisions = {
 			is_hostile_to_avatar_trigger = no
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				tier = KING
 				war = no
@@ -572,8 +1206,9 @@ targetted_decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -582,23 +1217,23 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.224 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
-	
+
 	avatar_free_slaver_county = {
 		ai = no
 		only_playable = yes
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_fully_realised_avatar
-		
+
 		from_potential = {
-			trait = fully_realised_avatar
+			trait = fullyrealisedavatar
 			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			is_playable = yes
 			ai = yes
@@ -608,8 +1243,9 @@ targetted_decisions = {
 			}
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				tier = COUNT
 				ai = yes
@@ -625,8 +1261,9 @@ targetted_decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -635,36 +1272,38 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { letter_event = { id = NAE.227 } }
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
-	
+
 	avatar_sabotage_realm = {
 		ai = no
 		only_playable = yes
 		filter = all
 		ai_target_filter = none
 		diplomacy_icon = GFX_trait_fully_realised_avatar
-		
+
 		from_potential = {
-			trait = fully_realised_avatar
+			trait = fullyrealisedavatar
 			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_modifier = avatar_interfere_cooldown }
 			has_character_flag = avatar_decisions_open
 		}
-		
+
 		potential = {
 			is_playable = yes
 			is_inaccessible_or_incapable_trigger = no
 		}
-		
+
 		allow = {
+			FROM = { can_use_avatar_interference_trigger = yes }
 			ROOT = {
 				is_playable = yes
 				is_inaccessible_or_incapable_trigger = no
 			}
 		}
-		
+
 		effect = {
+			ROOT = { save_event_target_as = avatar_interfere_target }
 			FROM = {
 				add_character_modifier = {
 					modifier = avatar_interfere_cooldown
@@ -673,609 +1312,8 @@ targetted_decisions = {
 				clr_character_flag = avatar_decisions_open
 			}
 			ROOT = { character_event = { id = NAE.226 } }
-		}
-	}
-	
-	declare_crisis_war = {
-		filter = independent_rulers
-		ai_target_filter = independent_rulers
-		ai_check_interval = 1200 #Checks every 10 years
-		diplomacy_icon = GFX_icon_decadence_color ##NOTE: This might be ever so slightly too big, don't worry about it - Liz
-		
-		from_potential = {
-			trait = avatar
-			is_inaccessible_or_incapable_trigger = no
-			NOT = { has_character_flag = declared_crisis_war }
-		}
-		
-		potential = {
-			tier = EMPEROR
-			is_inaccessible_or_incapable_trigger = no
-		}
-		
-		allow = {
-			FROM = {
-				war = no
-				OR = {
-					trait = fully_realised_avatar
-					AND = {
-						trait = avatar_waterbender
-						trait = avatar_earthbender
-						trait = avatar_firebender
-						trait = avatar_airbender
-					}
-				}
-			}
-			ROOT = {
-				tier = EMPEROR
-				OR = {
-					primary_title = { title = e_fifth_nation }
-					hidden_tooltip = {
-						AND = {
-							ai = no #Anti-player bias is real, but I'm not gonna let you game it you sneaky so-and-so!
-							tier = KING
-							realm_size = 120 #This is, on average, 40 provinces. Since there are ~200 provinces on the map, this is like, 20% of a world conquest
-							is_hostile_to_avatar_trigger = yes
-						}
-					}
-					custom_tooltip = {
-						text = AVATAR_PLAYER_CRISIS_WAR_TT #Belong to an Avatar-hostile religion or own a kingdom outside normal dejure bounds
-						OR = {
-							religion = way_of_chin
-							religion = equalism
-							religion = barbarism
-							has_religion_feature = religion_feature_old_barbarism
-							has_religion_feature = religion_feature_new_barbarism
-							religion = fire_nation_imperialism
-							
-							AND = {
-								primary_title = { title = e_fire_nation }
-								any_realm_title = {
-									tier = KING
-									NOT = { de_jure_liege = e_fire_nation }
-								}
-							}
-							AND = {
-								primary_title = { title = e_air_nomads }
-								any_realm_title = {
-									tier = KING
-									NOT = { de_jure_liege = e_air_nomads }
-								}
-							}
-							AND = {
-								primary_title = { title = e_water_tribes }
-								any_realm_title = {
-									tier = KING
-									NOT = { de_jure_liege = e_water_tribes }
-								}
-							}
-							AND = {
-								primary_title = {
-									tier = EMPEROR
-									region = world_greater_earth_kingdom
-								}
-								any_realm_title = {
-									tier = KING
-									NOT = { region = world_greater_earth_kingdom }
-								}
-							}
-						}
-					}
-				}
-				is_inaccessible_or_incapable_trigger = no
-			}
-		}
-		
-		effect = {
-			ROOT = {
-				save_event_target_as = crisis_defender
-				narrative_event = { id = NAE.701 } #War announced
-				character_event = { id = NAE.702 days = 30 } #Troops gather
-				narrative_event = { id = NAE.705 days = 720 }
-			}
-			FROM = { character_event = { id = NAE.704 days = 719 } } #Last minute Avatar checks
-		}
-		
-		ai_will_do = {
-			factor = 0.1
-			
-			modifier = {
-				trait = fully_realised_avatar
-				factor = 10
-			}
-			
-			modifier = {
-				AND = {
-					ai_zeal = 20
-					ai_ambition = 40
-				}
-				factor = 5
-			}
-		}
-	}
-	
-	avatar_withdraw = {
-		filter = self
-		ai_target_filter = self
-		ai_check_interval = 24
-		diplomacy_icon = GFX_trait_bad_avatar
-		
-		potential = {
-			trait = avatar
-			NOT = { has_character_flag = withdrawn_avatar }
-			OR = {
-				ai = no
-				calc_true_if = {
-					amount = 3
-					trait = depressed
-					trait = slothful
-					trait = cynical
-					trait = drunkard
-					trait = cactusaddict
-					trait = envious
-					trait = shy
-				}
-			}
-		}
-		
-		allow = { NOT = { has_character_flag = withdrawn_avatar } }
-		
-		effect = {
-			any_player = { character_event = { id = NAE.516 } } #Declares the Avatar has gone into withdrawal
-			set_character_flag = withdrawn_avatar
-		}
-
-	}
-	
-	avatar_end_withdrawal = {
-		filter = self
-		ai_target_filter = self
-		ai_check_interval = 24
-		diplomacy_icon = GFX_trait_avatar
-		
-		potential = {
-			trait = avatar
-			has_character_flag = withdrawn_avatar
-			OR = {
-				ai = no
-				calc_true_if = {
-					amount < 3
-					trait = depressed
-					trait = slothful
-					trait = cynical
-					trait = drunkard
-					trait = cactusaddict
-					trait = envious
-					trait = shy
-				}
-			}
-		}
-		
-		allow = { has_character_flag = withdrawn_avatar }
-		
-		effect = {
-			clr_character_flag = withdrawn_avatar
-			any_player = { character_event = { id = NAE.517 } } #Declares the Avatar has come out of withdrawal
-		}
-	}
-	
-	avatar_marry_lover = {
-		ai = no #The AI will have a chance to marry the Avatar every year
-		only_playable = yes
-		filter = all
-		ai_target_filter = none
-		diplomacy_icon = GFX_charview_arrange_marriage
-		
-		from_potential = {
-			is_inaccessible_or_incapable_trigger = no
-			trait = avatar
-			is_married = no
-		}
-		
-		potential = {
-			is_inaccessible_or_incapable_trigger = no
-			ai = no
-		}
-		
-		allow = {
-			ROOT = {
-				is_lover = FROM
-				is_married = no
-				NOR = {
-					government = republic_government
-					government = theocracy_government
-					government = order_government
-				}
-				OR = {
-					is_playable = no
-					real_tier = FROM
-					lower_tier_than = FROM
-				}
-			}
-			FROM = {
-				is_lover = ROOT
-				is_married = no
-			}
-		}
-		
-		effect = {
-			FROM = {
-				if = {
-					limit = { is_female = yes }
-					add_spouse_matrilineal = ROOT
-				}
-				else = { add_spouse = ROOT }
-			}
+			FROM = { character_event = { id = NAE.232 } }
 		}
 	}
 
-	## For non-avatar players
-	marry_the_avatar = {
-		ai = no #The AI will have a chance to marry the Avatar every year
-		only_playable = yes
-		filter = all
-		ai_target_filter = none
-		diplomacy_icon = GFX_charview_arrange_marriage
-		
-		from_potential = {
-			is_inaccessible_or_incapable_trigger = no
-			is_lover = ROOT
-			can_marry = yes
-		}
-		
-		potential = {
-			is_inaccessible_or_incapable_trigger = no
-			trait = avatar
-			is_lover = FROM
-			ai = no
-		}
-		
-		allow = {
-			ROOT = {
-				is_married = no
-				NOR = {
-					government = republic_government
-					government = theocracy_government
-					government = order_government
-				}
-				OR = {
-					is_playable = no
-					lower_real_tier_than = FROM
-				}
-			}
-			FROM = { is_married = no }
-		}
-		
-		effect = {
-			FROM = {
-				if = {
-					limit = { is_female = yes }
-					add_spouse_matrilineal = ROOT
-				}
-				else = { add_spouse = ROOT }
-			}
-		}
-	}
-	
-	send_to_avatar = {
-		ai = no
-		only_playable = yes
-		filter = all
-		ai_target_filter = none
-		third_party_filter = court
-		ai_third_party_filter = none
-		diplomacy_icon = GFX_trait_team_avatar
-		
-		from_potential = { #The Sender
-			is_hostile_to_avatar_trigger = no
-			is_inaccessible_or_incapable_trigger = no
-			NOT = { trait = avatar }
-		}
-		
-		potential = { #The Avatar
-			is_inaccessible_or_incapable_trigger = no
-			war = no
-			trait = avatar
-			NOR = {
-				has_character_flag = withdrawn_avatar
-				trait = bad_avatar
-			}
-		}
-		
-		third_party_potential = { #The Candidate
-			is_inaccessible_or_incapable_trigger = no
-			is_ruler = no
-			dynasty = ROOT
-			host = { character = ROOT }
-			age < 30
-			age = 12
-			is_hostile_to_avatar_trigger = no
-			is_married = no
-			NOR = {
-				trait = avatar
-				trait = team_avatar
-				trait = former_team_avatar
-			}
-		}
-		
-		allow = {
-			show_only_failed_conditions = yes
-			FROM = {
-				NOT = { any_close_relative = { trait = team_avatar } }
-			}
-			ROOT = {
-				NOT = { has_character_flag = avatar_considering_candidate }
-				war = no
-			}
-		}
-		
-		third_party_allow = {
-			age < 30
-			age = 12
-			is_hostile_to_avatar_trigger = no
-			is_married = no
-		}
-		
-		effect = {
-			FROMFROM = { save_event_target_as = avatar_candidate }
-			ROOT = {
-				set_character_flag = avatar_considering_candidate
-				character_event = { id = NAE.305 }
-			}
-		}
-	}
-	
-	offer_avatar_land = {
-		ai = no #Giving the Avatar land is just less content, only the player should make this mistake
-		filter = all
-		ai_target_filter = none
-		diplomacy_icon = GFX_trait_avatar
-		
-		from_potential = {
-			is_hostile_to_avatar_trigger = no
-			is_inaccessible_or_incapable_trigger = no
-			war = no
-			higher_tier_than = COUNT
-		}
-		
-		potential = {
-			trait = avatar
-			is_ruler = no
-			NOT = { has_character_flag = avatar_considering_candidate }
-		}
-		
-		allow = {
-			FROM = {
-				higher_tier_than = DUKE
-				num_of_duke_titles = 2
-				custom_tooltip = {
-					text = NAE_AVATAR_LAND_DEC_TT #Must own a county within a duchy you also own, outside of your capital duchy.
-					any_demesne_province = {
-						duchy = {
-							owner = {
-								character = FROM
-								NOT = {
-									capital_scope = {
-										county = {
-											de_jure_liege = PREVPREVPREV
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		effect = {
-			ROOT = { set_character_flag = avatar_considering_candidate }
-			FROM = { character_event = { id = NAE.402 days = 7 random = 3 } } #We fire this for the decision-taker since there's no reason to ping the Avatar
-		}
-		
-		ai_acceptance = {
-			factor = 10
-			yes_threshold = 50
-			
-			additive_modifier = { #This *CAN* be overcome! It's just difficult.
-				value = -90
-				localisation_key = "AIREASON_AVATAR_TRAINING" #I need to complete my training!
-				NOR = {
-					trait = fully_realised_avatar
-					AND = {
-						trait = avatar_waterbender
-						trait = avatar_earthbender
-						trait = avatar_firebender
-						trait = avatar_airbender
-					}
-				}
-			}
-			
-			additive_modifier = { #This is slightly less than offset by opinion. The Avatar needs a special reason to settle down in your realm!
-				value = -30
-				localisation_key = "AIREASON_BASE_RELUCTANCE"
-				always = yes
-			}
-			additive_modifier = {
-				value = -250
-				localisation_key = "AI_AVATAR_REASON_CRISIS_WAR"
-				has_character_flag = preparing_for_crisis_war
-			}
-			
-			additive_modifier = {
-				value = 20
-				localisation_key = "AI_AVATAR_REASON_LOVER"
-				is_lover = FROM
-				NOT = { spouse = { character = FROM } } #Avatars will only marry their lovers, and we don't want to double up!
-			}
-			
-			additive_modifier = {
-				value = 20
-				localisation_key = "AI_AVATAR_REASON_FRIEND"
-				is_friend = FROM
-			}
-			
-			additive_modifier = {
-				value = 20
-				localisation_key = "AI_AVATAR_REASON_TEAM_AVATAR"
-				FROM = { trait = former_team_avatar }
-			}
-			
-			additive_modifier = {
-				value = 50
-				localisation_key = "AI_AVATAR_REASON_SPOUSE"
-				spouse = { character = FROM }
-			}
-			
-			additive_modifier = {
-				value = 10
-				localisation_key = "AI_AVATAR_REASON_FAMILY"
-				OR = {
-					spouse = {
-						NOT = { character = FROM }
-						dynasty = FROM
-					}
-					any_child = { dynasty = FROM }
-					dynasty = FROM
-				}
-			}
-			
-			additive_modifier = {
-				value = 10
-				localisation_key = "AI_AVATAR_REASON_WANTS_LAND"
-				OR = {
-					trait = greedy
-					trait = content
-					trait = envious
-					trait = craven
-				}
-			}
-			
-			additive_modifier = {
-				value = 20
-				localisation_key = "AI_AVATAR_REASON_HAS_FAMILY"
-				OR = {
-					is_married = yes
-					any_child = { age < 21 }
-				}
-			}
-			additive_modifier = {
-				value = 5
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = 20 } }
-				opinion = { who = FROM value = 0 }
-			}
-			additive_modifier = {
-				value = 10
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = 40 } }
-				opinion = { who = FROM value = 20 } 
-			}
-			additive_modifier = {
-				value = 15
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = 60 } }
-				opinion = { who = FROM value = 40 } 
-			}
-			additive_modifier = {
-				value = 20
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = 80 } }
-				opinion = { who = FROM value = 60 } 
-			}
-			additive_modifier = {
-				value = 25
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = 100 } }
-				opinion = { who = FROM value = 80 } 
-			}
-			additive_modifier = {
-				value = 30
-				localisation_key = AIREASON_OPINION
-				opinion = { who = FROM value = 100 }
-			}
-			additive_modifier = {
-				value = -5
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = 0 } }
-				opinion = { who = FROM value = -20 }
-			}
-			additive_modifier = {
-				value = -10
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = -20 } }
-				opinion = { who = FROM value = -40 } 
-			}
-			additive_modifier = {
-				value = -15
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = -40 } }
-				opinion = { who = FROM value = -60 } 
-			}
-			additive_modifier = {
-				value = -20
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = -60 } }
-				opinion = { who = FROM value = -80 } 
-			}
-			additive_modifier = {
-				value = -25
-				localisation_key = AIREASON_OPINION
-				NOT = { opinion = { who = FROM value = -80 } }
-				opinion = { who = FROM value = -100 } 
-			}
-			additive_modifier = {
-				value = -30
-				localisation_key = AIREASON_OPINION
-				opinion = { who = FROM value <= -100 }
-			}
-		}
-	}
-	
-	## TODO: MOVE DURING NEXT BIG FILE CLEARUP ##
-	
-	get_gay_married_ = {
-		only_playable = yes
-		ai_check_interval = 36
-		filter = all
-		ai_target_filter = sub_realm #AI will only seek to gay marry their vassals to prevent alliance weirdness
-		
-		from_potential = {
-			can_marry = yes
-			OR = {
-				trait = homosexual
-				trait = bisexual
-			}
-			has_lover = yes
-			is_inaccessible_or_incapable_trigger = no
-		}
-		
-		potential = {
-			can_marry = yes
-			OR = {
-				trait = homosexual
-				trait = bisexual
-			}
-			is_lover = FROM
-			is_inaccessible_or_incapable_trigger = no
-		}
-		
-		allow = {
-			always = yes #I will not be providing an option to turn off gay marriage. Ever. - Liz
-		}
-		
-		effect = {
-			if = {
-				limit = {
-					ROOT = { ai = no }
-				}
-				ROOT = { character_event = { id = NAE.903 } }
-			}
-			else = { FROM = { add_spouse = ROOT } } #This won't matter, since gay marriage
-		}
-		
-		ai_will_do = {
-			factor = 0.6 #Only a chance to pop the question
-		}
-	}
 }

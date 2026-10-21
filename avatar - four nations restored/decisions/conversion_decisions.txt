@@ -162,7 +162,7 @@ targetted_decisions = {
 					}
 					NOR = {
 						trait = avatar
-						trait = fully_realised_avatar
+						trait = fullyrealisedavatar
 						has_character_flag = is_ta_min #Canon enforcement
 					}
 				}
@@ -274,7 +274,7 @@ targetted_decisions = {
 			}
 			modifier = {
 				factor = 0
-				has_character_flag = is_avatar
+				is_avatar_trigger = yes
 			}
 		}
 	}

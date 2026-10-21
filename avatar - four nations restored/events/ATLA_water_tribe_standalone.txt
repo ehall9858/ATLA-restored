@@ -1,0 +1,657 @@
+#########################################
+# ATLA standalone nation events
+#
+# NAFS.100-199  Fire Nation
+# NAFS.200-299  Water Tribe
+# NAFS.300-399  Earth Kingdom
+# NAFS.400-499  Air Nomads
+#########################################
+
+namespace = NAFS
+
+# Hidden yearly dispatcher for the Water Tribe standalone events. The on_action
+# slot is guaranteed; this trigger and chance keep the events rare.
+character_event = {
+	id = NAFS.199
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		OR = {
+			culture = northern_water_culture
+			culture = southern_water_culture
+		}
+		OR = {
+			NOT = { has_character_flag = nafs_water_betrothal_done }
+			NOT = { has_character_flag = nafs_water_healing_done }
+			AND = {
+				any_realm_province = { is_coastal = yes }
+				NOT = { has_character_flag = nafs_water_iceberg_done }
+			}
+			AND = {
+				culture = southern_water_culture
+				year = 830
+				e_fire_nation = { has_holder = yes }
+				any_realm_province = { is_coastal = yes }
+				NOT = { has_character_flag = nafs_water_raiders_done }
+			}
+			NOT = { has_character_flag = nafs_water_scroll_done }
+			AND = {
+				culture = northern_water_culture
+				any_realm_province = { is_coastal = yes }
+				NOT = { has_character_flag = nafs_water_wall_done }
+			}
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = 20
+			random_list = {
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_water_betrothal_done } }
+					character_event = { id = NAFS.200 }
+				}
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_water_healing_done } }
+					character_event = { id = NAFS.201 }
+				}
+				100 = {
+					trigger = {
+						any_realm_province = { is_coastal = yes }
+						NOT = { has_character_flag = nafs_water_iceberg_done }
+					}
+					character_event = { id = NAFS.202 }
+				}
+				100 = {
+					trigger = {
+						culture = southern_water_culture
+						year = 830
+						e_fire_nation = { has_holder = yes }
+						any_realm_province = { is_coastal = yes }
+						NOT = { has_character_flag = nafs_water_raiders_done }
+					}
+					character_event = { id = NAFS.203 }
+				}
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_water_scroll_done } }
+					character_event = { id = NAFS.204 }
+				}
+				100 = {
+					trigger = {
+						culture = northern_water_culture
+						any_realm_province = { is_coastal = yes }
+						NOT = { has_character_flag = nafs_water_wall_done }
+					}
+					character_event = { id = NAFS.205 }
+				}
+			}
+		}
+	}
+}
+
+# The Betrothal Necklace
+character_event = {
+	id = NAFS.200
+	desc = NAFS.200.desc
+	picture = GFX_evt_northern_water_tribe_feast
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		OR = {
+			culture = northern_water_culture
+			culture = southern_water_culture
+		}
+		NOT = { has_character_flag = nafs_water_betrothal_done }
+	}
+
+	option = {
+		name = NAFS.200.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		prestige = 15
+		piety = 15
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_betrothal_done }
+	}
+
+	option = {
+		name = NAFS.200.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 30
+		piety = 5
+		if = {
+			limit = { NOT = { trait = proud } }
+			hidden_tooltip = { remove_trait = humble }
+			add_trait = proud
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_betrothal_done }
+	}
+
+	option = {
+		name = NAFS.200.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		prestige = 5
+		piety = 10
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_betrothal_done }
+	}
+}
+
+# The Healing Hut
+character_event = {
+	id = NAFS.201
+	desc = NAFS.201.desc
+	picture = GFX_evt_northern_water_tribe_temple
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		OR = {
+			culture = northern_water_culture
+			culture = southern_water_culture
+		}
+		NOT = { has_character_flag = nafs_water_healing_done }
+	}
+
+	option = {
+		name = NAFS.201.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		piety = 30
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_healing_done }
+	}
+
+	option = {
+		name = NAFS.201.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 25
+		piety = -5
+		if = {
+			limit = { NOT = { trait = proud } }
+			hidden_tooltip = { remove_trait = humble }
+			add_trait = proud
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_healing_done }
+	}
+
+	option = {
+		name = NAFS.201.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		change_stewardship = 1
+		prestige = 5
+		piety = 5
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_healing_done }
+	}
+}
+
+# The Iceberg Shrine
+character_event = {
+	id = NAFS.202
+	desc = NAFS.202.desc
+	picture = GFX_evt_iceberg
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		OR = {
+			culture = northern_water_culture
+			culture = southern_water_culture
+		}
+		any_realm_province = { is_coastal = yes }
+		NOT = { has_character_flag = nafs_water_iceberg_done }
+	}
+
+	option = {
+		name = NAFS.202.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 30
+		prestige = 15
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_iceberg_done }
+	}
+
+	option = {
+		name = NAFS.202.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		change_learning = 1
+		prestige = 20
+		if = {
+			limit = { NOT = { trait = diligent } }
+			hidden_tooltip = { remove_trait = slothful }
+			add_trait = diligent
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_iceberg_done }
+	}
+
+	option = {
+		name = NAFS.202.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		piety = 20
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_iceberg_done }
+	}
+}
+
+# The Southern Raiders
+character_event = {
+	id = NAFS.203
+	desc = NAFS.203.desc
+	picture = GFX_evt_water_tribe_navy
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture = southern_water_culture
+		year = 830
+		e_fire_nation = { has_holder = yes }
+		any_realm_province = { is_coastal = yes }
+		NOT = { has_character_flag = nafs_water_raiders_done }
+	}
+
+	option = {
+		name = NAFS.203.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		prestige = 15
+		piety = 15
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_raiders_done }
+	}
+
+	option = {
+		name = NAFS.203.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 40
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = brave } }
+			hidden_tooltip = { remove_trait = craven }
+			add_trait = brave
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_raiders_done }
+	}
+
+	option = {
+		name = NAFS.203.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		wealth = -50
+		prestige = -20
+		piety = -5
+		if = {
+			limit = { NOT = { trait = content } }
+			hidden_tooltip = { remove_trait = ambitious }
+			add_trait = content
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_raiders_done }
+	}
+}
+
+# The Waterbending Scroll
+character_event = {
+	id = NAFS.204
+	desc = NAFS.204.desc
+	picture = GFX_evt_waterbending_scroll
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		OR = {
+			culture = northern_water_culture
+			culture = southern_water_culture
+		}
+		NOT = { has_character_flag = nafs_water_scroll_done }
+	}
+
+	option = {
+		name = NAFS.204.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		wealth = -30
+		prestige = 20
+		change_learning = 1
+		if = {
+			limit = { NOT = { trait = diligent } }
+			hidden_tooltip = { remove_trait = slothful }
+			add_trait = diligent
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_scroll_done }
+	}
+
+	option = {
+		name = NAFS.204.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		piety = 20
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_scroll_done }
+	}
+
+	option = {
+		name = NAFS.204.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 30
+		prestige = 5
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_scroll_done }
+	}
+}
+
+# The Wall's Favor
+character_event = {
+	id = NAFS.205
+	desc = NAFS.205.desc
+	picture = GFX_evt_northern_water_tribe_wall
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture = northern_water_culture
+		any_realm_province = { is_coastal = yes }
+		NOT = { has_character_flag = nafs_water_wall_done }
+	}
+
+	option = {
+		name = NAFS.205.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+		}
+		wealth = 30
+		prestige = 30
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = ambitious } }
+			hidden_tooltip = { remove_trait = content }
+			add_trait = ambitious
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_wall_done }
+	}
+
+	option = {
+		name = NAFS.205.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 25
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = content } }
+			hidden_tooltip = { remove_trait = ambitious }
+			add_trait = content
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_wall_done }
+	}
+
+	option = {
+		name = NAFS.205.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		piety = 20
+		prestige = 15
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_water_wall_done }
+	}
+}

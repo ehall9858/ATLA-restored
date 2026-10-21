@@ -1,0 +1,10 @@
+# Avatar old age - adds avatar_oldage.1 to the existing on_yearly_pulse list.
+#
+# The event is a hidden dispatcher: it does nothing at all for anyone who is
+# not an Avatar, and for an Avatar under sixty. See
+# events/ATLA_avatar_old_age_events.txt for the chain it drives.
+on_yearly_pulse = {
+	events = {
+		avatar_oldage.1 # the Avatar's years catch up with them
+	}
+}

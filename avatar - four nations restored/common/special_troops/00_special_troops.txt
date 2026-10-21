@@ -142,3 +142,16 @@ horse_archers = {
 	phase_pursue_defense = 5
 	base_type = light_cavalry
 }
+
+# ---- restored from ATLA-restored 1.4.6 (old Avatar system) ----
+avatar_at_war = {
+	morale = 5000
+	maintenance = 1
+	phase_skirmish_attack = 1000
+	phase_melee_attack = 1000
+	phase_pursue_attack = 1000
+	phase_skirmish_defense = 1000
+	phase_melee_defense = 1000
+	phase_pursue_defense = 1000
+	base_type = heavy_infantry
+}

@@ -1,0 +1,234 @@
+namespace = ATLAW
+
+# The non-bender warrior ladder (common/traits/zz_ATLA_warrior_traits.txt).
+# Fired once from on_startup - see common/on_actions/ATLA_on_actions.txt.
+#
+# on_startup events are fired for many characters, so the global flag makes sure
+# the world is only seeded once. It also keeps the event from re-running on a save.
+#
+# The seed itself is deliberately delayed by a couple of days. The startup bending
+# events (airbender.1, ATLA.33, bending.96) run per character, so seeding during
+# on_startup can catch a future bender before their element trait exists and hand
+# them a warrior rank they should never have had.
+
+character_event = { #Schedule the warrior ladder seed after the startup bending pass
+	id = ATLAW.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = atla_warrior_tiers_seeded }
+		ai = no
+	}
+
+	immediate = {
+		character_event = { id = ATLAW.2 days = 2 }
+	}
+}
+
+character_event = { #Sprinkle the warrior ladder across the world at game start
+	id = ATLAW.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = atla_warrior_tiers_seeded }
+	}
+
+	immediate = {
+		set_global_flag = atla_warrior_tiers_seeded
+		any_character = {
+			limit = {
+				is_warrior_tier_candidate_trigger = yes
+			}
+			grant_starting_warrior_tier_effect = yes
+		}
+	}
+}
+
+character_event = { #Strip warrior ranks from anyone who was already a bender
+	id = ATLAW.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = atla_warrior_bender_cleanup }
+	}
+
+	immediate = {
+		set_global_flag = atla_warrior_bender_cleanup
+		any_character = {
+			limit = {
+				is_any_bender_trigger = yes
+				has_warrior_tier_trigger = yes
+			}
+			remove_trait = atla_fighter
+			remove_trait = atla_warrior
+			remove_trait = atla_master
+			remove_trait = atla_grandmaster
+		}
+	}
+}
+
+# --- Training outcomes (fired by train_child_in_warfare) ---
+
+character_event = { #The lessons take root - the student climbed a rung
+	id = ATLAW.11
+	desc = ATLAW.11.DESC
+	picture = GFX_evt_kyoshi_training
+	is_triggered_only = yes
+
+	option = {
+		name = ATLAW.11.OPTA
+	}
+}
+
+character_event = { #Hard drilling, no leap
+	id = ATLAW.12
+	desc = ATLAW.12.DESC
+	picture = GFX_evt_airnomad_sparring
+	is_triggered_only = yes
+
+	option = {
+		name = ATLAW.12.OPTA
+	}
+}
+
+# Lifts the training cooldown so the decision becomes available again.
+character_event = {
+	id = ATLAW.13
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = atla_warrior_training
+	}
+}
+
+# --- Battle experience and the "Master My Weapon" ambition (ATLAW.30-36) ---
+#
+# Experience is banked in the atla_warrior_xp variable and spent by
+# atla_warrior_check_rank_effect (scripted_effects/13_atla_warrior_traits_effects.txt).
+# Battles are hooked from common/on_actions/00_on_actions.txt and
+# ATLA_on_actions.txt; the yearly training event from
+# ATLA_warrior_ambition_on_actions.txt.
+
+character_event = { #Won battle - a lesson learned
+	id = ATLAW.30
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { is_any_bender_trigger = yes }
+		NOT = { trait = incapable }
+		NOT = { trait = atla_grandmaster }
+	}
+
+	immediate = {
+		atla_warrior_init_xp_effect = yes
+		change_variable = { which = atla_warrior_xp value = 30 }
+		atla_warrior_check_rank_effect = yes
+	}
+}
+
+character_event = { #Lost battle - hard experience is still experience
+	id = ATLAW.31
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { is_any_bender_trigger = yes }
+		NOT = { trait = incapable }
+		NOT = { trait = atla_grandmaster }
+	}
+
+	immediate = {
+		atla_warrior_init_xp_effect = yes
+		change_variable = { which = atla_warrior_xp value = 15 }
+		atla_warrior_check_rank_effect = yes
+	}
+}
+
+character_event = { #The ambition's yearly training opportunity
+	id = ATLAW.32
+	desc = ATLAW.32.DESC
+	picture = GFX_evt_kyoshi_training
+	is_triggered_only = yes
+
+	trigger = {
+		has_ambition = obj_master_my_weapon
+		NOT = { is_any_bender_trigger = yes }
+		NOT = { trait = atla_grandmaster }
+		NOT = { trait = incapable }
+		prisoner = no
+		random = 40
+	}
+
+	immediate = {
+		atla_warrior_init_xp_effect = yes
+	}
+
+	option = {
+		name = ATLAW.32.OPTA
+		ai_chance = { factor = 2 }
+		change_variable = { which = atla_warrior_xp value = 50 }
+		atla_warrior_check_rank_effect = yes
+	}
+
+	option = {
+		name = ATLAW.32.OPTB
+		trigger = { martial = 12 }
+		ai_chance = { factor = 1 }
+		change_variable = { which = atla_warrior_xp value = 90 }
+		atla_warrior_check_rank_effect = yes
+	}
+
+	option = {
+		name = ATLAW.32.OPTC
+		ai_chance = { factor = 0.5 }
+	}
+}
+
+character_event = { #Rose to Fighter
+	id = ATLAW.33
+	desc = ATLAW.33.DESC
+	picture = GFX_evt_airnomad_sparring
+	is_triggered_only = yes
+
+	option = {
+		name = ATLAW.33.OPTA
+	}
+}
+
+character_event = { #Rose to Warrior
+	id = ATLAW.34
+	desc = ATLAW.34.DESC
+	picture = GFX_evt_airnomad_sparring
+	is_triggered_only = yes
+
+	option = {
+		name = ATLAW.34.OPTA
+	}
+}
+
+character_event = { #Rose to Master
+	id = ATLAW.35
+	desc = ATLAW.35.DESC
+	picture = GFX_evt_kyoshi_training
+	is_triggered_only = yes
+
+	option = {
+		name = ATLAW.35.OPTA
+	}
+}
+
+character_event = { #Rose to Grandmaster
+	id = ATLAW.36
+	desc = ATLAW.36.DESC
+	picture = GFX_evt_kyoshi_training
+	is_triggered_only = yes
+
+	option = {
+		name = ATLAW.36.OPTA
+	}
+}

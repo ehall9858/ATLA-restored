@@ -1,0 +1,47 @@
+# Special Avatar journey events: Gyatso encounter chain.
+
+namespace = new_avatar_journey
+
+# Gyatso
+character_event = {
+	id = new_avatar_journey.413
+	title = EVTTITLE_new_avatar_journey_413_gyatso	# Gyatso
+	desc = EVTDESC_new_avatar_journey_413_gyatso
+	picture = GFX_evt_young_gyatso_and_roku
+	is_triggered_only = yes
+	portrait = 7
+	# hide_from = yes
+	trigger = {
+		has_character_flag = is_roku
+	}
+	option = {
+		name = EVTOPT_new_avatar_journey_413		# It's nice to have a friend
+		add_friend = 7
+	}
+	after = {
+		character_event = {
+			id = new_avatar_journey.414
+			days = 7
+			random = 7
+		}
+	}
+}
+
+# Walking around the temple
+narrative_event = {
+	id = new_avatar_journey.414
+	title = EVTTITLE_new_avatar_journey_414_walking_around_the_temple	# Walking around the temple
+	desc = EVTDESC_new_avatar_journey_414_walking_around_the_temple
+	picture = GFX_evt_air_temple_sanctuary_gates
+	is_triggered_only = yes
+	option = {
+		name = EVTOPT_new_avatar_journey_414		# I'll open them soon
+	}
+	after = {
+		character_event = {
+			id = new_avatar_journey.415
+			days = 14
+			random = 60
+		}
+	}
+}

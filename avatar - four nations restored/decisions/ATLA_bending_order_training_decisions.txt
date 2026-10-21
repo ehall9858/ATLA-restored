@@ -1,0 +1,343 @@
+########################################################################
+# ATLA Bending Orders - study, mastery and instruction
+#
+# The ladder is written to the shape of the Brotherhood of Agni Kai:
+#
+#   rank 1   practice                the forms, and sparring
+#   rank 2   meditate, train         climb the bending tiers
+#   rank 3   teach, instruct         teach the young
+#   rank 4   convene, sub-art        mastery of a sub-bending art
+#
+# The sub-bending arts are the privilege of the head of the order, exactly as
+# bak_learn_new_bending is the privilege of the Agni Kai's grandmaster. A
+# character is taught one art, once, and never by an ordinary member.
+#
+# Nothing in this file grants prestige. The orders are a source of skill, not
+# a source of renown.
+#
+# Targeted decisions follow the mod's usual convention: the right-clicked
+# character is the implicit scope (ROOT), FROM is the decision taker.
+########################################################################
+
+decisions = {
+
+	# ---------------------------------------------------------------- water
+	wbo_train_bending = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = waterbending_order
+			society_rank >= 2
+			NOT = { trait = legendary_bender }
+			OR = {
+				NOT = { has_character_flag = wbo_bending_training_done }
+				had_character_flag = { flag = wbo_bending_training_done days = 1825 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			is_inaccessible_trigger = no
+			has_society_currency_major_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_major_effect = yes
+			hidden_effect = {
+				character_event = { id = atla_bending_order.1 days = 7 }
+				set_character_flag = wbo_bending_training_done
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.2
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+		}
+	}
+
+	wbo_learn_subbending = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = waterbending_order
+			society_rank >= 4
+			NOT = { has_character_flag = wbo_subbending_done }
+			NOT = {
+				AND = {
+					trait = master_healer
+					trait = bloodbender
+				}
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			is_inaccessible_trigger = no
+			has_society_currency_major_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_major_effect = yes
+			hidden_effect = {
+				character_event = { id = atla_bending_order.10 days = 7 }
+				set_character_flag = wbo_subbending_done
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.2
+				trait = diligent
+			}
+		}
+	}
+
+	# ---------------------------------------------------------------- earth
+	ebo_train_bending = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = earthbending_order
+			society_rank >= 2
+			NOT = { trait = legendary_bender }
+			OR = {
+				NOT = { has_character_flag = ebo_bending_training_done }
+				had_character_flag = { flag = ebo_bending_training_done days = 1825 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			is_inaccessible_trigger = no
+			has_society_currency_major_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_major_effect = yes
+			hidden_effect = {
+				character_event = { id = atla_bending_order.1 days = 7 }
+				set_character_flag = ebo_bending_training_done
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.2
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+		}
+	}
+
+	ebo_learn_subbending = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = earthbending_order
+			society_rank >= 4
+			NOT = { has_character_flag = ebo_subbending_done }
+			NOR = {
+				trait = metalbender
+				trait = seismicsense
+				trait = seismicsense_nonblind
+				trait = sandbender
+				trait = lavabender
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			is_inaccessible_trigger = no
+			has_society_currency_major_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_major_effect = yes
+			hidden_effect = {
+				character_event = { id = atla_bending_order.10 days = 7 }
+				set_character_flag = ebo_subbending_done
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.2
+				trait = diligent
+			}
+		}
+	}
+}
+
+targeted_decisions = {
+
+	# ---------------------------------------------------------------- water
+	wbo_instruct_bender = {
+		ai_check_interval = 12
+		filter = realm
+		ai_target_filter = home_court
+		is_in_society = yes
+
+		potential = {
+			NOT = { trait = incapable }
+			is_in_society = no
+			is_adult = no
+			OR = {
+				trait = waterbender
+				trait = avatar_waterbender
+			}
+			NOT = { has_character_flag = received_wbo_education_before }
+			is_top_tier_bender_trigger = no
+		}
+
+		from_potential = {
+			society_rank >= 3
+			society_member_of = waterbending_order
+			is_adult = yes
+			NOT = { trait = incapable }
+		}
+
+		allow = {
+			FROM = {
+				has_society_currency_major_trigger = yes
+				is_inaccessible_trigger = no
+				prisoner = no
+				in_command = no
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+		}
+
+		effect = {
+			FROM = {
+				detract_society_currency_major_effect = yes
+			}
+			ROOT = {
+				set_character_flag = received_wbo_education_before
+				if = {
+					limit = { is_bender_trigger = no }
+					add_trait = incompetent_bender
+				}
+				else = {
+					upgrade_bending_effect = yes
+				}
+				hidden_tooltip = {
+					character_event = { id = atla_bending_order.40 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0.1
+		}
+	}
+
+	# ---------------------------------------------------------------- earth
+	ebo_instruct_bender = {
+		ai_check_interval = 12
+		filter = realm
+		ai_target_filter = home_court
+		is_in_society = yes
+
+		potential = {
+			NOT = { trait = incapable }
+			is_in_society = no
+			is_adult = no
+			OR = {
+				trait = earthbender
+				trait = avatar_earthbender
+			}
+			NOT = { has_character_flag = received_ebo_education_before }
+			is_top_tier_bender_trigger = no
+		}
+
+		from_potential = {
+			society_rank >= 3
+			society_member_of = earthbending_order
+			is_adult = yes
+			NOT = { trait = incapable }
+		}
+
+		allow = {
+			FROM = {
+				has_society_currency_major_trigger = yes
+				is_inaccessible_trigger = no
+				prisoner = no
+				in_command = no
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+		}
+
+		effect = {
+			FROM = {
+				detract_society_currency_major_effect = yes
+			}
+			ROOT = {
+				set_character_flag = received_ebo_education_before
+				if = {
+					limit = { is_bender_trigger = no }
+					add_trait = incompetent_bender
+				}
+				else = {
+					upgrade_bending_effect = yes
+				}
+				hidden_tooltip = {
+					character_event = { id = atla_bending_order.40 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0.1
+		}
+	}
+}

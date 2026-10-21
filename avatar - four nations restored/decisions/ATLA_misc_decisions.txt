@@ -16,13 +16,17 @@ decisions = {
 					has_character_flag = searching_for_bear
 					has_character_flag = searching_for_dragon
 					has_character_flag = searching_for_catdeer
+					has_character_flag = searching_for_skybison
+					has_character_flag = searching_for_arcticcamel
+					has_character_flag = searching_for_catgator
+					has_character_flag = searching_for_goatgorilla
 					has_character_flag = at_petshop
 				}
 			}
 		}
 		effect = {
 			set_character_flag = at_petshop
-			character_event = { id = PETS.0 }
+			character_event = { id = PETS.1 }
 		}
 	}
 	
@@ -127,6 +131,34 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}
 	
@@ -181,6 +213,34 @@ decisions = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}
 	
@@ -263,6 +323,34 @@ decisions = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}
 	
@@ -302,6 +390,34 @@ decisions = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}
 

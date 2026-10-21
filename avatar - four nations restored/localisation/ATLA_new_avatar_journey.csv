@@ -1,6 +1,20 @@
 
 CODE;ENGLISH;;;;;;;;;;;x
 #Events
+EVTOPT_new_avatar_journey_200_sandbenders;Travel with the sandbenders;;;;;;;;;;;x
+EVTOPT_new_avatar_journey_200_swampbenders;Visit the Foggy Swamp;;;;;;;;;;;x
+EVTTITLE_new_avatar_journey_201_sandbenders;Across the Si Wong Desert;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_201_sandbenders;A sandbender caravan moves across the dunes with an ease that seems impossible. They teach me to read shifting ground and trust balance over brute force. The desert has its own kind of strength.;;;;;;;;;;;x
+EVTOPT_new_avatar_journey_201_sandbenders;Thank them, then continue my journey;;;;;;;;;;;x
+EVTTITLE_new_avatar_journey_202_swampbenders;The Living Swamp;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_202_swampbenders;In the Foggy Swamp, waterbenders guide vines and roots as though the whole forest were alive. Their strange techniques remind me that the elements are connected in ways I have yet to understand.;;;;;;;;;;;x
+EVTOPT_new_avatar_journey_202_swampbenders;Thank them, then continue my journey;;;;;;;;;;;x
+EVTTITLE_new_avatar_journey_200_earth_journey;Journey to the Earth Kingdom;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_200_earth_journey;The Earth Kingdom is vast, and finding a teacher will take patience. I must learn to stand firm, listen to the world beneath my feet, and meet earthbending with discipline rather than force.;;;;;;;;;;;x
+EVTOPT_new_avatar_journey_200_earth_journey;Seek an earthbending master;;;;;;;;;;;x
+EVTTITLE_new_avatar_journey_300_fire_journey;Journey to the Fire Nation;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_300_fire_journey;The Fire Nation will test my resolve. I must find a teacher who can show me how to understand fire without being consumed by its power.;;;;;;;;;;;x
+EVTOPT_new_avatar_journey_300_fire_journey;Seek a firebending master;;;;;;;;;;;x
 EVTTITLE_new_avatar_journey_1_the_leaving;The Leaving;;;;;;;;;;;x
 EVTDESC_new_avatar_journey_1_fire;The Fire Sages told me about my training.\nI have to leave my own home, my Nation, my parents and friends, to see the World, to master all four elements, to become the True Avatar, to keep the balance in the Universe.\nFirst, I will go to the Air Nomads. There I will be taught not only airbending, but meditation and concentration.\nThen, to the Water Tribes. Water is the most difficult for fire avatars to master.\nThe Earth Kingdom is vast. Teachers are honoured there. The earth teaches strength and discipline.\nAfter learning all the elements, I will learn to control the state of the Avatar;;;;;;;;;;;x
 EVTDESC_new_avatar_journey_1_air;The Elders told me of my training. I must leave my home, my people, my friends and teachers to see the world, to master all four elements, to become a True Avatar, to keep the universe in balance. I will first go to the Water tribes. The Earth Kingdom is vast. Teachers are revered there. The Earth teaches strength and discipline. The Earth is most difficult for Airbenders to comprehend. Then I will go to the Fire Nation. After learning all the elements, I will learn how to control the Avatar state.;;;;;;;;;;;x
@@ -43,7 +57,7 @@ EVTOPT_new_avatar_3_air_escort;OK;;;;;;;;;;;x
 available_because_fire_lord_tt;Available because you are at Fire Lord's court;;;;;;;;;;;x
 
 EVTTITLE_new_avatar_journey_10;Journey to [avatar_journey_target.GetTitledFirstName];;;;;;;;;;;x
-EVTDESC_new_avatar_journey_10;I decided to go on a trip to Â§Y[avatar_journey_target.PrimaryTitle.GetName]Â§! to [avatar_journey_target.GetTitledFirstName].;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_10;I decided to go on a trip to §Y[avatar_journey_target.PrimaryTitle.GetName]§! to [avatar_journey_target.GetTitledFirstName].;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_10;Let's go!;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_10_i_changed_my_mind;I changed my mind;;;;;;;;;;;x
 
@@ -54,23 +68,23 @@ EVTOPT_new_avatar_journey_10_i_changed_my_mind;I changed my mind;;;;;;;;;;;x
 # WATER TRIBES
 
 EVTTITLE_new_avatar_journey_100_to_water_tribes;Journey to The Water Tribes;;;;;;;;;;;x
-EVTDESC_new_avatar_journey_100_to_water_tribes;Water tribes spread out over the South and North Poles. Once upon a time, the Water Tribes were one united nation under the North, but then some of the people migrated to the South, and founded the Southern Water Tribe.\nThe North, under a single leader, has always been more hierarchical, and women have traditionally been forbidden to learn the fighting styles of waterbending, they have been taught healing.\nThe South, on the other hand, was divided into many independent chiefdoms, allowed women to learn fighting styles, but was less developed than the North.;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_100_to_water_tribes;The Water Tribes live at the ends of the world, one in the north and one in the south. The North is a single kingdom behind a wall of ice, ruled by a chief who claims the moon's favor. Its women are taught to heal, not to fight. The South is a scatter of villages and feuding chiefdoms, poorer in ships and richer in freedom, and there a woman may learn to fight as well as heal.;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_100_to_water_tribes_nortern;I'm going to the Northern Water Tribe!;;;;;;;;;;;x
 
 EVTTITLE_new_avatar_journey_101_northern_water_tribe;The Northern Water Tribe;;;;;;;;;;;x
-EVTDESC_new_avatar_journey_101_northern_water_tribe;You arrive at the icy walls of Agna Qel'a, the capital of the Northern Water Tribe. You are welcomed by border guards and escorted to the chief's palace;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_101_northern_water_tribe;The walls of Agna Qel'a rise out of the ice before the ship has dropped anchor. Guards in blue furs meet me at the water gate and lead me through a city of canals and bridges to the chief's palace.;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_101_northern_water_tribe;There is so much ice and snow here;;;;;;;;;;;x
 
 EVTTITLE_new_avatar_journey_102_nwt_feast;The Avatar Feast;;;;;;;;;;;x
-EVTDESC_new_avatar_journey_102_nwt_feast;[northern_water_chief.GetTitledName] invited you to a feast in your honor;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_102_nwt_feast;A runner in blue furs finds me before I have brushed the salt from my coat. [northern_water_chief.GetTitledName] invites me to a feast in my honor, and the runner does not leave until I have accepted.;;;;;;;;;;;x
 new_avatar_journey.102.opt;Of course I will come!;;;;;;;;;;;x
 
 new_avatar_journey.103.title;The Avatar Feast;;;;;;;;;;;x
-new_avatar_journey.103.desc;The feast took place in the palace of the Chief. Once everyone was assembled and seated, the drums rang out. A giant crab was dipped in boiling water in the center of the hall, and then the drums stopped. \nAnd after a short pause, the [northern_water_chief.GetTitledName] declared, "Today we celebrate the arrival of a very special guest... Avatar [GetFirstName]!"\nThe crowd clapped\n[northern_water_chief.GetSheHeCap] continued: And now Master [waterbending_master.GetFirstName] and his disciples will perform!;;;;;;;;;;;x
+new_avatar_journey.103.desc;The feast is held in the chief's great hall. Drums sound as the guests take their seats. A whole crab is lowered into a cauldron at the center of the hall, and steam fills the rafters. When the drums stop, [northern_water_chief.GetTitledName] rises. 'Tonight we honor a guest sent by the spirits,' [northern_water_chief.GetSheHe] says. 'Avatar [GetFirstName].' The hall erupts. Before the echoes die, [northern_water_chief.GetSheHe] gestures to the far end of the table. 'And now Master [waterbending_master.GetFirstName] and [waterbending_master.GetHerHis] disciples will perform.';;;;;;;;;;;x
 new_avatar_journey.103.opt;Master [waterbending_master.GetFirstName]...;;;;;;;;;;;x
 
 new_avatar_journey_104.title.nwt_teacher;Master [waterbending_master.GetFirstName];;;;;;;;;;;x
-new_avatar_journey_104.desc;At the feast you are introduced to a waterbending master [waterbending_master.GetFirstName]. [waterbending_master.GetHerHis] said, "Good evening, Avatar. It is an honor for me to become your teacher."\nYou say, "Thank you, Master [waterbending_master.GetFirstName]. It's an honor for me, too."\n[waterbending_master.GetHerHis] said, "Well, I expect you in the square tomorrow at dawn", and added, "and don't think that because tonight is a feast in your honor, you can be late". You bowed and went on celebrating.;;;;;;;;;;;x
+new_avatar_journey_104.desc;At the feast I am introduced to Master [waterbending_master.GetFirstName]. [waterbending_master.GetSheHe] looks me over the way a hunter looks at a sled dog. 'Good evening, Avatar,' [waterbending_master.GetSheHe] says. 'It is an honor to teach you.' I bow. 'The honor is mine, Master.' [waterbending_master.GetSheHe] does not smile. 'Dawn, in the square. Do not be late because tonight is your feast.';;;;;;;;;;;x
 new_avatar_journey_104.opt;I finally found a teacher.;;;;;;;;;;;x
 
 
@@ -78,26 +92,26 @@ new_avatar_journey_104.opt;I finally found a teacher.;;;;;;;;;;;x
 EVTDESC_new_avatar_journey_50_arrival_at_court;Welcome, my Avatar, it is an honor for us to receive such a guest!;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_50;Greetings, [avatar_journey_target.GetTitledFirstName];;;;;;;;;;;x
 
-new_avatar_journey.105.desc;Next morning you wake up at dawn and head to the square. When you arrive, you see Master [waterbending_master.GetFirstName] teaching waterbending to two young men. You walk over to them and you started your training.\nThe teacher puts you in sparring against his students time after time, and soon you start to be good at it.;;;;;;;;;;;x
-new_avatar_journey.105.desc.fire;Next morning you wake up at dawn and head to the square. When you arrive, you see Master [waterbending_master.GetFirstName] teaching waterbending to two young men. You walk over to them and you started your training.\nTime after time the teacher puts you in sparring against his students, but you never succeed, and instead of water you always get just fire.;;;;;;;;;;;x
+new_avatar_journey.105.desc;I am in the square before the sun clears the wall. Master [waterbending_master.GetFirstName] is already there, running two young men through a form that makes the water in the fountain rise and fall like breath. [waterbending_master.GetSheHe] nods once when I join them. By the end of the morning my arms ache, and the form is beginning to feel less like a stranger's.;;;;;;;;;;;x
+new_avatar_journey.105.desc.fire;I am in the square before the sun clears the wall. Master [waterbending_master.GetFirstName] is already there, running two young men through a form that makes the water in the fountain rise and fall like breath. [waterbending_master.GetSheHe] nods once when I join them. Every time I reach for the water, fire answers instead. The fountain hisses, and the square fills with steam. The master watches without a word.;;;;;;;;;;;x
 new_avatar_journey.105.opt.1;Good sparring;;;;;;;;;;;x
 new_avatar_journey.105.opt.2;Teacher! I want to learn more about waterbending!!;;;;;;;;;;;x
 
 
 new_avatar_journey.106.title;The Legend of Tui and La;;;;;;;;;;;x
-new_avatar_journey.106.desc;After the first day of my training, Master [waterbending_master.GetFirstName] approached and said, "It's time to tell you about the nature of the Waterbeding.\nThe legends say the moon was the first waterbender. Our ancestors saw how it pushed and pulled the tides, and learned how to do it themselves. Our strength comes from the spirit of the moon (Tui), our life comes from the spirit of the ocean (La). They work together to keep balance. If you learn to imitate the moon, your understanding of waterbending will improve greatly.\nIf you want to learn more about waterbending, you'll have to wait a few more days until the next full moon.";;;;;;;;;;;x
+new_avatar_journey.106.desc;After the first day, Master [waterbending_master.GetFirstName] finds me at the edge of the canal. 'The moon was the first waterbender,' [waterbending_master.GetSheHe] says. 'Our ancestors watched it pull the tides and learned to pull the same way. The moon is Tui. The ocean is La. One pulls, one holds. If you learn the moon, the water will answer you.' [waterbending_master.GetSheHe] glances at the sky. 'When the moon is full, I will show you the rest.';;;;;;;;;;;x
 new_avatar_journey.106.opt;Thank you teacher;;;;;;;;;;;x
 
 new_avatar_journey.107.title;Spirit Oasis;;;;;;;;;;;x
-new_avatar_journey.107.desc;A couple of days later, after another training session, when I was about to go to my quarters, Master [waterbending_master.GetFirstName] stopped me and led to the chieftain's palace courtyard.\nA huge wooden door concealed the entrance to a mysterious, very strange place: in the middle of the icy mountains there was a warm oasis in which two fish were swimming, and around it grew grass and trees.\nMaster explained, "This place is a centre for all the spiritual power of the North Pole."\nBy that time the full moon had set, and you felt a mixture of calm, contentment, and a burst of energy.;;;;;;;;;;;x
+new_avatar_journey.107.desc;A few nights later, Master [waterbending_master.GetFirstName] stops me on the way to my quarters and leads me to a wooden door in the palace courtyard. Behind it is a garden, warm and green, with a pool at its center. Two fish circle each other in the water, one black and one white. 'This is the heart of the North,' [waterbending_master.GetSheHe] says. 'Every spirit in this land drinks from this pool.' The full moon is overhead, and the water is bright enough to hurt.;;;;;;;;;;;x
 new_avatar_journey.107.opt;It's so... peaceful here;;;;;;;;;;;x
 
 
 
 new_avatar_journey.108.title;Meditation;;;;;;;;;;;x
-new_avatar_journey.108.desc;The Master [waterbending_master.GetFirstName] tells you not to forget that you have come here to learn, not to have fun. He then sits down beside the pond in a meditation pose and tells you to do the same. You obey.\nThe Master says, "Well, now concentrate on the movement of these two koi fish. They were the ones that once taught me, perhaps they will teach you too." And adds: "Don't forget your breathing."\nAfter a while, you feel something special. Everything around you is gone, there is no master, no grass, no trees. There is only water, the moon, and these two fish.\nAnd so you sit there until dawn, when the glare on the water brings you out of your trance.;;;;;;;;;;;x
+new_avatar_journey.108.desc;Master [waterbending_master.GetFirstName] sits beside the pool and gestures for me to do the same. 'You came here to learn,' [waterbending_master.GetSheHe] says. 'Not to enjoy the feast. Watch the fish. Breathe.' I watch. The black fish turns, and the white fish follows. The garden falls away. There is only the water, the moon, and the two fish. When the sun rises, my knees are stiff and my mind is quiet.;;;;;;;;;;;x
 new_avatar_journey.108.opt;That was... Unforgettable...;;;;;;;;;;;x
-new_avatar_journey.108.tooltip;Â§YYou feel your understanding of waterbending has improvedÂ§!;;;;;;;;;;;x
+new_avatar_journey.108.tooltip;§YYou feel your understanding of waterbending has improved§!;;;;;;;;;;;x
 
 
 
@@ -105,23 +119,23 @@ new_avatar_journey.108.tooltip;Â§YYou feel your understanding of waterbending ha
 
 
 new_avatar_journey.109.title;Pull and push;;;;;;;;;;;x
-new_avatar_journey.109.desc;After another training day, you go not to your chambers but to the sea, to watch the tides. After meditating on those koi fish, you feel you have finally begun to understand the waterbending nature.\nAfter an hour of observation, you recall the master's words that waterbending is based on pulling and pushing... You raise your hands, and... I've got it! Finally!\n"Congratulations, my apprentice," Master [waterbending_master.GetFirstName] suddenly appears.\nYou can't stand your feelings, "Thank you, Master! After meditating on the koi fish, I... I was..."\n"Yes, yes... since you've finally mastered the basics of bending, I'll expect you at practice at dawn as always. Good night.";;;;;;;;;;;x
+new_avatar_journey.109.desc;That night I go to the shore instead of my quarters. The tide is coming in, and the moon is a thin white curve over the water. I think of the fish, the pull and the push, and raise my hands. The surf stops an arm's length from my boots, then climbs again. 'Good,' says Master [waterbending_master.GetFirstName] from behind me. I turn, startled. [waterbending_master.GetSheHe] is smiling for the first time. 'You have the basics. Dawn, as always.';;;;;;;;;;;x
 new_avatar_journey.109.opt;I'm a waterbender!;;;;;;;;;;;x
-new_avatar_journey.110.desc;Every morning you come to the square, where you spar with the students of teacher [waterbending_master.GetFirstName] until sunset.;;;;;;;;;;;x
+new_avatar_journey.110.desc;Every morning I return to the square. The master's students are waiting, and the fountain is already moving.;;;;;;;;;;;x
 new_avatar_journey.110.opt;Let's see what I've learned;;;;;;;;;;;x
 new_avatar_journey.111.title;Waterbending Sparring: Lose;;;;;;;;;;;x
-new_avatar_journey.111.desc;You spar time and time again, but your opponents never get tired. As time passes, you weaken. You begin to believe that you'll have to quit. Still, you go on, somehow putting one foot in front of the other, determined to finish the battle. Slowly, you come to realize that the waterbending you practiced for so long hasn't diminished, but only improved.\nBut it's too late, and you fail.;;;;;;;;;;;x
+new_avatar_journey.111.desc;The students come at me one after another. The first is slow, the second is not, and by the third my arms are shaking. I hold the water longer than I thought I could, but the last student slips inside my guard and puts me on my back in the fountain. The master calls the bout. I lie there, breathless, and the water runs out of my sleeves.;;;;;;;;;;;x
 new_avatar_journey.111.opt;It's painful.;;;;;;;;;;;x
 new_avatar_journey.112.title;Waterbending Sparring: Win;;;;;;;;;;;x
-new_avatar_journey.112.desc;You spar time and time again, but your opponents never get tired. As time passes, you weaken. You begin to believe that you'll have to quit. Still, you go on, somehow putting one foot in front of the other, determined to finish the battle. Slowly, you come to realize that the waterbending you practiced for so long hasn't diminished, but only improved.\nFinally, you burst through the defenses of your last opponent. In a matter of seconds, your enemy falls.;;;;;;;;;;;x
+new_avatar_journey.112.desc;The students come at me one after another. The first is slow, the second is not, and by the third my arms are shaking. But the water answers faster now. I catch the last student's wrist, turn the wave aside, and send them skidding across the wet stone. The square goes quiet. The master nods.;;;;;;;;;;;x
 new_avatar_journey.112.opt;Finally!;;;;;;;;;;;x
-new_avatar_journey.115.desc;After I defeated the best apprentice, the Master started to take me more seriously. Now I have to spar with the Master.;;;;;;;;;;;x
+new_avatar_journey.115.desc;After I put the best apprentice on the stones, the master does not call for another student. [waterbending_master.GetSheHe] steps into the square and takes off [waterbending_master.GetHerHis] outer robe. 'Now,' [waterbending_master.GetSheHe] says, 'we will see what you have learned.';;;;;;;;;;;x
 new_avatar_journey.115.opt;Let's see what I've learned;;;;;;;;;;;x
 new_avatar_journey.116.title;Waterbending Sparring: Lose;;;;;;;;;;;x
-new_avatar_journey.116.desc;You engage again and again, but the master [waterbending_master.GetFirstName] dodges each of your attacks, and knocks you down with lightning speed. You know that he is no match for you, but you continue to attack anyway.\nFinally, you are exhausted, and he is able to take you down with a single strike.;;;;;;;;;;;x
+new_avatar_journey.116.desc;The master moves like the tide. Every wave I throw breaks around [waterbending_master.GetHerHim], and every step I take leaves me open. I last longer than I expected. Then [waterbending_master.GetSheHe] hooks my ankle with a ribbon of water and I go down hard. [waterbending_master.GetSheHe] offers me a hand. 'Again,' [waterbending_master.GetSheHe] says.;;;;;;;;;;;x
 new_avatar_journey.116.opt;It's painful...;;;;;;;;;;;x
 new_avatar_journey.117.title;Waterbending Sparring: Win;;;;;;;;;;;x
-new_avatar_journey.117.desc;You engage again and again, but the teacher dodges each of your attacks, and knocks you down with lightning speed. You know that he is no match for you, but you continue to attack anyway.\nBut after many sparrings, you begin to anticipate his moves, and dodge his attacks, waiting for the opportune moment to strike.\nAnd then, the moment comes. Your fight goes from city to sea, and with one powerful wave, you fling the Master back to the palace itself;;;;;;;;;;;x
+new_avatar_journey.117.desc;The master moves like the tide, and for a long time I am only trying to stay upright. Then I begin to see the pattern: the same turn of the wrist before every wave, the same shift of weight before every strike. I wait. When [waterbending_master.GetSheHe] turns, I take the water out from under [waterbending_master.GetHerHim] and send it back in a single wave. The master slides across the wet stone and stops at the palace steps. [waterbending_master.GetSheHe] laughs, once, and gets up.;;;;;;;;;;;x
 new_avatar_journey.117.opt;Finally!;;;;;;;;;;;x
 
 # EARTH KINGDOM
@@ -131,7 +145,7 @@ new_avatar_journey.117.opt;Finally!;;;;;;;;;;;x
 
 
 EVTTITLE_new_avatar_journey_400_travel_air_nomads;The Travel to Air Nomads;;;;;;;;;;;x
-EVTDESC_new_avatar_journey_400_travel_air_nomads;On the path of the Avatar, the journey to one of the Main Four Air Temples was always one of the most difficult challenges. The Air Nomads live in isolation, their major centers located on four edges of the world: In the mountains, high above the sky, and under the cliffs, where they cannot be seen from the ground.\nSometimes they can be seen in the foothill towns or on islands like Kyoshi or Itakshir, where they ask for alms, or trade, buy food, and fly away. They would welcome a fellow traveller, It would not be out of place to say that once Avatar is nominated, they are among the first to send ambassadors, they treat teaching Avatar as one of their main goals in life.\n"By ship or by foot, always move against the Wind, to the places where it is born." - was the last thing I was told.;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_400_travel_air_nomads;On the path of the Avatar, the journey to one of the Main Four Air Temples was always one of the most difficult challenges. The Air Nomads live in isolation, their major centers located on four edges of the world: In the mountains, high above the sky, and under the cliffs, where they cannot be seen from the ground.\nSometimes they can be seen in the foothill towns or on islands like Kyoshi or Itakshir, where they ask for alms, or trade, buy food, and fly away. They would welcome a fellow traveller, It would not be out of place to say that once Avatar is nominated, they are among the first to send ambassadors, they treat teaching Avatar as one of their main goals in life.\n"By ship or by foot, always move against the Wind, to the places where it is born." That was the last thing I was told.;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_400_southern_temple;I'll go to the Southern Temple, the greatest temple;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_400_eastern_temple;to the Eastern Temple, to the places of the first airbenders;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_400_northern_temple;to the Northern Temple, where Guru Laghima was living;;;;;;;;;;;x
@@ -156,8 +170,8 @@ EVTTOOLTIP_new_avatar_journey_403;(In the future, there will be market options i
 EVTTITLE_new_avatar_journey_404_welcome_to_whaletail;Welcome to Whaletail;;;;;;;;;;;x
 EVTDESC_new_avatar_journey_404_welcome_to_whaletail;I was as if intoxicated by this hazy picture. Suddenly, a monk patted me on the shoulder. It was a young monk, a messenger from the Temple. They were notified of my arrival and took a long time to find me...\nOn the way to the temple the messenger often stopped and showed me the sights around the temple. Great cave vaporium, jade statue of Tang Xu, spring and autumn fasting square. At the entrance to the western part of the temple, decapitated statues were visible at the entrance to the eastern part. We were warmly welcomed at the temple by a group of five elders, and the messenger left. We talked about the duties of an Avatar and my training.\nI was offered to stay for a couple of days to see the Tang Xu Festival, but wouldn't it be better to fly to the Southern Air Temple as soon as possible?;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_404_stay_for_festival;Yes, I will stay for the festival;;;;;;;;;;;x
-EVTOPT_new_avatar_journey_404_fly_to_temple;I have to fly away ;;;;;;;;;;;x
-EVTTOOLTIP_new_avatar_journey_404;Â§YSKIP WHALETAIL QUESTÂ§!;;;;;;;;;;;x
+EVTOPT_new_avatar_journey_404_fly_to_temple;I have to fly away;;;;;;;;;;;x
+EVTTOOLTIP_new_avatar_journey_404;§YSKIP WHALETAIL QUEST§!;;;;;;;;;;;x
 
 
 
@@ -226,7 +240,7 @@ EVTDESC_new_avatar_journey_414_walking_around_the_temple;Gyatso was assigned as 
 EVTOPT_new_avatar_journey_414;I'll open them soon;;;;;;;;;;;x
 
 EVTTITLE_new_avatar_journey_415_meditation;Meditation;;;;;;;;;;;x
-EVTDESC_new_avatar_journey_415_meditation;Today we have been meditating all day. The monks say that air is the element of freedom. So the first step to understanding it is to free your mind. We sat in a circle and concentrated on our breathing. The aim of the exercise was to become aware of the most basic thing in the airbending - the process of breathing, to feel how air inhales, spreads over the body, and exhales freely.;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_415_meditation;Today we have been meditating all day. The monks say that air is the element of freedom. So the first step to understanding it is to free your mind. We sat in a circle and concentrated on our breathing. The aim of the exercise was to become aware of the most basic thing in the airbending: the process of breathing, to feel how air inhales, spreads over the body, and exhales freely.;;;;;;;;;;;x
 EVTOPT_new_avatar_journey_415;I've learned a lot.;;;;;;;;;;;x
 
 EVTTITLE_new_avatar_journey_416_balance;Balance;;;;;;;;;;;x
@@ -280,3 +294,14 @@ good_progress_tt;Good Progress;;;;;;;;;;;x
 progress_tt;Progress;;;;;;;;;;;x
 trouble_tt;Trouble;;;;;;;;;;;x
 bad_trouble_tt;Bad Trouble;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_3_earth_beifong;A messenger from the Beifong estates arrives with an elegant, sturdy vessel, its crew proud to serve one of the Earth Kingdom's most influential families. Their offer is generous, but accepting it would mean owing a favor to a house whose reach extends far beyond Gaoling.;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_3_earth_omashu;A delegation from Omashu offers a broad, well-built trade barge. Its captain boasts that the city's ingenious merchants can get cargo and important passengers through almost any port. The ship is practical, dependable, and unmistakably Omashu in spirit.;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_3_earth_king;Royal envoys from Ba Sing Se arrive bearing the Earth King's offer: a guarded vessel, polished fittings, and a crew chosen for the royal voyage. Accepting would be the most prestigious way to travel, but the ship's banners would make it clear that the Earth King's court has taken an interest in your journey.;;;;;;;;;;;x
+new_avatar_journey.118.title;Southern Water Tribe;;;;;;;;;;;x
+new_avatar_journey.118.desc;After a long journey south, I reach the Southern Water Tribe. The chief meets me at the gate and promises to find a teacher. The village is smaller than I expected, a ring of tents and low ice houses around a frozen harbor. Children follow me through the snow, and no one bows.;;;;;;;;;;;x
+new_avatar_journey.118.opt;Meet the Southern Water Tribe's waterbenders;;;;;;;;;;;x
+new_avatar_journey.105.desc.earth;The first sparring lesson is harder than I expected. Every stance I learned from the earth tells me to plant my feet and take the hit. The water does not care. It goes around my guard, under my feet, and I end up on my back in the fountain. The master says nothing. I get up.;;;;;;;;;;;x
+
+EVTTITLE_new_avatar_journey_4_sozin_crown;A Crown Between Friends;;;;;;;;;;;x
+EVTDESC_new_avatar_journey_4_sozin_crown;When I reach the Fire Nation, Sozin greets me with the easy familiarity of an old friend. With a mischievous grin, he lifts an ornate ceremonial crown and places it on my head, declaring that for one day I should rule over him. The gesture is playful, but beneath the joke is a reminder of the bond we share before duty and ambition pull our lives in different directions.;;;;;;;;;;;x
+EVTOPT_new_avatar_journey_4_sozin_crown;Accept the crown in the spirit of friendship;;;;;;;;;;;x

@@ -1,0 +1,6 @@
+send_child_to_avatar;Send to travel with the Avatar;;;;;;;;;;;x
+send_child_to_avatar_desc;Entrust this child to the Avatar, to travel and learn at their side.;;;;;;;;;;;x
+send_child_to_avatar_tt;[Root.GetFirstName] joins the Avatar's company and becomes an Avatar Teammate. You gain §G25§! Piety.;;;;;;;;;;;x
+send_child_avatar_alive_tt;The Avatar is alive and has been revealed.;;;;;;;;;;;x
+send_child_avatar_friendly_tt;The Avatar does not dislike you and is not your rival or foe.;;;;;;;;;;;x
+send_child_avatar_team_room_tt;Team Avatar has fewer than 8 active companions.;;;;;;;;;;;x

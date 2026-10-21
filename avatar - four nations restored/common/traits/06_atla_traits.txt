@@ -20,114 +20,128 @@
 ## AVATAR TRAITS ##
 avatar = {
 	customizer = no
-	random = no
-	
-	culture_flex = 80
-	religion_flex = 80
+	diplomacy = 5
+	martial = 7
+	cached = yes # Keep a cache of all trait holder, to use with the corresponding event trigger
+	cannot_inherit = yes
 	cannot_marry = yes
-	
-	monthly_character_piety = 0.5
-	monthly_character_prestige = 0.5
-	
-	health = 4
-	
-	diplomacy = 8
-	martial = 6
-	stewardship = 6
-	intrigue = 6
-	learning = 9
-	
-	
-	ai_ambition = -30 #This makes the Avatar much less likely to go around declaring wars etc
-	ai_honor = 20 #This makes the Avatar less likely to be a scheming douchebag.
-	
-	opposites = {
-		legendary_bender
-		unrevealedavatar
-	}
-}
-
-fully_realised_avatar = { #Trait replaces all bending traits, so gives all their bonuses and a little more! Avatar state is mostly event driven.
-	customizer = no
+	monthly_character_prestige = 0.75
 	random = no
-	
-	general_opinion = 20
-	
-	defensive_plot_power_modifier = 0.3
+	health = 20.0
+	opposite_opinion = 15 #makes him/her like the avatar more than they already do because they're close friends
+	general_opinion = 15
 	combat_rating = 30
-	
-	command_modifier = { #The avatar is functionally a one-man army now
-		damage = 0.2
-		defence = 0.2
-		morale_offence = 0.2
-		morale_defence = 0.2
-		siege = 0.8
-		speed = 0.15
-		retreat = 0.2
-		pursue = 0.25
-	}
-
+	tolerates_earth_religions = yes
+	tolerates_fire_religions = yes
+	tolerates_air_religions = yes
+	tolerates_water_religions = yes
+	tolerates_modern_religions = yes
+	way_of_chin_opinion = -200
 	opposites = {
-		avatar_waterbender
-		avatar_earthbender
-		avatar_firebender
-		avatar_airbender
+		fullyrealisedavatar
 	}
 }
 
-unrevealedavatar = { #Ensures avatars don't die of natural causes while still children
+fullyrealisedavatar = {
 	customizer = no
+	diplomacy = 5
+	martial = 17
+	cached = yes # Keep a cache of all trait holder, to use with the corresponding event trigger
+	monthly_character_piety = 1.0
+	monthly_character_prestige = 1.5
 	random = no
-	hidden = yes
-	health = 20
-	
+	health = 20.0
+	opposite_opinion = 15 #makes him/her like the avatar more than they already do because they're close friends
+	general_opinion = 15
+	combat_rating = 50
+	tolerates_earth_religions = yes
+	tolerates_fire_religions = yes
+	tolerates_air_religions = yes
+	tolerates_water_religions = yes
+	tolerates_modern_religions = yes
+	way_of_chin_opinion = -200
 	opposites = {
 		avatar
 	}
 }
 
-team_avatar = {
+
+
+directdescendantavatar = {
 	customizer = no
-	random = no
-	cached = yes
-	
+	diplomacy = 2
+	martial = 1
 	monthly_character_prestige = 0.5
-	general_opinion = 5
-	same_opinion = 25
-	former_team_avatar_opinion = 25
-	fertility = -0.60 #Not much time for that sort of thing!
-	combat_rating = 10
-	
-	
+	monthly_character_piety = 0.1
+	random = no
+	same_opinion = 10
+	opposite_opinion = 10
+	general_opinion = 10
+	way_of_chin_opinion = -200
 	opposites = {
-		former_team_avatar
+		descendantavatar
+		avatar
+		fullyrealisedavatar
 	}
 }
 
-former_team_avatar = {
+descendantavatar = {
+	customizer = no
+	monthly_character_prestige = 0.3
+	random = no
+	same_opinion = 10
+	opposite_opinion = 10
+	general_opinion = 5
+	opposites = {
+		directdescendantavatar
+	}
+}
+
+avatar_on_training = {
+	monthly_character_piety = 0.1
+	same_religion_opinion = 5
+
+	# why do 
+	pilgrimage = no
 	customizer = no
 	random = no
-	
-	monthly_character_prestige = 0.25
-	general_opinion = 5
-	same_opinion = 25
-	team_avatar_opinion = 25
-	combat_rating = 10
-	
-	
-	opposites = {
-		team_avatar
-	}
 }
 
-avatars_peace_trait = {
+avatar_learning_waterbending = {
 	customizer = no
 	random = no
 	hidden = yes
-	
-	ai_ambition = -50
-	ai_zeal = -30
 }
+
+avatar_learning_earthbending = {
+	customizer = no
+	random = no
+	hidden = yes
+}
+
+avatar_learning_firebending = {
+	customizer = no
+	random = no
+	hidden = yes
+}
+
+avatar_learning_airbending = {
+	customizer = no
+	random = no
+	hidden = yes
+}
+
+unrevealedavatar = { #Ensures avatars don't die while still children
+	customizer = no
+	hidden = yes
+	health = 20.0
+}
+
+
+
+
+
+
 
 canon_character = { #Not strictly avatar related but close enough
 	health = 2
@@ -136,14 +150,7 @@ canon_character = { #Not strictly avatar related but close enough
 	customizer = no
 }
 
-bad_avatar = {
-	customizer = no
-	random = no
 
-	general_opinion = -30
-	monthly_character_piety = -1
-	monthly_character_prestige = -1
-}
 
 ## RULER TRAITS ##
 earthkingpuppet = { #Earth king who IS a puppet, not a puppet of the EK
@@ -1344,50 +1351,136 @@ warlord_of_chin = { ##Used for special CB for way of chin county conquests by an
 
 ## ROKU PORTRAITS - DON'T TOUCH!! ##
 
-roku_learning_waterbending = {
+# Team Avatar traits (used by the 'send child to the Avatar' decision)
+team_avatar = {
 	customizer = no
 	random = no
-	hidden = yes
-	
+	cached = yes
+
+	monthly_character_prestige = 0.5
+	general_opinion = 5
+	same_opinion = 25
+	fertility = -0.60
+	combat_rating = 10
+
 	opposites = {
-		roku_learning_airbending
-		roku_learning_earthbending
-		roku_learning_firebending
+		former_team_avatar
 	}
 }
 
-roku_learning_earthbending = {
+former_team_avatar = {
 	customizer = no
 	random = no
-	hidden = yes
-	
+
+	monthly_character_prestige = 0.25
+	general_opinion = 5
+	same_opinion = 25
+	combat_rating = 10
+
 	opposites = {
-		roku_learning_airbending
-		roku_learning_waterbending
-		roku_learning_firebending
+		team_avatar
 	}
 }
 
-roku_learning_firebending = {
-	customizer = no
-	random = no
-	hidden = yes
-	
-	opposites = {
-		roku_learning_airbending
-		roku_learning_earthbending
-		roku_learning_waterbending
-	}
+## AVATAR FOCUS TRAITS ##
+# These four traits represent the chosen path of a fully realised Avatar.
+# Opposites ensure that only one focus can be held at a time.
+spiritually_focused_avatar = {
+    random = no
+    customizer = no
+    learning = 2
+    monthly_character_piety = 0.5
+    ai_zeal = 10
+    opposites = {
+        politically_focused_avatar
+        wandering_avatar
+        martial_avatar
+    }
 }
 
-roku_learning_airbending = {
-	customizer = no
-	random = no
-	hidden = yes
-	
-	opposites = {
-		roku_learning_waterbending
-		roku_learning_earthbending
-		roku_learning_firebending
-	}
+politically_focused_avatar = {
+    random = no
+    customizer = no
+    diplomacy = 2
+    stewardship = 1
+    monthly_character_prestige = 0.5
+    ai_rationality = 10
+    opposites = {
+        spiritually_focused_avatar
+        wandering_avatar
+        martial_avatar
+    }
+}
+
+wandering_avatar = {
+    random = no
+    customizer = no
+    diplomacy = 1
+    martial = 1
+    monthly_character_prestige = 0.25
+    ai_honor = 10
+    opposites = {
+        spiritually_focused_avatar
+        politically_focused_avatar
+        martial_avatar
+    }
+}
+
+martial_avatar = {
+    random = no
+    customizer = no
+    martial = 2
+    combat_rating = 5
+    ai_ambition = 10
+    opposites = {
+        spiritually_focused_avatar
+        politically_focused_avatar
+        wandering_avatar
+    }
+}
+
+## AVATAR BIRTH ORIGIN TRAITS ##
+# Granted at the reveal (new_avatar_general.2/.3/.4 or ATLA.4) from the
+# avatar_born_lowborn / avatar_born_noble flags set at generation.
+# Fully compatible with the d_avatar title: its gain_effect only checks
+# is_avatar_trigger, and the succession law does not care about dynasty.
+avatar_nobleborn = {
+    random = no
+    customizer = no
+    diplomacy = 1
+    monthly_character_prestige = 0.25
+    vassal_opinion = 5
+    opposites = {
+        avatar_lowborn
+    }
+}
+
+avatar_lowborn = {
+    random = no
+    customizer = no
+    martial = 1
+    monthly_character_prestige = 0.15
+    general_opinion = 5
+    opposites = {
+        avatar_nobleborn
+    }
+}
+
+## VILLAIN TRAIT ##
+# Earned by causing great strife: invading, colonizing, tyrannizing,
+# Chin-style conquest, or notorious murder. Declared by a fully realised
+# Avatar (avatar_villain.1/.2) or earned organically. Strong enough to
+# rival the Avatar in single combat - hence the duel stakes in ADUEL.28.
+villain = {
+    random = no
+    customizer = no
+    diplomacy = -2
+    martial = 3
+    intrigue = 2
+    health = 2
+    combat_rating = 20
+    monthly_character_prestige = 1.0
+    general_opinion = -15
+    ai_honor = -30
+    ai_ambition = 20
 }

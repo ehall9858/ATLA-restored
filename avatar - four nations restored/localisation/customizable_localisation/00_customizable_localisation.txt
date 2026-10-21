@@ -10824,10 +10824,6 @@ defined_text = {
 		localisation_key = String_eunuch_is_scholar_decent
 		trigger = { trait = scholar }
 	}
-	text = {
-		localisation_key = String_eunuch_is_faqih_decent
-		trigger = { trait = faqih }
-	}
 	fallback_text = {
 		localisation_key = String_eunuch_fallback_decent
 	}
@@ -10888,10 +10884,6 @@ defined_text = {
 	text = {
 		localisation_key = String_eunuch_is_scholar
 		trigger = { trait = scholar }
-	}
-	text = {
-		localisation_key = String_eunuch_is_faqih
-		trigger = { trait = faqih }
 	}
 	fallback_text = {
 		localisation_key = String_eunuch_fallback_great
@@ -11010,10 +11002,6 @@ defined_text = {
 		localisation_key = String_concubine_is_scholar_decent
 		trigger = { trait = scholar }
 	}
-	text = {
-		localisation_key = String_concubine_is_faqih_decent
-		trigger = { trait = faqih }
-	}
 	fallback_text = {
 		localisation_key = String_concubine_fallback_decent
 	}
@@ -11074,10 +11062,6 @@ defined_text = {
 	text = {
 		localisation_key = String_concubine_is_scholar
 		trigger = { trait = scholar }
-	}
-	text = {
-		localisation_key = String_concubine_is_faqih
-		trigger = { trait = faqih }
 	}
 	fallback_text = {
 		localisation_key = String_concubine_fallback_great
@@ -14457,7 +14441,6 @@ defined_text = { #Dead Christians forget their Popes.
 			is_alive = yes
 			OR = { 
 				trait = baptized_by_pope 
-				trait = baptized_by_patriarch
 			}
 		}
 		localisation_key = string_baptized_by_pope_alive
@@ -14469,7 +14452,6 @@ defined_text = { #Dead Christians forget their Popes.
 				is_alive = yes
 				OR = { 
 					trait = baptized_by_pope 
-					trait = baptized_by_patriarch
 				}
 			}
 		}
@@ -14481,13 +14463,6 @@ defined_text = { #Dead Christians forget their Popes.
 			trait = baptized_by_pope
 		}
 		localisation_key = string_baptized_by_pope_dead
-	}
-	text = {
-		trigger = {
-			is_alive = no
-			trait = baptized_by_patriarch
-		}
-		localisation_key = string_baptized_by_patriarch_dead
 	}
 	text = {
 		trigger = {
@@ -14513,49 +14488,6 @@ defined_text = { #Dead Christians forget their Popes.
 			trait = baptized_by_bishop
 		}
 		localisation_key = string_baptized_by_bishop_dead
-	}
-	text = {
-		trigger = {
-			is_alive = yes
-			persistent_event_target:baptizing_satanist_per = { is_female = no }
-			trait = baptized_by_satan
-		}
-		localisation_key = string_baptized_by_satan_alive_male
-	}
-	text = {
-		trigger = {
-			FROM = { persistent_event_target:baptizing_satanist_per = { is_female = no } }
-			FROM = {
-				is_alive = yes
-				trait = baptized_by_satan
-			}
-		}
-		localisation_key = string_from_baptized_by_satan_male_aliveop
-	}
-	text = {
-		trigger = {
-			is_alive = yes
-			persistent_event_target:baptizing_satanist_per = { is_female = yes }
-			trait = baptized_by_satan
-		}
-		localisation_key = string_baptized_by_satan_alive_female
-	}
-	text = {
-		trigger = {
-			FROM = { persistent_event_target:baptizing_satanist_per = { always = yes } }
-			FROM = {
-				is_alive = yes
-				trait = baptized_by_satan
-			}
-		}
-		localisation_key = string_from_baptized_by_satan_female_aliveop
-	}
-	text = {
-		trigger = {
-			is_alive = no
-			trait = baptized_by_satan
-		}
-		localisation_key = string_baptized_by_satan_dead
 	}
 }
 

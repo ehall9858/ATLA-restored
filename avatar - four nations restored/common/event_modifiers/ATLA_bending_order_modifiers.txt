@@ -1,0 +1,73 @@
+wbo_focus = {
+	icon = 95
+	learning = 1
+}
+
+wbo_serenity = {
+	icon = 95
+	health = 0.25
+	diplomacy = 1
+}
+
+wbo_renown = {
+	icon = 95
+	monthly_character_prestige = 0.1
+}
+
+wbo_gathering = {
+	icon = 95
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+}
+
+ebo_focus = {
+	icon = 95
+	martial = 1
+}
+
+ebo_serenity = {
+	icon = 95
+	stewardship = 1
+	monthly_character_piety = 0.1
+}
+
+ebo_renown = {
+	icon = 95
+	monthly_character_prestige = 0.1
+}
+
+ebo_gathering = {
+	icon = 95
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+}
+
+
+# Sparring between members of the Waterbending Order and the
+# Earthbending Society. Short, small, and only from the sparring decision.
+wbo_sparring = {
+	icon = 95
+	learning = 1
+	diplomacy = 1
+}
+
+ebo_sparring = {
+	icon = 95
+	martial = 1
+	stewardship = 1
+}
+
+# Province modifiers founded by the orders' missions.
+# Applied with add_province_modifier, so these live alongside event modifiers.
+wbo_healing_hut = {
+	icon = 4
+	disease_defence = 0.25
+	local_revolt_risk = -0.01
+}
+
+ebo_wall = {
+	icon = 4
+	local_revolt_risk = -0.02
+	levy_reinforce_rate = 0.15
+	supply_limit = 1
+}

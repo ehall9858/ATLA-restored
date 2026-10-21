@@ -1,0 +1,560 @@
+########################################################################
+# ATLA Bending Orders - recruitment and sparring
+#
+# The two things the Agni Kai has and the Waterbending Order and the
+# Earthbending Society did not:
+#
+#   wbo_/ebo_recruit_member       (rank 2, targeted) bring a new bender in
+#   wbo_/ebo_spar_fellow_member   (any rank, targeted) spar with a member
+#
+# Targeted decisions follow the mod's usual convention: the right-clicked
+# character is the implicit scope (ROOT), FROM is the decision taker.
+#
+# The sparring bout is settled inside the decision rather than in an event
+# chain. Both characters get their own result letter from
+# events/ATLA_bending_order_society_events.txt, so nothing has to carry a
+# scope from one character's event to another.
+########################################################################
+
+targeted_decisions = {
+
+	# ------------------------------------------------------------ water: recruit
+	wbo_recruit_member = {
+		ai_check_interval = 24
+		filter = realm
+		ai_target_filter = home_court
+
+		potential = {
+			is_adult = yes
+			is_in_society = no
+			prisoner = no
+			NOT = { trait = incapable }
+			trait = waterbender
+		}
+
+		from_potential = {
+			society_member_of = waterbending_order
+			society_rank >= 2
+			is_adult = yes
+			NOT = { trait = incapable }
+		}
+
+		allow = {
+			FROM = {
+				has_society_currency_minor_trigger = yes
+				is_inaccessible_trigger = no
+				prisoner = no
+				in_command = no
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+		}
+
+		effect = {
+			FROM = {
+				detract_society_currency_minor_effect = yes
+			}
+			ROOT = {
+				character_event = { id = atla_bending_society.10 days = 7 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+		}
+	}
+
+	# ------------------------------------------------------------ earth: recruit
+	ebo_recruit_member = {
+		ai_check_interval = 24
+		filter = realm
+		ai_target_filter = home_court
+
+		potential = {
+			is_adult = yes
+			is_in_society = no
+			prisoner = no
+			NOT = { trait = incapable }
+			trait = earthbender
+		}
+
+		from_potential = {
+			society_member_of = earthbending_order
+			society_rank >= 2
+			is_adult = yes
+			NOT = { trait = incapable }
+		}
+
+		allow = {
+			FROM = {
+				has_society_currency_minor_trigger = yes
+				is_inaccessible_trigger = no
+				prisoner = no
+				in_command = no
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+		}
+
+		effect = {
+			FROM = {
+				detract_society_currency_minor_effect = yes
+			}
+			ROOT = {
+				character_event = { id = atla_bending_society.11 days = 7 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+		}
+	}
+
+	# ------------------------------------------------------------- water: spar
+	wbo_spar_fellow_member = {
+		is_in_society = yes
+		filter = society
+		ai_target_filter = society
+		diplomacy_icon = GFX_duel_decision_agni_kai
+
+		potential = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			society_member_of = waterbending_order
+			OR = {
+				NOT = { has_character_flag = recent_spar }
+				had_character_flag = { flag = recent_spar days = 730 }
+			}
+		}
+
+		from_potential = {
+			society_member_of = waterbending_order
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+		}
+
+		allow = {
+			FROM = {
+				has_society_currency_tiny_trigger = yes
+				is_inaccessible_trigger = no
+				prisoner = no
+				custom_tooltip = {
+					text = has_not_sparred_recently
+					hidden_tooltip = {
+						OR = {
+							NOT = { has_character_flag = recent_spar }
+							had_character_flag = { flag = recent_spar days = 730 }
+						}
+					}
+				}
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+		}
+
+		effect = {
+			FROM = {
+				detract_society_currency_tiny_effect = yes
+				set_character_flag = recent_spar
+				random_list = {
+					40 = { # the challenger takes the bout
+						custom_tooltip = { text = wbo_spar_won_tt }
+						modifier = {
+							factor = 1.4
+							learning = 16
+						}
+						modifier = {
+							factor = 1.2
+							trait = master_bender
+						}
+						modifier = {
+							factor = 1.2
+							trait = powerful_bender
+						}
+						modifier = {
+							factor = 0.8
+							ROOT = { learning = 16 }
+						}
+						modifier = {
+							factor = 0.8
+							ROOT = { trait = master_bender }
+						}
+						prestige = 25
+						add_society_currency_medium_effect = yes
+						add_character_modifier = { name = wbo_sparring duration = 180 }
+						character_event = { id = atla_bending_society.20 }
+						ROOT = { character_event = { id = atla_bending_society.21 } }
+					}
+					40 = { # the challenged takes the bout
+						custom_tooltip = { text = wbo_spar_lost_tt }
+						modifier = {
+							factor = 1.4
+							ROOT = { learning = 16 }
+						}
+						modifier = {
+							factor = 1.2
+							ROOT = { trait = master_bender }
+						}
+						modifier = {
+							factor = 0.8
+							learning = 16
+						}
+						modifier = {
+							factor = 0.8
+							trait = master_bender
+						}
+						character_event = { id = atla_bending_society.21 }
+						ROOT = {
+							prestige = 25
+							add_society_currency_medium_effect = yes
+							add_character_modifier = { name = wbo_sparring duration = 180 }
+							character_event = { id = atla_bending_society.20 }
+						}
+					}
+					20 = { # neither gives ground
+						custom_tooltip = { text = wbo_spar_drawn_tt }
+						prestige = 10
+						add_society_currency_minor_effect = yes
+						character_event = { id = atla_bending_society.22 }
+						ROOT = {
+							prestige = 10
+							add_society_currency_minor_effect = yes
+							character_event = { id = atla_bending_society.22 }
+						}
+					}
+				}
+			}
+			ROOT = { set_character_flag = recent_spar }
+		}
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+		}
+	}
+
+	# ------------------------------------------------------------- earth: spar
+	ebo_spar_fellow_member = {
+		is_in_society = yes
+		filter = society
+		ai_target_filter = society
+		diplomacy_icon = GFX_duel_decision_agni_kai
+
+		potential = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			society_member_of = earthbending_order
+			OR = {
+				NOT = { has_character_flag = recent_spar }
+				had_character_flag = { flag = recent_spar days = 730 }
+			}
+		}
+
+		from_potential = {
+			society_member_of = earthbending_order
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+		}
+
+		allow = {
+			FROM = {
+				has_society_currency_tiny_trigger = yes
+				is_inaccessible_trigger = no
+				prisoner = no
+				custom_tooltip = {
+					text = has_not_sparred_recently
+					hidden_tooltip = {
+						OR = {
+							NOT = { has_character_flag = recent_spar }
+							had_character_flag = { flag = recent_spar days = 730 }
+						}
+					}
+				}
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+		}
+
+		effect = {
+			FROM = {
+				detract_society_currency_tiny_effect = yes
+				set_character_flag = recent_spar
+				random_list = {
+					40 = { # the challenger takes the bout
+						custom_tooltip = { text = ebo_spar_won_tt }
+						modifier = {
+							factor = 1.4
+							martial = 16
+						}
+						modifier = {
+							factor = 1.2
+							trait = master_bender
+						}
+						modifier = {
+							factor = 1.2
+							trait = powerful_bender
+						}
+						modifier = {
+							factor = 0.8
+							ROOT = { martial = 16 }
+						}
+						modifier = {
+							factor = 0.8
+							ROOT = { trait = master_bender }
+						}
+						prestige = 25
+						add_society_currency_medium_effect = yes
+						add_character_modifier = { name = ebo_sparring duration = 180 }
+						character_event = { id = atla_bending_society.23 }
+						ROOT = { character_event = { id = atla_bending_society.24 } }
+					}
+					40 = { # the challenged takes the bout
+						custom_tooltip = { text = ebo_spar_lost_tt }
+						modifier = {
+							factor = 1.4
+							ROOT = { martial = 16 }
+						}
+						modifier = {
+							factor = 1.2
+							ROOT = { trait = master_bender }
+						}
+						modifier = {
+							factor = 0.8
+							martial = 16
+						}
+						modifier = {
+							factor = 0.8
+							trait = master_bender
+						}
+						character_event = { id = atla_bending_society.24 }
+						ROOT = {
+							prestige = 25
+							add_society_currency_medium_effect = yes
+							add_character_modifier = { name = ebo_sparring duration = 180 }
+							character_event = { id = atla_bending_society.23 }
+						}
+					}
+					20 = { # neither gives ground
+						custom_tooltip = { text = ebo_spar_drawn_tt }
+						prestige = 10
+						add_society_currency_minor_effect = yes
+						character_event = { id = atla_bending_society.25 }
+						ROOT = {
+							prestige = 10
+							add_society_currency_minor_effect = yes
+							character_event = { id = atla_bending_society.25 }
+						}
+					}
+				}
+			}
+			ROOT = { set_character_flag = recent_spar }
+		}
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+		}
+	}
+}
+
+########################################################################
+# The rank ladder.
+#
+# Each order promotes on its own terms. The rank-up button in the Society
+# view points at these decisions (society_rank_up_decision in
+# common/societies/ATLA_bending_orders.txt).
+#
+# A member climbs from the first rank to the third by earning the order's
+# regard and proving the order's virtue:
+#   Water - learning, and time served
+#   Earth - martial skill, and time served
+# The fourth rank is leadership, and is not asked for: it is reached through
+# the society's own standing.
+########################################################################
+
+society_decisions = {
+
+	wbo_request_rank_up = {
+		only_playable = yes
+		hide_in_decisions_list = yes
+		ai_check_interval = 24
+
+		potential = {
+			society_member_of = waterbending_order
+			society_rank < 3
+			days_in_society > 365
+		}
+
+		allow = {
+			custom_tooltip = {
+				text = wbo_rank_up_currency_tt
+				OR = {
+					AND = {
+						society_rank = 1
+						society_currency >= 750
+					}
+					society_currency >= 1000
+				}
+			}
+			custom_tooltip = {
+				text = wbo_rank_up_time_tt
+				days_at_current_society_rank >= 730
+			}
+			custom_tooltip = {
+				text = wbo_rank_up_skill_tt
+				OR = {
+					AND = {
+						society_rank = 1
+						learning >= 10
+					}
+					learning >= 14
+				}
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { society_rank = 1 }
+				change_society_currency = -750
+			}
+			if = {
+				limit = { society_rank = 2 }
+				change_society_currency = -1000
+			}
+			society_rank_up = 1
+		}
+
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.2
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+	}
+
+	ebo_request_rank_up = {
+		only_playable = yes
+		hide_in_decisions_list = yes
+		ai_check_interval = 24
+
+		potential = {
+			society_member_of = earthbending_order
+			society_rank < 3
+			days_in_society > 365
+		}
+
+		allow = {
+			custom_tooltip = {
+				text = ebo_rank_up_currency_tt
+				OR = {
+					AND = {
+						society_rank = 1
+						society_currency >= 750
+					}
+					society_currency >= 1000
+				}
+			}
+			custom_tooltip = {
+				text = ebo_rank_up_time_tt
+				days_at_current_society_rank >= 730
+			}
+			custom_tooltip = {
+				text = ebo_rank_up_skill_tt
+				OR = {
+					AND = {
+						society_rank = 1
+						martial >= 10
+					}
+					martial >= 14
+				}
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { society_rank = 1 }
+				change_society_currency = -750
+			}
+			if = {
+				limit = { society_rank = 2 }
+				change_society_currency = -1000
+			}
+			society_rank_up = 1
+		}
+
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.2
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+	}
+}

@@ -1,0 +1,538 @@
+#########################################
+# ATLA standalone nation events
+#
+# NAFS.100-199  Fire Nation
+# NAFS.200-299  Water Tribe
+# NAFS.300-399  Earth Kingdom
+# NAFS.400-499  Air Nomads
+#########################################
+
+namespace = NAFS
+
+# Hidden yearly dispatcher for the Fire Nation standalone events. The on_action
+# slot is guaranteed; this trigger and chance keep the events rare.
+character_event = {
+	id = NAFS.99
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = fire_nation_cultures
+		OR = {
+			NOT = { has_character_flag = nafs_fire_dragon_done }
+			AND = {
+				year = 830
+				NOT = { has_character_flag = nafs_fire_opera_done }
+			}
+			AND = {
+				year = 850
+				NOT = { has_character_flag = nafs_fire_tax_done }
+			}
+			AND = {
+				year = 918
+				NOT = { has_character_flag = nafs_fire_balloon_done }
+			}
+			NOT = { has_character_flag = nafs_fire_festival_done }
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = 20
+			random_list = {
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_fire_dragon_done } }
+					character_event = { id = NAFS.100 }
+				}
+				100 = {
+					trigger = {
+						year = 918
+						NOT = { has_character_flag = nafs_fire_balloon_done }
+					}
+					character_event = { id = NAFS.101 }
+				}
+				100 = {
+					trigger = {
+						year = 830
+						NOT = { has_character_flag = nafs_fire_opera_done }
+					}
+					character_event = { id = NAFS.102 }
+				}
+				100 = {
+					trigger = {
+						year = 850
+						NOT = { has_character_flag = nafs_fire_tax_done }
+					}
+					character_event = { id = NAFS.103 }
+				}
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_fire_festival_done } }
+					character_event = { id = NAFS.104 }
+				}
+			}
+		}
+	}
+}
+
+# The Dragon Keeper's Request
+character_event = {
+	id = NAFS.100
+	desc = NAFS.100.desc
+	picture = GFX_evt_dragon
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = fire_nation_cultures
+		NOT = { has_character_flag = nafs_fire_dragon_done }
+	}
+
+	option = {
+		name = NAFS.100.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+		}
+		piety = 30
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_dragon_done }
+	}
+
+	option = {
+		name = NAFS.100.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 40
+		piety = -10
+		if = {
+			limit = { NOT = { trait = proud } }
+			hidden_tooltip = { remove_trait = humble }
+			add_trait = proud
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_dragon_done }
+	}
+
+	option = {
+		name = NAFS.100.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 25
+		prestige = 5
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_dragon_done }
+	}
+}
+
+# The War Balloon Prototype
+character_event = {
+	id = NAFS.101
+	desc = NAFS.101.desc
+	picture = GFX_evt_fire_factory
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = fire_nation_cultures
+		year = 918
+		NOT = { has_character_flag = nafs_fire_balloon_done }
+	}
+
+	option = {
+		name = NAFS.101.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 35
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = diligent } }
+			hidden_tooltip = { remove_trait = slothful }
+			add_trait = diligent
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_balloon_done }
+	}
+
+	option = {
+		name = NAFS.101.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		prestige = 15
+		piety = 15
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_balloon_done }
+	}
+
+	option = {
+		name = NAFS.101.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		prestige = 5
+		piety = 10
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_balloon_done }
+	}
+}
+
+# The Masked Opera
+character_event = {
+	id = NAFS.102
+	desc = NAFS.102.desc
+	picture = GFX_evt_fire_nation_festival
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = fire_nation_cultures
+		year = 830
+		NOT = { has_character_flag = nafs_fire_opera_done }
+	}
+
+	option = {
+		name = NAFS.102.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 30
+		piety = -5
+		if = {
+			limit = { NOT = { trait = proud } }
+			hidden_tooltip = { remove_trait = humble }
+			add_trait = proud
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_opera_done }
+	}
+
+	option = {
+		name = NAFS.102.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 25
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_opera_done }
+	}
+
+	option = {
+		name = NAFS.102.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		prestige = 10
+		piety = 15
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_opera_done }
+	}
+}
+
+# The Colonial Tax Convoy
+character_event = {
+	id = NAFS.103
+	desc = NAFS.103.desc
+	picture = GFX_evt_fire_nation_colony
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = fire_nation_cultures
+		year = 850
+		NOT = { has_character_flag = nafs_fire_tax_done }
+	}
+
+	option = {
+		name = NAFS.103.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+		}
+		prestige = 20
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = ambitious } }
+			hidden_tooltip = { remove_trait = content }
+			add_trait = ambitious
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_tax_done }
+	}
+
+	option = {
+		name = NAFS.103.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		prestige = 10
+		piety = 15
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_tax_done }
+	}
+
+	option = {
+		name = NAFS.103.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		prestige = 5
+		piety = 5
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_tax_done }
+	}
+}
+
+# The Comet Festival
+character_event = {
+	id = NAFS.104
+	desc = {
+		trigger = { NOT = { year = 830 } }
+		text = NAFS.104.desc.early
+	}
+	desc = {
+		trigger = { year = 830 }
+		text = NAFS.104.desc
+	}
+	picture = GFX_evt_fire_comet
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = fire_nation_cultures
+		NOT = { has_character_flag = nafs_fire_festival_done }
+	}
+
+	option = {
+		name = NAFS.104.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+		}
+		prestige = 35
+		if = {
+			limit = { NOT = { trait = brave } }
+			hidden_tooltip = { remove_trait = craven }
+			add_trait = brave
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_festival_done }
+	}
+
+	option = {
+		name = NAFS.104.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 30
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_festival_done }
+	}
+
+	option = {
+		name = NAFS.104.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		prestige = 15
+		piety = 15
+		if = {
+			limit = { NOT = { trait = gregarious } }
+			hidden_tooltip = { remove_trait = shy }
+			add_trait = gregarious
+		}
+		hidden_tooltip = { set_character_flag = nafs_fire_festival_done }
+	}
+}

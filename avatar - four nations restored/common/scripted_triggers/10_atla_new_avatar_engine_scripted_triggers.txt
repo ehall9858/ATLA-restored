@@ -1,3 +1,193 @@
+is_suitable_mother_of_avatar_trigger = {
+    is_female = yes
+    is_adult = yes
+    is_married = yes
+    # Noble branch only: both parents must already belong to a dynasty, so the
+    # child really is born into a noble house. Without this the "noble" roll
+    # could land on a lowborn mother and produce a dynasty-less child anyway.
+    is_lowborn = no
+    spouse_even_if_dead = {
+        is_lowborn = no
+    }
+
+    OR = {
+        liege = {
+            higher_real_tier_than = BARON
+        }
+        top_liege = {
+            higher_real_tier_than = COUNT
+        }
+    }
+
+    OR = {
+        AND = {
+            has_global_flag = avatar_fire
+            is_suitable_mother_of_avatar_fire_trigger = yes
+        }
+        AND = {
+            has_global_flag = avatar_air
+            is_suitable_mother_of_avatar_air_trigger = yes
+        }
+        AND = {
+            has_global_flag = avatar_water
+            is_suitable_mother_of_avatar_water_trigger = yes
+        }
+        AND = {
+            has_global_flag = avatar_earth
+            is_suitable_mother_of_avatar_earth_trigger = yes
+        }
+    }
+}
+
+# Same as above, but for a POOR family: lowborn, unmarried (her husband is
+# generated lowborn at birth time), and herself a bender of the right
+# element - no rank requirement.
+# NOTE: the lowborn birth path no longer uses this as a gate - it generates
+# both parents from scratch, so it never depends on an existing family. Kept
+# only in case something wants to detect "a world where lowborn benders exist".
+is_suitable_lowborn_mother_of_avatar_trigger = {
+    is_female = yes
+    is_adult = yes
+    is_married = no
+    is_lowborn = yes
+
+    OR = {
+        AND = {
+            has_global_flag = avatar_fire
+            trait = firebender
+        }
+        AND = {
+            has_global_flag = avatar_air
+            trait = airbender
+        }
+        AND = {
+            has_global_flag = avatar_water
+            trait = waterbender
+        }
+        AND = {
+            has_global_flag = avatar_earth
+            trait = earthbender
+        }
+    }
+}
+
+is_suitable_mother_of_avatar_roku_trigger = {
+    at_location = d_capital_province
+
+    is_female = yes
+    is_adult = yes
+    is_married = yes
+
+    is_suitable_mother_of_avatar_fire_trigger = yes
+}
+
+is_suitable_mother_of_avatar_fire_trigger = {
+    OR = {
+        trait = firebender
+        spouse_even_if_dead = {
+            trait = firebender
+        }
+    }
+}
+
+is_suitable_mother_of_avatar_air_trigger = {
+    OR = {
+        trait = airbender
+        spouse_even_if_dead = {
+            trait = airbender
+        }
+    }
+}
+
+is_suitable_mother_of_avatar_water_trigger = {
+    OR = {
+        trait = waterbender
+        spouse_even_if_dead = {
+            trait = waterbender
+        }
+    }
+}
+
+is_suitable_mother_of_avatar_earth_trigger = {
+    OR = {
+        trait = earthbender
+        spouse_even_if_dead = {
+            trait = earthbender
+        }
+    }
+}
+
+is_suitable_teacher_of_avatar_trigger = {
+   NOT = { trait = incompetent_bender } #Having a bender trait means you're a bender, so we don't need to check for 'is_bender'
+
+    OR = {
+        AND = {
+            has_global_flag = avatar_fire
+            trait = firebender
+        }
+        AND = {
+            has_global_flag = avatar_air
+            trait = airbender
+            trait = airelder
+        }
+        AND = {
+            has_global_flag = avatar_water
+            trait = waterbender
+        }
+        AND = {
+            has_global_flag = avatar_earth
+            trait = earthbender
+        }
+    }
+}
+
+
+###################################
+# new avatar engine - fire avatar #
+###################################
+
+
+is_fire_lord_trigger = {
+    is_landed = yes
+    OR = {
+        any_owned_bloodline = { has_bloodline_flag = is_firelord_bloodline }
+        trait = firelord
+        trait = bad_king_fire
+    }
+}
+
+is_avatar_trigger = {
+    OR = {
+        trait = avatar
+        trait = fullyrealisedavatar
+        has_character_flag = avatar_revealed
+        has_character_flag = avatar_unrevealed
+    }
+}
+
+has_flying_pet_or_artifact_trigger = {
+    any_artifact = {
+        OR = {
+            has_artifact_flag = flying_pet
+            has_artifact_flag = staffglider
+        }
+        is_artifact_active = yes
+    }
+    OR = {
+        has_artifact = petDragon
+        has_artifact = petSkybison
+        has_artifact = staffGlider
+    }
+}
+
+is_already_at_firelord_court_trigger = {
+    is_tributary = {
+        type = unrevealed_avatar_tributary
+        suzerain = event_target:firelord
+    }
+}
+
+# ---- kept from the modified version (used by nothing in the old system, harmless) ----
 is_hostile_to_avatar_trigger = {
 	custom_tooltip = { text = hostile_to_avatar_tt }
 	OR = {
@@ -12,8 +202,8 @@ is_hostile_to_avatar_trigger = {
 		has_religion_feature = religion_feature_new_barbarism #This is the 'We are going to sacrifice people en-masse to dark gods' doctrine
 		religion = fire_nation_imperialism
 		has_law = slavery_legal
-		any_rival = { trait = avatar }
-		any_current_enemy = { trait = avatar } #Checks the Avatar isn't currently at war with them
+		any_rival = { is_revealed_avatar_trigger = yes }
+		any_current_enemy = { is_revealed_avatar_trigger = yes } #Checks the Avatar isn't currently at war with them
 	}
 }
 

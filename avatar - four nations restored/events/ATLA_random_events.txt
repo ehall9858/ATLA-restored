@@ -228,7 +228,22 @@ character_event = { # Find Master
 			}
 			add_trait = weapons_expert
 		}
-		else = { upgrade_bending_effect = yes }
+		if = {
+			limit = {
+				is_bender_trigger = yes
+				OR = {
+					NOT = { trait = master_bender }
+					AND = {
+						trait = master_bender
+						NOR = {
+							trait = avatar
+							trait = fullyrealisedavatar
+						}
+					}
+				}
+			}
+			upgrade_bending_effect = yes
+		}
 	}
 
 	option = {
@@ -506,7 +521,12 @@ character_event = { # Find a Dragon
 			# todo: add modifiers, like, combustion or lightning could boost your chances
 			# !modifier
 			40 = {
-				give_nickname = nick_the_dragon
+				if = {
+					limit = {
+						NOT = { is_avatar_trigger = yes }
+					}
+					give_nickname = nick_the_dragon
+				}
 				hidden_tooltip = {
 					character_event = { id = ATLAR.19 days = 7 }
 				}
@@ -563,7 +583,22 @@ character_event = { # Dragon - Dragon Slain
 		name = "EVTOPTAATLAR.19"
 		prestige = 500
 		add_trait = proud
+		if = {
+			limit = {
+				trait = firebender
+				OR = {
+					NOT = { trait = master_bender }
+					AND = {
+						trait = master_bender
+						NOR = {
+							trait = avatar
+							trait = fullyrealisedavatar
+						}
+					}
+				}
+			}
 		upgrade_bending_effect = yes
+		}
 	}
 }
 
@@ -606,7 +641,21 @@ character_event = { # Badger Mole - Learning
 
 	option = {
 		name = "EVTOPTAATLAR.21"
+		if = {
+			limit = {
+				OR = {
+					NOT = { trait = master_bender }
+					AND = {
+						trait = master_bender
+						NOR = {
+							trait = avatar
+							trait = fullyrealisedavatar
+						}
+					}
+				}
+			}
 		upgrade_bending_effect = yes
+		}
 		add_trait = seismicsense_nonblind
 	}
 }
@@ -1754,7 +1803,8 @@ narrative_event = {
 		# trigger = {
 			# OR = {
 				# trait = just
-				# any_owned_bloodline = { has_bloodline_flag = is_avatar_bloodline }
+				# trait = directdescendantavatar
+				# trait = descendantavatar
 			# }
 		# }
 	# }
@@ -2068,3 +2118,76 @@ narrative_event = {
 		# }
 	# }
 # }
+
+character_event = {  #Avatar finder - By Domaxs
+	id = ATLAR.764
+	is_triggered_only = yes
+	only_playable = yes
+	picture = GFX_evt_avatar_conflict
+
+	desc = {
+		text = EVTDESC_CASE1_ATLAR.764
+		trigger = {
+			OR = {
+				event_target:avatar = {
+					is_alive = no
+				}
+				d_avatar = {
+					has_holder = no
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC_CASE2_ATLAR.764
+		trigger = {
+			AND = {
+				event_target:avatar = {
+					is_alive = yes
+				}
+				d_avatar = {
+					has_holder = yes
+				}
+			}
+		}
+	}
+	immediate = {
+		if = {
+			limit = {
+				d_avatar = {
+					has_holder = yes
+				}
+			}
+			find_avatar_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ATLAR.764
+		trigger = {
+			AND = {
+				event_target:avatar = {
+					is_alive = yes
+				}
+				d_avatar = {
+					has_holder = yes
+				}
+			}
+		}
+		clr_character_flag = viewing_avatar_status
+	}
+	option = {
+		name = EVTOPTB_ATLAR.764
+		trigger = {
+			OR = {
+				event_target:avatar = {
+					is_alive = no
+				}
+				d_avatar = {
+					has_holder = no
+				}
+			}
+		}
+		clr_character_flag = viewing_avatar_status
+	}
+}

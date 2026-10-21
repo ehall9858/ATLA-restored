@@ -445,7 +445,7 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_fully_realised_avatar"
+		name = "GFX_trait_fullyrealisedavatar"
 		texturefile = "gfx/traits/avatar_icon2.dds"
 		noOfFrames = 1
 		norefcount = yes
@@ -468,6 +468,55 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_trait_former_team_avatar"
 		texturefile = "gfx/traits/former_team_avatar.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_spiritually_focused_avatar"
+		texturefile = "gfx/traits/avatar_focus_spiritual.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_politically_focused_avatar"
+		texturefile = "gfx/traits/avatar_focus_political.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_wandering_avatar"
+		texturefile = "gfx/traits/avatar_focus_wandering.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_martial_avatar"
+		texturefile = "gfx/traits/avatar_focus_martial.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_avatar_nobleborn"
+		texturefile = "gfx/traits/avatar_nobleborn.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_avatar_lowborn"
+		texturefile = "gfx/traits/avatar_lowborn.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_villain"
+		texturefile = "gfx/traits/avatar_villain.dds"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
@@ -1131,4 +1180,33 @@ spriteTypes = {
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}	
+
+	spriteType = {
+		name = "GFX_trait_focus_master_spiritual"
+		texturefile = "gfx/traits/avatar_focus_spiritual.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_focus_master_political"
+		texturefile = "gfx/traits/avatar_focus_political.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_focus_master_wandering"
+		texturefile = "gfx/traits/avatar_focus_wandering.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_focus_master_martial"
+		texturefile = "gfx/traits/avatar_focus_martial.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
 }

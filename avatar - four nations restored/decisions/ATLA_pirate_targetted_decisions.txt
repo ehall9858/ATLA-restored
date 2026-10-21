@@ -157,7 +157,7 @@ targetted_decisions = {
 			ROOT = {
 				set_variable = { which = slave_value value = 0 } ##I hate this amount of ifs as much as you do but scripted triggers are a bitch to work with, this is the best way I know of. Shame we can't piggyback off third_party_score_value... ##TODO: Maybe figure out how to do that.
 				if = {
-					limit = { has_character_flag = is_avatar }
+					limit = { is_avatar_trigger = yes }
 					long_character_event = { id = PRT.1000 }
 					break = yes
 				}

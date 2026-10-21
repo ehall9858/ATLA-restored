@@ -1,0 +1,22 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+atla_master_choice.refuse;Refuse the Sages. I will choose my own master;;;;;;;;;;;;x
+atla_master_choice.1.desc;The Sages have already decided. A master of the Fire Nation has been chosen for you, as one was chosen for Roku, and for Kyoshi, and for every Avatar the world still remembers. Their word reached the harbour before you did.\n\nBut you have walked these streets yourself, and you have heard other names spoken, not with the caution of men naming an official, but with the warmth of men naming a teacher. The Sages chose a master for the Avatar. You would rather choose one for yourself.;;;;;;;;;;;;x
+atla_master_choice.1.opt1;Ask the old master [atla_mc_cand_1.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.1.opt2;Ask the young prodigy [atla_mc_cand_2.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.1.opt3;Ask the wandering soldier [atla_mc_cand_3.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.1.opt4;Send word back to the Sages: none of these will do;;;;;;;;;;;;x
+atla_master_choice.2.desc;Word of the Sages' choice travelled faster than you did, and reached the tribes before you. A master has been settled upon, a name you did not choose, and were never asked about.\n\nA teacher, in the water tribes, is not an appointment. It is a bond, and a bond arranged by others is no bond at all. You have heard of three who might take you. You mean to ask them yourself.;;;;;;;;;;;;x
+atla_master_choice.2.opt1;Ask the old master [atla_mc_cand_1.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.2.opt2;Ask the young prodigy [atla_mc_cand_2.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.2.opt3;Ask the wandering fighter [atla_mc_cand_3.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.2.opt4;Send word back to the Sages: none of these will do;;;;;;;;;;;;x
+atla_master_choice.3.desc;The Sages' letter is waiting for you at the gates of the city: your earthbending master has been found, and you are to present yourself when you are called. It is the way it has always been done.\n\nIt is not, however, the way it must be done. In the markets and the ferry-houses you have met three benders who owe nothing to the Sages, and who would teach you for the teaching's own sake. That is worth more to you than an appointment.;;;;;;;;;;;;x
+atla_master_choice.3.opt1;Ask the old master [atla_mc_cand_1.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.3.opt2;Ask the young prodigy [atla_mc_cand_2.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.3.opt3;Ask the wandering fighter [atla_mc_cand_3.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.3.opt4;Send word back to the Sages: none of these will do;;;;;;;;;;;;x
+atla_master_choice.4.desc;The elders have conferred, as elders do, and a teacher has been named for you. It is a great honour. It was also arranged without you.\n\nYou flew here on your own wings, and you have spoken with more than the elders. Three names keep coming back to you, and none of them is the name you were given. You are the Avatar. The Avatar may choose.;;;;;;;;;;;;x
+atla_master_choice.4.opt1;Ask the old master [atla_mc_cand_1.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.4.opt2;Ask the young prodigy [atla_mc_cand_2.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.4.opt3;Ask the wandering monk [atla_mc_cand_3.GetFullName] to teach you;;;;;;;;;;;;x
+atla_master_choice.4.opt4;Send word back to the Sages: none of these will do;;;;;;;;;;;;x

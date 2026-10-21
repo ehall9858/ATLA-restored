@@ -1028,7 +1028,12 @@ decisions = {
 			create_bloodline = {
 				type = great_emperor_bloodline
 			}
-			give_nickname = nick_the_great_restorer
+			if = {
+				limit = {
+					NOT = { is_avatar_trigger = yes }
+				}
+				give_nickname = nick_the_great_restorer
+			}
 			#any_playable_ruler = {
 			#	character_event = { id = ATLAChin.0 days = 1 }
 			#}
@@ -1093,6 +1098,34 @@ decisions = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}
 	
@@ -1160,6 +1193,37 @@ decisions = {
 				}
 			}
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
 	}
 	
 	form_earth_empire_ek = {
@@ -1217,6 +1281,37 @@ decisions = {
 			#any_playable_ruler = {
 				#narrative_event = { id = earthking.68 }
 			#}	
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}
 	

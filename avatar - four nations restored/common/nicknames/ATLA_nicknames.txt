@@ -1,109 +1,664 @@
 #New triggerd nicknames:
+# ---------------------------------------------------------------
+# Live auto-pool entries (allow + chance) - granted by the engine to
+# characters of the matching nation/traits.  The Avatar is excluded.
+# ---------------------------------------------------------------
 nick_the_avatar = {} # probably wont be used
 nick_the_anti-avatar = {}
 nick_the_great_uniter = {}
 nick_twinkle_toes = {}
 nick_the_dragon_of_the_east = {}
 nick_the_dragon_of_the_north = {}
-nick_the_dragon_of_the_west = {}
+nick_the_dragon_of_the_west = {
+	allow = {
+		culture_group = fire_nation_cultures
+		trait = firebender
+		age = 45
+		OR = { trait = master_bender trait = scholar learning = 12 }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_the_dragon_of_the_south = {}
-nick_the_dragon = {}
-nick_the_dragon_of_ember_island = {}
+nick_the_dragon = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		trait = firebender
+		OR = { trait = master_bender trait = legendary_bender trait = duelist }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_dragon_of_ember_island = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		culture = fire_islander
+		trait = firebender
+		OR = { trait = master_bender trait = strong }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_the_dragon_of_ba-sing-se = {}
 nick_the_dragon_of_kyoshi_island = {}
 nick_the_dragon_of_yu-dao = {}
-nick_the_dragon_of_the_fire_nation = {}
-nick_the_blind_bandit = {}
-nick_the_boulder = {}
-nick_the_hippo = {}
-nick_the_pebble = {}
+nick_the_dragon_of_the_fire_nation = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		trait = firebender
+		trait = firelord
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_blind_bandit = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = blind
+		trait = earthbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 5
+	}
+}
+nick_the_boulder = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = earthbender
+		OR = { trait = strong trait = duelist }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_hippo = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = earthbender
+		OR = { trait = strong trait = gluttonous }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_pebble = {
+	allow = {
+		culture_group = earth_kingdom_cultures
+		trait = earthbender
+		NOT = { age = 25 }
+		NOT = { trait = strong }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_fire_nation_man = {}
-nick_the_gecko = {}
-nick_the_headhunter = {}
-nick_hotman = {}
+nick_the_gecko = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		OR = { trait = deceitful trait = quick }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_headhunter = {
+	allow = {
+		age = 16
+		OR = { trait = cruel trait = brave }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_hotman = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		OR = { trait = wroth trait = brave }
+		NOT = { trait = shy }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_the_goody_two-shoes_consul = {}
 nick_cumbustion_man = {}
 nick_sparky_sparky_boom_man = {}
-nick_the_puppetmaster = {}
+nick_the_puppetmaster = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		trait = bloodbender
+		is_female = yes
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
 nick_lightning_bolt = {}
 nick_viper = {}
-nick_the_hero_of_the_south = {}
+nick_the_hero_of_the_south = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		culture = southern_water_culture
+		OR = { trait = brave trait = just }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_wang_fire = {}
-nick_the_blue_spirit = {}
-nick_the_dishonorable = {}
+nick_the_blue_spirit = {
+	allow = {
+		age = 16
+		NOT = { is_landed = yes }
+		OR = { trait = deceitful trait = brave }
+		intrigue = 12
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_dishonorable = {
+	allow = {
+		age = 16
+		trait = dishonourable
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
 nick_Amon = {}
-nick_the_turtleduck = {}
-nick_the_melon_lord = {}
+nick_the_turtleduck = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		OR = { trait = kind trait = content }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_melon_lord = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = earthbender
+		OR = { trait = deceitful trait = actor }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_the_circus_freak = {}
 nick_madame_fussy-briches = {}
 nick_mudslug = {}
 #made up nicknames
 nick_the_fartbender = {}
-nick_the_master_of_the_spirit_world = {}
-nick_the_great_equalizer = {}
+nick_the_master_of_the_spirit_world = {
+	allow = {
+		age = 16
+		culture_group = air_nomad_cultures
+		trait = spiritual_projection
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 4
+	}
+}
+nick_the_great_equalizer = {
+	allow = {
+		age = 16
+		NOT = { OR = { trait = waterbender trait = earthbender trait = firebender trait = airbender } }
+		OR = { trait = ambitious trait = deceitful }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_terrible_uniter = {}
-nick_the_uniter = {}
+nick_the_uniter = {
+	allow = {
+		age = 16
+		trait = conqueror
+		is_ruler = yes
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_anarchist = {}
 nick_the_free = {}
 nick_the_truly_free = {}
-nick_the_spirit_master = {}
-nick_the_flame = {}
-nick_ice_hands = {}
+nick_the_spirit_master = {
+	allow = {
+		age = 16
+		OR = { culture_group = air_nomad_cultures culture_group = water_tribe_cultures }
+		OR = { trait = spirit trait = enlightened trait = mystic learning = 14 }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_flame = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		trait = firebender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_ice_hands = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		trait = waterbender
+		OR = { trait = brave trait = cruel }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_iceburg = {}
 nick_the_red_spirit = {}
 nick_fire_nation_lady = {}
 nick_the_secret_platypusbear = {}
-nick_the_actor = {}
-nick_the_tea_master = {}
+nick_the_actor = {
+	allow = {
+		age = 16
+		trait = actor
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
+nick_the_tea_master = {
+	allow = {
+		age = 16
+		trait = tea_master
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
 nick_the_cabbage_man = {}
 nick_arrow_head = {}
-nick_the_trickster_monk = {}
-nick_the_bloodbender = {}
-nick_the_metalbender = {}
-nick_the_lightningbender = {}
+nick_the_trickster_monk = {
+	allow = {
+		age = 16
+		culture_group = air_nomad_cultures
+		OR = { trait = deceitful trait = quick }
+		NOT = { trait = honest }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_bloodbender = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		trait = bloodbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
+nick_the_metalbender = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = metalbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
+nick_the_lightningbender = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		trait = lightningbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_lightning_pole = {}
 nick_the_southern_raider = {}
-nick_the_raider = {}
+nick_the_raider = {
+	allow = {
+		age = 16
+		culture_group = outlaw_cultures
+		OR = { trait = brave trait = cruel }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_leader_of_the_rough_rhinos = {}
 nick_the_destroyer_of_all_that_is_good = {} #for the one who will not be named only
 nick_sandy_britches = {}
-nick_the_plant_bender = {}
-nick_the_hero_of_the_north = {}
-nick_the_hero_of_ba_sing_se = {}
-nick_the_hero_of_the_swamp = {}
-nick_the_wall_breacher = {}
+nick_the_plant_bender = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		culture = swampfolk
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
+nick_the_hero_of_the_north = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		culture = northern_water_culture
+		OR = { trait = brave trait = just }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_hero_of_ba_sing_se = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		culture = ba_sing_se_culture
+		OR = { trait = brave trait = just }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_hero_of_the_swamp = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		culture = swampfolk
+		OR = { trait = brave trait = diligent }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_wall_breacher = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = earthbender
+		martial = 12
+		OR = { trait = brave trait = wroth }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_the_brainwashed = {}
 nick_the_brainwasher = {}
-nick_the_hippie = {}
+nick_the_hippie = {
+	allow = {
+		age = 16
+		culture_group = air_nomad_cultures
+		culture = air_acolytes
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_lover = {}
-nick_the_unagi_rider = {}
-nick_the_absolutist = {}
+nick_the_unagi_rider = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		OR = { trait = brave trait = strong }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_absolutist = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		is_ruler = yes
+		OR = { trait = arbitrary trait = zealous }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_barefoot = {}
-nick_the_librarian = {}
+nick_the_librarian = {
+	allow = {
+		age = 16
+		OR = { culture_group = earth_kingdom_cultures culture_group = air_nomad_cultures }
+		OR = { trait = scholar trait = serpent_scholar learning = 12 }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_knowledgeable = {}
 nick_the_student = {}
-nick_the_builder = {}
+nick_the_builder = {
+	allow = {
+		age = 16
+		OR = { culture_group = earth_kingdom_cultures culture_group = air_nomad_cultures }
+		OR = { trait = diligent stewardship = 12 }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_cabbage = {}
 nick_the_crosseyed = {}
 nick_daisy = {}
 nick_the_humanist = {}
-nick_the_learned = {}
-nick_the_outlaw = {}
+nick_the_learned = {
+	allow = {
+		age = 16
+		OR = { culture_group = earth_kingdom_cultures culture_group = air_nomad_cultures }
+		learning = 14
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_outlaw = {
+	allow = {
+		age = 16
+		culture_group = outlaw_cultures
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_pale = {}
 nick_the_peaceful = {}
 nick_the_vain = {}
 nick_the_calm_minded = {}
-nick_the_enlightened = {}
-nick_the_master_of_the_void = {}
-nick_the_master_of_flight = {}
-nick_the_master_of_air = {}
-nick_the_master_of_earth = {}
-nick_the_master_of_fire = {}
-nick_the_master_of_lightning = {}
-nick_the_master_of_water = {}
-nick_the_master_of_metal = {}
-nick_the_master_of_blood = {}
-nick_the_master_of_sand = {}
+nick_the_enlightened = {
+	allow = {
+		age = 16
+		culture_group = air_nomad_cultures
+		OR = { trait = enlightened trait = airelder learning = 14 }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_master_of_the_void = {
+	allow = {
+		age = 16
+		culture_group = air_nomad_cultures
+		trait = voidbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
+nick_the_master_of_flight = {
+	allow = {
+		age = 16
+		culture_group = air_nomad_cultures
+		trait = levitation
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 4
+	}
+}
+nick_the_master_of_air = {
+	allow = {
+		age = 16
+		culture_group = air_nomad_cultures
+		trait = airbender
+		OR = { trait = master_bender trait = legendary_bender }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_master_of_earth = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = earthbender
+		OR = { trait = master_bender trait = legendary_bender }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_master_of_fire = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		trait = firebender
+		OR = { trait = master_bender trait = legendary_bender }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_master_of_lightning = {
+	allow = {
+		age = 16
+		culture_group = fire_nation_cultures
+		trait = lightningbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_master_of_water = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		trait = waterbender
+		OR = { trait = master_bender trait = legendary_bender }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_master_of_metal = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = metalbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_master_of_blood = {
+	allow = {
+		age = 16
+		culture_group = water_tribe_cultures
+		trait = bloodbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
+nick_the_master_of_sand = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = sandbender
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_disgusting = {}
 nick_the_proudest_in_the_land = {}
 nick_the_blue = {}
@@ -117,31 +672,133 @@ nick_the_gay = {}
 nick_the_lesbian = {}
 nick_the_bisexual = {}
 nick_actually_shes_bisexual = {}
-nick_the_warrior_monk = {}
-nick_the_warrior_nun = {}
+nick_the_warrior_monk = {
+	allow = {
+		age = 16
+		culture_group = air_nomad_cultures
+		OR = { trait = brave trait = duelist trait = zealous }
+		martial = 12
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
+nick_the_warrior_nun = {
+	allow = {
+		age = 16
+		is_female = yes
+		OR = { culture_group = air_nomad_cultures trait = zealous }
+		OR = { trait = brave trait = diligent }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_warrior_lady = {}
-nick_the_vigilant = {}
+nick_the_vigilant = {
+	allow = {
+		age = 16
+		OR = { trait = paranoid trait = diligent }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_the_slaver = {}
-nick_the_juggernaut = {}
+nick_the_juggernaut = {
+	allow = {
+		age = 16
+		OR = { trait = strong trait = brave }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 2
+	}
+}
 nick_the_sad = {}
 nick_the_wolf-monkey = {}
 nick_the_cat-badger = {}
 nick_the_eagle-swan = {}
-nick_the_famous = {} #obj
+nick_the_famous = {
+	allow = {
+		age = 16
+		prestige = 1000
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_the_infamous = {} #obj
 nick_the_sailor = {}
 nick_the_red_spear = {}
 nick_the_helmet = {}
-nick_the_rising_sun = {}
-nick_the_great_wind = {}
+nick_the_rising_sun = {
+	allow = {
+		culture_group = fire_nation_cultures
+		age = 16
+		NOT = { age = 35 }
+		trait = ambitious
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_great_wind = {
+	allow = {
+		culture_group = air_nomad_cultures
+		trait = airbender
+		age = 50
+		OR = { trait = master_bender trait = legendary_bender }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_the_dancer = {}
-nick_the_wild_mustang = {}
-nick_the_one_man_army = {}
-nick_the_spymaster = {}
+nick_the_wild_mustang = {
+	allow = {
+		age = 16
+		culture_group = earth_kingdom_cultures
+		trait = sandbender
+		OR = { trait = brave trait = quick }
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 3
+	}
+}
+nick_the_one_man_army = {
+	allow = {
+		age = 16
+		OR = { trait = brilliant_strategist trait = skilled_tactician }
+		martial = 16
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
+nick_the_spymaster = {
+	allow = {
+		age = 16
+		intrigue = 16
+		NOT = { is_avatar_trigger = yes }
+	}
+	chance = {
+		factor = 1
+	}
+}
 nick_spirit_slayer = {}
 
 nick_the_unagi = {
 	allow = {
+		NOT = { is_avatar_trigger = yes }
 		ruled_years = 10
 		trait = wroth
 		OR = {

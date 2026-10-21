@@ -1,0 +1,33 @@
+# Non-bender warrior ladder icons (see common/traits/zz_ATLA_warrior_traits.txt)
+
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_trait_atla_fighter"
+		texturefile = "gfx/traits/atla_fighter.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_atla_warrior"
+		texturefile = "gfx/traits/atla_warrior.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_atla_master"
+		texturefile = "gfx/traits/atla_master.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_atla_grandmaster"
+		texturefile = "gfx/traits/atla_grandmaster.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

@@ -13,6 +13,37 @@ decisions = {
 			set_character_flag = relaxing_afternoon
 			character_event = { id = TEA.10000 }		
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
 		
 	}
 	
@@ -29,6 +60,37 @@ decisions = {
 			set_character_flag = tea_near_the_spirits
 			character_event = { id = TEA.10001 }		
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
 	}
 	
 	have_a_cup_of_tea = {
@@ -43,6 +105,37 @@ decisions = {
 		effect = {
 			set_character_flag = made_tea_irl
 			character_event = { id = TEA.10002 }		
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}	
 	
@@ -290,6 +383,37 @@ decisions = {
 			}
 			character_event = { id = TEA.20000 }
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
 	}
 	
 	host_tea_party = {
@@ -307,6 +431,37 @@ decisions = {
 				text = host_tea_party_tooltip
 			}
 			character_event = { id = TEA.30000 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}
 }

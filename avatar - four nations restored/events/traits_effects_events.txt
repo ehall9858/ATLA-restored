@@ -5713,7 +5713,7 @@ character_event = {
 character_event = {
 	id = 3260
 	desc = {
-		text = EVTDESC3260	#Hide martial
+		text = EVTDESC3264 #Hide martial
 	}
 	picture = GFX_evt_spymaster
 	

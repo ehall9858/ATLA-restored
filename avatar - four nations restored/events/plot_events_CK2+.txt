@@ -1,0 +1,4253 @@
+namespace = plot_events_CK2plus
+
+character_event = {
+	id = plot_events_CK2plus.27
+	picture = GFX_evt_spymaster	
+	
+	only_rulers = yes
+	is_part_of_plot = yes
+	
+	trigger = {
+		age = 16
+		has_plot = plot_instigate_revolt
+		NOT = { has_character_flag = plot_in_action }
+		plot_target_char = { war = no }
+	}
+	
+	mean_time_to_happen = {
+		months = 60	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 1
+		}		
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 2
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 3
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 6
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 7
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 8
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 9
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 10
+		}		
+		modifier = {
+			factor = 0.66
+			plot_power = 0.5
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 1.0
+		}	
+		modifier = {
+			factor = 0.66
+			plot_power = 1.5
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 2.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 3.0
+		}	
+		modifier = {
+			factor = 0.66
+			plot_power = 4.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 6.0
+		}	
+		modifier = {
+			factor = 0.66
+			plot_power = 8.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 10.0
+		}		
+	}
+		
+	desc = "EVTDESCplot_events_CK2plus.27"
+
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.27"
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			NOT = { plot_power = 0.5 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		plot_target_char = {			
+			random_list = {
+				30 = { character_event = { id = plot_events_CK2plus.28 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+				70 = { character_event = { id = plot_events_CK2plus.31 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+			}
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.27"
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 0.5
+			NOT = { plot_power = 1.0 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		plot_target_char = {			
+			random_list = {
+				40 = { character_event = { id = plot_events_CK2plus.28 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+				60 = { character_event = { id = plot_events_CK2plus.31 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+			}
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.27"
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 1.0
+			NOT = { plot_power = 1.5 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		plot_target_char = {			
+			random_list = {
+				50 = { character_event = { id = plot_events_CK2plus.28 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+				50 = { character_event = { id = plot_events_CK2plus.31 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+			}
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.27"
+		ai_chance = { 
+			factor = 400
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 1.5
+			NOT = { plot_power = 2.0 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		plot_target_char = {			
+			random_list = {
+				60 = { character_event = { id = plot_events_CK2plus.28 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+				40 = { character_event = { id = plot_events_CK2plus.31 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+			}
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.27"
+		ai_chance = { 
+			factor = 1000			
+		}
+		trigger = {
+			plot_power = 2.0
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		plot_target_char = {			
+			random_list = {
+				70 = { character_event = { id = plot_events_CK2plus.28 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+				30 = { character_event = { id = plot_events_CK2plus.31 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+			}
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}	
+	option = {
+		name = "EVTOPTBplot_events_CK2plus.27"	
+		ai_chance = { factor = 100 }
+		trigger = {
+			NOT = { plot_power = 2.0 }
+		}		
+	}	
+}
+
+character_event = {
+	id = plot_events_CK2plus.32
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.32"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.32"		
+		prestige = -250	
+		change_variable = { which = "dishonorable" value = 10 } 
+		cancel_plot = plot_instigate_revolt
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.34
+	picture = GFX_evt_spymaster	
+	
+	only_rulers = yes
+	is_part_of_plot = yes
+	
+	trigger = {
+		age = 16
+		OR = {
+			has_plot = plot_fabricate_treason
+			has_plot = plot_fabricate_treason_liege
+		}
+		NOT = { has_character_flag = plot_in_action }
+		NOT = {
+			plot_target_char = {
+				liege = {
+					character = ROOT
+				}
+			}	
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 1
+		}			
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 2
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 3
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 6
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 7
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 8
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 9
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 10
+		}		
+		modifier = {
+			factor = 0.66
+			plot_power = 0.5
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 1.0
+		}	
+		modifier = {
+			factor = 0.66
+			plot_power = 1.5
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 2.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 3.0
+		}	
+		modifier = {
+			factor = 0.66
+			plot_power = 4.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 6.0
+		}	
+		modifier = {
+			factor = 0.66
+			plot_power = 8.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 10.0
+		}		
+	}
+		
+	desc = "EVTDESCplot_events_CK2plus.34"
+
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.34"
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			NOT = { plot_power = 0.5 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				liege = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					25 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					25 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					50 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					liege = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					15 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					15 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					70 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}		
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.34"
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 0.5
+			NOT = { plot_power = 1.0 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				liege = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					25 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					25 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					50 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					liege = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					40 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					30 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					30 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}	
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.34"
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 1.0
+			NOT = { plot_power = 1.5 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				liege = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					60 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					20 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					20 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					liege = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					40 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					30 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					30 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}	
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.34"
+		ai_chance = { 
+			factor = 400
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 1.5
+			NOT = { plot_power = 2.0 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				liege = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					80 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					15 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					5 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					liege = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					60 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					20 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					20 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.34"
+		ai_chance = { 
+			factor = 1000			
+		}
+		trigger = {
+			plot_power = 2.0
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				liege = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					90 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					5 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					5 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					liege = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					80 = { character_event = { id = plot_events_CK2plus.35 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					15 = { character_event = { id = plot_events_CK2plus.38 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					5 = { character_event = { id = plot_events_CK2plus.41 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}	
+	option = {
+		name = "EVTOPTBplot_events_CK2plus.34"	
+		ai_chance = { factor = 100 }
+		trigger = {
+			NOT = { plot_power = 2.0 }
+		}		
+	}	
+}
+
+character_event = {
+	id = plot_events_CK2plus.39
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.39"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.39"	
+		if = {
+			limit = { has_plot = plot_fabricate_treason }
+			cancel_plot = plot_fabricate_treason
+		}	
+		if = {
+			limit = { has_plot = plot_fabricate_treason_liege }
+			cancel_plot = plot_fabricate_treason_liege
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.42
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.42"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.42"		
+		prestige = -100	
+		change_variable = { which = "dishonorable" value = 10 } 
+		if = {
+			limit = { has_plot = plot_fabricate_treason }
+			cancel_plot = plot_fabricate_treason
+		}	
+		if = {
+			limit = { has_plot = plot_fabricate_treason_liege }
+			cancel_plot = plot_fabricate_treason_liege
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.45
+	picture = GFX_evt_spymaster	
+	
+	only_rulers = yes
+	is_part_of_plot = yes
+	
+	trigger = {
+		age = 16
+		OR = {
+			has_plot = plot_fabricate_treason
+			has_plot = plot_fabricate_treason_liege
+		}
+		NOT = { has_character_flag = plot_in_action }
+		plot_target_char = {
+			liege = {
+				character = ROOT
+			}
+		}	
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 1
+		}			
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 2
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 3
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 4
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 5
+		}
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 6
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 7
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 8
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 9
+		}	
+		modifier = {
+			factor = 0.95
+			num_of_plot_backers = 10
+		}		
+		modifier = {
+			factor = 0.66
+			plot_power = 0.5
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 1.0
+		}	
+		modifier = {
+			factor = 0.66
+			plot_power = 1.5
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 2.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 3.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 4.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 6.0
+		}	
+		modifier = {
+			factor = 0.66
+			plot_power = 8.0
+		}
+		modifier = {
+			factor = 0.66
+			plot_power = 10.0
+		}		
+	}
+		
+	desc = "EVTDESCplot_events_CK2plus.45"
+
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.45"
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			NOT = { plot_power = 0.5 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				ROOT = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					25 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					25 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					50 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					ROOT = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					15 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					15 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					70 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}		
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.45"
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 0.5
+			NOT = { plot_power = 1.0 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				ROOT = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					25 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					25 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					50 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					ROOT = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					40 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					30 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					30 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}	
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.45"
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 1.0
+			NOT = { plot_power = 1.5 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				ROOT = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					60 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					20 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					20 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					ROOT = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					40 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					30 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					30 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}	
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.45"
+		ai_chance = { 
+			factor = 400
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.75
+				trait = craven
+			}				
+			modifier = {
+				factor = 100
+				trait = lunatic
+			}
+			modifier = {
+				factor = 100
+				trait = possessed
+			}			
+		}
+		trigger = {
+			plot_power = 1.5
+			NOT = { plot_power = 2.0 }
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				ROOT = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					80 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					15 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					5 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					ROOT = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					60 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					20 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					20 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.45"
+		ai_chance = { 
+			factor = 1000			
+		}
+		trigger = {
+			plot_power = 2.0
+		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}		
+		if = {
+			limit = {
+				ROOT = {
+					job_chancellor = {
+						ROOT = {
+							OR = {
+								character = PREV
+								any_plot_backer = {
+									character = PREVPREV
+								}
+							}						
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					90 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					5 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					5 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					ROOT = {
+						job_chancellor = {
+							ROOT = {
+								OR = {
+									character = PREV
+									any_plot_backer = {
+										character = PREVPREV
+									}
+								}						
+							}
+						}
+					}
+				}
+			}
+			plot_target_char = {			
+				random_list = {
+					80 = { character_event = { id = plot_events_CK2plus.46 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					15 = { character_event = { id = plot_events_CK2plus.48 tooltip = "CUSTOMTOOLTIP34" days = 3 } } #fails, not discovered
+					5 = { character_event = { id = plot_events_CK2plus.50 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+				}
+			}			
+		}
+		hidden_tooltip = { activate_plot = yes }
+		set_character_flag = plot_in_action
+	}	
+	option = {
+		name = "EVTOPTBplot_events_CK2plus.45"	
+		ai_chance = { factor = 100 }
+		trigger = {
+			NOT = { plot_power = 2.0 }
+		}		
+	}	
+}
+
+character_event = {
+	id = plot_events_CK2plus.49
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.49"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.49"	
+		if = {
+			limit = { has_plot = plot_fabricate_treason }
+			cancel_plot = plot_fabricate_treason
+		}
+		if = {
+			limit = { has_plot = plot_fabricate_treason_liege }
+			cancel_plot = plot_fabricate_treason_liege
+		}		
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.51
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.51"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.51"		
+		prestige = -100	
+		change_variable = { which = "dishonorable" value = 10 } 
+		if = {
+			limit = { has_plot = plot_fabricate_treason }
+			cancel_plot = plot_fabricate_treason
+		}	
+		if = {
+			limit = { has_plot = plot_fabricate_treason_liege }
+			cancel_plot = plot_fabricate_treason_liege
+		}	
+	}
+}
+
+character_event = {
+	id = Plus.150
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue	
+	
+	desc = {
+		text = EVTDESC_Plus_150_transit
+		trigger = { has_character_flag = kidnap_in_transit }
+	}
+	desc = {
+		text = EVTDESC_Plus_150_bed
+		trigger = { has_character_flag = kidnap_in_bed }
+	}
+	desc = {
+		text = EVTDESC_Plus_150_hunting
+		trigger = { has_character_flag = kidnap_while_hunting }
+	}
+	desc = {
+		text = EVTDESC_Plus_150_carouse
+		trigger = { has_character_flag = kidnap_while_carousing }
+	}
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	
+	immediate = {
+		plot_target_char = { #check if this is an 'honorable' kidnap
+			if = {
+				limit = {				
+					OR = {
+						just_execution_reason_PREV_trigger = yes
+						AND = {
+							NOT = { dynasty = 0 }
+							dynasty = ROOT
+							is_any_kinslayer_trigger = yes
+						}
+						AND = {
+							religion = ROOT
+							trait = excommunicated
+						}
+					}
+				}
+				ROOT = { set_character_flag = honorable_kidnap }
+			}			
+		}
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 0
+					plot_target_char = {
+						OR = {
+							is_adult = no
+							is_ill = yes
+							trait = incapable
+						}
+					}
+				}
+				set_character_flag = kidnap_in_transit
+			}
+			10 = {
+				modifier = {
+					factor = 5
+					plot_target_char = {
+						OR = {
+							trait = infirm
+							age = 50
+						}
+					}
+				}
+				set_character_flag = kidnap_in_bed
+			}
+			10 = {
+				modifier = {
+					factor = 3
+					plot_target_char = { martial = 10 }
+				}
+				modifier = {
+					factor = 5
+					plot_target_char = {
+						OR = {
+							trait = hunter
+							has_focus = focus_hunting
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					plot_target_char = {
+						OR = {
+							is_adult = no
+							is_ill = yes
+							is_female = no
+							trait = incapable
+						}
+					}
+				}
+				set_character_flag = kidnap_while_hunting
+			}
+			10 = {
+				modifier = {
+					factor = 5
+					plot_target_char = {
+						OR = {
+							trait = hedonist
+							trait = lustful
+							has_focus = focus_seduction
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					plot_target_char = {
+						OR = {
+							is_adult = no
+							is_ill = yes
+							is_female = no
+							trait = incapable
+							trait = chaste
+						}
+					}
+				}
+				set_character_flag = kidnap_while_carousing
+			}
+		}
+	}
+	
+	trigger = {
+		OR = {
+			has_plot = plot_kidnap_liege
+			has_plot = plot_kidnap_character
+		}
+		plot_target_char = {
+			in_command = no
+			prisoner = no
+			NOT = { is_inaccessible_trigger = yes }
+		}
+		NOT = { has_character_flag = kidnap_attempt }
+		OR = {
+			is_ruler = yes
+			plot_target_char = {
+				any_demesne_title = {
+					can_be_given_away = yes
+					tier = COUNT
+					location = { is_capital = no }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		
+		modifier = {
+			factor = 2
+			plot_target_char = { 
+				is_ruler = yes 
+				war = yes 
+			}
+		}
+		modifier = {
+			factor = 0.5
+			intrigue = 15
+		}
+		modifier = {
+			factor = 0.75
+			intrigue = 10
+		}
+		modifier = {
+			factor = 0.75
+			plot_target_char = { trait = trusting }
+		}
+		modifier = {
+			factor = 1.25
+			plot_target_char = { trait = paranoid }
+		}
+		modifier = {
+			factor = 0.75
+			plot_target_char = {
+				OR = {
+					is_ill = yes
+					trait = infirm
+					is_dumb_trigger = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.10
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.20
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.30
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.40
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.50
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.60
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.70
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.80
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.90
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 1.5
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			NOT = { plot_power = 0.2 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { plot_power = 0.4 }
+		}
+		modifier = {
+			factor = 0.75
+			plot_power = 0.5
+		}
+		modifier = {
+			factor = 0.44
+			plot_power = 1.0
+		}
+		modifier = {
+			factor = 0.33
+			plot_power = 1.5
+		}
+		modifier = {
+			factor = 0.33
+			plot_power = 2.0
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_Plus_150 # Proceed
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.1
+				NOR = {
+					plot_power = 0.75
+					trait = lunatic
+					trait = possessed
+				}
+			}
+		}
+		set_character_flag = kidnap_attempt
+		random_list = {
+			20 = {
+				modifier = {
+					factor = 0.68
+					NOT = { plot_power = 0.2 }
+				}
+				modifier = {
+					factor = 0.5
+					plot_power = 0.2
+					NOT = { plot_power = 0.5 }
+				}
+				modifier = {
+					factor = 1.65
+					plot_power = 1.0
+					NOT = { plot_power = 1.5 }
+				}
+				modifier = {
+					factor = 2.5
+					plot_power = 1.5
+					NOT = { plot_power = 2.0 }
+				}
+				modifier = {
+					factor = 3.0
+					plot_power = 2.0
+					NOT = { plot_power = 2.5 }
+				}
+				modifier = {
+					factor = 3.75
+					plot_power = 2.5
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 2 } }
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 4 } }
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 6 } }
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 8 } }
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 10 } }
+				}
+				modifier = {
+					factor = 0.5
+					plot_target_char = { trait = genius }
+				}
+				modifier = {
+					factor = 0.8
+					plot_target_char = { trait = paranoid }
+				}
+				modifier = {
+					factor = 0.8
+					plot_target_char = { is_strong_trigger = yes }
+				}
+				modifier = {
+					factor = 0.8
+					plot_target_char = { trait = quick }
+				}
+				modifier = {
+					factor = 0.8
+					plot_target_char = { trait = shrewd }
+				}
+				modifier = {
+					factor = 1.2
+					plot_target_char = { trait = trusting }
+				}
+				modifier = {
+					factor = 1.2
+					plot_target_char = { trait = lunatic }
+				}
+				modifier = {
+					factor = 1.2
+					plot_target_char = { trait = drunkard }
+				}
+				modifier = {
+					factor = 1.2
+					plot_target_char = { is_weak_trigger = yes }
+				}
+				modifier = {
+					factor = 1.2
+					plot_target_char = {
+						OR = {
+							trait = infirm
+							trait = incapable
+							is_ill = yes
+							is_adult = no
+						}
+					}
+				}
+				modifier = {
+					factor = 0.8
+					plot_target_char = { martial = 12 }
+				}
+				modifier = {
+					factor = 0.8
+					plot_target_char = { martial = 18 }
+				}
+				modifier = {
+					factor = 0.8
+					plot_target_char = { war = yes }
+				}
+				modifier = {
+					factor = 0.75
+					plot_target_char = { higher_tier_than = DUKE }
+				}
+				modifier = {
+					factor = 0.75
+					plot_target_char = { higher_tier_than = KING }
+				}
+				character_event = { id = Plus.215 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } #succeeds
+			}
+			30 = {
+				modifier = {
+					factor = 1.1
+					plot_power = 1.0
+					NOT = { plot_power = 1.5 }
+				}
+				modifier = {
+					factor = 0.8
+					plot_power = 1.5
+					NOT = { plot_power = 2.0 }
+				}
+				modifier = {
+					factor = 0.65
+					plot_power = 2.0
+					NOT = { plot_power = 2.5 }
+				}
+				modifier = {
+					factor = 0.5
+					plot_power = 2.5
+				}
+				modifier = {
+					factor = 1.1
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 2 } }
+				}
+				modifier = {
+					factor = 1.1
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 4 } }
+				}
+				modifier = {
+					factor = 1.1
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 6 } }
+				}
+				modifier = {
+					factor = 1.1
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 8 } }
+				}
+				modifier = {
+					factor = 1.1
+					plot_target_char = { attribute_diff = { character = ROOT attribute = intrigue value = 10 } }
+				}
+				character_event = { id = Plus.229 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } #fails, not discovered
+			}
+			50 = {	
+				modifier = {
+					factor = 2.5
+					plot_power = 1.5
+					NOT = { plot_power = 0.2 }
+				}
+				modifier = {
+					factor = 1.65
+					plot_power = 0.2
+					NOT = { plot_power = 0.5 }
+				}
+				
+				modifier = {
+					factor = 0.68
+					plot_power = 1.0
+					NOT = { plot_power = 1.5 }
+				}
+				modifier = {
+					factor = 0.5
+					plot_power = 1.5
+					NOT = { plot_power = 2.0 }
+				}
+				modifier = {
+					factor = 0.4
+					plot_power = 2.0
+					NOT = { plot_power = 2.5 }
+				}
+				modifier = {
+					factor = 0.2
+					plot_power = 2.5
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = {
+						ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 2 } }
+					}
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = {
+						ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 4 } }
+					}
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = {
+						ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 6 } }
+					}
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = {
+						ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 8 } }
+					}
+				}
+				modifier = {
+					factor = 0.9
+					plot_target_char = {
+						ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 10 } }
+					}
+				}
+				character_event = { id = Plus.231 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } #fails, discovered
+			}
+		}
+		hidden_tooltip = {
+			any_plot_backer = { letter_event = { id = Plus.152 days = 4 } } #notify backers
+		}	
+	}
+	option = {
+		name = EVTOPTB_Plus_150 # Wait for a better opportunity
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				plot_power = 1.25
+			}
+		}
+		clr_character_flag = kidnap_in_transit
+		clr_character_flag = kidnap_in_bed
+		clr_character_flag = kidnap_while_hunting
+		clr_character_flag = kidnap_while_carousing
+		clr_character_flag = honorable_kidnap
+	}
+}
+
+character_event = {
+	id = Plus.151
+	desc = EVTDESC_Plus_151
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		any_backed_character = {
+			OR = {
+				has_plot = plot_kidnap_character
+				has_plot = plot_kidnap_liege
+			}
+			plot_power = 0.5
+			plot_target_char = {
+				at_location = ROOT
+				in_command = no
+				prisoner = no
+				NOT = { is_inaccessible_trigger = yes }
+			}
+			NOT = { has_character_flag = kidnap_attempt }
+			ROOT = { plot_power_contribution = { plotter = PREV power = 0.04 } }
+			OR = {
+				is_ruler = yes
+				plot_target_char = {
+					any_demesne_title = {
+						can_be_given_away = yes
+						tier = COUNT
+						location = { is_capital = no }
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {	
+		months = 750
+		modifier = {
+			factor = 2
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				plot_target_char = { 
+					is_ruler = yes 
+					war = yes 
+				}
+			}	
+		}
+		modifier = {
+			factor = 0.5
+			intrigue = 15
+		}
+		modifier = {
+			factor = 0.75
+			intrigue = 10
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				ROOT = { plot_power_contribution = { plotter = PREV power = 0.1 } }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				ROOT = { plot_power_contribution = { plotter = PREV power = 0.2 } }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				ROOT = { plot_power_contribution = { plotter = PREV power = 0.3 } }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				ROOT = { plot_power_contribution = { plotter = PREV power = 0.4 } }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				ROOT = { plot_power_contribution = { plotter = PREV power = 0.5 } }
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				plot_power = 2.0
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				plot_power = 2.5
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				plot_power = 3
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_Plus_151 # Tell Plotter
+		random_backed_character = {
+			limit = {
+				OR = {
+					has_plot = plot_kidnap_character
+					has_plot = plot_kidnap_liege
+				}
+				plot_power = 0.5
+				plot_target_char = {
+					at_location = ROOT
+					in_command = no
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+				}
+				NOT = { has_character_flag = kidnap_attempt }
+				ROOT = { plot_power_contribution = { plotter = PREV power = 0.04 } }
+			}
+			character_event = { id = Plus.150 }
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.28
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.28"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.28"	
+		set_character_flag = plot_success		
+		set_character_flag = rebelled_by_plot
+		opinion = {
+			who = FROM
+			modifier = opinion_grateful
+			years = 10
+		}
+		hidden_tooltip = {
+			#notify plotter
+			FROM = { character_event = { id = plot_events_CK2plus.29 } }
+			#notify liege
+			if = {
+				limit = { 
+					liege = { 
+						NOT = { character = ROOT } 
+						NOT = { character = FROM } 
+					}					
+				}
+				liege = { character_event = { id = plot_events_CK2plus.30 } }	
+			}	
+		}
+		liege = {
+			reverse_war = {
+				target = ROOT
+				casus_belli = overthrow_ruler
+			}
+		}		
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.31
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.31"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.31"
+		set_character_flag = rebelled_by_plot
+		opinion = {
+			who = FROM
+			modifier = devious_plotter
+			years = 10
+		}
+		hidden_tooltip = {
+			#notify plotter
+			FROM = { character_event = { id = plot_events_CK2plus.32 } }
+			#notify liege
+			if = {
+				limit = { 
+					liege = { 
+						NOT = { character = ROOT } 
+						NOT = { character = FROM } 
+					}					
+				}
+				liege = { character_event = { id = plot_events_CK2plus.33 } }	
+			}	
+		}
+		if = { #Ai try to imprison plotter?
+			limit = { 
+				is_ruler = yes
+				is_vassal_or_below = FROM
+				ai = yes			
+			}
+			FROM = { save_event_target_as = imprison_target }
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.35
+	picture = "GFX_evt_spymaster"
+	
+	hide_from = yes
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.35"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.35"	
+		set_character_flag = plot_success		
+		set_character_flag = accused_of_treason_by_plot
+		liege = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_traitor
+			}
+		}
+		hidden_tooltip = {
+			#notify plotter
+			FROM = { character_event = { id = plot_events_CK2plus.36 } }
+			#notify liege
+			if = {
+				limit = { 
+					liege = { 
+						NOT = { character = ROOT } 
+						NOT = { character = FROM } 
+					}				
+				}
+				liege = { character_event = { id = plot_events_CK2plus.37 } }	
+			}	
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.38
+	picture = "GFX_evt_spymaster"
+	hide_from = yes
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.38"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.38"
+		set_character_flag = accused_of_treason_by_plot	
+		hidden_tooltip = {
+			#notify plotter
+			FROM = { character_event = { id = plot_events_CK2plus.39 } }
+			#notify liege
+			if = {
+				limit = { 
+					liege = { 
+						NOT = { character = ROOT } 
+						NOT = { character = FROM } 
+					}
+				}
+				liege = { character_event = { id = plot_events_CK2plus.40 } }	
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.41
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.41"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.41"
+		set_character_flag = accused_of_treason_by_plot
+		opinion = {
+			who = FROM
+			modifier = devious_plotter
+			years = 10
+		}
+		hidden_tooltip = {
+			#notify plotter
+			FROM = { character_event = { id = plot_events_CK2plus.42 } }
+			#notify liege
+			if = {
+				limit = { 
+					liege = { 
+						NOT = { character = ROOT } 
+						NOT = { character = FROM } 
+					}
+				}
+				liege = { character_event = { id = plot_events_CK2plus.43 } }	
+			}	
+		}
+		if = { #Ai try to imprison plotter?
+			limit = { 
+				is_ruler = yes
+				is_vassal_or_below = FROM
+				ai = yes			
+			}
+			FROM = { save_event_target_as = imprison_target }
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.46
+	picture = "GFX_evt_spymaster"
+	
+	hide_from = yes
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.46"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.46"	
+		set_character_flag = plot_success		
+		set_character_flag = accused_of_treason_by_plot
+		liege = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_traitor
+				years = 10
+			}
+		}
+		hidden_tooltip = {
+			#notify plotter
+			FROM = { character_event = { id = plot_events_CK2plus.47 } }	
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.48
+	picture = "GFX_evt_spymaster"
+	hide_from = yes
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.48"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.48"
+		set_character_flag = accused_of_treason_by_plot	
+		hidden_tooltip = {
+			#notify plotter
+			FROM = { character_event = { id = plot_events_CK2plus.49 } }	
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.50
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.50"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.50"
+		set_character_flag = accused_of_treason_by_plot
+		opinion = {
+			who = FROM
+			modifier = devious_plotter
+			years = 10
+		}
+		hidden_tooltip = {
+			#notify plotter
+			FROM = { character_event = { id = plot_events_CK2plus.51 } }
+		}
+		if = { #Ai try to imprison plotter?
+			limit = { 
+				is_ruler = yes
+				is_vassal_or_below = FROM
+				ai = yes			
+			}
+			FROM = { save_event_target_as = imprison_target }
+		}
+	}
+}
+
+character_event = {
+	id = Plus.215
+	desc = EVTDESC_Plus_215
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	trigger = {
+		plot_target_char = { prisoner = no }
+	}
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = kidnap_victim }
+		plot_succeeds = yes
+		if = {
+			limit = { is_ruler = no }
+			event_target:kidnap_victim = {
+				random_demesne_title = {
+					limit = {
+						can_be_given_away = yes
+						tier = COUNT
+						location = { is_capital = no }
+						ROOT = { has_strong_claim = PREV }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						can_be_given_away = yes
+						tier = COUNT
+						location = { is_capital = no }
+						claimed_by = ROOT
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						can_be_given_away = yes
+						tier = COUNT
+						location = { is_capital = no }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						tier = COUNT
+						location = { is_capital = no }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				independent = no
+				event_target:kidnap_victim = { same_liege = ROOT }
+			}
+			event_target:kidnap_victim = {
+				random_vassal = {
+					limit = {
+						lower_tier_than = ROOT
+						higher_tier_than = BARON
+						de_jure_liege = ROOT
+						is_patrician = no
+					}
+					save_event_target_as = demanded_vassal
+				}
+				if = {
+					limit = {
+						NOT = {
+							any_vassal = {
+								lower_tier_than = ROOT
+								higher_tier_than = BARON
+								de_jure_liege = ROOT
+								is_patrician = no
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							lower_tier_than = ROOT
+							higher_tier_than = BARON
+							dejure_liege_title = { claimed_by = ROOT }
+							is_patrician = no
+						}
+						save_event_target_as = demanded_vassal
+					}
+				}
+				random_demesne_title = {
+					limit = {
+						tier = COUNT
+						can_be_given_away = yes
+						is_primary_holder_title = no
+						location = { is_capital = no }
+						ROOT = { has_strong_claim = PREV }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						tier = COUNT
+						can_be_given_away = yes
+						is_primary_holder_title = no
+						location = { is_capital = no }
+						claimed_by = ROOT
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						tier = COUNT
+						can_be_given_away = yes
+						is_primary_holder_title = no
+						location = { is_capital = no }
+						ROOT = { de_jure_vassal_or_below = PREV }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						tier = COUNT
+						can_be_given_away = yes
+						is_primary_holder_title = no
+						location = { is_capital = no }
+						dejure_liege_title = { claimed_by = ROOT }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						tier = BARON
+						can_be_given_away = yes
+						is_primary_holder_title = no
+						location = { is_capital = no }
+						ROOT = { has_strong_claim = PREV }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						tier = BARON
+						can_be_given_away = yes
+						is_primary_holder_title = no
+						location = { is_capital = no }
+						claimed_by = ROOT
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						tier = BARON
+						can_be_given_away = yes
+						is_primary_holder_title = no
+						location = { is_capital = no }
+						ROOT = { de_jure_vassal_or_below = PREV }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+				random_demesne_title = {
+					limit = {
+						tier = BARON
+						can_be_given_away = yes
+						is_primary_holder_title = no
+						location = { is_capital = no }
+						dejure_liege_title = { claimed_by = ROOT }
+					}
+					save_event_target_as = demanded_title
+					break = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_Plus_215 # Demand he turn over title, or else
+		trigger = {
+			event_target:demanded_title = { always = yes }
+		}
+		ai_chance = { factor = 100 }
+		event_target:kidnap_victim = {
+			character_event = { id = Plus.218 tooltip = KIDNAP_DEMAND_TITLE }
+		}
+	}
+	option = {
+		name = EVTOPTB_Plus_215 # Demand he turn over a vassal, or else
+		trigger = {
+			is_ruler = yes
+			event_target:demanded_vassal = { always = yes }
+		}
+		ai_chance = { factor = 25 }
+		event_target:kidnap_victim = {
+			character_event = { id = Plus.225 tooltip = KIDNAP_DEMAND_VASSAL }
+		}
+	}
+	option = {
+		name = EVTOPTD_Plus_215 # Kill him--quietly
+		trigger = { ai = no }
+		tooltip = { event_target:kidnap_victim = { death = { death_reason = death_murder_unknown } } }
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}
+		if = {
+			limit = {
+				NOT = { trait = kind }
+				NOT = { trait = cruel }
+				NOT = { personality_traits = 6 }
+			}
+			random = {
+				chance = 33
+				add_trait = cruel
+				hidden_tooltip = {
+					character_event = {
+						id = 38259 #Notify Cruel
+					}
+				}
+			}
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}
+		ROOT = {
+			random_list = {
+				50 = {
+					modifier = {
+						factor = 0
+						event_target:kidnap_victim = { job_spymaster = { character = ROOT } }
+					}
+					modifier = {
+						factor = 0
+						event_target:kidnap_victim = {
+							OR = {
+								is_ruler = no
+								NOT = { any_courtier = { has_job_title = job_spymaster } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 1 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 3 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 5 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 7 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 9 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 11 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 13 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 15 } }
+							}
+						}
+					}
+					character_event = { id = Plus.223 tooltip = KIDNAP_MURDER_DISCOVERED }
+					hidden_tooltip = {
+						event_target:kidnap_victim = { save_event_target_as = target_victim }
+						set_character_flag = murder_event_override
+						character_event = { id = 10 }
+						event_target:kidnap_victim = { 
+							ROOT_murder_red_god_resurrect_effect = yes #check for rhllor resurrection
+							death = { death_reason = death_murder killer = ROOT } 
+						}
+					}
+				}
+				50 = {
+					modifier = {
+						factor = 0
+						event_target:kidnap_victim = {
+							OR = {
+								liege = { job_spymaster = { character = ROOT } }
+								liege = { character = ROOT }
+							}
+						}
+					}
+					modifier = {
+						factor = 0
+						event_target:kidnap_victim = { is_ruler = yes }
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								job_spymaster = {
+									ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 1 } }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								job_spymaster = {
+									ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 3 } }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								job_spymaster = {
+									ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 5 } }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								job_spymaster = {
+									ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 7 } }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								job_spymaster = {
+									ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 9 } }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								job_spymaster = {
+									ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 11 } }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								job_spymaster = {
+									ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 13 } }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								job_spymaster = {
+									ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 15 } }
+								}
+							}
+						}
+					}
+					character_event = { id = Plus.223 tooltip = KIDNAP_MURDER_DISCOVERED2 }
+					hidden_tooltip = {
+						event_target:kidnap_victim = { save_event_target_as = target_victim }
+						set_character_flag = murder_event_override
+						character_event = { id = 10 }
+						event_target:kidnap_victim = { 
+							ROOT_murder_red_god_resurrect_effect = yes #check for rhllor resurrection
+							death = { death_reason = death_murder killer = ROOT } 
+						}
+					}
+				}
+				50 = {
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 1 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 3 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 5 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 7 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 9 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 11 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 13 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 15 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								NOT = { character = ROOT }
+								job_spymaster = {
+									attribute_diff = { character = ROOT attribute = intrigue value = 1 }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								NOT = { character = ROOT }
+								job_spymaster = {
+									attribute_diff = { character = ROOT attribute = intrigue value = 3 }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								NOT = { character = ROOT }
+								job_spymaster = {
+									attribute_diff = { character = ROOT attribute = intrigue value = 5 }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								NOT = { character = ROOT }
+								job_spymaster = {
+									attribute_diff = { character = ROOT attribute = intrigue value = 7 }
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						event_target:kidnap_victim = {
+							liege = {
+								NOT = { character = ROOT }
+								job_spymaster = {
+									attribute_diff = { character = ROOT attribute = intrigue value = 9 }
+								}
+							}
+						}
+					}
+					custom_tooltip = { text = KIDNAP_MURDER_NOT_DISCOVERED }
+					hidden_tooltip = {
+						event_target:kidnap_victim = { 
+							ROOT_murder_red_god_resurrect_effect = yes #check for rhllor resurrection
+							death = { death_reason = death_murder_unknown } 
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_Plus_215 # I'll decide later
+		trigger = { is_ruler = yes }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					event_target:demanded_title = { always = yes }
+					event_target:demanded_vassal = { always = yes }
+				}
+			}
+		}
+		event_target:kidnap_victim = {
+			tooltip = { imprison = ROOT }
+			hidden_tooltip = { character_event = { id = Plus.216 } }
+		}
+	}
+}
+
+character_event = {
+	id = Plus.229
+	desc = EVTDESC_Plus_229
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = CURSES
+		hidden_tooltip = {
+			plot_target_char = { character_event = { id = Plus.230 } }
+		}
+		clr_character_flag = honorable_kidnap
+	}
+}
+
+character_event = {
+	id = Plus.231
+	desc = EVTDESC_Plus_231
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = CURSES
+		if = {
+			limit = { 
+				NOT = { has_character_flag = honorable_kidnap }
+				has_cutthroat_religion_trigger = no
+			}
+			piety = -100			
+			change_variable = { which = "dishonorable" value = 10 } 
+		}
+		clr_character_flag = honorable_kidnap
+		if = {
+			limit = {
+				plot_target_char = {
+					any_courtier = { has_job_title = job_spymaster }
+				}
+			}
+			reveal_plot_w_message = yes
+		}
+		if = {
+			limit = {
+				plot_target_char = {
+					NOT = {
+						any_courtier = { has_job_title = job_spymaster }
+					}
+				}
+			}
+			reveal_plot = yes
+		}
+		plot_target_char = {
+			hidden_tooltip = { character_event = { id = Plus.232 } }
+			if = {
+				limit = {
+					independent = no
+					liege = { is_close_relative = FROM }
+					liege = { NOT = { character = ROOT } }
+				}
+				liege = {
+					opinion = {
+						who = ROOT
+						modifier = attempted_kidnapping_of_kin
+						months = 60
+					}
+				}
+			}
+			if = {
+				limit = {
+					independent = no
+					is_ruler = yes
+					liege = { NOT = { is_close_relative = FROM } }
+					liege = { NOT = { character = ROOT } }
+				}
+				liege = {
+					opinion = {
+						who = ROOT
+						modifier = attempted_kidnapping_of_vassal
+						months = 60
+					}
+				}
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = Plus.152
+	desc = EVTDESC_Plus_152
+	border = GFX_event_letter_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.29
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.29"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.29"
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.30
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.30"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.30"
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.33
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.33"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.33"	
+		FROM = {
+			FROM = {
+				reverse_opinion = {
+					who = ROOT
+					modifier = devious_plotter
+					years = 10
+				}			
+			}
+		}	
+		if = { #Ai try to imprison plotter?
+			limit = { 
+				is_ruler = yes
+				is_vassal_or_below = FROMFROM
+				ai = yes			
+			}
+			FROMFROM = { save_event_target_as = imprison_target }
+		}	
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.36
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.36"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.36"
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.37
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.37"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.37"
+		tooltip = {
+			opinion = {
+				who = FROM
+				modifier = opinion_traitor
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.40
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.40"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.40"	
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.43
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.43"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.43"	
+		FROM = {
+			FROM = {
+				reverse_opinion = {
+					who = ROOT
+					modifier = devious_plotter
+					years = 10
+				}			
+			}
+		}
+		if = { #Ai try to imprison plotter?
+			limit = { 
+				is_ruler = yes
+				is_vassal_or_below = FROMFROM
+				ai = yes			
+			}
+			FROMFROM = { save_event_target_as = imprison_target }
+		}		
+	}
+}
+
+character_event = {
+	id = plot_events_CK2plus.47
+	picture = "GFX_evt_spymaster"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESCplot_events_CK2plus.47"
+	
+	option = {
+		name = "EVTOPTAplot_events_CK2plus.47"
+		if = {
+			limit = { ai = yes }
+			FROM = {
+				opinion = {
+					who = ROOT
+					modifier = opinion_arrest_attempt
+					months = 240
+				}		
+				imprison = ROOT
+				clr_character_flag = captured_in_battle
+				clr_character_flag = lost_trial_by_combat
+				clr_character_flag = demmanded_first_trial_by_combat
+				clr_character_flag = choosing_champion
+				clr_character_flag = select_champion
+				set_character_flag = kidnapped_by_plot
+			}
+		}
+	}
+}
+
+character_event = {
+	id = Plus.218
+	desc = EVTDESC_Plus_218
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes	
+	
+	option = {
+		name = EVTOPTA_Plus_218 # Take the title, just release me!
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.1
+				trait = brave
+			}
+			modifier = {
+				factor = 0.5
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				NOT = { age = 30 }
+				health = 3
+			}
+			modifier = {
+				factor = 0.75
+				num_of_count_titles = 3
+			}
+			modifier = {
+				factor = 0.75
+				num_of_count_titles = 4
+			}
+			modifier = {
+				factor = 0.75
+				num_of_count_titles = 5
+			}
+			modifier = {
+				factor = 0.75
+				num_of_count_titles = 6
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = brave }
+				NOT = { trait = craven }
+				NOT = { personality_traits = 6 }
+			}
+			random = {
+				chance = 33
+				add_trait = craven
+				hidden_tooltip = {
+					character_event = {
+						id = 38257 #Notify Craven
+					}
+				}
+			}
+		}
+		if = {
+			limit = { trait = brave }
+			remove_trait = brave
+		}
+		if = {
+			limit = { FROM = { is_ruler = no } }
+			FROM = { set_character_flag = needs_liege }
+		}	
+		event_target:demanded_title = {
+			grant_title_no_opinion = FROM
+			add_weak_pressed_claim = ROOT
+		}
+		if = {
+			limit = {
+				independent = no
+				lower_real_tier_than = DUKE
+				FROM = { has_character_flag = needs_liege }
+			}
+			liege = {
+				FROM = {
+					clr_character_flag = needs_liege
+					set_defacto_liege = PREV
+				}
+			}
+		}
+		custom_tooltip = { text = KIDNAP_IS_SET_FREE }
+		hidden_tooltip = {
+			FROM = { character_event = { id = Plus.219 } }
+			top_liege = {
+				character_event = { id = Plus.220 days = 1 } #notify
+				any_realm_lord = {
+					limit = {
+						ai = no
+						NOT = { character = FROM }
+					}
+					character_event = { id = Plus.220 days = 1 } #notify
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_Plus_218 # You'll get nothing from me!
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.5
+				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_denied_title }
+			}
+			modifier = {
+				factor = 0.25
+				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_broken_title_promise }
+			}
+			modifier = {
+				factor = 0.1
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				NOT = { health = 3 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = brave }
+				NOT = { trait = craven }
+				NOT = { personality_traits = 6 }
+			}
+			random = {
+				chance = 33
+				add_trait = brave
+				hidden_tooltip = {
+					character_event = {
+						id = 38270 #Notify Brave
+					}
+				}
+			}
+		}
+		if = {
+			limit = { trait = craven }
+			remove_trait = craven
+		}
+		FROM = { character_event = { id = Plus.221 tooltip = KIDNAP_DECIDE } }
+	}
+}
+
+character_event = {
+	id = Plus.225
+	desc = EVTDESC_Plus_225
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes	
+	
+	option = {
+		name = EVTOPTA_Plus_225 # Take the vassal, just release me!
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.1
+				trait = brave
+			}
+			modifier = {
+				factor = 0.5
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				NOT = { age = 30 }
+				health = 3
+			}
+			modifier = {
+				factor = 0.75
+				num_of_count_titles = 3
+			}
+			modifier = {
+				factor = 0.75
+				num_of_count_titles = 4
+			}
+			modifier = {
+				factor = 0.75
+				num_of_count_titles = 5
+			}
+			modifier = {
+				factor = 0.75
+				num_of_count_titles = 6
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = brave }
+				NOT = { trait = craven }
+				NOT = { personality_traits = 6 }
+			}
+			random = {
+				chance = 33
+				add_trait = craven
+				hidden_tooltip = {
+					character_event = {
+						id = 38257 #Notify Craven
+					}
+				}
+			}
+		}
+		if = {
+			limit = { trait = brave }
+			remove_trait = brave
+		}
+		event_target:demanded_vassal = {
+			set_defacto_liege = FROM
+			hidden_tooltip = { letter_event = { id = Plus.226 days = 1 } }
+		}
+		custom_tooltip = { text = KIDNAP_IS_SET_FREE }
+		hidden_tooltip = {
+			FROM = { character_event = { id = Plus.227 } }
+			top_liege = {
+				character_event = { id = Plus.228 days = 1 } #notify
+				any_realm_lord = {
+					limit = {
+						ai = no
+						NOT = { character = FROM }
+						NOT = { character = event_target:demanded_vassal }
+						is_ruler = yes
+					}
+					character_event = { id = Plus.228 days = 1 } #notify
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_Plus_218 # You'll get nothing from me!
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.1
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				NOT = { health = 3 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = brave }
+				NOT = { trait = craven }
+				NOT = { personality_traits = 6 }
+			}
+			random = {
+				chance = 33
+				add_trait = brave
+				hidden_tooltip = {
+					character_event = {
+						id = 38270 #Notify Brave
+					}
+				}
+			}
+		}
+		if = {
+			limit = { trait = craven }
+			remove_trait = craven
+		}
+		FROM = { character_event = { id = Plus.221 tooltip = KIDNAP_DECIDE } }
+	}
+}
+
+character_event = {
+	id = Plus.223
+	desc = EVTDESC_Plus_223
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	major = yes
+	
+	major_trigger = {
+		OR = {
+			character = FROM
+			is_close_relative = FROMFROM
+			dynasty = FROMFROM
+			same_realm = FROMFROM
+			same_realm = FROM
+		}
+	}
+	
+	option = {
+		trigger = { character = FROM }
+		name = CURSES
+	}
+	option = {
+		trigger = { NOT = { character = FROM } }
+		name = I_SEE
+	}
+}
+
+character_event = {
+	id = Plus.216
+	desc = EVTDESC_Plus_216
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_Plus_216 # He will pay for this!
+		imprison = FROM
+		clr_character_flag = captured_in_battle
+		clr_character_flag = lost_trial_by_combat
+		clr_character_flag = demmanded_first_trial_by_combat
+		clr_character_flag = choosing_champion
+		clr_character_flag = select_champion
+		set_character_flag = kidnapped_by_plot
+		hidden_tooltip = {
+			opinion = { who = FROM modifier = kidnapped_me months = 1200 }
+			father = { opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 } }
+			mother = { opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 } }
+			any_sibling = { opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 } }
+			any_spouse = {
+				limit = { NOT = { sibling = ROOT } }
+				opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 }
+			}
+			any_child = {
+				limit = { NOT = { is_married = ROOT } }
+				opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 }
+			}
+			any_dynasty_member = {
+				limit = {
+					is_close_relative = ROOT
+					NOT = { is_parent_of = ROOT } 
+					NOT = { sibling = ROOT }
+					NOT = { is_married = ROOT }
+					NOT = { is_child_of = ROOT }
+					NOT = { character = ROOT }
+				}
+				opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 }
+			}
+			any_player = {
+				limit = {
+					NOT = { character = ROOT }
+					OR = {
+						is_close_relative = ROOT
+						dynasty = ROOT
+						is_liege_or_above = ROOT	
+						is_liege_of = ROOT
+						AND = {
+							ROOT = { is_ruler = yes }
+							is_vassal_or_below = ROOT							
+						}
+					}
+				}
+				character_event = { id = Plus.217 days = 1 } # Notify
+			}
+		}
+	}
+}
+
+character_event = {
+	id = Plus.230
+	desc = EVTDESC_Plus_230
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = EVTOPTA_Plus_230
+	}
+}
+
+character_event = {
+	id = Plus.232
+	desc = EVTDESC_Plus_232
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_Plus_216
+		add_character_modifier = {
+			name = alerted_to_plot
+			duration = 1095
+		}
+		hidden_tooltip = {
+			opinion = { who = FROM modifier = attempted_kidnapping months = 1200 }
+			father = { opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 600 } }
+			mother = { opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 600 } }
+			any_sibling = { opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 600 } }
+			any_spouse = {
+				limit = { NOT = { sibling = ROOT } }
+				opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 600 }
+			}
+			any_child = {
+				limit = { NOT = { is_married = ROOT } }
+				opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 600 }
+			}
+		}
+		FROM = { #Ai try to imprison plotter?
+			any_liege = {
+				limit = {
+					ai = yes	
+					OR = {
+						character = ROOT
+						is_close_relative = ROOT
+						is_married = ROOT
+					}
+					NOT = { character = ROOT_FROM }
+				}
+				ROOT_FROM = { save_event_target_as = imprison_target }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = Plus.219
+	desc = EVTDESC_Plus_219
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes	
+
+	option = {
+		name = EXCELLENT
+		FROM = { opinion = { who = ROOT modifier = kidnapped_me months = 120 } }
+		if = {
+			limit = { NOT = { has_character_flag = honorable_kidnap } }
+			change_variable = { which = "dishonorable" value = 10 } 
+		}	
+		clr_character_flag = honorable_kidnap
+		hidden_tooltip = {
+			remove_opinion = { who = FROM modifier = opinion_denied_title }
+			remove_opinion = { who = FROM modifier = opinion_broken_title_promise }
+		}
+	}
+}
+
+character_event = {
+	id = Plus.220
+	desc = EVTDESC_Plus_220
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	show_from_from = yes
+	
+	ai = no
+	
+	option = {
+		name = I_SEE
+	}
+}
+
+character_event = {
+	id = Plus.221
+	desc = EVTDESC_Plus_221
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_Plus_221 # Then he stays in the dungeon
+		trigger = { is_ruler = yes }
+		ai_chance = {
+			factor = 50
+		}
+		FROM = {
+			tooltip = { imprison = ROOT }
+			hidden_tooltip = { character_event = { id = Plus.222 } }
+		}		
+		clr_character_flag = honorable_kidnap
+	}
+	option = {
+		name = EVTOPTB_Plus_221 # Kill him--quietly
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.1
+				is_close_relative = FROM
+				NOR = {
+					trait = cruel
+					trait = wroth
+				}
+			}
+			modifier = {
+				factor = 0.1
+				NOR = {
+					trait = cruel
+					trait = arbitrary
+					trait = wroth
+					trait = proud
+					trait = impaler
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+		}
+		tooltip = { FROM = { death = { death_reason = death_murder_unknown } } }
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}
+		if = {
+			limit = {
+				NOT = { trait = kind }
+				NOT = { trait = cruel }
+				NOT = { personality_traits = 6 }
+			}
+			random = {
+				chance = 33
+				add_trait = cruel
+				hidden_tooltip = {
+					character_event = {
+						id = 38259 #Notify Cruel
+					}
+				}
+			}
+		}
+		if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}
+		ROOT = {
+			random_list = {
+				70 = {
+					modifier = {
+						factor = 0
+						FROM = { job_spymaster = { character = ROOT } }
+					}
+					modifier = {
+						factor = 0
+						FROM = {
+							OR = {
+								is_ruler = no
+								NOT = { any_courtier = { has_job_title = job_spymaster } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 1 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 3 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 5 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 7 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 9 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 11 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 13 } }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								ROOT = { attribute_diff = { character = PREV attribute = intrigue value = 15 } }
+							}
+						}
+					}
+					character_event = { id = Plus.223 tooltip = KIDNAP_MURDER_DISCOVERED }
+					hidden_tooltip = {
+						FROM = { save_event_target_as = target_victim }
+						set_character_flag = murder_event_override
+						character_event = { id = 10 }
+						FROM = { 
+							ROOT_murder_red_god_resurrect_effect = yes #check for rhllor resurrection
+							death = { death_reason = death_murder killer = ROOT } 
+						}
+					}
+				}
+				30 = {
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 1 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 3 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 5 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 7 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 9 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 11 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 13 }
+							}
+						}
+					}
+					modifier = {
+						factor = 0.8
+						FROM = {
+							job_spymaster = {
+								attribute_diff = { character = ROOT attribute = intrigue value = 15 }
+							}
+						}
+					}
+					custom_tooltip = { text = KIDNAP_MURDER_NOT_DISCOVERED }
+					hidden_tooltip = {
+						FROM = { 
+							ROOT_murder_red_god_resurrect_effect = yes #check for rhllor resurrection
+							death = { death_reason = death_murder_unknown } 
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_Plus_221 # Just let him go, dammit
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				is_ruler = yes
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					job_spymaster = {
+						NOT = { attribute_diff = { character = ROOT attribute = intrigue value = 1 } }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					job_spymaster = {
+						ROOT = {
+							attribute_diff = { character = PREV attribute = intrigue value = 5 }
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_ruler = no
+				is_liege_or_above = FROM
+			}
+			banish = yes
+		}
+		FROM = {
+			character_event = { id = Plus.224 tooltip = KIDNAP_RELEASED }
+		}
+		clr_character_flag = honorable_kidnap
+	}
+}
+
+letter_event = {
+	id = Plus.226
+	desc = EVTDESC_Plus_226
+	border = GFX_event_letter_frame_intrigue
+	
+	is_triggered_only = yes		
+	
+	option = {
+		name = I_SEE
+	}
+}
+
+character_event = {
+	id = Plus.227
+	desc = EVTDESC_Plus_227
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes	
+
+	option = {
+		name = EXCELLENT
+		FROM = { opinion = { who = ROOT modifier = kidnapped_me months = 120 } }
+		if = {
+			limit = { NOT = { has_character_flag = honorable_kidnap } }
+			change_variable = { which = "dishonorable" value = 10 } 
+		}	
+		clr_character_flag = honorable_kidnap
+	}
+}
+
+character_event = {
+	id = Plus.228
+	desc = EVTDESC_Plus_228
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	ai = no
+	
+	option = {
+		name = I_SEE
+	}
+}
+
+character_event = {
+	id = Plus.217
+	desc = EVTDESC_Plus_217
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	ai = no
+	
+	option = {
+		name = I_SEE
+	}
+}
+
+character_event = {
+	id = Plus.222
+	desc = EVTDESC_Plus_222
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_Plus_216 # He will pay for this!
+		imprison = FROM
+		clr_character_flag = captured_in_battle
+		clr_character_flag = lost_trial_by_combat
+		clr_character_flag = demmanded_first_trial_by_combat
+		clr_character_flag = choosing_champion
+		clr_character_flag = select_champion
+		set_character_flag = kidnapped_by_plot
+		hidden_tooltip = {
+			opinion = { who = FROM modifier = kidnapped_me months = 1200 }
+			father = { opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 } }
+			mother = { opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 } }
+			any_sibling = { opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 } }
+			any_spouse = {
+				limit = { NOT = { sibling = ROOT } }
+				opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 }
+			}
+			any_child = {
+				limit = { NOT = { is_married = ROOT } }
+				opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 }
+			}
+			any_dynasty_member = {
+				limit = {
+					is_close_relative = ROOT
+					NOT = { is_parent_of = ROOT } 
+					NOT = { sibling = ROOT }
+					NOT = { is_married = ROOT }
+					NOT = { is_child_of = ROOT }
+					NOT = { character = ROOT }
+				}
+				opinion = { who = FROM modifier = opinion_kidnapped_kin months = 600 }
+			}
+			any_player = {
+				limit = {
+					NOT = { character = ROOT }
+					OR = {
+						is_close_relative = ROOT
+						dynasty = ROOT
+						is_liege_or_above = ROOT	
+						is_liege_of = ROOT
+						AND = {
+							ROOT = { is_ruler = yes }
+							is_vassal_or_below = ROOT							
+						}
+					}
+				}
+				character_event = { id = Plus.217 days = 1 } # Notify
+			}
+		}
+	}
+}
+
+character_event = {
+	id = Plus.224
+	desc = EVTDESC_Plus_224
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_Plus_224
+		hidden_tooltip = {
+			opinion = { who = FROM modifier = attempted_kidnapping months = 600 }
+			opinion = { who = FROM modifier = opinion_relieved multiplier = 2 months = 600 }
+			father = { opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 300 } }
+			mother = { opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 300 } }
+			any_sibling = { opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 300 } }
+			any_spouse = {
+				limit = { NOT = { sibling = ROOT } }
+				opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 300 }
+			}
+			any_child = {
+				limit = { NOT = { is_married = ROOT } }
+				opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 300 }
+			}
+			any_dynasty_member = {
+				limit = {
+					is_close_relative = ROOT
+					NOT = { is_parent_of = ROOT } 
+					NOT = { sibling = ROOT }
+					NOT = { is_married = ROOT }
+					NOT = { is_child_of = ROOT }
+					NOT = { character = ROOT }
+				}
+				opinion = { who = FROM modifier = attempted_kidnapping_of_kin months = 300 }
+			}
+		}
+	}
+}

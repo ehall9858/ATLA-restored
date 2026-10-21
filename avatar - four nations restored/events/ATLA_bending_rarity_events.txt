@@ -1,0 +1,38 @@
+# Bending rarity - the two moments a rank is actually earned.
+#
+#	There is no longer a yearly sweep. Nothing trims the ranks anyone already holds.
+#	These are simply the events shown when a character reaches a rank through the
+#	rarity gate in common/scripted_effects/10_atla_bending_rarity_effects.txt.
+#
+#	  atla_bending_rarity.10   the character reaches master
+#	  atla_bending_rarity.11   the character goes beyond the masters
+#
+namespace = atla_bending_rarity
+
+character_event = {
+	id = atla_bending_rarity.10
+	is_triggered_only = yes
+	title = ATLA_RARITY_TITLE_10
+	desc = ATLA_RARITY_DESC_10
+	picture = GFX_evt_grassfire
+
+	option = {
+		name = ATLA_RARITY_OPT_10A
+		prestige = 100
+		piety = 25
+	}
+}
+
+character_event = {
+	id = atla_bending_rarity.11
+	is_triggered_only = yes
+	title = ATLA_RARITY_TITLE_11
+	desc = ATLA_RARITY_DESC_11
+	picture = GFX_evt_beam_of_light
+
+	option = {
+		name = ATLA_RARITY_OPT_11A
+		prestige = 250
+		change_martial = 1
+	}
+}

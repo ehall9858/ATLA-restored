@@ -1,0 +1,162 @@
+namespace = avatar_ai
+
+# ============================================================================
+# AI Avatar initiative
+# ============================================================================
+# The focus ladder, villain warnings, withdrawal, the bending orders and the
+# target-side interference letters all already run for AI Avatars. The three
+# things a player Avatar can do at will but an AI Avatar never did were:
+#
+#   1. Marry (seek_avatar_spouse is player-only).
+#   2. Demand decolonization (demand_decolonization is player-only).
+#   3. Declare a Crisis War (declare_crisis_war is player-only).
+#
+# This hidden yearly pulse gives an AI Avatar those same levers, firing the
+# exact events the player's decisions fire so there is only one copy of the
+# logic. It never fires for a player-controlled Avatar (ai = yes in trigger).
+#
+# Chances are deliberately low: an AI Avatar should feel like a person with
+# priorities, not an event machine. The marriage event keeps its own 3-year
+# cooldown, decolonization keeps avatar_decolonize_cooldown, and a Crisis War
+# is once per lifetime (avatar_crisis_war_used).
+
+character_event = {
+    id = avatar_ai.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        ai = yes
+        is_revealed_avatar_trigger = yes
+        trait = fullyrealisedavatar
+        is_adult = yes
+        is_incapable = no
+        prisoner = no
+        NOT = { has_character_flag = withdrawn_avatar }
+    }
+
+    immediate = {
+        # --- Marriage -------------------------------------------------------
+        # avatar_marriage.1 runs its own eligibility test (an unlanded,
+        # unmarried adult of the right sex must exist somewhere), so the
+        # pulse only checks the Avatar's side and lets the event decide.
+        if = {
+            limit = {
+                is_married = no
+                NOT = { has_character_flag = avatar_marriage_cooldown }
+                NOT = { any_lover = { is_alive = yes } }
+            }
+            random = {
+                chance = 30
+                character_event = { id = avatar_marriage.1 }
+            }
+        }
+
+        # --- Decolonization -------------------------------------------------
+        # Fires avatar_decolonize.1 on the chosen ruler, exactly as the
+        # decision does: ROOT is that ruler, FROM becomes this Avatar.
+        if = {
+            limit = {
+                NOT = { has_character_flag = avatar_decolonize_cooldown }
+                any_independent_ruler = {
+                    is_landed = yes
+                    is_adult = yes
+                    is_incapable = no
+                    prisoner = no
+                    NOT = { character = ROOT }
+                    any_realm_province = {
+                        OR = {
+                            has_province_modifier = colony_1
+                            has_province_modifier = colony_2
+                            has_province_modifier = colony_3
+                        }
+                    }
+                }
+            }
+            random = {
+                chance = 10
+                random_independent_ruler = {
+                    limit = {
+                        is_landed = yes
+                        is_adult = yes
+                        is_incapable = no
+                        prisoner = no
+                        NOT = { character = ROOT }
+                        any_realm_province = {
+                            OR = {
+                                has_province_modifier = colony_1
+                                has_province_modifier = colony_2
+                                has_province_modifier = colony_3
+                            }
+                        }
+                    }
+                    character_event = { id = avatar_decolonize.1 }
+                }
+            }
+        }
+
+        # --- Crisis War -----------------------------------------------------
+        # Same target test as declare_crisis_war's potential block. The
+        # target is saved as crisis_target and the proclamation is fired on
+        # the Avatar, which is the pattern the decision uses.
+        if = {
+            limit = {
+                NOT = { has_character_flag = avatar_crisis_war_used }
+                NOT = { has_global_flag = avatar_crisis_active }
+                any_independent_ruler = {
+                    is_landed = yes
+                    is_adult = yes
+                    is_incapable = no
+                    prisoner = no
+                    NOT = { character = ROOT }
+                    OR = {
+                        any_realm_province = {
+                            OR = {
+                                has_province_modifier = colony_2
+                                has_province_modifier = colony_3
+                            }
+                        }
+                        AND = {
+                            has_law = slavery_legal
+                            realm_size >= 40
+                        }
+                        AND = {
+                            is_hostile_to_avatar_trigger = yes
+                            realm_size >= 60
+                        }
+                    }
+                }
+            }
+            random = {
+                chance = 5
+                random_independent_ruler = {
+                    limit = {
+                        is_landed = yes
+                        is_adult = yes
+                        is_incapable = no
+                        prisoner = no
+                        NOT = { character = ROOT }
+                        OR = {
+                            any_realm_province = {
+                                OR = {
+                                    has_province_modifier = colony_2
+                                    has_province_modifier = colony_3
+                                }
+                            }
+                            AND = {
+                                has_law = slavery_legal
+                                realm_size >= 40
+                            }
+                            AND = {
+                                is_hostile_to_avatar_trigger = yes
+                                realm_size >= 60
+                            }
+                        }
+                    }
+                    save_event_target_as = crisis_target
+                    ROOT = { character_event = { id = avatar_crisis.1 } }
+                }
+            }
+        }
+    }
+}

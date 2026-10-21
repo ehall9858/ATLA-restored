@@ -1,0 +1,40 @@
+# Warrior ladder - who counts as a candidate, and who already holds a rank.
+#
+#	Used by ATLAW.2 (events/ATLA_warrior_traits.txt) at game start, and by
+#	anything later that wants to hand out or check the non-bender ladder.
+
+# Any bending at all. is_bender_trigger only looks at the bending *levels*, and
+# some characters carry an element trait without a level, so check both.
+is_any_bender_trigger = {
+	OR = {
+		is_bender_trigger = yes
+		is_specialist_bender_trigger = yes
+		trait = waterbender
+		trait = earthbender
+		trait = firebender
+		trait = airbender
+		trait = avatar_waterbender
+		trait = avatar_earthbender
+		trait = avatar_firebender
+		trait = avatar_airbender
+	}
+}
+
+has_warrior_tier_trigger = {
+	OR = {
+		trait = atla_fighter
+		trait = atla_warrior
+		trait = atla_master
+		trait = atla_grandmaster
+	}
+}
+
+# Someone the ladder can be handed to: a grown, capable, genuinely martial
+# character with no bending and no rank yet. Raise or lower the martial bar here.
+is_warrior_tier_candidate_trigger = {
+	is_adult = yes
+	NOT = { trait = incapable }
+	NOT = { is_any_bender_trigger = yes }
+	NOT = { has_warrior_tier_trigger = yes }
+	martial = 10
+}

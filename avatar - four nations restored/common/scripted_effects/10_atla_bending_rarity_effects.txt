@@ -1,0 +1,90 @@
+# Bending rarity - the gate through which a master, or a legend, is made.
+#
+#	There is no ceiling on how many masters the world may hold. What there is, is a
+#	bar: the character has to be formidable, and the odds are long.
+#
+#	  ordinary AI, reaching for the rank	->  6% per attempt
+#	  the Avatar, or the player's character	-> 20% per attempt
+#
+#	Attempts only happen where someone is genuinely being taught or drilled by
+#	people who know what they are doing (the bending orders, the Agni Kai, the
+#	Avatars' own journey, the educator events). The lone grind of
+#	train_your_bending can never reach these tiers at all.
+#
+#	Used by: 09_atla_scripted_effects.txt (upgrade_bending_effect), the Agni Kai,
+#	the water and earth orders, and the character generator. See
+#	common/scripted_triggers/10_atla_bending_rarity_triggers.txt for the bars.
+
+try_become_master_bender_effect = {
+	if = {
+		limit = {
+			NOT = { trait = master_bender }
+			NOT = { trait = legendary_bender }
+			is_master_material_bender_trigger = yes
+		}
+
+		if = {
+			limit = {
+				OR = {
+					is_avatar_trigger = yes
+					ai = no
+				}
+			}
+			random_list = {
+				20 = {
+					add_trait = master_bender
+					set_character_flag = atla_earned_mastery
+					character_event = { id = atla_bending_rarity.10 days = 1 }
+				}
+				80 = { }
+			}
+		}
+		else = {
+			random_list = {
+				6 = {
+					add_trait = master_bender
+					set_character_flag = atla_earned_mastery
+					character_event = { id = atla_bending_rarity.10 days = 1 }
+				}
+				94 = { }
+			}
+		}
+	}
+}
+
+# A master who is more than a master. Only a genuine legend ever gets here.
+try_become_legendary_bender_effect = {
+	if = {
+		limit = {
+			trait = master_bender
+			NOT = { trait = legendary_bender }
+			is_legendary_material_bender_trigger = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					is_avatar_trigger = yes
+					ai = no
+				}
+			}
+			random_list = {
+				4 = {
+					add_trait = legendary_bender
+					set_character_flag = atla_earned_legendary
+					character_event = { id = atla_bending_rarity.11 days = 1 }
+				}
+				96 = { }
+			}
+		}
+		else = {
+			random_list = {
+				1 = {
+					add_trait = legendary_bender
+					set_character_flag = atla_earned_legendary
+					character_event = { id = atla_bending_rarity.11 days = 1 }
+				}
+				99 = { }
+			}
+		}
+	}
+}

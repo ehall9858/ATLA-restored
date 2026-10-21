@@ -75,7 +75,7 @@ execute_waterbender_sacrifice_desc;Sacrifice the Waterbender to the §YGods§!! Su
 # Events
 
 BAR.1.T;The First Example;;;;;;;;;;;x
-BAR.1.D;The barbarians of the northern Earth Kingdom are alight with jubilant celebration over the execution of a waterbender in their midst. Drums beat and weapons are sharpened, making clear that this will be only the first of many. As the bodies mount, so too will the boldness of the barbarians - and the threat they pose to the Northern Water Tribe.;;;;;;;;;;;x
+BAR.1.D;The barbarians of the northern Earth Kingdom are alight with jubilant celebration over the execution of a waterbender in their midst. Drums beat and weapons are sharpened, making clear that this will be only the first of many. As the bodies mount, so too will the boldness of the barbarians, and the threat they pose to the Northern Water Tribe.;;;;;;;;;;;x
 BAR.1.OPTA;The blood of benders will be our prize!;;;;;;;;;;;x
 BAR.1.OPTB;These upstart savages will amount to nothing.;;;;;;;;;;;x
 
@@ -166,12 +166,12 @@ BAR.7.OPTA;They cannot escape us now.;;;;;;;;;;;x
 BAR.7.OPTB;We must ensure our shores are prepared.;;;;;;;;;;;x
 
 BAR.8.T;Barbarian Honour Guard;;;;;;;;;;;x
-BAR.8.D;The Barbarian crusade against Waterbenders wages ever on. Tested in many battles and clad in the heavy metal taken in countless raids, a cadre of elite veteran warriors have pledged themselves to the service of the Barbarian Warchief. These brutal souls have been organised into a personal honour guard - and for every one that falls, another ten seem ready to take their place.;;;;;;;;;;;x
+BAR.8.D;The Barbarian crusade against Waterbenders wages ever on. Tested in many battles and clad in the heavy metal taken in countless raids, a cadre of elite veteran warriors have pledged themselves to the service of the Barbarian Warchief. These brutal souls have been organised into a personal honour guard, and for every one that falls, another ten seem ready to take their place.;;;;;;;;;;;x
 BAR.8.OPTA;They honour themselves!;;;;;;;;;;;x
 BAR.8.OPTB;But can they stand up to our Bending arts?;;;;;;;;;;;x
 
 BAR.9.T;Oceans of Blood;;;;;;;;;;;x
-BAR.9.D;Towns on the North and South Pole lie abandoned. The waters of the Foggy Swamp are clogged with putrid and bloating bodies. Only the howling wind and the hollow laughter of dark spirits fill these places now. The Barbarians have forced the rivers and seas the Waterbenders once called home to run red with the blood. The power of the Barbarians is unmatched. Every day, entire towns pledge themselves to their way of life - lest they become the next nation to be wiped from the Earth.;;;;;;;;;;;x
+BAR.9.D;Towns on the North and South Pole lie abandoned. The waters of the Foggy Swamp are clogged with putrid and bloating bodies. Only the howling wind and the hollow laughter of dark spirits fill these places now. The Barbarians have forced the rivers and seas the Waterbenders once called home to run red with the blood. The power of the Barbarians is unmatched. Every day, entire towns pledge themselves to their way of life, lest they become the next nation to be wiped from the Earth.;;;;;;;;;;;x
 BAR.9.OPTA;They are right to fear us.;;;;;;;;;;;x
 BAR.9.OPTB;These are our final days.;;;;;;;;;;;x
 

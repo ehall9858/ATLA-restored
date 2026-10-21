@@ -1,0 +1,53 @@
+##################################################
+# Avatar element-journey recovery watchdog
+##################################################
+#
+# The element-training chain in ATLA_avatar.txt is driven entirely by the
+# "master" character that avatar.159 -> avatar.165/167/168 picks:
+#
+#   avatar.152 -> avatar.155 -> avatar.171-174 -> avatar.177/178
+#              -> avatar.175/176 -> avatar.158
+#
+# Every one of those events is fired on the master, so if the master dies,
+# is imprisoned, or the chain is otherwise dropped before avatar.158 runs,
+# master_found is never cleared.
+#
+# avatar.159 - the event that chooses the Avatar's next element - is gated on
+# master_found and master_searching being absent. A dropped chain therefore
+# used to lock the Avatar on a single element permanently, with no error in
+# the log and no way to recover.
+#
+# This watchdog notices a stalled journey and resumes it. It is deliberately
+# generous (2 years for a training chain that normally takes well under one)
+# so it can never interrupt training that is actually in progress.
+##################################################
+
+namespace = atla_avatar_recovery
+
+character_event = {
+	id = atla_avatar_recovery.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_character_flag = avatar_journey
+		OR = {
+			# A master was found but training never completed.
+			AND = {
+				has_character_flag = master_found
+				had_character_flag = { flag = master_found days = 730 }
+			}
+			# A master search was started but the search event never resolved.
+			AND = {
+				has_character_flag = master_searching
+				had_character_flag = { flag = master_searching days = 365 }
+			}
+		}
+	}
+
+	option = {
+		clr_character_flag = master_found
+		clr_character_flag = master_searching
+		character_event = { id = avatar.159 }
+	}
+}

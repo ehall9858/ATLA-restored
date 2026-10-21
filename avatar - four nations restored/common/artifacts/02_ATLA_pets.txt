@@ -322,3 +322,116 @@ petCatDeer = {
 		always = no
 	}
 }
+
+
+petPlatypusBear = {
+	stewardship = 2
+	diplomacy = 2
+	global_levy_size = 0.05
+	quality = 3
+	flags = { pet lifespan_50 }
+	picture = "GFX_petPlatypusBear"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}
+
+petSaberToothMooseLion = {
+	martial = 2
+	command_modifier = {
+		damage = 0.1
+		morale_offence = 0.1
+	}
+	quality = 3
+	flags = { pet lifespan_50 }
+	picture = "GFX_petSaberToothMooseLion"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}
+
+petBoarQPine = {
+	martial = 1
+	stewardship = 1
+	command_modifier = {
+		defence = 0.1
+	}
+	quality = 3
+	flags = { pet lifespan_50 }
+	picture = "GFX_petBoarQPine"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}
+
+petShirshu = {
+	intrigue = 2
+	diplomacy = 1
+	health = 0.5
+	quality = 3
+	flags = { pet lifespan_50 }
+	picture = "GFX_petShirshu"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}
+
+petBadgermole = {
+	stewardship = 2
+	learning = 1
+	land_organisation = 0.1
+	quality = 3
+	flags = { pet lifespan_50 }
+	picture = "GFX_petBadgermole"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}
+
+petMongooseLizard = {
+	martial = 1
+	intrigue = 1
+	command_modifier = { speed = 0.1 }
+	quality = 2
+	flags = { pet lifespan_50 }
+	picture = "GFX_petMongooseLizard"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}
+
+petDragonMoose = {
+	martial = 2
+	stewardship = 1
+	command_modifier = { damage = 0.1 }
+	quality = 3
+	flags = { pet lifespan_50 }
+	picture = "GFX_petDragonMoose"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}
+
+petCatMonkey = {
+	diplomacy = 2
+	intrigue = 1
+	personal_combat_skill = 1
+	quality = 2
+	flags = { pet lifespan_20 }
+	picture = "GFX_petCatMonkey"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}
+
+petElephantRat = {
+	learning = 1
+	stewardship = 1
+	tech_growth_modifier = 0.05
+	quality = 2
+	flags = { pet lifespan_20 }
+	picture = "GFX_petElephantRat"
+	stacking = no
+	slot = pet
+	allowed_gift = { always = no }
+}

@@ -315,7 +315,7 @@ narrative_event = { # Reunification - World
 				factor = 2.5
 				OR = {
 					religion = followers_of_kyoshi
-					# religion = followers_of_kyoshi_reformed
+					religion = followers_of_kyoshi_reformed
 					culture = southern_earth_culture
 					culture = earth_islander
 				}
@@ -480,9 +480,17 @@ character_event = { # Age Update
 				year = 569
 				NOT = { year = 571 }
 				NOT = { has_global_flag = kyoshi_warriors_founded }
-				c_34 = { is_alive = yes } #This is Kyoshi
+				d_avatar = {
+					owner = {
+						has_character_flag = is_kyoshi
 			}
-			c_34 = { narrative_event = { id = ATLAE.4000 } }
+				}
+			}
+			d_avatar = {
+				owner = {
+					narrative_event = { id = ATLAE.4000 }
+				}
+			}
 		}
 		if = { # Golden Age of Piracy Event
 			limit = {
@@ -821,9 +829,15 @@ character_event = { # Colonies Confrontation - Check if Avatar or Earth King sen
 	immediate = {
 		if = {
 			limit = {
-				persistent_event_target:the_avatar = { is_alive = yes }
+				d_avatar = {
+					has_holder = yes
 			}
-			persistent_event_target:the_avatar = { character_event = { id = ATLAE.1 } }
+			}
+			d_avatar = {
+				owner = {
+					character_event = { id = ATLAE.1 }
+				}
+			}
 		}
 		else = {
 			ROOT = {

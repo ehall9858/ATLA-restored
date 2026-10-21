@@ -1,0 +1,8 @@
+# Found the Waterbending and Earthbending orders at game start
+on_startup = {
+	events = {
+		bending_orders.1
+		bending_orders.2
+	}
+}
+

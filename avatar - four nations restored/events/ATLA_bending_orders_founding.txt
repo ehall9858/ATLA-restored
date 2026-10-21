@@ -1,0 +1,123 @@
+namespace = bending_orders
+
+# Founds the Waterbending Order at game start (first qualifying ruler becomes Grandmaster)
+character_event = {
+	id = bending_orders.1
+	hide_window = yes
+	is_triggered_only = yes
+	only_rulers = yes
+
+	trigger = {
+		ai = yes
+		prisoner = no
+		trait = waterbender
+		NOT = { has_global_flag = waterbending_order_founded }
+		can_join_society = waterbending_order
+	}
+
+	immediate = {
+		set_global_flag = waterbending_order_founded
+		join_society = waterbending_order
+		set_society_grandmaster = yes
+	}
+}
+
+# Founds the Earthbending Order at game start
+character_event = {
+	id = bending_orders.2
+	hide_window = yes
+	is_triggered_only = yes
+	only_rulers = yes
+
+	trigger = {
+		ai = yes
+		prisoner = no
+		trait = earthbender
+		NOT = { has_global_flag = earthbending_order_founded }
+		can_join_society = earthbending_order
+	}
+
+	immediate = {
+		set_global_flag = earthbending_order_founded
+		join_society = earthbending_order
+		set_society_grandmaster = yes
+	}
+}
+
+# Player asks to join the Waterbending Order.
+character_event = {
+	id = bending_orders.10
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		FROM = { leader = { society_member_of = waterbending_order } }
+	}
+	immediate = {
+		FROM = { leader = { character_event = { id = bending_orders.11 } } }
+	}
+}
+
+character_event = {
+	id = bending_orders.11
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		FROM = { letter_event = { id = bending_orders.12 } }
+	}
+}
+
+letter_event = {
+	id = bending_orders.12
+	desc = bending_order_water_join_letter
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	immediate = { set_character_flag = society_join_block }
+	option = {
+		name = bending_order_join_accept
+		join_society = waterbending_order
+		clr_character_flag = society_join_block
+	}
+	option = {
+		name = bending_order_join_decline
+		clr_character_flag = society_join_block
+	}
+}
+
+# Player asks to join the Earthbending Society.
+character_event = {
+	id = bending_orders.13
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		FROM = { leader = { society_member_of = earthbending_order } }
+	}
+	immediate = {
+		FROM = { leader = { character_event = { id = bending_orders.14 } } }
+	}
+}
+
+character_event = {
+	id = bending_orders.14
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		FROM = { letter_event = { id = bending_orders.15 } }
+	}
+}
+
+letter_event = {
+	id = bending_orders.15
+	desc = bending_order_earth_join_letter
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	immediate = { set_character_flag = society_join_block }
+	option = {
+		name = bending_order_join_accept
+		join_society = earthbending_order
+		clr_character_flag = society_join_block
+	}
+	option = {
+		name = bending_order_join_decline
+		clr_character_flag = society_join_block
+	}
+}

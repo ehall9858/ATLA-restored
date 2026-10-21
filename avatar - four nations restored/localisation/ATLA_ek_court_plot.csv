@@ -1,0 +1,14 @@
+plot_make_the_earth_king_a_figurehead_title;Reduce [This.GetTitledFirstName] to a Figurehead;;;;;;;;;;;;;x;
+plot_make_the_earth_king_a_figurehead_desc;[From.GetTitledFirstName] holds that the Earth King should reign and not rule, and that the Grand Secretariat should hold the reins of the Earth Kingdom in his name.;;;;;;;;;;;;;x;
+plot_make_the_earth_king_a_figurehead_decision;[Root.GetPlot];;;;;;;;;;;;;x;
+plot_make_the_earth_king_a_figurehead_decision_desc;Put the plot into motion by presenting the court's demands to [Root.PlotTarget.GetTitledName]. The crown is not what it was, and the court knows it.;;;;;;;;;;;;;x;
+EK_COURT_PLOT_SUCCESS_TT;The Earth King has been reduced to a figurehead.;;;;;;;;;;;;;x;
+EVTOPTB_EK.3;Defy them!;;;;;;;;;;;;;x;
+EVTOPTB_EK.3_TOOLTIP;Refuse the Grand Secretariat's demand. They may yet break you for it, or you may break them.;;;;;;;;;;;;;x;
+EVTDESCatla_ek_plot.1;The Grand Secretariat has come to you with a proposal, and a great many soldiers. They are of the opinion that your throne would be better served by their hands than by yours. The Earth Kingdom, they assure you, will go on exactly as it always has, with you as its King, in name.;;;;;;;;;;;;;x;
+EVTOPTAatla_ek_plot.1;I will bow to the court.;;;;;;;;;;;;;x;
+EVTOPTBatla_ek_plot.1;I will not be a puppet.;;;;;;;;;;;;;x;
+EVTOPTBatla_ek_plot.1_TOOLTIP;Refuse them. The court may crush you for it, or you may crush them.;;;;;;;;;;;;;x;
+EVTOPTCatla_ek_plot.1;Buy them off.;;;;;;;;;;;;;x;
+EVTDESCatla_ek_plot.2;The Earth King has seen reason. He keeps his throne, his titles and his ceremonies. We keep the reins. The Grand Secretariat rules the Earth Kingdom in his name, and he will not trouble us again.;;;;;;;;;;;;;x;
+EVTOPTAatla_ek_plot.2;The Earth Kingdom is ours to guide.;;;;;;;;;;;;;x;

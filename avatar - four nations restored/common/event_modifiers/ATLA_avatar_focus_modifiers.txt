@@ -1,0 +1,57 @@
+# Avatar focus modifiers (used by events/ATLA_avatar_focus.txt).
+# Defines the character modifiers granted by focus activities so the
+# events actually apply bonuses instead of referencing missing modifiers.
+avatar_focus_inner_peace = {
+	icon = 2
+	learning = 1
+	monthly_character_piety = 0.25
+}
+
+avatar_focus_diplomatic_momentum = {
+	icon = 24
+	diplomacy = 1
+	monthly_character_prestige = 0.25
+}
+
+avatar_focus_orderly_governance = {
+	icon = 10
+	stewardship = 1
+	monthly_character_prestige = 0.15
+}
+
+avatar_focus_people_first = {
+	icon = 18
+	diplomacy = 1
+	monthly_character_prestige = 0.2
+}
+
+avatar_focus_worldly_insight = {
+	icon = 5
+	learning = 1
+	diplomacy = 1
+}
+
+avatar_focus_combat_discipline = {
+	icon = 13
+	martial = 1
+	monthly_character_prestige = 0.2
+}
+
+avatar_focus_shared_training = {
+	icon = 19
+	martial = 1
+	monthly_character_prestige = 0.15
+}
+
+avatar_focus_seasoned = {
+	icon = 7
+	diplomacy = 1
+	martial = 1
+	monthly_character_prestige = 0.3
+	monthly_character_piety = 0.25
+}
+
+# Cooldown marker for change_avatar_focus (Avatar focus system).
+avatar_focus_change_cooldown = {
+	icon = 4
+}

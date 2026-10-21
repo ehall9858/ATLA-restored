@@ -1,0 +1,1474 @@
+#########################################
+# ATLA nation event chains
+#
+# NAFC.100-199  Fire Nation
+# NAFC.200-299  Water Tribe
+# NAFC.300-399  Earth Kingdom
+# NAFC.400-499  Air Nomads
+#########################################
+
+namespace = NAFC
+
+# Hidden yearly starter. The on_action slot is guaranteed, and this trigger
+# filters it down to adult Fire Nation rulers. The chance keeps the chain rare.
+character_event = {
+	id = NAFC.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = fire_nation_cultures
+		NOT = { has_character_flag = nafc_fire_chain_active }
+		NOT = { has_character_flag = nafc_fire_chain_done }
+	}
+
+	immediate = {
+		random = {
+			chance = 20
+			hidden_tooltip = {
+				set_character_flag = nafc_fire_chain_active
+				character_event = { id = NAFC.101 days = 3 }
+			}
+		}
+	}
+}
+
+# Stage 1: the eternal flame in a provincial temple goes out.
+character_event = {
+	id = NAFC.101
+	desc = NAFC.101.desc
+	picture = GFX_evt_firenation_temple
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Faith
+		name = NAFC.101.a
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+		}
+		piety = 30
+		prestige = 5
+		hidden_tooltip = {
+			set_character_flag = nafc_fire_faith
+			character_event = { id = NAFC.102 days = 45 }
+		}
+	}
+
+	option = { # War
+		name = NAFC.101.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+		prestige = 35
+		piety = -5
+		hidden_tooltip = {
+			set_character_flag = nafc_fire_war
+			character_event = { id = NAFC.102 days = 45 }
+		}
+	}
+
+	option = { # Balance
+		name = NAFC.101.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		prestige = 15
+		piety = 15
+		hidden_tooltip = {
+			set_character_flag = nafc_fire_balance
+			character_event = { id = NAFC.102 days = 45 }
+		}
+	}
+}
+
+# Stage 2: the war council.
+character_event = {
+	id = NAFC.102
+	desc = NAFC.102.desc
+	picture = GFX_evt_fire_council
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # War
+		name = NAFC.102.a
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+		prestige = 40
+		change_martial = 1
+		hidden_tooltip = {
+			set_character_flag = nafc_fire_war
+			character_event = { id = NAFC.103 days = 60 }
+		}
+	}
+
+	option = { # Faith
+		name = NAFC.102.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+		}
+		piety = 40
+		change_learning = 1
+		hidden_tooltip = {
+			set_character_flag = nafc_fire_faith
+			character_event = { id = NAFC.103 days = 60 }
+		}
+	}
+
+	option = { # Balance
+		name = NAFC.102.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		prestige = 20
+		piety = 20
+		change_stewardship = 1
+		hidden_tooltip = {
+			set_character_flag = nafc_fire_balance
+			character_event = { id = NAFC.103 days = 60 }
+		}
+	}
+}
+
+# Stage 3: the Sun Warrior relic. The options available depend on the path
+# flags set in the first two stages.
+character_event = {
+	id = NAFC.103
+	desc = NAFC.103.desc
+	picture = GFX_evt_sun_warrior_city
+	border = GFX_event_narrative_frame_war
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # War path
+		name = NAFC.103.a
+		trigger = { has_character_flag = nafc_fire_war }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 60
+		piety = -10
+		if = {
+			limit = { NOT = { trait = brave } }
+			hidden_tooltip = { remove_trait = craven }
+			add_trait = brave
+			hidden_tooltip = { set_character_flag = nafc_fire_trait_granted }
+		}
+		if = {
+			limit = {
+				NOT = { has_character_flag = nafc_fire_trait_granted }
+				NOT = { trait = proud }
+			}
+			hidden_tooltip = { remove_trait = humble }
+			add_trait = proud
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_fire_trait_granted
+			clr_character_flag = nafc_fire_chain_active
+			clr_character_flag = nafc_fire_war
+			clr_character_flag = nafc_fire_faith
+			clr_character_flag = nafc_fire_balance
+			set_character_flag = nafc_fire_chain_done
+		}
+	}
+
+	option = { # Faith path
+		name = NAFC.103.b
+		trigger = { has_character_flag = nafc_fire_faith }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		piety = 60
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+			hidden_tooltip = { set_character_flag = nafc_fire_trait_granted }
+		}
+		if = {
+			limit = {
+				NOT = { has_character_flag = nafc_fire_trait_granted }
+				NOT = { trait = kind }
+			}
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_fire_trait_granted
+			clr_character_flag = nafc_fire_chain_active
+			clr_character_flag = nafc_fire_war
+			clr_character_flag = nafc_fire_faith
+			clr_character_flag = nafc_fire_balance
+			set_character_flag = nafc_fire_chain_done
+		}
+	}
+
+	option = { # Balance path
+		name = NAFC.103.c
+		trigger = { has_character_flag = nafc_fire_balance }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		prestige = 30
+		piety = 30
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+			hidden_tooltip = { set_character_flag = nafc_fire_trait_granted }
+		}
+		if = {
+			limit = {
+				NOT = { has_character_flag = nafc_fire_trait_granted }
+				NOT = { trait = patient }
+			}
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_fire_trait_granted
+			clr_character_flag = nafc_fire_chain_active
+			clr_character_flag = nafc_fire_war
+			clr_character_flag = nafc_fire_faith
+			clr_character_flag = nafc_fire_balance
+			set_character_flag = nafc_fire_chain_done
+		}
+	}
+
+	option = { # Safe fallback
+		name = NAFC.103.d
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = content
+			}
+		}
+		prestige = 10
+		piety = 10
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_fire_trait_granted
+			clr_character_flag = nafc_fire_chain_active
+			clr_character_flag = nafc_fire_war
+			clr_character_flag = nafc_fire_faith
+			clr_character_flag = nafc_fire_balance
+			set_character_flag = nafc_fire_chain_done
+		}
+	}
+}
+
+# =========================================================
+# Water Tribe chain
+# =========================================================
+
+# Hidden yearly starter. The on_action slot is guaranteed, and this trigger
+# filters it down to adult Water Tribe rulers. The chance keeps the chain rare.
+character_event = {
+	id = NAFC.200
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		OR = {
+			culture = northern_water_culture
+			culture = southern_water_culture
+		}
+		any_realm_province = { is_coastal = yes }
+		NOT = { has_character_flag = nafc_water_chain_active }
+		NOT = { has_character_flag = nafc_water_chain_done }
+	}
+
+	immediate = {
+		random = {
+			chance = 20
+			hidden_tooltip = {
+				set_character_flag = nafc_water_chain_active
+				character_event = { id = NAFC.201 days = 3 }
+			}
+		}
+	}
+}
+
+# Stage 1: the moon goes dark over the ice.
+character_event = {
+	id = NAFC.201
+	desc = NAFC.201.desc
+	picture = GFX_evt_water_tribe_tundra
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Faith
+		name = NAFC.201.a
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+		}
+		piety = 30
+		prestige = 5
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_faith
+			character_event = { id = NAFC.202 days = 45 }
+		}
+	}
+
+	option = { # War
+		name = NAFC.201.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+		prestige = 35
+		piety = -5
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_war
+			character_event = { id = NAFC.202 days = 45 }
+		}
+	}
+
+	option = { # Balance
+		name = NAFC.201.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		prestige = 15
+		piety = 15
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_balance
+			character_event = { id = NAFC.202 days = 45 }
+		}
+	}
+}
+
+# Stage 2: the voice beneath the ice. This choice sets the path used in stage 3.
+character_event = {
+	id = NAFC.202
+	desc = NAFC.202.desc
+	picture = GFX_evt_iceberg
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Faith
+		name = NAFC.202.a
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+		}
+		piety = 40
+		change_martial = 1
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_faith
+			character_event = { id = NAFC.203 days = 60 }
+		}
+	}
+
+	option = { # Balance
+		name = NAFC.202.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 30
+		change_learning = 1
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_balance
+			character_event = { id = NAFC.203 days = 60 }
+		}
+	}
+
+	option = { # War
+		name = NAFC.202.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 40
+		change_stewardship = 1
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_war
+			character_event = { id = NAFC.203 days = 60 }
+		}
+	}
+}
+
+# Stage 3: the Moon Spirit's answer. The options available depend on the path
+# flags set in the first two stages.
+character_event = {
+	id = NAFC.203
+	desc = NAFC.203.desc
+	picture = GFX_evt_northern_water_tribe_spirit_oasis
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Faith path
+		name = NAFC.203.a
+		trigger = { has_character_flag = nafc_water_faith }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		piety = 60
+		prestige = 15
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_chain_active
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_chain_done
+		}
+	}
+
+	option = { # Balance path
+		name = NAFC.203.b
+		trigger = { has_character_flag = nafc_water_balance }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 40
+		prestige = 20
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_chain_active
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_chain_done
+		}
+	}
+
+	option = { # War path
+		name = NAFC.203.c
+		trigger = { has_character_flag = nafc_water_war }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 60
+		piety = -10
+		if = {
+			limit = { NOT = { trait = brave } }
+			hidden_tooltip = { remove_trait = craven }
+			add_trait = brave
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_chain_active
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_chain_done
+		}
+	}
+
+	option = { # Safe fallback
+		name = NAFC.203.d
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = content
+			}
+		}
+		prestige = 15
+		piety = 15
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_water_chain_active
+			clr_character_flag = nafc_water_faith
+			clr_character_flag = nafc_water_balance
+			clr_character_flag = nafc_water_war
+			set_character_flag = nafc_water_chain_done
+		}
+	}
+}
+
+# =========================================================
+# Earth Kingdom chain
+# =========================================================
+
+# Hidden yearly starter. The on_action slot is guaranteed, and this trigger
+# filters it down to adult settled Earth Kingdom rulers. The chance keeps the
+# chain rare.
+character_event = {
+	id = NAFC.300
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = barbarian_culture }
+		NOT = { culture = sandbender_culture }
+		NOT = { has_character_flag = nafc_earth_chain_active }
+		NOT = { has_character_flag = nafc_earth_chain_done }
+	}
+
+	immediate = {
+		random = {
+			chance = 20
+			hidden_tooltip = {
+				set_character_flag = nafc_earth_chain_active
+				character_event = { id = NAFC.301 days = 3 }
+			}
+		}
+	}
+}
+
+# Stage 1: the wells run dry.
+character_event = {
+	id = NAFC.301
+	desc = NAFC.301.desc
+	picture = GFX_evt_earth_kingdom_village
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Dig
+		name = NAFC.301.a
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+		prestige = 30
+		hidden_tooltip = {
+			character_event = { id = NAFC.302 days = 30 }
+		}
+	}
+
+	option = { # Sages
+		name = NAFC.301.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+		}
+		piety = 30
+		hidden_tooltip = {
+			character_event = { id = NAFC.302 days = 30 }
+		}
+	}
+
+	option = { # Shore up
+		name = NAFC.301.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		prestige = 15
+		piety = 15
+		hidden_tooltip = {
+			character_event = { id = NAFC.302 days = 30 }
+		}
+	}
+}
+
+# Stage 2: the stone beneath. This choice sets the path used in stage 3.
+character_event = {
+	id = NAFC.302
+	desc = NAFC.302.desc
+	picture = GFX_evt_earth_temple
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Seal
+		name = NAFC.302.a
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+			modifier = {
+				factor = 0.5
+				trait = arbitrary
+			}
+		}
+		prestige = 30
+		change_stewardship = 1
+		hidden_tooltip = {
+			clr_character_flag = nafc_earth_seal
+			clr_character_flag = nafc_earth_break
+			clr_character_flag = nafc_earth_rite
+			set_character_flag = nafc_earth_seal
+			character_event = { id = NAFC.303 days = 60 }
+		}
+	}
+
+	option = { # Break
+		name = NAFC.302.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+		prestige = 40
+		piety = -10
+		hidden_tooltip = {
+			clr_character_flag = nafc_earth_seal
+			clr_character_flag = nafc_earth_break
+			clr_character_flag = nafc_earth_rite
+			set_character_flag = nafc_earth_break
+			character_event = { id = NAFC.303 days = 60 }
+		}
+	}
+
+	option = { # Rite
+		name = NAFC.302.c
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+		}
+		piety = 40
+		change_learning = 1
+		hidden_tooltip = {
+			clr_character_flag = nafc_earth_seal
+			clr_character_flag = nafc_earth_break
+			clr_character_flag = nafc_earth_rite
+			set_character_flag = nafc_earth_rite
+			character_event = { id = NAFC.303 days = 60 }
+		}
+	}
+}
+
+# Stage 3: the spirit's answer. The description and options depend on the path
+# chosen in stage 2.
+character_event = {
+	id = NAFC.303
+	desc = {
+		trigger = { has_character_flag = nafc_earth_seal }
+		text = NAFC.303.desc.seal
+	}
+	desc = {
+		trigger = { has_character_flag = nafc_earth_break }
+		text = NAFC.303.desc.break
+	}
+	desc = {
+		trigger = { has_character_flag = nafc_earth_rite }
+		text = NAFC.303.desc.rite
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = nafc_earth_seal }
+			NOT = { has_character_flag = nafc_earth_break }
+			NOT = { has_character_flag = nafc_earth_rite }
+		}
+		text = NAFC.303.desc.default
+	}
+	picture = GFX_evt_earth_kingdom_village
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Seal path
+		name = NAFC.303.a
+		trigger = { has_character_flag = nafc_earth_seal }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		prestige = 50
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_earth_chain_active
+			clr_character_flag = nafc_earth_seal
+			clr_character_flag = nafc_earth_break
+			clr_character_flag = nafc_earth_rite
+			set_character_flag = nafc_earth_chain_done
+		}
+	}
+
+	option = { # Break path
+		name = NAFC.303.b
+		trigger = { has_character_flag = nafc_earth_break }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+		}
+		prestige = 60
+		wealth = 30
+		piety = -10
+		if = {
+			limit = { NOT = { trait = ambitious } }
+			hidden_tooltip = { remove_trait = content }
+			add_trait = ambitious
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_earth_chain_active
+			clr_character_flag = nafc_earth_seal
+			clr_character_flag = nafc_earth_break
+			clr_character_flag = nafc_earth_rite
+			set_character_flag = nafc_earth_chain_done
+		}
+	}
+
+	option = { # Rite path
+		name = NAFC.303.c
+		trigger = { has_character_flag = nafc_earth_rite }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		piety = 60
+		prestige = 20
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_earth_chain_active
+			clr_character_flag = nafc_earth_seal
+			clr_character_flag = nafc_earth_break
+			clr_character_flag = nafc_earth_rite
+			set_character_flag = nafc_earth_chain_done
+		}
+	}
+
+	option = { # Safe fallback
+		name = NAFC.303.d
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = content
+			}
+		}
+		prestige = 15
+		piety = 15
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_earth_chain_active
+			clr_character_flag = nafc_earth_seal
+			clr_character_flag = nafc_earth_break
+			clr_character_flag = nafc_earth_rite
+			set_character_flag = nafc_earth_chain_done
+		}
+	}
+}
+
+# =========================================================
+# Air Nomad chain
+# =========================================================
+
+# Hidden yearly starter. The on_action slot is guaranteed, and this trigger
+# filters it down to adult Air Nomad rulers. The chance keeps the chain rare.
+character_event = {
+	id = NAFC.400
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = air_nomad_cultures
+		religion_group = air_religions
+		NOT = { culture = colonial_air_fire }
+		NOT = { culture = colonial_air_earth }
+		NOT = { culture = colonial_air_water }
+		NOT = { has_character_flag = nafc_air_chain_active }
+		NOT = { has_character_flag = nafc_air_chain_done }
+	}
+
+	immediate = {
+		random = {
+			chance = 20
+			hidden_tooltip = {
+				set_character_flag = nafc_air_chain_active
+				character_event = { id = NAFC.401 days = 3 }
+			}
+		}
+	}
+}
+
+# Stage 1: the storm gathers.
+character_event = {
+	id = NAFC.401
+	desc = NAFC.401.desc
+	picture = GFX_evt_air_north
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Break
+		name = NAFC.401.a
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+		prestige = 30
+		piety = 10
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			set_character_flag = nafc_air_break
+			character_event = { id = NAFC.402 days = 10 }
+		}
+	}
+
+	option = { # Guide
+		name = NAFC.401.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+		}
+		prestige = 20
+		change_stewardship = 1
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			set_character_flag = nafc_air_guide
+			character_event = { id = NAFC.402 days = 10 }
+		}
+	}
+
+	option = { # Warn
+		name = NAFC.401.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 30
+		prestige = 10
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			set_character_flag = nafc_air_warn
+			character_event = { id = NAFC.402 days = 10 }
+		}
+	}
+}
+
+# Stage 2: the storm turns toward the village. This choice sets the outcome
+# path used in stage 3.
+character_event = {
+	id = NAFC.402
+	desc = {
+		trigger = { has_character_flag = nafc_air_break }
+		text = NAFC.402.desc.break
+	}
+	desc = {
+		trigger = { has_character_flag = nafc_air_guide }
+		text = NAFC.402.desc.guide
+	}
+	desc = {
+		trigger = { has_character_flag = nafc_air_warn }
+		text = NAFC.402.desc.warn
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = nafc_air_break }
+			NOT = { has_character_flag = nafc_air_guide }
+			NOT = { has_character_flag = nafc_air_warn }
+		}
+		text = NAFC.402.desc.default
+	}
+	picture = GFX_evt_air_east
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Village
+		name = NAFC.402.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		prestige = 20
+		piety = 20
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			clr_character_flag = nafc_air_village
+			clr_character_flag = nafc_air_temple
+			clr_character_flag = nafc_air_split
+			set_character_flag = nafc_air_village
+			character_event = { id = NAFC.403 days = 30 }
+		}
+	}
+
+	option = { # Temple
+		name = NAFC.402.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 30
+		wealth = 20
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			clr_character_flag = nafc_air_village
+			clr_character_flag = nafc_air_temple
+			clr_character_flag = nafc_air_split
+			set_character_flag = nafc_air_temple
+			character_event = { id = NAFC.403 days = 30 }
+		}
+	}
+
+	option = { # Split
+		name = NAFC.402.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		prestige = 10
+		piety = 10
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			clr_character_flag = nafc_air_village
+			clr_character_flag = nafc_air_temple
+			clr_character_flag = nafc_air_split
+			set_character_flag = nafc_air_split
+			character_event = { id = NAFC.403 days = 30 }
+		}
+	}
+}
+
+# Stage 3: the storm passes. The description and options depend on the path
+# chosen in stage 2.
+character_event = {
+	id = NAFC.403
+	desc = {
+		trigger = { has_character_flag = nafc_air_village }
+		text = NAFC.403.desc.village
+	}
+	desc = {
+		trigger = { has_character_flag = nafc_air_temple }
+		text = NAFC.403.desc.temple
+	}
+	desc = {
+		trigger = { has_character_flag = nafc_air_split }
+		text = NAFC.403.desc.split
+	}
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = nafc_air_village }
+			NOT = { has_character_flag = nafc_air_temple }
+			NOT = { has_character_flag = nafc_air_split }
+		}
+		text = NAFC.403.desc.default
+	}
+	picture = GFX_evt_air_temple
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	option = { # Village path
+		name = NAFC.403.a
+		trigger = { has_character_flag = nafc_air_village }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		piety = 50
+		prestige = 20
+		wealth = -20
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_chain_active
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			clr_character_flag = nafc_air_village
+			clr_character_flag = nafc_air_temple
+			clr_character_flag = nafc_air_split
+			set_character_flag = nafc_air_chain_done
+		}
+	}
+
+	option = { # Temple path
+		name = NAFC.403.b
+		trigger = { has_character_flag = nafc_air_temple }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 40
+		wealth = 20
+		piety = -20
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			hidden_tooltip = { remove_trait = just }
+			add_trait = arbitrary
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_chain_active
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			clr_character_flag = nafc_air_village
+			clr_character_flag = nafc_air_temple
+			clr_character_flag = nafc_air_split
+			set_character_flag = nafc_air_chain_done
+		}
+	}
+
+	option = { # Split path
+		name = NAFC.403.c
+		trigger = { has_character_flag = nafc_air_split }
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		prestige = 30
+		piety = 30
+		wealth = -10
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_chain_active
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			clr_character_flag = nafc_air_village
+			clr_character_flag = nafc_air_temple
+			clr_character_flag = nafc_air_split
+			set_character_flag = nafc_air_chain_done
+		}
+	}
+
+	option = { # Safe fallback
+		name = NAFC.403.d
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = content
+			}
+		}
+		prestige = 15
+		piety = 15
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = {
+			clr_character_flag = nafc_air_chain_active
+			clr_character_flag = nafc_air_break
+			clr_character_flag = nafc_air_guide
+			clr_character_flag = nafc_air_warn
+			clr_character_flag = nafc_air_village
+			clr_character_flag = nafc_air_temple
+			clr_character_flag = nafc_air_split
+			set_character_flag = nafc_air_chain_done
+		}
+	}
+}

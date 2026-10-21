@@ -1,0 +1,65 @@
+## NON-BENDER WARRIOR LADDER
+##
+##	The counterpart to the bending levels in ATLA_bending_traits.txt, for characters
+##	with no bending at all. Bending gives a character reach and raw power; this
+##	gives a character the craft of the blade, the fist and the battlefield.
+##
+##	The ladder is handed out at game start by ATLAW.1
+##	(events/ATLA_warrior_traits.txt), which looks for grown, capable, high-martial
+##	characters who cannot bend. Later systems (training, tournaments, duels) can
+##	add to it through common/scripted_effects/13_atla_warrior_traits_effects.txt.
+##
+##	This file is named to load last on purpose - see common/traits/traits.info.
+
+atla_fighter = { #A trained hand with a blade or a fist - a soldier, a guard, a brawler
+	random = no
+	customizer = no
+	martial = 1
+	combat_rating = 15
+	opposites = {
+		atla_warrior
+		atla_master
+		atla_grandmaster
+	}
+}
+
+atla_warrior = { #A seasoned fighter, blooded in real fighting - the kind of soldier who leads a squad
+	random = no
+	customizer = no
+	martial = 2
+	combat_rating = 35
+	opposites = {
+		atla_fighter
+		atla_master
+		atla_grandmaster
+	}
+}
+
+atla_master = { #A master of the warrior's craft - a swordmaster, a champion, a name people know
+	random = no
+	customizer = no
+	martial = 3
+	monthly_character_prestige = 0.1
+	combat_rating = 55
+	opposites = {
+		atla_fighter
+		atla_warrior
+		atla_grandmaster
+	}
+}
+
+atla_grandmaster = { #One of the finest warriors alive - the ceiling a non-bender can reach
+	random = no
+	customizer = no
+	martial = 4
+	monthly_character_prestige = 0.25
+	combat_rating = 75
+	command_modifier = {
+		morale_offence = 0.1
+	}
+	opposites = {
+		atla_fighter
+		atla_warrior
+		atla_master
+	}
+}

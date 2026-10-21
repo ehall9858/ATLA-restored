@@ -1,51 +1,18 @@
 upgrade_bending_effect = { ##Just adding new traits sufficient, since opposites already established
-	if = {
-		limit = {
-			NOT = { has_character_flag = is_avatar }
-			trait = master_bender
-		}
-		add_trait = legendary_bender
-	}
-	else = {
+		## This is the "being taught" ladder - the educator events, the bending orders,
+		## the Agni Kai. The steps below powerful are ordinary; the step into master is
+		## rare and only for a formidable bender; and a master who is being pushed by
+		## real teachers has a long shot at going beyond the rank entirely.
+		## See common/scripted_triggers/10_atla_bending_rarity_triggers.txt.
+		## (train_your_bending does NOT use this effect - it tops out at powerful.)
 		trigger_switch = {
 			on_trigger = trait
 			incompetent_bender = { add_trait = competent_bender }
 			competent_bender = { add_trait = powerful_bender }
-			powerful_bender = { add_trait = master_bender }
+			powerful_bender = { try_become_master_bender_effect = yes }
+			master_bender = { try_become_legendary_bender_effect = yes }
 			fallback = { }
 		}
-	}
-}
-
-remove_bending_effect = {
-	custom_tooltip = { text = remove_bending_effect_tt }
-	remove_trait = incompetent_bender
-	remove_trait = competent_bender
-	remove_trait = powerful_bender
-	remove_trait = master_bender
-	remove_trait = legendary_bender
-	remove_trait = lightningbender
-	remove_trait = smokebender
-	remove_trait = combustionbender
-	remove_trait = lavabender
-	remove_trait = healer
-	remove_trait = master_healer
-	remove_trait = levitation
-	remove_trait = voidbender
-	remove_trait = bloodbender
-	remove_trait = metalbender
-	remove_trait = seismicsense
-	remove_trait = seismicsense_nonblind
-	remove_trait = waterbender
-	remove_trait = earthbender
-	remove_trait = firebender
-	remove_trait = airbender
-	remove_trait = avatar_waterbender
-	remove_trait = avatar_earthbender
-	remove_trait = avatar_firebender
-	remove_trait = avatar_airbender
-	remove_trait = fully_realised_avatar
-#	add_trait = equalised #TODO: Make this trait and add it to the appropriate events to stop people getting their bending back when Equalism gets fleshed out at all
 }
 
 set_duel_variables_effect = {
@@ -60,7 +27,7 @@ set_duel_variables_effect = {
 		change_variable = { which = myATK value = 3 }
 	}
 	if = { # Trained Avatar = +40 HP, +3 DEF, +4 ATK
-		limit = { trait = fully_realised_avatar }
+		limit = { trait = fullyrealisedavatar }
 		change_variable = { which = myHP value = 20 }
 		change_variable = { which = myDEF value = 1 }
 		change_variable = { which = myATK value = 1 }
@@ -183,7 +150,7 @@ set_airball_variables_effect = {
 		change_variable = { which = vDEF value = 2 }
 	}
 	if = { # Trained Avatar
-		limit = { trait = fully_realised_avatar }
+		limit = { trait = fullyrealisedavatar }
 		change_variable = { which = vPAC value = 1 }
 		change_variable = { which = vSHO value = 1 }
 		change_variable = { which = vDEF value = 1 }
@@ -622,7 +589,7 @@ set_sand_race_variables_effect = {
 		change_variable = { which = vSTAM value = 3 }
 	}
 	if = {
-		limit = { trait = fully_realised_avatar }
+		limit = { trait = fullyrealisedavatar }
 		change_variable = { which = vSTAM value = 1 }
 	}
 	if = {
@@ -704,4 +671,112 @@ add_ascetic_trait_effect = {
 		}
 		add_trait = fire_sage
 	}
+}
+
+########################################################################
+# Earth King - reduce the crown to a figurehead
+#
+# Shared by the Dai Li coup (earthking.3) and the court plot
+# (plot_make_the_earth_king_a_figurehead -> atla_ek_plot.1).
+# Run this from the Earth King's own scope.
+#
+# This is the exact inverse of ATLAE.245 (the restoration): the flags that
+# keep the next Earth King absolutist are cleared, the tax-draining
+# "supporting_the_earth_kingdom" modifier is applied, and the restoration
+# focus tree is handed back so the struggle can be fought a second time.
+########################################################################
+make_earth_king_a_puppet_effect = {
+	clr_global_flag = earthking_in_power
+	clr_global_flag = ek_gave_some_power
+	clr_global_flag = ek_forced_give_power
+	remove_trait = earthking
+	remove_trait = earthkingconstitution
+	add_trait = earthkingpuppet
+	add_character_modifier = { name = supporting_the_earth_kingdom duration = -1 }
+	clr_global_flag = restoration_ambition
+	clr_global_flag = restoration_ambition_0
+	clr_global_flag = restoration_ambition_1
+	clr_global_flag = restoration_ambition_2
+	clr_global_flag = restoration_ambition_3
+	clr_global_flag = restoration_ambition_4
+	clr_global_flag = restoration_ambition_5
+}
+
+# The world's answer to a declaration. Call only on the Avatar's scope, with
+# event_target:villain_candidate set to the declared Villain and
+# event_target:villain_declarer set to the Avatar. Rulers turn on the villain
+# and remember who named them; the villain's own vassals lose faith in them.
+declared_villain_reaction_effect = {
+	any_independent_ruler = {
+		limit = { NOT = { character = event_target:villain_candidate } }
+		opinion = { modifier = opinion_declared_villain who = event_target:villain_candidate years = 10 }
+		opinion = { modifier = opinion_avatar_champion who = event_target:villain_declarer years = 10 }
+	}
+	event_target:villain_candidate = {
+		any_vassal = {
+			opinion = { modifier = opinion_villain_liege who = event_target:villain_candidate years = 5 }
+		}
+	}
+}
+
+# Destroy every ducal-or-better title a defeated Villain holds - all of them.
+# A big AI "nation" is often nothing but a fat duchy, and an empire can hold
+# several kingdoms besides; leaving any of them standing leaves the villain's
+# power base intact.
+#
+# One sweep is not enough. Destroying the primary title ends an
+# any_demesne_title iteration, so the sweep is repeated until the demesne has
+# nothing ducal or above left. The guard variable caps the loop, so a title
+# the engine refuses to destroy can never hang the game. Counties are
+# deliberately spared: the point is to break the realm, not to unland every
+# holding.
+#
+# Call inside the villain's scope.
+dismantle_villain_realm_effect = {
+	hidden_tooltip = {
+		set_variable = { which = atla_villain_dismantle_guard value = 0 }
+	}
+	while = {
+		limit = {
+			check_variable = { which = atla_villain_dismantle_guard value < 40 }
+			any_demesne_title = { higher_tier_than = COUNT }
+		}
+		hidden_tooltip = {
+			change_variable = { which = atla_villain_dismantle_guard value = 1 }
+		}
+		any_demesne_title = {
+			limit = { higher_tier_than = COUNT }
+			destroy_landed_title = THIS
+		}
+	}
+	hidden_tooltip = {
+		remove_variable = atla_villain_dismantle_guard
+	}
+}
+
+# The four fates of a defeated Villain. Each runs in the villain's scope; ROOT
+# is still the Avatar because both callers are Avatar events.
+#
+# Shared by ADUEL.28 (the Avatar won the duel) and avatar_villain.3 (the
+# villain forfeited) so the two paths cannot drift apart again.
+villain_stake_kill_effect = {
+	death = { death_reason = death_duel killer = ROOT }
+}
+
+villain_stake_kill_and_dismantle_effect = {
+	# Titles first: the heir inherits nothing.
+	dismantle_villain_realm_effect = yes
+	death = { death_reason = death_duel killer = ROOT }
+}
+
+villain_stake_imprison_and_dismantle_effect = {
+	imprison = ROOT
+	dismantle_villain_realm_effect = yes
+}
+
+villain_stake_depose_and_imprison_effect = {
+	# Abdicate, do not dismantle: the heir takes the realm intact, then the
+	# villain is taken in chains.
+	abdicate = yes
+	imprison = ROOT
 }

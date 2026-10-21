@@ -144,6 +144,7 @@ character_event = { # Imperialism: Found Imperialism
 				is_ruler = no
 				NOR = { #Excludes Roku (or any Avatar if he died) + Ta Min, Roku's wife, to keep with canon if the player is re-enacting it
 					trait = avatar
+					trait = fullyrealisedavatar
 					has_character_flag = is_ta_min
 				}
 			}

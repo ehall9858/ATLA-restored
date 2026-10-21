@@ -74,6 +74,7 @@ Both the player and AI avatars may gain memories of their past life because of t
 With all the Avatar sees and does, travelling alongside them is great for character building, and forming long-lasting friendships. To this end, when the Avatar is in a court, they might pick up followers - these people are marked with the 'Team Avatar' trait, and will follow the Avatar wherever they go. If the Avatar is landed, they're the Avatars trusted courtiers and assistants, helping them with their Avatar duties at court.
 
 Members of Team Avatar must be unlanded to stay members of Team Avatar - if they ever gain land, or leave the Avatar's service for other reasons, they'll gain the trait 'former team avatar' instead.
+At most eight active members can travel with the Avatar at once. Once the team is full, new invitations are refused until a place opens up.
 It's possible to send one of your family members to join the Avatar on their adventures. Beyond gaining the trait itself, all sorts of things could happen to them: they could improve as a bender, change as a person, come back with gold, prestige or piety - or end up wounded, or worse. It's not always a safe life, being with the Avatar. Only one family member at a time can be on Team Avatar, but after a few years they'll usually come back.
 
 Think of it like the Varangian Guard, from the base game.

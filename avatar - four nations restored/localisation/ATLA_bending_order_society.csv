@@ -1,0 +1,130 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+waterbending_order_rank_1_duty;Still Water: you are taught the forms and you spar with your elders.;;;;;;;;;;;x
+waterbending_order_rank_2_duty;Flowing Water: you may train the higher forms, meditate with the Order, and bring new benders into it.;;;;;;;;;;;x
+waterbending_order_rank_3_duty;Deep Water: you may teach, and instruct the young.;;;;;;;;;;;x
+waterbending_order_rank_4_duty;The Turning Tide: you lead the Order, may convene it, and are taught the arts it keeps back.;;;;;;;;;;;x
+earthbending_order_rank_1_duty;Stone: you are taught the stances and you spar with your elders.;;;;;;;;;;;x
+earthbending_order_rank_2_duty;Boulder: you may train the higher forms, meditate with the Society, and bring new benders into it.;;;;;;;;;;;x
+earthbending_order_rank_3_duty;Crag: you may teach, and instruct the young.;;;;;;;;;;;x
+earthbending_order_rank_4_duty;Mountain: you lead the Society, may convene it, and are taught the arts it keeps back.;;;;;;;;;;;x
+wbo_recruit_member;Recruit a Waterbender;;;;;;;;;;;x
+wbo_recruit_member_desc;Invite a waterbender of your realm to take the first step into the Order. It costs the Order's regard to vouch for a stranger, and not every bender wants to be found.;;;;;;;;;;;x
+wbo_recruit_member_power_desc;Enables a decision to invite a waterbender of your realm into the Order.;;;;;;;;;;;x
+ebo_recruit_member;Recruit an Earthbender;;;;;;;;;;;x
+ebo_recruit_member_desc;Invite an earthbender of your realm to take the first step into the Society. It costs the Society's regard to vouch for a stranger, and not every bender wants to be found.;;;;;;;;;;;x
+ebo_recruit_member_power_desc;Enables a decision to invite an earthbender of your realm into the Society.;;;;;;;;;;;x
+wbo_spar_fellow_member;Spar with a Fellow Member;;;;;;;;;;;x
+wbo_spar_fellow_member_desc;Call out a fellow member of the Order for a friendly bout. Water is not meant to be held still, and the Order holds that a bender who has never been pushed has never been measured. Both of you will learn something.;;;;;;;;;;;x
+wbo_spar_fellow_member_power_desc;Enables a decision to spar with another member of the Order.;;;;;;;;;;;x
+ebo_spar_fellow_member;Spar with a Fellow Member;;;;;;;;;;;x
+ebo_spar_fellow_member_desc;Call out a fellow member of the Society for a friendly bout. Stone is tested before it is trusted, and the Society holds that a bender who has never been pushed has never been measured. Both of you will learn something.;;;;;;;;;;;x
+ebo_spar_fellow_member_power_desc;Enables a decision to spar with another member of the Society.;;;;;;;;;;;x
+wbo_mission_tend_the_sick;Tend the Sick;;;;;;;;;;;x
+wbo_mission_tend_the_sick_desc;Someone in your household is wounded or ailing. Take up the water and do the work the Order was made for, not for thanks, but because you can.;;;;;;;;;;;x
+wbo_mission_tend_the_sick_power_desc;Enables a decision to heal a wounded or ailing member of your court.;;;;;;;;;;;x
+wbo_mission_build_healing_hut;A Hut by the Water;;;;;;;;;;;x
+wbo_mission_build_healing_hut_desc;The Order wants a place where the sick can be brought and kept warm, and where a healer can work without being hurried. Pay for it from your own purse and it will stand long after you.;;;;;;;;;;;x
+wbo_mission_build_healing_hut_power_desc;Enables a decision to found a healing hut in your capital.;;;;;;;;;;;x
+wbo_mission_bring_new_voice;Bring a New Voice;;;;;;;;;;;x
+wbo_mission_bring_new_voice_desc;There is a waterbender in your court who has never been taught. The Order does not grow by waiting for benders to find it.;;;;;;;;;;;x
+wbo_mission_bring_new_voice_power_desc;Enables a decision to bring a waterbender of your court into the Order.;;;;;;;;;;;x
+wbo_mission_set_aside;Set the Task Aside;;;;;;;;;;;x
+wbo_mission_set_aside_desc;The Order asked something of you and you will not do it. Better to say so than to let the task rot in a drawer.;;;;;;;;;;;x
+wbo_mission_set_aside_power_desc;Enables a decision to give up the Order's current task.;;;;;;;;;;;x
+ebo_mission_raise_the_wall;Raise the Wall;;;;;;;;;;;x
+ebo_mission_raise_the_wall_desc;The Society wants stone set into the ground at your capital: a wall, a gate, a place to stand. Earth that is not built on is only ground.;;;;;;;;;;;x
+ebo_mission_raise_the_wall_power_desc;Enables a decision to raise a wall at your capital.;;;;;;;;;;;x
+ebo_mission_stand_the_trial;Stand the Trial;;;;;;;;;;;x
+ebo_mission_stand_the_trial_desc;The Society has set you a trial of endurance. Hold the stance until they tell you to stop. It is not a test of strength, though strength helps.;;;;;;;;;;;x
+ebo_mission_stand_the_trial_power_desc;Enables a decision to stand the Society's trial.;;;;;;;;;;;x
+ebo_mission_bring_new_pillar;Bring a New Pillar;;;;;;;;;;;x
+ebo_mission_bring_new_pillar_desc;There is an earthbender in your court who has never been taught. A society of one is a stone, and a society of many is a wall.;;;;;;;;;;;x
+ebo_mission_bring_new_pillar_power_desc;Enables a decision to bring an earthbender of your court into the Society.;;;;;;;;;;;x
+ebo_mission_set_aside;Set the Task Aside;;;;;;;;;;;x
+ebo_mission_set_aside_desc;The Society asked something of you and you will not do it. Better to say so than to let the task rot in a drawer.;;;;;;;;;;;x
+ebo_mission_set_aside_power_desc;Enables a decision to give up the Society's current task.;;;;;;;;;;;x
+EVTDESC_ABS_10;A rider in blue has come a long way to find you. The Order of Flowing Water has heard of your bending and asks you to come and take your place among them. There is no oath to swear and no rank promised. There is only the work.;;;;;;;;;;;x
+EVTOPTA_ABS_10;Go with the rider and join the Order;;;;;;;;;;;x
+EVTOPTB_ABS_10;Stay where you are;;;;;;;;;;;x
+EVTDESC_ABS_11;A rider in grey has come a long way to find you. The Society of the Standing Stone has heard of your bending and asks you to come and take your place among them. There is no oath to swear and no rank promised. There is only the stone, and what you choose to build with it.;;;;;;;;;;;x
+EVTOPTA_ABS_11;Go with the rider and join the Society;;;;;;;;;;;x
+EVTOPTB_ABS_11;Stay where you are;;;;;;;;;;;x
+EVTDESC_ABS_20;The bout ends with your hand still raised and your opponent sitting in the wet. Someone laughs, someone else offers a hand up, and the circle closes again. You have earned the regard of the Order, and a little of their coin.;;;;;;;;;;;x
+EVTOPTA_ABS_20;A good bout;;;;;;;;;;;x
+EVTDESC_ABS_21;You go down hard, and the water goes with you. Your opponent hauls you up and says nothing about it, which is its own kind of courtesy. You have learned where your form breaks. That is worth something.;;;;;;;;;;;x
+EVTOPTA_ABS_21;Next time;;;;;;;;;;;x
+EVTDESC_ABS_22;Neither of you gives ground. The water runs out, the light goes, and the circle breaks up with nobody satisfied. The Order counts it as a fair showing, and pays you for it.;;;;;;;;;;;x
+EVTOPTA_ABS_22;A fair showing;;;;;;;;;;;x
+EVTDESC_ABS_23;The bout ends with your opponent flat on the stone and your stance still set. The Society does not cheer. It nods. You have earned the regard of the Society, and a little of their coin.;;;;;;;;;;;x
+EVTOPTA_ABS_23;A good bout;;;;;;;;;;;x
+EVTDESC_ABS_24;You are the one on the stone. Your opponent sets you on your feet and steps back into the circle without a word. You have learned where your stance breaks. That is worth something.;;;;;;;;;;;x
+EVTOPTA_ABS_24;Next time;;;;;;;;;;;x
+EVTDESC_ABS_25;Neither of you gives ground. The sun moves, the dust settles, and the circle breaks up with nobody satisfied. The Society counts it as a fair showing, and pays you for it.;;;;;;;;;;;x
+EVTOPTA_ABS_25;A fair showing;;;;;;;;;;;x
+EVTDESC_ABS_30_W;Word comes from the Order that you have been raised a rank. The elders do not make a ceremony of it: there is work to do, and a rank is only a longer list of it. But the other members will see you differently now.;;;;;;;;;;;x
+EVTDESC_ABS_30_WG;The Order has named you the Turning Tide. There is no higher rank among the waterbenders, and no one above you to ask what you intend. The Order is yours to keep or to spend.;;;;;;;;;;;x
+EVTDESC_ABS_30_E;Word comes from the Society that you have been raised a rank. There is no ceremony, and the stone does not applaud. But the other members will stand a little differently around you now.;;;;;;;;;;;x
+EVTDESC_ABS_30_EG;The Society has named you the Mountain. There is no higher rank among the earthbenders, and no one above you to ask what you intend. The Society is yours to keep or to spend.;;;;;;;;;;;x
+EVTOPTA_ABS_30;I will carry the rank well;;;;;;;;;;;x
+EVTDESC_ABM_10;A letter from the Order: there is sickness in your own house, and the Order has heard of it. They do not command you. They merely note that a waterbender who will not heal their own household has very little to offer anyone else.;;;;;;;;;;;x
+EVTDESC_ABM_11;A letter from the Order: they want a healing hut: a roof, a bed, clean water, and a healer who is not called away every hour. They will not pay for it. They will send word that it was done.;;;;;;;;;;;x
+EVTDESC_ABM_12;A letter from the Order: there is a waterbender in your court who has never been taught, and the Order would rather they were taught than wasted. Bring them in and the Order will remember who brought them.;;;;;;;;;;;x
+EVTDESC_ABM_20;A letter from the Society: your capital stands on ground that has not been built on. They want stone set into it: a wall, a gate, something that will still be there when you are not. The Society will not pay for it. It will remember that it was done.;;;;;;;;;;;x
+EVTDESC_ABM_21;A letter from the Society: they have set you a trial. Hold your stance on the old stone until they tell you to stop. Nothing is asked of you but endurance, which is the only thing the earth has ever asked of anyone.;;;;;;;;;;;x
+EVTDESC_ABM_22;A letter from the Society: there is an earthbender in your court who has never been taught, and the Society would rather they were taught than wasted. Bring them in and the Society will remember who brought them.;;;;;;;;;;;x
+EVTDESC_ABM_30_SICK;Word reaches the Order that you tended the sick of your own house. It is not a great deed and the Order does not pretend otherwise, but it is the deed they asked for, and they have added to your standing.;;;;;;;;;;;x
+EVTDESC_ABM_30_HUT;Word reaches the Order that the healing hut stands. They will send benders to it when they can, and the sick will come whether they send anyone or not. The Order has added to your standing.;;;;;;;;;;;x
+EVTDESC_ABM_30_VOICE;Word reaches the Order that a new waterbender has taken the first step among them. The Order grows slowly and remembers who helped it grow. They have added to your standing.;;;;;;;;;;;x
+EVTDESC_ABM_31_WALL;Word reaches the Society that the wall is raised. It will not win a war. It will keep someone alive in one, which is the only thing a wall has ever promised. The Society has added to your standing.;;;;;;;;;;;x
+EVTDESC_ABM_31_TRIAL;Word reaches the Society that you stood the trial. Whether you stood it well is between you and the stone. The Society counts it stood, and has added to your standing.;;;;;;;;;;;x
+EVTDESC_ABM_31_PILLAR;Word reaches the Society that a new earthbender has taken the first step among them. A society of one is a stone. The Society remembers who added to the wall, and has added to your standing.;;;;;;;;;;;x
+EVTOPTA_ABM_30;It was done;;;;;;;;;;;x
+EVTOPTA_ABM_31;It was done;;;;;;;;;;;x
+EVTDESC_ABM_32;You send word to the Order that you will not be doing what they asked. The reply is short and does not argue. The task is closed, and the Order will not ask again for a while.;;;;;;;;;;;x
+EVTOPTA_ABM_32;That is that;;;;;;;;;;;x
+EVTDESC_ABM_33;You send word to the Society that you will not be doing what they asked. The reply is short and does not argue. The task is closed, and the Society will not ask again for a while.;;;;;;;;;;;x
+EVTOPTA_ABM_33;That is that;;;;;;;;;;;x
+quest_wbo_tend_the_sick;Tending the Sick;;;;;;;;;;;x
+quest_wbo_tend_the_sick_desc;The Order has asked you to heal a wounded or ailing member of your own household.;;;;;;;;;;;x
+quest_wbo_tend_the_sick_tooltip;To complete this mission, take the decision to tend the sick in your court.;;;;;;;;;;;x
+quest_wbo_heal_hut;A Hut by the Water;;;;;;;;;;;x
+quest_wbo_heal_hut_desc;The Order has asked you to found a healing hut in your capital.;;;;;;;;;;;x
+quest_wbo_heal_hut_tooltip;To complete this mission, take the decision to found a healing hut. It requires a holding of your own and 50 gold.;;;;;;;;;;;x
+quest_wbo_new_voice;A New Voice;;;;;;;;;;;x
+quest_wbo_new_voice_desc;The Order has asked you to bring a waterbender of your court into the Order.;;;;;;;;;;;x
+quest_wbo_new_voice_tooltip;To complete this mission, take the decision to bring a new voice into the Order.;;;;;;;;;;;x
+quest_ebo_raise_the_wall;Raising the Wall;;;;;;;;;;;x
+quest_ebo_raise_the_wall_desc;The Society has asked you to raise a wall at your capital.;;;;;;;;;;;x
+quest_ebo_raise_the_wall_tooltip;To complete this mission, take the decision to raise the wall. It requires a holding of your own and 50 gold.;;;;;;;;;;;x
+quest_ebo_stand_the_trial;The Trial of Endurance;;;;;;;;;;;x
+quest_ebo_stand_the_trial_desc;The Society has set you a trial of endurance.;;;;;;;;;;;x
+quest_ebo_stand_the_trial_tooltip;To complete this mission, take the decision to stand the trial.;;;;;;;;;;;x
+quest_ebo_new_pillar;A New Pillar;;;;;;;;;;;x
+quest_ebo_new_pillar_desc;The Society has asked you to bring an earthbender of your court into the Society.;;;;;;;;;;;x
+quest_ebo_new_pillar_tooltip;To complete this mission, take the decision to bring a new pillar into the Society.;;;;;;;;;;;x
+wbo_spar_won_tt;You take the bout;;;;;;;;;;;x
+wbo_spar_lost_tt;Your opponent takes the bout;;;;;;;;;;;x
+wbo_spar_drawn_tt;Neither of you gives ground;;;;;;;;;;;x
+ebo_spar_won_tt;You take the bout;;;;;;;;;;;x
+ebo_spar_lost_tt;Your opponent takes the bout;;;;;;;;;;;x
+ebo_spar_drawn_tt;Neither of you gives ground;;;;;;;;;;;x
+ebo_trial_passed_tt;You hold the stance;;;;;;;;;;;x
+ebo_trial_failed_tt;Your stance breaks;;;;;;;;;;;x
+wbo_sparring;Sparring with the Order;;;;;;;;;;;x
+ebo_sparring;Sparring with the Society;;;;;;;;;;;x
+wbo_healing_hut;Healing Hut;;;;;;;;;;;x
+ebo_wall;Raised Wall;;;;;;;;;;;x
+wbo_request_rank_up;Ask for a Higher Rank;;;;;;;;;;;x
+wbo_request_rank_up_desc;The Order does not hand out ranks. It recognises them. Ask, and the elders will look at what you have done and what you can do.;;;;;;;;;;;x
+wbo_request_rank_up_power_desc;Enables a decision to ask the Order for promotion to the next rank.;;;;;;;;;;;x
+ebo_request_rank_up;Ask for a Higher Rank;;;;;;;;;;;x
+ebo_request_rank_up_desc;The Society does not hand out ranks. It recognises them. Ask, and the elders will look at what you have built and how long you have stood.;;;;;;;;;;;x
+ebo_request_rank_up_power_desc;Enables a decision to ask the Society for promotion to the next rank.;;;;;;;;;;;x
+wbo_rank_up_currency_tt;You must have earned enough Balance (750 for the second rank, 1000 for the third).;;;;;;;;;;;x
+wbo_rank_up_time_tt;You must have held your current rank for two years.;;;;;;;;;;;x
+wbo_rank_up_skill_tt;You must be a capable bender (Learning 10 or more for the second rank, 14 for the third).;;;;;;;;;;;x
+ebo_rank_up_currency_tt;You must have earned enough Standing (750 for the second rank, 1000 for the third).;;;;;;;;;;;x
+ebo_rank_up_time_tt;You must have held your current rank for two years.;;;;;;;;;;;x
+ebo_rank_up_skill_tt;You must be a capable bender (Martial 10 or more for the second rank, 14 for the third).;;;;;;;;;;;x
+EVTDESC_ABM_30_NONE;Word reaches the Order that the task they set you is done. They do not ask how. They only add to your standing.;;;;;;;;;;;x
+EVTDESC_ABM_31_NONE;Word reaches the Society that the task they set you is done. They do not ask how. They only add to your standing.;;;;;;;;;;;x

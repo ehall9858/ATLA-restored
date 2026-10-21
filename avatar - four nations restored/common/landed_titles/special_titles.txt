@@ -1204,3 +1204,134 @@ d_si_wong = {
 	
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 }
+
+# ---- restored from ATLA-restored 1.4.6 (old Avatar system) ----
+d_the_sages = {
+	color={ 16 92 4 }
+	color2={ 255 255 255 }
+	allow = {
+		always = no
+	}
+	
+	capital = 109 # Capital
+	
+	title = "HIGH_SAGE"
+	title_female = "HIGH_SAGE"
+	foa = "SAGE_FOA"
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_avatar = {
+	color = { 255 255 255 }
+	color2 = { 255 255 255 }
+	allow = {
+		always = no
+	}
+	
+	# capital = 228
+	dynasty_title_names = no
+	landless = yes
+	short_name = yes
+	independent = yes
+	primary = yes
+	
+	# add custom titles
+	title = "AVATAR_TITLE"
+	title_female = "AVATAR_TITLE"
+	foa = "AVATAR_FOA" # The bridge between the worlds
+
+	gain_effect = {
+		if = {
+			limit = {
+				d_avatar = {
+					owner = {
+						is_avatar_trigger = no
+					}
+				}
+			}
+			unsafe_destroy_landed_title = d_avatar
+		}
+	}
+}
+
+# Now DORMANT. This titulary (landless) barony was an
+# attempt to satisfy CK2's "Not allowed to play Landless!" resume check: the
+# hope was that a baron-tier landed title would read as "landed" while still
+# carrying no holdings or provinces. It did not work - a landless title is a
+# landless title whatever its tier - so nothing grants it any more and it is
+# left defined only so that a save which already holds it cannot complain about
+# referencing a title the files no longer define. Safe to delete outright once
+# no save still holds it.
+b_avatar_court = {
+	color = { 255 255 255 }
+	color2 = { 255 255 255 }
+	allow = {
+		always = no
+	}
+
+	dynasty_title_names = no
+	landless = yes
+	short_name = yes
+	primary = no
+
+	can_be_claimed = no
+	can_be_usurped = no
+
+	title = "AVATAR_TITLE"
+	title_female = "AVATAR_TITLE"
+
+	gain_effect = {
+		if = {
+			limit = {
+				b_avatar_court = {
+					owner = {
+						is_avatar_trigger = no
+					}
+				}
+			}
+			unsafe_destroy_landed_title = b_avatar_court
+		}
+	}
+}
+
+d_avatar_unrevealed = {
+	color = { 255 255 255 }
+	color2 = { 255 255 255 }
+	allow = {
+		always = no
+	}
+	
+	# capital = 228
+	dynasty_title_names = yes
+	landless = yes
+	short_name = yes
+	# independent = yes
+	primary = yes
+	
+	can_be_claimed = no
+	can_be_usurped = no
+
+	title = " "
+	title_female = " "
+
+	gain_effect = {
+		if = {
+			limit = {
+				d_avatar_unrevealed = {
+					owner = {
+						OR = {
+							NOT = { has_character_flag = avatar_unrevealed }
+							has_character_flag = avatar_revealed
+						}
+					}
+				}
+			}
+			unsafe_destroy_landed_title = d_avatar_unrevealed
+		}
+	}
+}

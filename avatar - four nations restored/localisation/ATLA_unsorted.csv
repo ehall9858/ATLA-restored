@@ -56,7 +56,7 @@ EVTOPTBduel_ent.1;The wind is freedom. I shall decide what happens in this battl
 EVTOPTCduel_ent.1;The waters are ever-changing under the eternal Moon. ;;;;;;;;;x
 EVTOPTDduel_ent.1;The very earth under my feet shall obey me. ;;;;;;;;;x
 EVTOPTFduel_ent.1;I shall draw my weapon and my enemy will know my strength!;;;;;;;;;x
-EVTOPTEduel_ent.1;A wise fighter knows when it is brave to enter a battle and when it is foolish - today is the latter.;;;;;;;;;x
+EVTOPTEduel_ent.1;A wise fighter knows when it is brave to enter a battle and when it is foolish. Today is the latter.;;;;;;;;;x
 EVTDESCAduel.1;[From.GetFirstName]'s strong will and determination allows [From.GetHerHim] to quickly overpower me with a flurry of flames. I try my best to think of a way to counter my opponent but I must not ponder, it is now or never!;;;;;;;;x
 EVTDESCBduel.1;After masterfully evading several attacks, [From.GetFirstName] has stopped avoiding and is now facing me! A single soaring wind blast is heading my way. I must now be decisive: what is my next action?;;;;;;;;;x
 EVTDESCCduel.1;Spikes of ice and liquid surges home in on me from [From.GetFirstName], whose determination is not easily dissolved. The clear water is elegantly flowing around [From.GetFirstName] and [From.GetSheHe] is preparing for an attack. Now is the chance!;;;;;;;;;x
@@ -259,8 +259,8 @@ EVTDESCLS.100;The Spirits have been appeased.;;;;;;;;;
 EVTOPTALS.100;I should tell my liege!;;;;;;;;;
 EVTDESCATLA.1000;My faithful [Root.GetMyLordSpiritualName] has been working hard with establishing contact to the spirits. Finally the Spirits have emerged and harmony has been restored to the province.;;;;;;;;;
 EVTOPTAATLA.1000;Harmony at last!;;;;;;;;;
-EVTDESC_RoI_401;You have received a visitor - an emissary from the famous university of Ba Sing Se. He tells of you of the research and other work they do there and offers you a formal invitation to visit and see this marvel of the Earth Kingdom.;;;;;;;;;
-EVTOPTA_RoI_401;Interesting - I will accept the invitation.;;;;;;;;;
+EVTDESC_RoI_401;You have received a visitor: an emissary from the famous university of Ba Sing Se. He tells of you of the research and other work they do there and offers you a formal invitation to visit and see this marvel of the Earth Kingdom.;;;;;;;;;
+EVTOPTA_RoI_401;Interesting. I will accept the invitation.;;;;;;;;;
 EVTOPTB_RoI_401;I don't have the time.;;;;;;;;;
 EVTNAME_RoI_402;University of Ba Sing Se;;;;;;;;;
 EVTDESC_RoI_402;You have arrived at the magnificent University of Ba Sing Se. It's a massive complex of gray brick buildings, busy with a bustle of scholars and students. You have been told that people come here from all over the Earth Kingdom and beyond in order to study and exchange ideas. The library has a huge amount of texts in every language known to man.\n\nIt's an impressive place. You don't have much time to spend here, however, so you need to decide what to do...;;;;;;;;;

@@ -1,0 +1,13 @@
+# Placeholder traits retained so existing save trait IDs stay stable.
+house_customizer = {
+	customizer = no
+	random = no
+	hidden = yes
+}
+
+assign_mission_target = {
+	cached = yes
+	customizer = no
+	random = no
+	hidden = yes
+}

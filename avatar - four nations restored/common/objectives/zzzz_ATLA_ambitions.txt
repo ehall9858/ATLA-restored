@@ -1,0 +1,613 @@
+########################################################################
+# ATLA Ambition Pack
+#
+# Native ambitions written for the elis_fork systems (is_bender_trigger,
+# is_top_tier_bender_trigger, sub-bending traits, is_avatar_trigger).
+#
+# Purpose: give the general cast goals of their own, so AI characters are
+# driven by something more than the Avatar's story. These are NOT for the
+# Avatar, who already has a bespoke scripted life.
+########################################################################
+
+########################
+#  BENDING AMBITIONS   #
+########################
+
+# Rise from an ordinary bender to a true master of the art.
+obj_master_your_bending = {
+	type = character
+
+	potential = {
+		is_bender_trigger = yes
+		NOT = { is_top_tier_bender_trigger = yes }
+		NOT = { is_avatar_trigger = yes }
+	}
+
+	allow = {
+		is_adult = yes
+		is_incapable = no
+		prisoner = no
+	}
+
+	chance = {
+		factor = 60
+
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.25
+			trait = content
+		}
+	}
+
+	success = {
+		is_top_tier_bender_trigger = yes
+	}
+
+	abort = {
+		OR = {
+			NOT = { is_bender_trigger = yes }
+			is_incapable = yes
+			prisoner = yes
+		}
+	}
+
+	abort_effect = {
+	}
+
+	effect = {
+		prestige = 150
+		change_martial = 1
+		set_character_flag = achieved_bending_mastery
+	}
+}
+
+# Stand above even the masters - the realm of Azula, Ozai and Toph.
+obj_become_legendary_bender = {
+	type = character
+
+	potential = {
+		trait = master_bender
+		NOT = { is_avatar_trigger = yes }
+	}
+
+	allow = {
+		is_adult = yes
+		is_incapable = no
+		prisoner = no
+	}
+
+	chance = {
+		factor = 40
+
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = proud
+		}
+		modifier = {
+			factor = 0.25
+			trait = content
+		}
+		modifier = {
+			factor = 0.5
+			trait = humble
+		}
+	}
+
+	success = {
+		trait = legendary_bender
+	}
+
+	abort = {
+		OR = {
+			is_incapable = yes
+			prisoner = yes
+		}
+	}
+
+	abort_effect = {
+	}
+
+	effect = {
+		prestige = 400
+		change_martial = 1
+		set_character_flag = became_legendary_bender
+	}
+}
+
+# Uncover one of the secret bending arts held by the old masters.
+obj_learn_a_secret_bending_art = {
+	type = character
+
+	potential = {
+		is_top_tier_bender_trigger = yes
+		NOT = { is_avatar_trigger = yes }
+		NOT = { has_character_flag = learned_secret_bending_art }
+		NOR = {
+			trait = lightningbender
+			trait = metalbender
+			trait = lavabender
+			trait = bloodbender
+			trait = combustionbender
+			trait = sandbender
+			trait = smokebender
+			trait = voidbender
+		}
+	}
+
+	allow = {
+		is_adult = yes
+		is_incapable = no
+		prisoner = no
+	}
+
+	chance = {
+		factor = 30
+
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = mystic
+		}
+		modifier = {
+			factor = 1.25
+			trait = scholar
+		}
+		modifier = {
+			factor = 0.5
+			trait = content
+		}
+	}
+
+	success = {
+		OR = {
+			trait = lightningbender
+			trait = metalbender
+			trait = lavabender
+			trait = bloodbender
+			trait = combustionbender
+			trait = sandbender
+			trait = smokebender
+			trait = voidbender
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { is_bender_trigger = yes }
+			is_incapable = yes
+			prisoner = yes
+		}
+	}
+
+	abort_effect = {
+	}
+
+	effect = {
+		prestige = 200
+		set_character_flag = learned_secret_bending_art
+	}
+}
+
+########################
+#  SPIRITUAL AMBITION  #
+########################
+
+# Quiet the noise of the world and reach true understanding.
+obj_attain_enlightenment = {
+	type = character
+
+	potential = {
+		is_adult = yes
+		NOT = { trait = enlightened }
+		NOT = { is_avatar_trigger = yes }
+	}
+
+	allow = {
+		is_incapable = no
+		prisoner = no
+	}
+
+	chance = {
+		factor = 20
+
+		modifier = {
+			factor = 3.0
+			trait = zealous
+		}
+		modifier = {
+			factor = 2.0
+			trait = patient
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.25
+			trait = cynical
+		}
+	}
+
+	success = {
+		trait = enlightened
+	}
+
+	abort = {
+		OR = {
+			is_incapable = yes
+			prisoner = yes
+		}
+	}
+
+	abort_effect = {
+	}
+
+	effect = {
+		piety = 100
+		change_learning = 1
+		set_character_flag = attained_enlightenment
+	}
+}
+
+########################
+#  SOCIAL AMBITIONS    #
+########################
+
+# The marriage bed is cold and the nights are long.
+obj_take_a_lover = {
+	type = character
+
+	potential = {
+		is_married = yes
+		has_lover = no
+		NOT = { is_avatar_trigger = yes }
+	}
+
+	allow = {
+		is_adult = yes
+		is_incapable = no
+		prisoner = no
+		is_priest = no
+		NOR = {
+			trait = celibate
+			trait = eunuch
+		}
+	}
+
+	chance = {
+		factor = 25
+
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 1.5
+			trait = hedonist
+		}
+		modifier = {
+			factor = 1.25
+			trait = gregarious
+		}
+		modifier = {
+			factor = 0.25
+			trait = chaste
+		}
+	}
+
+	success = {
+		has_lover = yes
+	}
+
+	abort = {
+		OR = {
+			is_incapable = yes
+			prisoner = yes
+			trait = celibate
+			trait = eunuch
+		}
+	}
+
+	abort_effect = {
+	}
+
+	effect = {
+		prestige = 20
+	}
+}
+
+# Earn the trust and affection of your lord.
+obj_befriend_your_liege = {
+	type = character
+
+	potential = {
+		independent = no
+		liege = {
+			is_adult = yes
+			is_incapable = no
+			NOT = { is_friend = ROOT }
+		}
+		NOT = { is_avatar_trigger = yes }
+	}
+
+	allow = {
+		is_adult = yes
+		is_incapable = no
+		prisoner = no
+	}
+
+	chance = {
+		factor = 25
+
+		modifier = {
+			factor = 2.0
+			trait = gregarious
+		}
+		modifier = {
+			factor = 1.5
+			trait = kind
+		}
+		modifier = {
+			factor = 1.25
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.5
+			trait = shy
+		}
+	}
+
+	success = {
+		liege = {
+			NOT = { character = ROOT }
+			is_friend = ROOT
+		}
+	}
+
+	abort = {
+		OR = {
+			independent = yes
+			is_incapable = yes
+			prisoner = yes
+		}
+	}
+
+	abort_effect = {
+	}
+
+	effect = {
+		prestige = 50
+	}
+}
+
+# A crowded hall and many heirs to carry the family name.
+obj_raise_a_large_family = {
+	type = character
+
+	potential = {
+		is_married = yes
+		NOT = { num_of_children = 4 }
+		NOT = { is_avatar_trigger = yes }
+	}
+
+	allow = {
+		is_incapable = no
+		prisoner = no
+	}
+
+	chance = {
+		factor = 25
+
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 1.5
+			trait = kind
+		}
+		modifier = {
+			factor = 1.25
+			trait = gregarious
+		}
+		modifier = {
+			factor = 0.5
+			trait = chaste
+		}
+	}
+
+	success = {
+		num_of_children = 4
+	}
+
+	abort = {
+		OR = {
+			is_incapable = yes
+			prisoner = yes
+		}
+	}
+
+	abort_effect = {
+	}
+
+	effect = {
+		prestige = 75
+	}
+}
+
+########################
+#  MARTIAL AMBITIONS   #
+########################
+
+# Climb the non-bender fighting ranks all the way to grandmaster.
+obj_train_fighting_capabilities = {
+	type = character
+
+	potential = {
+		NOT = { is_bender_trigger = yes }
+		NOT = { trait = weapon_master }
+	}
+
+	allow = {
+		is_adult = yes
+		is_incapable = no
+		prisoner = no
+		martial = 10
+	}
+
+	chance = {
+		factor = 35
+
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = brave
+		}
+		modifier = {
+			factor = 1.25
+			trait = wroth
+		}
+		modifier = {
+			factor = 0.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.25
+			trait = content
+		}
+	}
+
+	success = {
+		trait = weapon_master
+	}
+
+	abort = {
+		OR = {
+			is_incapable = yes
+			prisoner = yes
+			is_bender_trigger = yes
+		}
+	}
+
+	abort_effect = {
+	}
+
+	effect = {
+		prestige = 250
+		change_martial = 1
+		set_character_flag = achieved_fighting_mastery
+	}
+}
+
+# The warrior's ladder as an ambition. Experience (atla_warrior_xp) is earned
+# in battle (ATLAW.30-31) and through the yearly training event (ATLAW.32);
+# the thresholds live in atla_warrior_check_rank_effect. Success is simply
+# reaching the top of the non-bender ladder.
+obj_master_my_weapon = {
+	type = character
+
+	potential = {
+		NOT = { is_any_bender_trigger = yes }
+		NOT = { trait = atla_grandmaster }
+	}
+
+	allow = {
+		is_adult = yes
+		is_incapable = no
+		prisoner = no
+	}
+
+	chance = {
+		factor = 40
+
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = brave
+		}
+		modifier = {
+			factor = 1.25
+			trait = wroth
+		}
+		modifier = {
+			factor = 1.5
+			martial = 15
+		}
+		modifier = {
+			factor = 0.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.25
+			trait = content
+		}
+	}
+
+	success = {
+		trait = atla_grandmaster
+	}
+
+	abort = {
+		OR = {
+			is_incapable = yes
+			prisoner = yes
+			is_any_bender_trigger = yes
+		}
+	}
+
+	abort_effect = {
+		set_variable = { which = atla_warrior_xp value = 0 }
+	}
+
+	effect = {
+		prestige = 250
+	}
+}

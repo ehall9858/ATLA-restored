@@ -1,0 +1,11 @@
+CODE;ENGLISH;;;;;;;;;;;x
+demand_decolonization;Demand Decolonization;;;;;;;;;;;x
+demand_decolonization_desc;Demand that this ruler abandon all of their colonial holdings, or answer for the refusal in single combat.;;;;;;;;;;;x
+avatar_decolonize.1.t;The Avatar Demands;;;;;;;;;;;x
+avatar_decolonize.1.desc;The Avatar [From.GetTitledFirstName] has come before me with a single demand: abandon every colony my realm holds, and let their peoples govern themselves. To refuse is to answer for it in single combat;;;;;;;;;;;x
+avatar_decolonize.1.a;Abandon the colonies;;;;;;;;;;;x
+avatar_decolonize.1.b;Refuse, and meet them in combat;;;;;;;;;;;x
+avatar_decolonize.2.t;Trial by Combat;;;;;;;;;;;x
+avatar_decolonize.2.desc;[decolonize_defiant.GetTitledFirstName] has refused my demand and chosen trial by combat instead. Their champions have withdrawn. This will be settled between the two of us, blade to element. If I win, the colonies fall. If I lose, or fall, the world will remember it.;;;;;;;;;;;x
+avatar_decolonize.2.a;Meet them blade to element;;;;;;;;;;;x
+avatar_decolonize.2.b;Yield without a fight;;;;;;;;;;;x

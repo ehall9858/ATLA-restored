@@ -86,7 +86,7 @@ character_event = { # Greater Water Tribe
 		name = watertribeOPT.5
 		prestige = 50
 		custom_tooltip = { text = watertribeTOOLTIP.2 }
-		persistent_event_target:the_avatar = { character_event = { id = watertribe.6 days = 7 } }
+		event_target:global_avatar = { character_event = { id = watertribe.6 days = 7 } }
 	}
 }
 

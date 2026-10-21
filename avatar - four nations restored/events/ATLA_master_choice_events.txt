@@ -1,0 +1,631 @@
+namespace = atla_master_choice
+
+# ============================================================================
+#  "I will choose my own master"
+# ============================================================================
+# The Avatar may refuse the teacher the Sages would have chosen and pick a
+# master of their own from the benders they meet in each nation.
+#
+# Reached only from the "refuse the Sages" option added to the per-element
+# master searches:
+#     avatar.165          (fire)
+#     avatar.167          (water)
+#     avatar.168          (earth)
+#     new_avatar_journey.400  (air)
+#
+# Each chooser looks for three distinct unlanded benders of the right element
+# and offers them by name. If the world holds none, an old master is created
+# outright - the same last resort the vanilla searches use - so the choice can
+# never resolve to nothing and the Avatar can never stall on master_searching.
+#
+# The candidate MUST carry the plain element trait: avatar.175/176 grant the
+# Avatar the element of whichever master taught them, so a master who cannot
+# bend the element would teach nothing.
+#
+# The "Send word back to the Sages" option is the escape hatch: it clears
+# master_searching and hands the Avatar back to avatar.159, which re-offers
+# the four national searches. Nothing here can wedge the journey.
+
+# ---------------------------------------------------------------- FIRE
+character_event = {
+	id = atla_master_choice.1
+	desc = atla_master_choice.1.desc
+	picture = GFX_evt_fire_nation_harbor
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = avatar_journey
+		NOT = { trait = avatar_firebender }
+	}
+
+	immediate = {
+		clr_character_flag = atla_mc_found_1
+		clr_character_flag = atla_mc_found_2
+		clr_character_flag = atla_mc_found_3
+
+		# 1 - an old master, long past the politics of the Fire Nation
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				age = 40
+				NOT = { age = 72 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = firebender
+				is_exceptional_bender_trigger = yes
+			}
+			save_event_target_as = atla_mc_cand_1
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_1 }
+		}
+
+		# 2 - a young prodigy
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				age = 16
+				NOT = { age = 32 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = firebender
+				is_exceptional_bender_trigger = yes
+			}
+			save_event_target_as = atla_mc_cand_2
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_2 }
+		}
+
+		# 3 - a wandering fighter, no court to call their own
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				NOT = { age = 65 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = firebender
+				martial = 10
+			}
+			save_event_target_as = atla_mc_cand_3
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_3 }
+		}
+
+		if = {
+			limit = { has_character_flag = atla_mc_found_1 }
+			event_target:atla_mc_cand_1 = { clr_character_flag = atla_mc_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_mc_found_2 }
+			event_target:atla_mc_cand_2 = { clr_character_flag = atla_mc_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_mc_found_3 }
+			event_target:atla_mc_cand_3 = { clr_character_flag = atla_mc_reserved }
+		}
+
+		# Last resort - not one firebender is free to follow you.
+		if = {
+			limit = {
+				NOR = {
+					has_character_flag = atla_mc_found_1
+					has_character_flag = atla_mc_found_2
+					has_character_flag = atla_mc_found_3
+				}
+			}
+			create_character = {
+				age = 45
+				dynasty = none
+				random_traits = yes
+				trait = firebender
+				trait = master_bender
+				religion = ROOT
+				culture = ROOT
+				attributes = { martial = 6 learning = 6 }
+			}
+			new_character = {
+				save_event_target_as = atla_mc_cand_1
+				ROOT = { set_character_flag = atla_mc_found_1 }
+			}
+		}
+	}
+
+	option = {
+		name = atla_master_choice.1.opt1
+		trigger = { has_character_flag = atla_mc_found_1 }
+		show_portrait = event_target:atla_mc_cand_1
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_1 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.1.opt2
+		trigger = { has_character_flag = atla_mc_found_2 }
+		show_portrait = event_target:atla_mc_cand_2
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_2 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.1.opt3
+		trigger = { has_character_flag = atla_mc_found_3 }
+		show_portrait = event_target:atla_mc_cand_3
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_3 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.1.opt4
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			character_event = { id = avatar.159 days = 10 }
+		}
+	}
+}
+
+# ---------------------------------------------------------------- WATER
+character_event = {
+	id = atla_master_choice.2
+	desc = atla_master_choice.2.desc
+	picture = GFX_evt_northern_water_tribe_wall
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = avatar_journey
+		NOT = { trait = avatar_waterbender }
+	}
+
+	immediate = {
+		clr_character_flag = atla_mc_found_1
+		clr_character_flag = atla_mc_found_2
+		clr_character_flag = atla_mc_found_3
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				age = 40
+				NOT = { age = 72 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = waterbender
+				is_exceptional_bender_trigger = yes
+			}
+			save_event_target_as = atla_mc_cand_1
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_1 }
+		}
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				age = 16
+				NOT = { age = 32 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = waterbender
+				is_exceptional_bender_trigger = yes
+			}
+			save_event_target_as = atla_mc_cand_2
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_2 }
+		}
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				NOT = { age = 65 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = waterbender
+				martial = 10
+			}
+			save_event_target_as = atla_mc_cand_3
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_3 }
+		}
+
+		if = {
+			limit = { has_character_flag = atla_mc_found_1 }
+			event_target:atla_mc_cand_1 = { clr_character_flag = atla_mc_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_mc_found_2 }
+			event_target:atla_mc_cand_2 = { clr_character_flag = atla_mc_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_mc_found_3 }
+			event_target:atla_mc_cand_3 = { clr_character_flag = atla_mc_reserved }
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_flag = atla_mc_found_1
+					has_character_flag = atla_mc_found_2
+					has_character_flag = atla_mc_found_3
+				}
+			}
+			create_character = {
+				age = 45
+				dynasty = none
+				random_traits = yes
+				trait = waterbender
+				trait = master_bender
+				religion = ROOT
+				culture = ROOT
+				attributes = { martial = 5 learning = 7 }
+			}
+			new_character = {
+				save_event_target_as = atla_mc_cand_1
+				ROOT = { set_character_flag = atla_mc_found_1 }
+			}
+		}
+	}
+
+	option = {
+		name = atla_master_choice.2.opt1
+		trigger = { has_character_flag = atla_mc_found_1 }
+		show_portrait = event_target:atla_mc_cand_1
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_1 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.2.opt2
+		trigger = { has_character_flag = atla_mc_found_2 }
+		show_portrait = event_target:atla_mc_cand_2
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_2 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.2.opt3
+		trigger = { has_character_flag = atla_mc_found_3 }
+		show_portrait = event_target:atla_mc_cand_3
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_3 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.2.opt4
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			character_event = { id = avatar.159 days = 10 }
+		}
+	}
+}
+
+# ---------------------------------------------------------------- EARTH
+character_event = {
+	id = atla_master_choice.3
+	desc = atla_master_choice.3.desc
+	picture = GFX_evt_earth_kingdom
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = avatar_journey
+		NOT = { trait = avatar_earthbender }
+	}
+
+	immediate = {
+		clr_character_flag = atla_mc_found_1
+		clr_character_flag = atla_mc_found_2
+		clr_character_flag = atla_mc_found_3
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				age = 40
+				NOT = { age = 72 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = earthbender
+				is_exceptional_bender_trigger = yes
+			}
+			save_event_target_as = atla_mc_cand_1
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_1 }
+		}
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				age = 16
+				NOT = { age = 32 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = earthbender
+				is_exceptional_bender_trigger = yes
+			}
+			save_event_target_as = atla_mc_cand_2
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_2 }
+		}
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				NOT = { age = 65 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = earthbender
+				martial = 10
+			}
+			save_event_target_as = atla_mc_cand_3
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_3 }
+		}
+
+		if = {
+			limit = { has_character_flag = atla_mc_found_1 }
+			event_target:atla_mc_cand_1 = { clr_character_flag = atla_mc_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_mc_found_2 }
+			event_target:atla_mc_cand_2 = { clr_character_flag = atla_mc_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_mc_found_3 }
+			event_target:atla_mc_cand_3 = { clr_character_flag = atla_mc_reserved }
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_flag = atla_mc_found_1
+					has_character_flag = atla_mc_found_2
+					has_character_flag = atla_mc_found_3
+				}
+			}
+			create_character = {
+				age = 45
+				dynasty = none
+				random_traits = yes
+				trait = earthbender
+				trait = master_bender
+				religion = ROOT
+				culture = ROOT
+				attributes = { martial = 6 learning = 5 }
+			}
+			new_character = {
+				save_event_target_as = atla_mc_cand_1
+				ROOT = { set_character_flag = atla_mc_found_1 }
+			}
+		}
+	}
+
+	option = {
+		name = atla_master_choice.3.opt1
+		trigger = { has_character_flag = atla_mc_found_1 }
+		show_portrait = event_target:atla_mc_cand_1
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_1 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.3.opt2
+		trigger = { has_character_flag = atla_mc_found_2 }
+		show_portrait = event_target:atla_mc_cand_2
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_2 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.3.opt3
+		trigger = { has_character_flag = atla_mc_found_3 }
+		show_portrait = event_target:atla_mc_cand_3
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_3 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.3.opt4
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			character_event = { id = avatar.159 days = 10 }
+		}
+	}
+}
+
+# ---------------------------------------------------------------- AIR
+character_event = {
+	id = atla_master_choice.4
+	desc = atla_master_choice.4.desc
+	picture = GFX_evt_all_four_air_temples
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = avatar_journey
+		NOT = { trait = avatar_airbender }
+	}
+
+	immediate = {
+		clr_character_flag = atla_mc_found_1
+		clr_character_flag = atla_mc_found_2
+		clr_character_flag = atla_mc_found_3
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				age = 40
+				NOT = { age = 72 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = airbender
+				is_exceptional_bender_trigger = yes
+			}
+			save_event_target_as = atla_mc_cand_1
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_1 }
+		}
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				age = 16
+				NOT = { age = 32 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = airbender
+				is_exceptional_bender_trigger = yes
+			}
+			save_event_target_as = atla_mc_cand_2
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_2 }
+		}
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				NOT = { age = 65 }
+				is_ruler = no
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_mc_reserved }
+				trait = airbender
+				learning = 10
+			}
+			save_event_target_as = atla_mc_cand_3
+			set_character_flag = atla_mc_reserved
+			ROOT = { set_character_flag = atla_mc_found_3 }
+		}
+
+		if = {
+			limit = { has_character_flag = atla_mc_found_1 }
+			event_target:atla_mc_cand_1 = { clr_character_flag = atla_mc_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_mc_found_2 }
+			event_target:atla_mc_cand_2 = { clr_character_flag = atla_mc_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_mc_found_3 }
+			event_target:atla_mc_cand_3 = { clr_character_flag = atla_mc_reserved }
+		}
+
+		if = {
+			limit = {
+				NOR = {
+					has_character_flag = atla_mc_found_1
+					has_character_flag = atla_mc_found_2
+					has_character_flag = atla_mc_found_3
+				}
+			}
+			create_character = {
+				age = 55
+				dynasty = none
+				random_traits = yes
+				trait = airbender
+				trait = master_bender
+				religion = ROOT
+				culture = ROOT
+				attributes = { martial = 3 learning = 9 }
+			}
+			new_character = {
+				save_event_target_as = atla_mc_cand_1
+				ROOT = { set_character_flag = atla_mc_found_1 }
+			}
+		}
+	}
+
+	option = {
+		name = atla_master_choice.4.opt1
+		trigger = { has_character_flag = atla_mc_found_1 }
+		show_portrait = event_target:atla_mc_cand_1
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_1 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.4.opt2
+		trigger = { has_character_flag = atla_mc_found_2 }
+		show_portrait = event_target:atla_mc_cand_2
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_2 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.4.opt3
+		trigger = { has_character_flag = atla_mc_found_3 }
+		show_portrait = event_target:atla_mc_cand_3
+		set_character_flag = master_found
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			event_target:atla_mc_cand_3 = { character_event = { id = avatar.152 days = 20 } }
+		}
+	}
+	option = {
+		name = atla_master_choice.4.opt4
+		clr_character_flag = master_searching
+		hidden_tooltip = {
+			character_event = { id = avatar.159 days = 10 }
+		}
+	}
+}

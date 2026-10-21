@@ -1,13 +1,16 @@
 # Avatar - Four Nations Restored
-This is a fan fork of the Avatar - Four Nations mod for CK2 which was not updated for over 2 years
-
-The project team is currently working on merging in changes for Holy Fury as well as updating the systems to be in line with the base game in 3.3.x and beyond
+This is a fan fork of the fan fork of the Avatar - Four Nations mod
 
 ## Add on Mods:
 
-### Avatar Disabled Portraits
+### Avatar Disabled Portraits (Currently not working)
 https://github.com/Stormersh/Avatar-Disabled-Portraits
 Allows users to use default CK2 portraits for generic characters
+
+## Credits
+
+- The original Avatar - Four Nations team, for the base mod this fork restores
+- [CK2Plus](https://github.com/ck2plus/CK2Plus) and the CK2Plus Team, for the plot and kidnap event chains ported into this mod
 
 ## Discord
 https://discord.gg/99yCJ46

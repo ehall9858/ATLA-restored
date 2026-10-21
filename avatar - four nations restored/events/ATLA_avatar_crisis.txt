@@ -1,0 +1,215 @@
+namespace = avatar_crisis
+
+# Proclamation. Fires on the Avatar (ROOT); the target is
+# event_target:crisis_target. Picks the war leader (the Avatar if landed,
+# else a great friendly host), raises the banners, and starts the two-year
+# countdown to avatar_crisis.2.
+character_event = {
+    id = avatar_crisis.1
+    title = avatar_crisis.1.t
+    desc = avatar_crisis.1.desc
+    picture = GFX_evt_battle
+    is_triggered_only = yes
+    trigger = {
+        is_avatar_trigger = yes
+        trait = fullyrealisedavatar
+        event_target:crisis_target = {
+            is_alive = yes
+            is_landed = yes
+        }
+    }
+    immediate = {
+        set_global_flag = avatar_crisis_active
+        event_target:crisis_target = {
+            set_character_flag = avatar_crisis_defender
+            capital_scope = {
+                county = { save_event_target_as = crisis_target_title }
+            }
+        }
+        # The war leader: the Avatar in person, or a great host realm.
+        if = {
+            limit = { is_landed = yes }
+            save_event_target_as = crisis_attacker
+        }
+        else = {
+            if = {
+                limit = {
+                    any_independent_ruler = {
+                        is_landed = yes
+                        is_adult = yes
+                        realm_size >= 50
+                        NOT = { is_hostile_to_avatar_trigger = yes }
+                    }
+                }
+                random_independent_ruler = {
+                    limit = {
+                        is_landed = yes
+                        is_adult = yes
+                        realm_size >= 50
+                        NOT = { is_hostile_to_avatar_trigger = yes }
+                    }
+                    save_event_target_as = crisis_host
+                }
+            }
+            else = {
+                random_independent_ruler = {
+                    limit = {
+                        is_landed = yes
+                        is_adult = yes
+                        NOT = { is_hostile_to_avatar_trigger = yes }
+                    }
+                    save_event_target_as = crisis_host
+                }
+            }
+            event_target:crisis_host = { save_event_target_as = crisis_attacker }
+            event_target:crisis_attacker = { prestige = 100 }
+            move_character = event_target:crisis_host
+        }
+        event_target:crisis_attacker = {
+            set_character_flag = avatar_crisis_attacker
+            character_event = { id = avatar_crisis.4 days = 3650 }
+        }
+    }
+    option = {
+        name = avatar_crisis.1.a
+        custom_tooltip = {
+            text = avatar_crisis_warning_tt
+            hidden_tooltip = {
+                save_event_target_as = crisis_avatar
+                event_target:crisis_target = { character_event = { id = avatar_crisis.10 } }
+                character_event = { id = avatar_crisis.2 days = 730 }
+            }
+        }
+        ai_chance = { factor = 90 }
+    }
+    option = {
+        name = avatar_crisis.1.b
+        clr_global_flag = avatar_crisis_active
+        event_target:crisis_target = { clr_character_flag = avatar_crisis_defender }
+        event_target:crisis_attacker = { clr_character_flag = avatar_crisis_attacker }
+        clear_event_target = crisis_target
+        clear_event_target = crisis_target_title
+        clear_event_target = crisis_attacker
+        clear_event_target = crisis_host
+        ai_chance = { factor = 10 }
+    }
+}
+
+# The defender is warned the moment the proclamation is made. Without this,
+# a Crisis War declared by an AI Avatar simply arrived as a war declaration
+# two years later with no explanation.
+letter_event = {
+    id = avatar_crisis.10
+    desc = avatar_crisis.10.desc
+    portrait = event_target:crisis_avatar
+    border = GFX_event_letter_frame_avatar
+    is_triggered_only = yes
+    trigger = {
+        event_target:crisis_target = { is_alive = yes }
+    }
+    option = {
+        name = avatar_crisis.10.a
+    }
+}
+
+# The Crisis War begins, two years after the proclamation.
+character_event = {
+    id = avatar_crisis.2
+    title = avatar_crisis.2.t
+    desc = avatar_crisis.2.desc
+    picture = GFX_evt_battle
+    is_triggered_only = yes
+    trigger = {
+        event_target:crisis_attacker = { is_alive = yes }
+        event_target:crisis_target = {
+            is_alive = yes
+            is_landed = yes
+        }
+    }
+    immediate = {
+        ROOT = { set_character_flag = avatar_crisis_war_used }
+        event_target:crisis_attacker = {
+            war = {
+                target = event_target:crisis_target
+                casus_belli = crisis_war
+                thirdparty_title = event_target:crisis_target_title
+            }
+            character_event = { id = avatar_crisis.4 days = 3650 }
+        }
+        # Invite the great powers: every independent king or emperor who
+        # does not hate the Avatar may swear alliance to the war leader
+        # and answer the call into the SAME war.
+        any_independent_ruler = {
+            limit = {
+                higher_tier_than = DUKE
+                NOT = { is_hostile_to_avatar_trigger = yes }
+                NOT = { character = ROOT }
+                NOT = { character = event_target:crisis_attacker }
+                NOT = { character = event_target:crisis_target }
+            }
+            character_event = { id = avatar_crisis.3 }
+        }
+    }
+    option = {
+        name = avatar_crisis.2.a
+        prestige = 50
+        ai_chance = { factor = 100 }
+    }
+}
+
+# A great power is invited to join the Crisis War.
+character_event = {
+    id = avatar_crisis.3
+    title = avatar_crisis.3.t
+    desc = avatar_crisis.3.desc
+    picture = GFX_evt_battle
+    is_triggered_only = yes
+    trigger = {
+        event_target:crisis_target = {
+            is_alive = yes
+            is_landed = yes
+        }
+    }
+    option = {
+        name = avatar_crisis.3.a
+        ai_chance = {
+            factor = 40
+            modifier = { factor = 2 trait = brave }
+            modifier = { factor = 2 trait = just }
+            modifier = { factor = 0.5 trait = craven }
+        }
+        # True allies: sworn to the war leader for the war's duration, so
+        # the war leader's call to arms brings them into the SAME war -
+        # one banner, one shattering, instead of parallel wars.
+        add_alliance = { who = event_target:crisis_attacker years = 10 }
+        custom_tooltip = {
+            text = avatar_crisis_ally_tt
+        }
+        prestige = 25
+    }
+    option = {
+        name = avatar_crisis.3.b
+        ai_chance = { factor = 60 }
+        prestige = -10
+    }
+}
+
+# Backstop: if no crisis war is running, release every flag and target so
+# a fizzled crisis can never block future ones.
+character_event = {
+    id = avatar_crisis.4
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        NOT = { any_war = { using_cb = crisis_war } }
+    }
+    immediate = {
+        clr_global_flag = avatar_crisis_active
+        clr_character_flag = avatar_crisis_attacker
+        event_target:crisis_target = { clr_character_flag = avatar_crisis_defender }
+        clear_event_target = crisis_target
+        clear_event_target = crisis_target_title
+        clear_event_target = crisis_attacker
+        clear_event_target = crisis_host
+    }
+}

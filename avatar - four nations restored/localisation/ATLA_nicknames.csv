@@ -18,7 +18,7 @@ nick_the_warmonger;The Warmonger;Le Belliciste;The Warmonger;;The Warmonger;;;;;
 nick_the_lionbear;The Lionbear;L'Ourselion;The Lionbear;;The Lionbear;;;;;;;;;x
 nick_vaatu;Vaatu;Vaatu;Vaatu;;Vaatu;;;;;;;;;x
 nick_the_dragon;The Dragon;Le guerrier;The Warrior;;The Warrior;;;;;;;;;x
-nick_the_dragon_of_the_west;Dragon of the West;Le guerrier;The Warrior;;The Warrior;;;;;;;;;x
+nick_the_dragon_of_the_west;the Dragon of the West;the Dragon of the West;the Dragon of the West;;the Dragon of the West;;;;;;;;;x
 nick_the_unagi;The Unagi;Le Unagi;The Unagi;;The Unagi;;;;;;;;;x
 nick_the_honorable;The Honourable;Le guerrier;The Warrior;;The Warrior;;;;;;;;;x
 nick_the_mechanist;The Mechanist;Le guerrier;The Warrior;;The Warrior;;;;;;;;;x
@@ -34,3 +34,147 @@ nick_the_wild_mustang;the Wild Ostrichhorse;;;;;;;;;;;;;
 nick_the_one_man_army;the One Man Army;;;;;;;;;;;;;
 nick_the_spymaster;the Spymaster;;;;;;;;;;;;;
 nick_the_white;the White;;;;;;;;;;;;;
+nick_the_first_flame;the First Flame;the First Flame;the First Flame;;the First Flame;;;;;;;;;x
+nick_the_pyre;the Pyre;the Pyre;the Pyre;;the Pyre;;;;;;;;;x
+nick_the_ember;the Ember;the Ember;the Ember;;the Ember;;;;;;;;;x
+nick_the_ashbringer;the Ashbringer;the Ashbringer;the Ashbringer;;the Ashbringer;;;;;;;;;x
+nick_the_blazing_blade;the Blazing Blade;the Blazing Blade;the Blazing Blade;;the Blazing Blade;;;;;;;;;x
+nick_the_dancing_dragon;the Dancing Dragon;the Dancing Dragon;the Dancing Dragon;;the Dancing Dragon;;;;;;;;;x
+nick_the_breath_of_agni;the Breath of Agni;the Breath of Agni;the Breath of Agni;;the Breath of Agni;;;;;;;;;x
+nick_the_agni_kai_champion;the Agni Kai Champion;the Agni Kai Champion;the Agni Kai Champion;;the Agni Kai Champion;;;;;;;;;x
+nick_the_kindled;the Kindled;the Kindled;the Kindled;;the Kindled;;;;;;;;;x
+nick_the_undying_flame;the Undying Flame;the Undying Flame;the Undying Flame;;the Undying Flame;;;;;;;;;x
+nick_the_scarlet_flame;the Scarlet Flame;the Scarlet Flame;the Scarlet Flame;;the Scarlet Flame;;;;;;;;;x
+nick_the_royal_dragon;the Royal Dragon;the Royal Dragon;the Royal Dragon;;the Royal Dragon;;;;;;;;;x
+nick_the_dragon_of_the_isles;the Dragon of the Isles;the Dragon of the Isles;the Dragon of the Isles;;the Dragon of the Isles;;;;;;;;;x
+nick_the_island_champion;the Island Champion;the Island Champion;the Island Champion;;the Island Champion;;;;;;;;;x
+nick_the_sun_warrior;the Sun Warrior;the Sun Warrior;the Sun Warrior;;the Sun Warrior;;;;;;;;;x
+nick_the_fire_sage;the Fire Sage;the Fire Sage;the Fire Sage;;the Fire Sage;;;;;;;;;x
+nick_the_yuyan_archer;the Yuyan Archer;the Yuyan Archer;the Yuyan Archer;;the Yuyan Archer;;;;;;;;;x
+nick_the_coin_counter;the Coin Counter;the Coin Counter;the Coin Counter;;the Coin Counter;;;;;;;;;x
+nick_the_hot_tempered;the Hot Tempered;the Hot Tempered;the Hot Tempered;;the Hot Tempered;;;;;;;;;x
+nick_the_lightning_caller;the Lightning Caller;the Lightning Caller;the Lightning Caller;;the Lightning Caller;;;;;;;;;x
+nick_the_sky_splitter;the Sky Splitter;the Sky Splitter;the Sky Splitter;;the Sky Splitter;;;;;;;;;x
+nick_the_third_eye;the Third Eye;the Third Eye;the Third Eye;;the Third Eye;;;;;;;;;x
+nick_the_blue_flame;the Blue Flame;the Blue Flame;the Blue Flame;;the Blue Flame;;;;;;;;;x
+nick_the_inner_flame;the Inner Flame;the Inner Flame;the Inner Flame;;the Inner Flame;;;;;;;;;x
+nick_the_smoke_dancer;the Smoke Dancer;the Smoke Dancer;the Smoke Dancer;;the Smoke Dancer;;;;;;;;;x
+nick_the_flame;the Flame;the Flame;the Flame;;the Flame;;;;;;;;;x
+nick_the_dragon_of_ember_island;the Dragon of Ember Island;the Dragon of Ember Island;the Dragon of Ember Island;;the Dragon of Ember Island;;;;;;;;;x
+nick_the_dragon_of_the_fire_nation;the Dragon of the Fire Nation;the Dragon of the Fire Nation;the Dragon of the Fire Nation;;the Dragon of the Fire Nation;;;;;;;;;x
+nick_the_lightningbender;the Lightning Bender;the Lightning Bender;the Lightning Bender;;the Lightning Bender;;;;;;;;;x
+nick_the_master_of_lightning;the Master of Lightning;the Master of Lightning;the Master of Lightning;;the Master of Lightning;;;;;;;;;x
+nick_the_master_of_fire;the Master of Fire;the Master of Fire;the Master of Fire;;the Master of Fire;;;;;;;;;x
+nick_hotman;Hotman;Hotman;Hotman;;Hotman;;;;;;;;;x
+nick_the_rising_sun;the Rising Sun;the Rising Sun;the Rising Sun;;the Rising Sun;;;;;;;;;x
+nick_the_absolutist;the Absolutist;the Absolutist;the Absolutist;;the Absolutist;;;;;;;;;x
+nick_the_tide;the Tide;the Tide;the Tide;;the Tide;;;;;;;;;x
+nick_the_wave_dancer;the Wave Dancer;the Wave Dancer;the Wave Dancer;;the Wave Dancer;;;;;;;;;x
+nick_the_ice_hand;the Ice Hand;the Ice Hand;the Ice Hand;;the Ice Hand;;;;;;;;;x
+nick_the_frozen_heart;the Frozen Heart;the Frozen Heart;the Frozen Heart;;the Frozen Heart;;;;;;;;;x
+nick_the_snow_bear;the Snow Bear;the Snow Bear;the Snow Bear;;the Snow Bear;;;;;;;;;x
+nick_the_penguin_sledder;the Penguin Sledder;the Penguin Sledder;the Penguin Sledder;;the Penguin Sledder;;;;;;;;;x
+nick_the_healing_hand;the Healing Hand;the Healing Hand;the Healing Hand;;the Healing Hand;;;;;;;;;x
+nick_the_spirit_water;the Spirit Water;the Spirit Water;the Spirit Water;;the Spirit Water;;;;;;;;;x
+nick_the_spirit_healer;the Spirit Healer;the Spirit Healer;the Spirit Healer;;the Spirit Healer;;;;;;;;;x
+nick_the_blood_moon;the Blood Moon;the Blood Moon;the Blood Moon;;the Blood Moon;;;;;;;;;x
+nick_the_crimson_tide;the Crimson Tide;the Crimson Tide;the Crimson Tide;;the Crimson Tide;;;;;;;;;x
+nick_the_moon_touched;the Moon Touched;the Moon Touched;the Moon Touched;;the Moon Touched;;;;;;;;;x
+nick_the_swamp_witch;the Swamp Witch;the Swamp Witch;the Swamp Witch;;the Swamp Witch;;;;;;;;;x
+nick_the_swamp_shaman;the Swamp Shaman;the Swamp Shaman;the Swamp Shaman;;the Swamp Shaman;;;;;;;;;x
+nick_the_ice_fisher;the Ice Fisher;the Ice Fisher;the Ice Fisher;;the Ice Fisher;;;;;;;;;x
+nick_the_turtleduck;the Turtleduck;the Turtleduck;the Turtleduck;;the Turtleduck;;;;;;;;;x
+nick_the_master_of_water;the Master of Water;the Master of Water;the Master of Water;;the Master of Water;;;;;;;;;x
+nick_the_bloodbender;the Bloodbender;the Bloodbender;the Bloodbender;;the Bloodbender;;;;;;;;;x
+nick_the_master_of_blood;the Master of Blood;the Master of Blood;the Master of Blood;;the Master of Blood;;;;;;;;;x
+nick_the_puppetmaster;the Puppetmaster;the Puppetmaster;the Puppetmaster;;the Puppetmaster;;;;;;;;;x
+nick_the_plant_bender;the Plant Bender;the Plant Bender;the Plant Bender;;the Plant Bender;;;;;;;;;x
+nick_the_hero_of_the_swamp;the Hero of the Swamp;the Hero of the Swamp;the Hero of the Swamp;;the Hero of the Swamp;;;;;;;;;x
+nick_the_unagi_rider;the Unagi Rider;the Unagi Rider;the Unagi Rider;;the Unagi Rider;;;;;;;;;x
+nick_the_hero_of_the_north;the Hero of the North;the Hero of the North;the Hero of the North;;the Hero of the North;;;;;;;;;x
+nick_the_hero_of_the_south;the Hero of the South;the Hero of the South;the Hero of the South;;the Hero of the South;;;;;;;;;x
+nick_ice_hands;Ice Hands;Ice Hands;Ice Hands;;Ice Hands;;;;;;;;;x
+nick_the_stone_wall;the Stone Wall;the Stone Wall;the Stone Wall;;the Stone Wall;;;;;;;;;x
+nick_the_immovable;the Immovable;the Immovable;the Immovable;;the Immovable;;;;;;;;;x
+nick_the_mud_slinger;the Mud Slinger;the Mud Slinger;the Mud Slinger;;the Mud Slinger;;;;;;;;;x
+nick_the_granite_shoulders;the Granite Shoulders;the Granite Shoulders;the Granite Shoulders;;the Granite Shoulders;;;;;;;;;x
+nick_the_deep_earth;the Deep Earth;the Deep Earth;the Deep Earth;;the Deep Earth;;;;;;;;;x
+nick_the_tremor;the Tremor;the Tremor;the Tremor;;the Tremor;;;;;;;;;x
+nick_the_earth_listener;the Earth Listener;the Earth Listener;the Earth Listener;;the Earth Listener;;;;;;;;;x
+nick_the_steel_fist;the Steel Fist;the Steel Fist;the Steel Fist;;the Steel Fist;;;;;;;;;x
+nick_the_iron_warden;the Iron Warden;the Iron Warden;the Iron Warden;;the Iron Warden;;;;;;;;;x
+nick_the_red_mountain;the Red Mountain;the Red Mountain;the Red Mountain;;the Red Mountain;;;;;;;;;x
+nick_the_molten_heart;the Molten Heart;the Molten Heart;the Molten Heart;;the Molten Heart;;;;;;;;;x
+nick_the_desert_wind;the Desert Wind;the Desert Wind;the Desert Wind;;the Desert Wind;;;;;;;;;x
+nick_the_sand_serpent;the Sand Serpent;the Sand Serpent;the Sand Serpent;;the Sand Serpent;;;;;;;;;x
+nick_the_sand_rider;the Sand Rider;the Sand Rider;the Sand Rider;;the Sand Rider;;;;;;;;;x
+nick_the_kyoshi_warrior;the Kyoshi Warrior;the Kyoshi Warrior;the Kyoshi Warrior;;the Kyoshi Warrior;;;;;;;;;x
+nick_the_cactus_juicer;the Cactus Juicer;the Cactus Juicer;the Cactus Juicer;;the Cactus Juicer;;;;;;;;;x
+nick_the_paisho_master;the Pai Sho Master;the Pai Sho Master;the Pai Sho Master;;the Pai Sho Master;;;;;;;;;x
+nick_the_stargazer;the Star Gazer;the Star Gazer;the Star Gazer;;the Star Gazer;;;;;;;;;x
+nick_the_fortuneteller;the Fortune Teller;the Fortune Teller;the Fortune Teller;;the Fortune Teller;;;;;;;;;x
+nick_the_serpent_scholar;the Serpent Scholar;the Serpent Scholar;the Serpent Scholar;;the Serpent Scholar;;;;;;;;;x
+nick_the_boulder;the Boulder;the Boulder;the Boulder;;the Boulder;;;;;;;;;x
+nick_the_pebble;the Pebble;the Pebble;the Pebble;;the Pebble;;;;;;;;;x
+nick_the_hippo;the Hippo;the Hippo;the Hippo;;the Hippo;;;;;;;;;x
+nick_the_blind_bandit;the Blind Bandit;the Blind Bandit;the Blind Bandit;;the Blind Bandit;;;;;;;;;x
+nick_the_metalbender;the Metal Bender;the Metal Bender;the Metal Bender;;the Metal Bender;;;;;;;;;x
+nick_the_master_of_metal;the Master of Metal;the Master of Metal;the Master of Metal;;the Master of Metal;;;;;;;;;x
+nick_the_master_of_earth;the Master of Earth;the Master of Earth;the Master of Earth;;the Master of Earth;;;;;;;;;x
+nick_the_master_of_sand;the Master of Sand;the Master of Sand;the Master of Sand;;the Master of Sand;;;;;;;;;x
+nick_the_hero_of_ba_sing_se;the Hero of Ba Sing Se;the Hero of Ba Sing Se;the Hero of Ba Sing Se;;the Hero of Ba Sing Se;;;;;;;;;x
+nick_the_wall_breacher;the Wall Breacher;the Wall Breacher;the Wall Breacher;;the Wall Breacher;;;;;;;;;x
+nick_the_melon_lord;the Melon Lord;the Melon Lord;the Melon Lord;;the Melon Lord;;;;;;;;;x
+nick_the_librarian;the Librarian;the Librarian;the Librarian;;the Librarian;;;;;;;;;x
+nick_the_learned;the Learned;the Learned;the Learned;;the Learned;;;;;;;;;x
+nick_the_builder;the Builder;the Builder;the Builder;;the Builder;;;;;;;;;x
+nick_the_whirlwind;the Whirlwind;the Whirlwind;the Whirlwind;;the Whirlwind;;;;;;;;;x
+nick_the_gentle_wind;the Gentle Wind;the Gentle Wind;the Gentle Wind;;the Gentle Wind;;;;;;;;;x
+nick_the_sky_dancer;the Sky Dancer;the Sky Dancer;the Sky Dancer;;the Sky Dancer;;;;;;;;;x
+nick_the_four_winds;the Four Winds;the Four Winds;the Four Winds;;the Four Winds;;;;;;;;;x
+nick_the_leaf_in_the_wind;the Leaf in the Wind;the Leaf in the Wind;the Leaf in the Wind;;the Leaf in the Wind;;;;;;;;;x
+nick_the_void_walker;the Void Walker;the Void Walker;the Void Walker;;the Void Walker;;;;;;;;;x
+nick_the_sky_bison;the Sky Bison;the Sky Bison;the Sky Bison;;the Sky Bison;;;;;;;;;x
+nick_the_airball_champion;the Airball Champion;the Airball Champion;the Airball Champion;;the Airball Champion;;;;;;;;;x
+nick_the_tattooed_monk;the Tattooed Monk;the Tattooed Monk;the Tattooed Monk;;the Tattooed Monk;;;;;;;;;x
+nick_the_elder_of_the_temple;the Elder of the Temple;the Elder of the Temple;the Elder of the Temple;;the Elder of the Temple;;;;;;;;;x
+nick_the_acolyte;the Acolyte;the Acolyte;the Acolyte;;the Acolyte;;;;;;;;;x
+nick_the_dream_walker;the Dream Walker;the Dream Walker;the Dream Walker;;the Dream Walker;;;;;;;;;x
+nick_the_hippie;the Hippie;the Hippie;the Hippie;;the Hippie;;;;;;;;;x
+nick_the_trickster_monk;the Trickster Monk;the Trickster Monk;the Trickster Monk;;the Trickster Monk;;;;;;;;;x
+nick_the_warrior_monk;the Warrior Monk;the Warrior Monk;the Warrior Monk;;the Warrior Monk;;;;;;;;;x
+nick_the_enlightened;the Enlightened;the Enlightened;the Enlightened;;the Enlightened;;;;;;;;;x
+nick_the_master_of_air;the Master of Air;the Master of Air;the Master of Air;;the Master of Air;;;;;;;;;x
+nick_the_master_of_flight;the Master of Flight;the Master of Flight;the Master of Flight;;the Master of Flight;;;;;;;;;x
+nick_the_master_of_the_void;the Master of the Void;the Master of the Void;the Master of the Void;;the Master of the Void;;;;;;;;;x
+nick_the_master_of_the_spirit_world;the Master of the Spirit World;the Master of the Spirit World;the Master of the Spirit World;;the Master of the Spirit World;;;;;;;;;x
+nick_the_spirit_master;the Spirit Master;the Spirit Master;the Spirit Master;;the Spirit Master;;;;;;;;;x
+nick_the_great_wind;the Great Wind;the Great Wind;the Great Wind;;the Great Wind;;;;;;;;;x
+nick_the_chi_blocker;the Chi Blocker;the Chi Blocker;the Chi Blocker;;the Chi Blocker;;;;;;;;;x
+nick_the_dancing_blade;the Dancing Blade;the Dancing Blade;the Dancing Blade;;the Dancing Blade;;;;;;;;;x
+nick_the_powder_keg;the Powder Keg;the Powder Keg;the Powder Keg;;the Powder Keg;;;;;;;;;x
+nick_the_song_bird;the Song Bird;the Song Bird;the Song Bird;;the Song Bird;;;;;;;;;x
+nick_the_playwright;the Playwright;the Playwright;the Playwright;;the Playwright;;;;;;;;;x
+nick_the_gambler;the Gambler;the Gambler;the Gambler;;the Gambler;;;;;;;;;x
+nick_the_cook;the Cook;the Cook;the Cook;;the Cook;;;;;;;;;x
+nick_the_fisherman;the Fisherman;the Fisherman;the Fisherman;;the Fisherman;;;;;;;;;x
+nick_the_wanderer;the Wanderer;the Wanderer;the Wanderer;;the Wanderer;;;;;;;;;x
+nick_the_hero_of_the_war;the Hero of the Hundred Year War;the Hero of the Hundred Year War;the Hero of the Hundred Year War;;the Hero of the Hundred Year War;;;;;;;;;x
+nick_the_pirate;the Pirate;the Pirate;the Pirate;;the Pirate;;;;;;;;;x
+nick_the_plunderer;the Plunderer;the Plunderer;the Plunderer;;the Plunderer;;;;;;;;;x
+nick_the_tea_master;the Tea Master;the Tea Master;the Tea Master;;the Tea Master;;;;;;;;;x
+nick_the_actor;the Actor;the Actor;the Actor;;the Actor;;;;;;;;;x
+nick_the_viper;the Viper;the Viper;the Viper;;the Viper;;;;;;;;;x
+nick_the_outlaw;the Outlaw;the Outlaw;the Outlaw;;the Outlaw;;;;;;;;;x
+nick_the_raider;the Raider;the Raider;the Raider;;the Raider;;;;;;;;;x
+nick_the_blue_spirit;the Blue Spirit;the Blue Spirit;the Blue Spirit;;the Blue Spirit;;;;;;;;;x
+nick_the_juggernaut;the Juggernaut;the Juggernaut;the Juggernaut;;the Juggernaut;;;;;;;;;x
+nick_the_uniter;the Uniter;the Uniter;the Uniter;;the Uniter;;;;;;;;;x
+nick_the_great_equalizer;the Great Equalizer;the Great Equalizer;the Great Equalizer;;the Great Equalizer;;;;;;;;;x
+nick_the_vigilant;the Vigilant;the Vigilant;the Vigilant;;the Vigilant;;;;;;;;;x
+nick_the_famous;the Famous;the Famous;the Famous;;the Famous;;;;;;;;;x
+nick_the_dishonorable;the Dishonourable;the Dishonourable;the Dishonourable;;the Dishonourable;;;;;;;;;x
+nick_the_warrior_lady;the Warrior Lady;the Warrior Lady;the Warrior Lady;;the Warrior Lady;;;;;;;;;x
+nick_the_warrior_nun;the Warrior Nun;the Warrior Nun;the Warrior Nun;;the Warrior Nun;;;;;;;;;x
+nick_the_gecko;the Gecko;the Gecko;the Gecko;;the Gecko;;;;;;;;;x
+nick_the_headhunter;the Headhunter;the Headhunter;the Headhunter;;the Headhunter;;;;;;;;;x

@@ -1,0 +1,20 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+atla_team.1.desc;Another season on the road, and another town that is not your home. The people you meet on the way come and go: a face at a ferry-house table, a name passed along by a boatman, someone who has already seen more of the world than most ever will.\n\nSome of them might come with you, if you asked.;;;;;;;;;;;;x
+atla_team.1.opt1;Ask [atla_team_cand_1.GetFullName] to come with you;;;;;;;;;;;;x
+atla_team.1.opt2;Ask [atla_team_cand_2.GetFullName] to come with you;;;;;;;;;;;;x
+atla_team.1.opt3;Ask [atla_team_cand_3.GetFullName] to come with you;;;;;;;;;;;;x
+atla_team.1.opt4;Travel on alone;;;;;;;;;;;;x
+atla_team.2.desc;[atla_team_avatar.GetTitledFirstName] is the Avatar, and the Avatar has asked you to leave your life behind and travel with them. It is not an order. Nobody in the world could give you such an order.\n\nIt is only an invitation, and you may refuse it.;;;;;;;;;;;;x
+atla_team.2.opt1;I will go with the Avatar;;;;;;;;;;;;x
+atla_team.2.opt2;I will stay where I am;;;;;;;;;;;;x
+atla_team.5.desc;[From.GetFullName] has accepted. Whatever they were before, they are one of yours now, and they will see the whole world before this is over.;;;;;;;;;;;;x
+atla_team.5.title;A New Companion;;;;;;;;;;;;x
+atla_team.5.opt;Good.;;;;;;;;;;;;x
+atla_team.6.desc;[From.GetFullName] refused. They wished you well, and meant it, and stayed where they were. Not everyone is meant to follow an Avatar.;;;;;;;;;;;;x
+atla_team.6.title;An Invitation Refused;;;;;;;;;;;;x
+atla_team.6.opt;So be it.;;;;;;;;;;;;x
+atla_team.7.desc;The invitation never found its mark. I looked for them a second time, and they were not there to be found: gone on ahead, or past answering, or simply nowhere I could reach.;;;;;;;;;;;;x
+atla_team.7.opt;Then I travel on.;;;;;;;;;;;;x
+invite_to_team_avatar;Invite to Team Avatar;;;;;;;;;;;;x
+invite_to_team_avatar_desc;Ask this person to leave their life behind and travel with you. They will decide for themselves, and they may refuse. Only the Avatar is followed across the world, and only the Avatar may ask.;;;;;;;;;;;;x
+atla_team_has_room_tt;Team Avatar has fewer than 8 active companions.;;;;;;;;;;;;x

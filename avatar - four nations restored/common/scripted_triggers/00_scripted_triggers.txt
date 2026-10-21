@@ -890,6 +890,8 @@ can_be_chancellor_trigger = {
 	prisoner = no
 	NOT = { trait = incapable }
 	NOT = { trait = in_hiding }
+	NOT = { trait = avatar }
+	NOT = { trait = fullyrealisedavatar }
 	NOT = { has_character_modifier = resigned_in_anger }
 	NOT = {
 		liege = {
@@ -957,6 +959,8 @@ can_be_marshal_trigger = {
 	prisoner = no
 	NOT = { trait = incapable }
 	NOT = { trait = in_hiding }
+	NOT = { trait = avatar }
+	NOT = { trait = fullyrealisedavatar }
 	NOT = { has_character_flag = guru }
 	NOT = { has_character_modifier = resigned_in_anger }
 	NOT = {
@@ -1027,6 +1031,8 @@ can_be_treasurer_trigger = {
 	prisoner = no
 	NOT = { trait = incapable }
 	NOT = { trait = in_hiding }
+	NOT = { trait = avatar }
+	NOT = { trait = fullyrealisedavatar }
 	NOT = { has_character_flag = guru }
 	NOT = { has_character_modifier = resigned_in_anger }
 	NOT = {
@@ -1108,6 +1114,8 @@ can_be_spymaster_trigger = {
 	prisoner = no
 	NOT = { trait = incapable }
 	NOT = { trait = in_hiding }
+	NOT = { trait = avatar }
+	NOT = { trait = fullyrealisedavatar }
 	NOT = { has_character_flag = guru }
 	NOT = { has_character_modifier = resigned_in_anger }
 	NOT = {
@@ -1125,6 +1133,8 @@ can_be_spiritual_trigger = {
 	prisoner = no
 	NOT = { trait = incapable }
 	NOT = { trait = in_hiding }
+	NOT = { trait = avatar }
+	NOT = { trait = fullyrealisedavatar }
 	NOT = { has_character_modifier = resigned_in_anger }
 	NOT = {
 		liege = {
@@ -1194,6 +1204,8 @@ can_be_councilmember_king_trigger = {
 	prisoner = no
 	NOT = { trait = incapable }
 	NOT = { trait = in_hiding }
+	NOT = { trait = avatar }
+	NOT = { trait = fullyrealisedavatar }
 	NOT = { has_character_modifier = resigned_in_anger }
 	NOT = {
 		liege = {
@@ -1246,6 +1258,8 @@ can_be_councilmember_emperor_trigger = {
 	prisoner = no
 	NOT = { trait = incapable }
 	NOT = { trait = in_hiding }
+	NOT = { trait = avatar }
+	NOT = { trait = fullyrealisedavatar }
 	NOT = { has_character_modifier = resigned_in_anger }
 	NOT = {
 		liege = {
@@ -1438,7 +1452,7 @@ is_unimportant_trigger = {
 		has_character_modifier = in_seclusion
 		has_character_modifier = elder_long_life_modifier
 		immortal = yes
-		has_character_flag = is_avatar
+		is_avatar_trigger = yes
 		trait = canon_character
 	}
 }
@@ -3643,12 +3657,15 @@ has_grace_massive_trigger = {
 }
 
 offmap_spirit_world_tribute_decisions_enabled_trigger = {
+	NOT = { has_landed_title = d_avatar }
 }
 
 offmap_spirit_world_boon_decisions_enabled_trigger = {
+	NOT = { has_landed_title = d_avatar }
 }
 
 offmap_spirit_world_hostile_decisions_enabled_trigger = {
+	NOT = { has_landed_title = d_avatar }
 }
 
 is_liked_by_Spirits_trigger = {

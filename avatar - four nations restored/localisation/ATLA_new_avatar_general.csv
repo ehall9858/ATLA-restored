@@ -38,5 +38,6 @@ String_Region_Default;[Root.PrimaryTitle.GetName];;;;;;;;;;;x
 tooltip_preferred_outcome;Avatar is on the side of the ruler;;;;;;;;;;;x
 tooltip_compromise;Compromise;;;;;;;;;;;x
 tooltip_punishment;Avatar is on the side of the rebels;;;;;;;;;;;x
-
-
+EVTTITLE_new_avatar_general_4_reveal_aang;Avatar Aang;;;;;;;;;;;x
+EVTDESC_new_avatar_general_4_reveal_aang;The Air Nomad elders have gathered to reveal the truth you have carried since childhood. You are the Avatar, entrusted with the balance of the four nations. The monks bow, and the weight of the world settles upon your shoulders.;;;;;;;;;;;x
+EVTOPT_new_avatar_general_4_reveal_aang;I am the Avatar.;;;;;;;;;;;x

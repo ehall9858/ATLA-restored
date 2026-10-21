@@ -1,0 +1,51 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+wbo_train_bending;Train with the Order;;;;;;;;;;;x
+wbo_train_bending_desc;Present yourself to the Order's masters and drill the forms they set you. Their guidance can carry you to the next tier of your art.;;;;;;;;;;;x
+wbo_train_bending_power_desc;Enables a decision to train under the Order's masters, working toward a higher tier of waterbending.;;;;;;;;;;;x
+ebo_train_bending;Train with the Society;;;;;;;;;;;x
+ebo_train_bending_desc;Stand in the Society's yards and drill the forms the masters set you. Their guidance can carry you to the next tier of your art.;;;;;;;;;;;x
+ebo_train_bending_power_desc;Enables a decision to train under the Society's masters, working toward a higher tier of earthbending.;;;;;;;;;;;x
+wbo_learn_subbending;Study a Hidden Art;;;;;;;;;;;x
+wbo_learn_subbending_desc;Only the head of the Order is taught the arts the Order keeps back: the healing of the Northern waters, and darker things besides. Ask, and one of the masters will take you as a student.;;;;;;;;;;;x
+wbo_learn_subbending_power_desc;Enables the Grandmaster to learn one waterbending sub-art from the Order's masters.;;;;;;;;;;;x
+ebo_learn_subbending;Study a Hidden Art;;;;;;;;;;;x
+ebo_learn_subbending_desc;Only the head of the Society is taught the arts the Society keeps back: the metal within stone, the sand of the deep desert, and the fire beneath the earth. Ask, and one of the masters will take you as a student.;;;;;;;;;;;x
+ebo_learn_subbending_power_desc;Enables the Grandmaster to learn one earthbending sub-art from the Society's masters.;;;;;;;;;;;x
+wbo_instruct_bender;Instruct a Waterbender;;;;;;;;;;;x
+wbo_instruct_bender_desc;Take a young waterbender of your realm under your wing, and pass on what the Order taught you.;;;;;;;;;;;x
+wbo_instruct_bender_power_desc;Enables a decision to instruct a child in waterbending, raising their skill.;;;;;;;;;;;x
+ebo_instruct_bender;Instruct an Earthbender;;;;;;;;;;;x
+ebo_instruct_bender_desc;Take a young earthbender of your realm under your wing, and pass on what the Society taught you.;;;;;;;;;;;x
+ebo_instruct_bender_power_desc;Enables a decision to instruct a child in earthbending, raising their skill.;;;;;;;;;;;x
+EVTDESC_BO_1_W;The masters of the Order have taken an interest in you. They lead you to the quiet pools behind the hall, where the water lies so still that you can count every grain of sand beneath it.\n\n"There is more in you than you know," one of them says. "Let us see if we can find it."\n\nDay after day he sets you the same forms, until your arms ache and the water seems to fight you rather than flow. He offers no praise, only corrections, and now and then a question you cannot answer. When the season ends he watches you run the forms once more, and this time he says nothing at all. You will not know for years whether that was approval.;;;;;;;;;;;x
+EVTDESC_BO_1_E;The masters of the Society have taken an interest in you. They lead you to the training yard, where slabs of stone stand waiting to be moved.\n\n"There is more in you than you know," one of them says. "Let us see if we can find it."\n\nDay after day she sets you the same stances, until your legs shake and the stone refuses to move. She offers no praise, only corrections, and now and then a question you cannot answer. When the season ends she watches you hold the stance once more, and this time she says nothing at all. You will not know for years whether that was approval.;;;;;;;;;;;x
+EVTOPTA_BO_1;End your training;;;;;;;;;;;x
+EVTDESC_BO_10_W;The Order's most advanced masters sit apart from the rest, and they do not teach just anyone. Only the head of the Order is offered their arts, and each of them guards a different one.\n\nThe healers of this hall are the Order's own, not the Northern tribe's, and they have never asked a student's sex before asking what their hands can do. The art the others whisper about is offered to anyone with the stomach for it.;;;;;;;;;;;x
+EVTDESC_BO_10_E;The Society's most advanced masters sit apart from the rest, and they do not teach just anyone. Only the head of the Society is offered their arts, and each of them guards a different one: the metal within stone, the sand of the deep desert, and the fire beneath the earth.;;;;;;;;;;;x
+EVTOPTA_BO_10;Ask to learn the healing arts;;;;;;;;;;;x
+EVTOPTC_BO_10;Ask to perfect your healing;;;;;;;;;;;x
+EVTOPTD_BO_10;Ask about the forbidden art;;;;;;;;;;;x
+EVTOPTE_BO_10;Ask to learn metalbending;;;;;;;;;;;x
+EVTOPTF_BO_10;Ask to learn seismic sense;;;;;;;;;;;x
+EVTOPTG_BO_10;Ask to learn sandbending;;;;;;;;;;;x
+EVTOPTH_BO_10;Ask to learn lavabending;;;;;;;;;;;x
+EVTDESC_BO_11;The healers of the Order work in a low room lit by a single lamp, and the first thing they teach you is that healing is not about power. It is about listening: to the water, and to the person in front of you.\n\nBy the end of the season your hands know what to do before your mind does.;;;;;;;;;;;x
+EVTOPTA_BO_11;Learn the healing arts;;;;;;;;;;;x
+EVTDESC_BO_12;You have healed the sick of the Order for years. Now the oldest healer in the hall sits you down and shows you what lies past technique: a stillness so complete that the water does not move. It waits for your word.\n\nWhat you learn there cannot be taught to everyone.;;;;;;;;;;;x
+EVTOPTA_BO_12;Perfect your healing;;;;;;;;;;;x
+EVTDESC_BO_13;You ask the wrong question of the wrong master, and one night she shows you the answer. Water is in every living thing, she says, and every living thing can be held still.\n\nShe moves her hand. You cannot move at all, and when she lets you go, you understand that you could do this to anyone.;;;;;;;;;;;x
+EVTOPTA_BO_13;Learn the forbidden art;;;;;;;;;;;x
+EVTOPTB_BO_13;Refuse, and report her;;;;;;;;;;;x
+EVTDESC_BO_14;The old masters say that metalbending is impossible. The master who takes you aside says it is only earth that has been worked until it forgot itself, and like any stubborn thing, it can be reminded.\n\nIt takes months of failure before the first coin bends in your hand.;;;;;;;;;;;x
+EVTOPTA_BO_14;Learn metalbending;;;;;;;;;;;x
+EVTDESC_BO_15;The master blindfolds you and stamps her foot. Somewhere in the ground an answer comes back: a shape, a weight, a way of seeing without eyes.\n\nWhen the blindfold comes off, you find you can still feel the stone beneath the floor.;;;;;;;;;;;x
+EVTOPTA_BO_15;Learn seismic sense;;;;;;;;;;;x
+EVTDESC_BO_16;The Society's desert-bred masters bend sand as though it were water: loose, endless, everywhere. It is a humbler art than metal, and a more patient one.\n\nBy the time they are done with you, dust obeys you as readily as stone.;;;;;;;;;;;x
+EVTOPTA_BO_16;Learn sandbending;;;;;;;;;;;x
+EVTDESC_BO_17;The master takes you to the black slopes above the village and shows you what the poets never mention: that deep enough down, the earth is not solid at all. It runs.\n\nFew earthbenders ever bend lava. Fewer still live to speak of learning it.;;;;;;;;;;;x
+EVTOPTA_BO_17;Learn lavabending;;;;;;;;;;;x
+EVTDESC_BO_40_W;Your teacher is a master of the Waterbending Order, and for a whole season they drill you: the forms, the breathing, the way the water is supposed to answer.\n\nThey tell you that you are stronger than you were.;;;;;;;;;;;x
+EVTDESC_BO_40_E;Your teacher is a master of the Earthbending Society, and for a whole season they drill you: the stances, the breathing, the way the stone is supposed to answer.\n\nThey tell you that you are stronger than you were.;;;;;;;;;;;x
+EVTOPTA_BO_40;Train harder;;;;;;;;;;;x
+EVTDESC_BO_41;Your pupil has spent months under the Order's eye, and it has not been wasted. Their forms are cleaner, their bending stronger, and they no longer flinch when the work turns hard. There will be another bender of note in the world because of you.;;;;;;;;;;;x
+EVTOPTA_BO_41;A teacher's reward;;;;;;;;;;;x

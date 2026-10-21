@@ -1,0 +1,542 @@
+namespace = avatar_child
+
+# Childhood flavor for the unrevealed Avatar (ages 0-15). Checked yearly;
+# the child gets one small strange-and-wonderful moment per year. NOTHING
+# here may reveal them: no avatar trait, no reveal flags, no titles, and
+# no death - the unrevealedavatar trait is keeping them alive for a reason.
+#
+# Every desc is written in the child's own voice ("I", "my"), because these
+# fire on the child themselves. Losing options roll on percentages so the
+# same childhood never plays out the same way twice.
+character_event = {
+    id = avatar_child.0
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_character_flag = avatar_unrevealed
+        NOT = { has_character_flag = avatar_revealed }
+    }
+    immediate = {
+        # Toddlers: small household wonders.
+        if = {
+            limit = { NOT = { age >= 6 } }
+            random_list = {
+                10 = { character_event = { id = avatar_child.1 } }
+                10 = { character_event = { id = avatar_child.2 } }
+                10 = { character_event = { id = avatar_child.3 } }
+                10 = { character_event = { id = avatar_child.10 } }
+                10 = { character_event = { id = avatar_child.11 } }
+                10 = { character_event = { id = avatar_child.12 } }
+                10 = { character_event = { id = avatar_child.13 } }
+            }
+        }
+        # Children: talents and dreams.
+        if = {
+            limit = {
+                age >= 6
+                NOT = { age >= 12 }
+            }
+            random_list = {
+                10 = { character_event = { id = avatar_child.4 } }
+                10 = { character_event = { id = avatar_child.5 } }
+                10 = { character_event = { id = avatar_child.6 } }
+                10 = { character_event = { id = avatar_child.14 } }
+                10 = { character_event = { id = avatar_child.15 } }
+                10 = { character_event = { id = avatar_child.16 } }
+                10 = { character_event = { id = avatar_child.17 } }
+            }
+        }
+        # Almost grown: the world starts noticing.
+        if = {
+            limit = {
+                age >= 12
+                NOT = { age >= 16 }
+            }
+            random_list = {
+                10 = { character_event = { id = avatar_child.7 } }
+                10 = { character_event = { id = avatar_child.8 } }
+                10 = { character_event = { id = avatar_child.9 } }
+                10 = { character_event = { id = avatar_child.18 } }
+                10 = { character_event = { id = avatar_child.19 } }
+                10 = { character_event = { id = avatar_child.20 } }
+                10 = { character_event = { id = avatar_child.21 } }
+            }
+        }
+    }
+}
+
+# The toys move on their own.
+character_event = {
+    id = avatar_child.1
+    title = avatar_child.1.t
+    desc = avatar_child.1.desc
+    picture = GFX_evt_family
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.1.a
+        piety = 5
+        set_character_flag = avatar_child_wonder
+    }
+    option = {
+        name = avatar_child.1.b
+        prestige = 5
+        set_character_flag = avatar_child_secret
+    }
+}
+
+# Animals follow them home.
+character_event = {
+    id = avatar_child.2
+    title = avatar_child.2.t
+    desc = avatar_child.2.desc
+    picture = GFX_evt_family
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.2.a
+        add_trait = kind
+        prestige = 5
+    }
+    option = {
+        name = avatar_child.2.b
+        add_trait = brave
+        piety = 5
+    }
+}
+
+# A fever that breaks with the wind.
+character_event = {
+    id = avatar_child.3
+    title = avatar_child.3.t
+    desc = avatar_child.3.desc
+    picture = GFX_evt_recovery
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.3.a
+        piety = 10
+        set_character_flag = avatar_child_hardy
+    }
+    option = {
+        name = avatar_child.3.b
+        prestige = 5
+        set_character_flag = avatar_child_restless
+    }
+}
+
+# Splashes and spills with no training at all.
+character_event = {
+    id = avatar_child.4
+    title = avatar_child.4.t
+    desc = avatar_child.4.desc
+    picture = GFX_evt_family
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.4.a
+        add_trait = curious
+        set_character_flag = avatar_child_wild_talent
+    }
+    option = {
+        name = avatar_child.4.b
+        piety = 10
+        add_trait = patient
+    }
+}
+
+# Dreams of a city they have never seen.
+character_event = {
+    id = avatar_child.5
+    title = avatar_child.5.t
+    desc = avatar_child.5.desc
+    picture = GFX_evt_throne_room
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.5.a
+        prestige = 10
+        set_character_flag = avatar_child_dreamer
+    }
+    option = {
+        name = avatar_child.5.b
+        piety = 5
+        add_trait = just
+    }
+}
+
+# Standing up to the bullies.
+character_event = {
+    id = avatar_child.6
+    title = avatar_child.6.t
+    desc = avatar_child.6.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.6.a
+        add_trait = brave
+        prestige = 10
+    }
+    option = {
+        name = avatar_child.6.b
+        add_trait = kind
+        piety = 10
+    }
+}
+
+# Old sages asking strange questions.
+character_event = {
+    id = avatar_child.7
+    title = avatar_child.7.t
+    desc = avatar_child.7.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.7.a
+        prestige = 10
+        set_character_flag = avatar_child_noticed
+    }
+    option = {
+        name = avatar_child.7.b
+        piety = 5
+        set_character_flag = avatar_child_hidden
+    }
+}
+
+# Eyes that glow when angered.
+character_event = {
+    id = avatar_child.8
+    title = avatar_child.8.t
+    desc = avatar_child.8.desc
+    picture = GFX_evt_battle
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.8.a
+        add_trait = patient
+        piety = 10
+    }
+    option = {
+        name = avatar_child.8.b
+        add_trait = craven
+        prestige = 5
+    }
+}
+
+# A spirit speaks to them.
+character_event = {
+    id = avatar_child.9
+    title = avatar_child.9.t
+    desc = avatar_child.9.desc
+    picture = GFX_evt_spirit_portal
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.9.a
+        add_trait = zealous
+        piety = 15
+    }
+    option = {
+        name = avatar_child.9.b
+        add_trait = charitable
+        prestige = 10
+    }
+}
+
+# ---------------------------------------------------------------------------
+# Rolled events (avatar_child.10+). Each option settles on a percentage roll,
+# so the trait the child grows into is uncertain even after the choice.
+# ---------------------------------------------------------------------------
+
+# The cradle is warm though the fire is out.
+character_event = {
+    id = avatar_child.10
+    title = avatar_child.10.t
+    desc = avatar_child.10.desc
+    picture = GFX_evt_family
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.10.a
+        random_list = {
+            55 = { add_trait = brave }
+            25 = { add_trait = diligent }
+            20 = { add_trait = wroth }
+        }
+    }
+    option = {
+        name = avatar_child.10.b
+        random_list = {
+            55 = { add_trait = content }
+            25 = { add_trait = patient }
+            20 = { piety = 10 }
+        }
+    }
+}
+
+# First steps, and the leaves rose to walk with me.
+character_event = {
+    id = avatar_child.11
+    title = avatar_child.11.t
+    desc = avatar_child.11.desc
+    picture = GFX_evt_family
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.11.a
+        random_list = {
+            45 = { add_trait = brave }
+            35 = { add_trait = gregarious }
+            20 = { add_trait = wroth }
+        }
+    }
+    option = {
+        name = avatar_child.11.b
+        random_list = {
+            45 = { add_trait = patient }
+            35 = { add_trait = curious }
+            20 = { add_trait = shy }
+        }
+    }
+}
+
+# A dream of a burning sky.
+character_event = {
+    id = avatar_child.12
+    title = avatar_child.12.t
+    desc = avatar_child.12.desc
+    picture = GFX_evt_fire_comet
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.12.a
+        random_list = {
+            50 = { add_trait = content }
+            30 = { add_trait = trusting }
+            20 = { add_trait = craven }
+        }
+    }
+    option = {
+        name = avatar_child.12.b
+        random_list = {
+            45 = { add_trait = zealous }
+            30 = { piety = 15 }
+            25 = { add_trait = wroth }
+        }
+    }
+}
+
+# The broken wing that mended by morning.
+character_event = {
+    id = avatar_child.13
+    title = avatar_child.13.t
+    desc = avatar_child.13.desc
+    picture = GFX_evt_guardian
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.13.a
+        random_list = {
+            50 = { add_trait = kind }
+            30 = { piety = 15 }
+            20 = { add_trait = zealous }
+        }
+    }
+    option = {
+        name = avatar_child.13.b
+        random_list = {
+            45 = { add_trait = humble }
+            35 = { add_trait = patient }
+            20 = { add_trait = charitable }
+        }
+    }
+}
+
+# Lessons I already knew.
+character_event = {
+    id = avatar_child.14
+    title = avatar_child.14.t
+    desc = avatar_child.14.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.14.a
+        random_list = {
+            45 = { add_trait = diligent }
+            30 = { add_trait = erudite }
+            25 = { add_trait = ambitious }
+        }
+    }
+    option = {
+        name = avatar_child.14.b
+        random_list = {
+            45 = { add_trait = deceitful }
+            30 = { add_trait = patient }
+            25 = { add_trait = shy }
+        }
+    }
+}
+
+# The stone I rolled aside without thinking.
+character_event = {
+    id = avatar_child.15
+    title = avatar_child.15.t
+    desc = avatar_child.15.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.15.a
+        random_list = {
+            40 = { add_trait = proud }
+            35 = { add_trait = brave }
+            25 = { add_trait = gregarious }
+        }
+    }
+    option = {
+        name = avatar_child.15.b
+        random_list = {
+            45 = { add_trait = humble }
+            30 = { add_trait = content }
+            25 = { add_trait = arbitrary }
+        }
+    }
+}
+
+# The cups all turned to face the sea.
+character_event = {
+    id = avatar_child.16
+    title = avatar_child.16.t
+    desc = avatar_child.16.desc
+    picture = GFX_evt_beam_of_light
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.16.a
+        random_list = {
+            45 = { add_trait = curious }
+            30 = { add_trait = brave }
+            25 = { add_trait = wroth }
+        }
+    }
+    option = {
+        name = avatar_child.16.b
+        random_list = {
+            45 = { add_trait = patient }
+            30 = { add_trait = deceitful }
+            25 = { add_trait = craven }
+        }
+    }
+}
+
+# The note that set the lanterns trembling.
+character_event = {
+    id = avatar_child.17
+    title = avatar_child.17.t
+    desc = avatar_child.17.desc
+    picture = GFX_evt_battle
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.17.a
+        random_list = {
+            45 = { add_trait = gregarious }
+            30 = { add_trait = content }
+            25 = { add_trait = arbitrary }
+        }
+    }
+    option = {
+        name = avatar_child.17.b
+        random_list = {
+            45 = { add_trait = shy }
+            30 = { add_trait = patient }
+            25 = { add_trait = paranoid }
+        }
+    }
+}
+
+# The sages came back, and bowed.
+character_event = {
+    id = avatar_child.18
+    title = avatar_child.18.t
+    desc = avatar_child.18.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.18.a
+        random_list = {
+            45 = { add_trait = humble }
+            30 = { add_trait = just }
+            25 = { piety = 20 }
+        }
+    }
+    option = {
+        name = avatar_child.18.b
+        random_list = {
+            45 = { add_trait = deceitful }
+            30 = { add_trait = patient }
+            25 = { add_trait = shy }
+        }
+    }
+}
+
+# What will you be when you grow up?
+character_event = {
+    id = avatar_child.19
+    title = avatar_child.19.t
+    desc = avatar_child.19.desc
+    picture = GFX_evt_family
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.19.a
+        random_list = {
+            45 = { add_trait = zealous }
+            30 = { add_trait = ambitious }
+            25 = { piety = 20 }
+        }
+    }
+    option = {
+        name = avatar_child.19.b
+        random_list = {
+            45 = { add_trait = cynical }
+            30 = { add_trait = content }
+            25 = { add_trait = trusting }
+        }
+    }
+}
+
+# The boy who beat me at everything.
+character_event = {
+    id = avatar_child.20
+    title = avatar_child.20.t
+    desc = avatar_child.20.desc
+    picture = GFX_evt_family
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.20.a
+        random_list = {
+            45 = { add_trait = kind }
+            30 = { add_trait = just }
+            25 = { add_trait = patient }
+        }
+    }
+    option = {
+        name = avatar_child.20.b
+        random_list = {
+            45 = { add_trait = envious }
+            30 = { add_trait = wroth }
+            25 = { add_trait = cruel }
+        }
+    }
+}
+
+# The cart I caught out of the air.
+character_event = {
+    id = avatar_child.21
+    title = avatar_child.21.t
+    desc = avatar_child.21.desc
+    picture = GFX_evt_battle
+    is_triggered_only = yes
+    option = {
+        name = avatar_child.21.a
+        random_list = {
+            45 = { add_trait = brave }
+            30 = { add_trait = just }
+            25 = { prestige = 20 }
+        }
+    }
+    option = {
+        name = avatar_child.21.b
+        random_list = {
+            45 = { add_trait = deceitful }
+            30 = { add_trait = patient }
+            25 = { add_trait = shy }
+        }
+    }
+}

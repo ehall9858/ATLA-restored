@@ -1,0 +1,707 @@
+#########################################
+# ATLA standalone nation events
+#
+# NAFS.100-199  Fire Nation
+# NAFS.200-299  Water Tribe
+# NAFS.300-399  Earth Kingdom
+# NAFS.400-499  Air Nomads
+#########################################
+
+namespace = NAFS
+
+# Hidden yearly dispatcher for the Earth Kingdom standalone events. The on_action
+# slot is guaranteed; this trigger and chance keep the events rare.
+character_event = {
+	id = NAFS.299
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = barbarian_culture }
+		OR = {
+			AND = {
+				NOT = { culture = sandbender_culture }
+				NOT = { has_character_flag = nafs_earth_magistrate_done }
+			}
+			AND = {
+				NOT = { culture = sandbender_culture }
+				NOT = { has_character_flag = nafs_earth_granary_done }
+			}
+			AND = {
+				NOT = { culture = sandbender_culture }
+				NOT = { has_character_flag = nafs_earth_wall_done }
+			}
+			AND = {
+				NOT = { culture = sandbender_culture }
+				has_global_flag = HYW_0
+				NOT = { has_character_flag = nafs_earth_refugees_done }
+			}
+			AND = {
+				OR = {
+					culture = sandbender_culture
+					capital_scope = {
+						OR = {
+							region = world_central_desert
+							region = world_si_wong
+							region = world_si_wong_fringe
+						}
+					}
+				}
+				NOT = { has_character_flag = nafs_earth_desert_done }
+			}
+			AND = {
+				NOT = { culture = sandbender_culture }
+				has_global_flag = kyoshi_warriors_founded
+				OR = {
+					culture = earth_islander
+					capital_scope = { region = world_earth_islands }
+					capital_scope = { region = world_eastern_coast }
+				}
+				NOT = { has_character_flag = nafs_earth_kyoshi_done }
+			}
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = 20
+			random_list = {
+				100 = {
+					trigger = {
+						NOT = { culture = sandbender_culture }
+						NOT = { has_character_flag = nafs_earth_magistrate_done }
+					}
+					character_event = { id = NAFS.300 }
+				}
+				100 = {
+					trigger = {
+						NOT = { culture = sandbender_culture }
+						NOT = { has_character_flag = nafs_earth_granary_done }
+					}
+					character_event = { id = NAFS.301 }
+				}
+				100 = {
+					trigger = {
+						NOT = { culture = sandbender_culture }
+						NOT = { has_character_flag = nafs_earth_wall_done }
+					}
+					character_event = { id = NAFS.302 }
+				}
+				100 = {
+					trigger = {
+						NOT = { culture = sandbender_culture }
+						has_global_flag = HYW_0
+						NOT = { has_character_flag = nafs_earth_refugees_done }
+					}
+					character_event = { id = NAFS.303 }
+				}
+				100 = {
+					trigger = {
+						OR = {
+							culture = sandbender_culture
+							capital_scope = {
+								OR = {
+									region = world_central_desert
+									region = world_si_wong
+									region = world_si_wong_fringe
+								}
+							}
+						}
+						NOT = { has_character_flag = nafs_earth_desert_done }
+					}
+					character_event = { id = NAFS.304 }
+				}
+				100 = {
+					trigger = {
+						NOT = { culture = sandbender_culture }
+						has_global_flag = kyoshi_warriors_founded
+						OR = {
+							culture = earth_islander
+							capital_scope = { region = world_earth_islands }
+							capital_scope = { region = world_eastern_coast }
+						}
+						NOT = { has_character_flag = nafs_earth_kyoshi_done }
+					}
+					character_event = { id = NAFS.305 }
+				}
+			}
+		}
+	}
+}
+
+# The Magistrate's Seal
+character_event = {
+	id = NAFS.300
+	desc = NAFS.300.desc
+	picture = GFX_evt_ba_sing_se_upper_ring
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = barbarian_culture }
+		NOT = { culture = sandbender_culture }
+		NOT = { has_character_flag = nafs_earth_magistrate_done }
+	}
+
+	option = {
+		name = NAFS.300.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		prestige = 20
+		piety = 15
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_magistrate_done }
+	}
+
+	option = {
+		name = NAFS.300.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		wealth = 30
+		prestige = 5
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			hidden_tooltip = { remove_trait = just }
+			add_trait = arbitrary
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_magistrate_done }
+	}
+
+	option = {
+		name = NAFS.300.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		prestige = 10
+		piety = 5
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_magistrate_done }
+	}
+}
+
+# The Granary Count
+character_event = {
+	id = NAFS.301
+	desc = NAFS.301.desc
+	picture = GFX_evt_earth_kingdom_village
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = barbarian_culture }
+		NOT = { culture = sandbender_culture }
+		NOT = { has_character_flag = nafs_earth_granary_done }
+	}
+
+	option = {
+		name = NAFS.301.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		wealth = -20
+		piety = 25
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_granary_done }
+	}
+
+	option = {
+		name = NAFS.301.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		wealth = 40
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			hidden_tooltip = { remove_trait = just }
+			add_trait = arbitrary
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_granary_done }
+	}
+
+	option = {
+		name = NAFS.301.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		prestige = 15
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = diligent } }
+			hidden_tooltip = { remove_trait = slothful }
+			add_trait = diligent
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_granary_done }
+	}
+}
+
+# The Earthbender's Wall
+character_event = {
+	id = NAFS.302
+	desc = NAFS.302.desc
+	picture = GFX_evt_earth_kingdom_fort_1
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = barbarian_culture }
+		NOT = { culture = sandbender_culture }
+		NOT = { has_character_flag = nafs_earth_wall_done }
+	}
+
+	option = {
+		name = NAFS.302.a
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		prestige = 20
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_wall_done }
+	}
+
+	option = {
+		name = NAFS.302.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 30
+		wealth = -20
+		if = {
+			limit = { NOT = { trait = proud } }
+			hidden_tooltip = { remove_trait = humble }
+			add_trait = proud
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_wall_done }
+	}
+
+	option = {
+		name = NAFS.302.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		prestige = 10
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_wall_done }
+	}
+}
+
+# The Refugee Column
+character_event = {
+	id = NAFS.303
+	desc = NAFS.303.desc
+	picture = GFX_evt_earth_kingdom_army
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = barbarian_culture }
+		NOT = { culture = sandbender_culture }
+		has_global_flag = HYW_0
+		NOT = { has_character_flag = nafs_earth_refugees_done }
+	}
+
+	option = {
+		name = NAFS.303.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		wealth = -30
+		piety = 30
+		prestige = 15
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_refugees_done }
+	}
+
+	option = {
+		name = NAFS.303.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		wealth = 10
+		prestige = 10
+		piety = -10
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			hidden_tooltip = { remove_trait = just }
+			add_trait = arbitrary
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_refugees_done }
+	}
+
+	option = {
+		name = NAFS.303.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+		}
+		prestige = 20
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_refugees_done }
+	}
+}
+
+# The Desert Guide
+character_event = {
+	id = NAFS.304
+	desc = NAFS.304.desc
+	picture = GFX_evt_wanshi_desert
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = barbarian_culture }
+		OR = {
+			culture = sandbender_culture
+			capital_scope = {
+				OR = {
+					region = world_central_desert
+					region = world_si_wong
+					region = world_si_wong_fringe
+				}
+			}
+		}
+		NOT = { has_character_flag = nafs_earth_desert_done }
+	}
+
+	option = {
+		name = NAFS.304.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		wealth = -20
+		prestige = 20
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_desert_done }
+	}
+
+	option = {
+		name = NAFS.304.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 25
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = proud } }
+			hidden_tooltip = { remove_trait = humble }
+			add_trait = proud
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_desert_done }
+	}
+
+	option = {
+		name = NAFS.304.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		prestige = 5
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_desert_done }
+	}
+}
+
+# The Kyoshi Warriors
+character_event = {
+	id = NAFS.305
+	desc = NAFS.305.desc
+	picture = GFX_evt_kyoshi_training
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = barbarian_culture }
+		NOT = { culture = sandbender_culture }
+		has_global_flag = kyoshi_warriors_founded
+		OR = {
+			culture = earth_islander
+			capital_scope = { region = world_earth_islands }
+			capital_scope = { region = world_eastern_coast }
+		}
+		NOT = { has_character_flag = nafs_earth_kyoshi_done }
+	}
+
+	option = {
+		name = NAFS.305.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+		}
+		prestige = 25
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_kyoshi_done }
+	}
+
+	option = {
+		name = NAFS.305.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+		}
+		wealth = -30
+		prestige = 30
+		if = {
+			limit = { NOT = { trait = ambitious } }
+			hidden_tooltip = { remove_trait = content }
+			add_trait = ambitious
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_kyoshi_done }
+	}
+
+	option = {
+		name = NAFS.305.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+		}
+		prestige = 10
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = proud } }
+			hidden_tooltip = { remove_trait = humble }
+			add_trait = proud
+		}
+		hidden_tooltip = { set_character_flag = nafs_earth_kyoshi_done }
+	}
+}

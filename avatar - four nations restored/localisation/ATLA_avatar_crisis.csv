@@ -1,0 +1,20 @@
+CODE;ENGLISH;;;;;;;;;;;x
+CB_CRISIS_WAR;Crisis War - [Title.GetBaseName];;;;;;;;;;;x
+WAR_CRISIS_WAR;Crisis War;;;;;;;;;;;x
+declare_crisis_war;Declare Crisis War;;;;;;;;;;;x
+declare_crisis_war_desc;Once in a lifetime, call down a Crisis War to break a colonial, slaving, or great hostile power. The target realm will be shattered if you win.;;;;;;;;;;;x
+avatar_crisis.1.t;A Crisis Looms;;;;;;;;;;;x
+avatar_crisis.1.desc;The time has come. [crisis_target.GetTitledFirstName] has proven themselves an enemy of balance itself: a blight no single kingdom can cure. I will proclaim a Crisis War against them. In two years, the war begins, and every great power must choose a side.;;;;;;;;;;;x
+avatar_crisis.1.a;Sound the call: in two years, war;;;;;;;;;;;x
+avatar_crisis.1.b;Not yet;;;;;;;;;;;x
+avatar_crisis_warning_tt;The Crisis War will begin in two years;;;;;;;;;;;x
+avatar_crisis.2.t;The Crisis War Begins;;;;;;;;;;;x
+avatar_crisis.2.desc;The two years are past. Banners are raised, armies march, and envoys carry my call to every great power in the world. What follows will decide the fate of nations.;;;;;;;;;;;x
+avatar_crisis.2.a;For balance!;;;;;;;;;;;x
+avatar_crisis.3.t;Join the Crisis War;;;;;;;;;;;x
+avatar_crisis.3.desc;The Avatar has proclaimed a Crisis War against [crisis_target.GetTitledFirstName]. Every great power is asked to join the fight and help break them.;;;;;;;;;;;x
+avatar_crisis.3.a;Join the war;;;;;;;;;;;x
+avatar_crisis.3.b;Stay out of it;;;;;;;;;;;x
+avatar_crisis_ally_tt;Sworn allies of the war leader for ten years. Answer their call to arms to fight in the Crisis War.;;;;;;;;;;;x
+avatar_crisis.10.desc;The Avatar has proclaimed a Crisis War against my realm. In two years they will come, and every great power that answers their call will come with them. I have that long to prepare.;;;;;;;;;;;x
+avatar_crisis.10.a;Then we will be ready;;;;;;;;;;;x

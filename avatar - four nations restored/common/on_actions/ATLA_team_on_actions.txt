@@ -1,0 +1,14 @@
+# Team Avatar recruitment
+# CK2 merges on_action blocks of the same name across files, so these only add
+# to the existing lists.
+on_yearly_pulse = {
+	events = {
+		atla_team.1 # the Avatar is offered travelling companions
+	}
+}
+
+on_death = {
+	events = {
+		atla_team.30 # the Avatar's team becomes former_team_avatar
+	}
+}

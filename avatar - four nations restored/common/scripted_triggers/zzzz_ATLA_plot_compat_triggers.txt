@@ -1,0 +1,37 @@
+# ATLA intrigue-plot compatibility triggers
+# Compatibility layer for the restored intrigue plots.
+
+NOT_mythical_creature_trigger = {
+	NOT = { trait = spirit }
+}
+
+can_marry_trigger = {
+	NOR = {
+		is_married = yes
+		is_consort = yes
+		is_betrothed = yes
+
+		trait = eunuch
+		trait = disinherited
+		trait = monk
+		trait = nun
+	}
+}
+
+has_cutthroat_religion_trigger = {
+	always = no
+}
+
+just_execution_reason_PREV_trigger = { #PREV has a valid reason to execute/exile THIS
+	OR = {
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_rebel_traitor }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_traitor }
+		reverse_has_opinion_modifier = { who = PREV modifier = attempted_murder_of_vassal }
+		reverse_has_opinion_modifier = { who = PREV modifier = attempted_murder }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_attempted_abduction }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_cuckolded }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_charge_dw }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_outlawed_society }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_accused_apostate }
+	}
+}

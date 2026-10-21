@@ -1,0 +1,392 @@
+spriteTypes = {
+	# GFX_aang_hair*
+	spriteType = {
+		name = "GFX_aang_hair"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_hair.dds"
+		noOfFrames = 2
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_hair_behind"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_hair.dds"
+		noOfFrames = 2
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_hair_midage"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_hair.dds"
+		noOfFrames = 2
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_hair_behind_midage"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_hair.dds"
+		noOfFrames = 2
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_hair_oldage"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_hair.dds"
+		noOfFrames = 2
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_hair_behind_oldage"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_hair.dds"
+		noOfFrames = 2
+		norefcount = yes
+	}
+	# GFX_aang_beard*
+	spriteType = {
+		name = "GFX_aang_beard"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_beard_behind"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_beard_midage"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_beard_behind_midage"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_beard_oldage"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_aang_beard_behind_oldage"
+		texturefile = "gfx\\characters\\air_nomad_male\\air_nomad_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	# GFX_air_nomad_female_hair*
+	spriteType = {
+		name = "GFX_air_nomad_female_hair"
+		texturefile = "gfx\\characters\\air_nomad_female\\air_nomad_female_hair.dds"
+		noOfFrames = 3
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_air_nomad_female_hair_behind"
+		texturefile = "gfx\\characters\\air_nomad_female\\air_nomad_female_hair.dds"
+		noOfFrames = 3
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_air_nomad_female_hair_midage"
+		texturefile = "gfx\\characters\\air_nomad_female\\air_nomad_female_hair.dds"
+		noOfFrames = 3
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_air_nomad_female_hair_behind_midage"
+		texturefile = "gfx\\characters\\air_nomad_female\\air_nomad_female_hair.dds"
+		noOfFrames = 3
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_air_nomad_female_hair_oldage"
+		texturefile = "gfx\\characters\\air_nomad_female\\air_nomad_female_hair.dds"
+		noOfFrames = 3
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_air_nomad_female_hair_behind_oldage"
+		texturefile = "gfx\\characters\\air_nomad_female\\air_nomad_female_hair.dds"
+		noOfFrames = 3
+		norefcount = yes
+	}
+	# GFX_earth_kingdom_female_hair*
+	spriteType = {
+		name = "GFX_earth_kingdom_female_hair"
+		texturefile = "gfx\\characters\\earth_kingdom_female\\earth_kingdom_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_female_hair_behind"
+		texturefile = "gfx\\characters\\earth_kingdom_female\\earth_kingdom_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_female_hair_midage"
+		texturefile = "gfx\\characters\\earth_kingdom_female\\earth_kingdom_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_female_hair_behind_midage"
+		texturefile = "gfx\\characters\\earth_kingdom_female\\earth_kingdom_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_female_hair_oldage"
+		texturefile = "gfx\\characters\\earth_kingdom_female\\earth_kingdom_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_female_hair_behind_oldage"
+		texturefile = "gfx\\characters\\earth_kingdom_female\\earth_kingdom_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	# GFX_earth_kingdom_male_hair*
+	spriteType = {
+		name = "GFX_earth_kingdom_male_hair"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_hair_behind"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_hair_midage"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_hair_behind_midage"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_hair_oldage"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_hair_behind_oldage"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	# GFX_earth_kingdom_male_beard*
+	spriteType = {
+		name = "GFX_earth_kingdom_male_beard"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_beard_behind"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_beard_midage"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_beard_behind_midage"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_beard_oldage"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_earth_kingdom_male_beard_behind_oldage"
+		texturefile = "gfx\\characters\\earth_kingdom_male\\earth_kingdom_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	# GFX_sunwarrior_female_hair_behind*
+	spriteType = {
+		name = "GFX_sunwarrior_female_hair_behind"
+		texturefile = "gfx\\characters\\sun_warrior_female\\sunwarrior_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_sunwarrior_female_hair_behind_midage"
+		texturefile = "gfx\\characters\\sun_warrior_female\\sunwarrior_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_sunwarrior_female_hair_behind_oldage"
+		texturefile = "gfx\\characters\\sun_warrior_female\\sunwarrior_female_hair_1.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	# GFX_sunwarrior_male_hair_behind*
+	spriteType = {
+		name = "GFX_sunwarrior_male_hair_behind"
+		texturefile = "gfx\\characters\\sun_warrior_male\\sunwarrior_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_sunwarrior_male_hair_behind_midage"
+		texturefile = "gfx\\characters\\sun_warrior_male\\sunwarrior_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_sunwarrior_male_hair_behind_oldage"
+		texturefile = "gfx\\characters\\sun_warrior_male\\sunwarrior_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	# GFX_sunwarrior_male_beard_behind*
+	spriteType = {
+		name = "GFX_sunwarrior_male_beard_behind"
+		texturefile = "gfx\\characters\\sun_warrior_male\\sunwarrior_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_sunwarrior_male_beard_behind_midage"
+		texturefile = "gfx\\characters\\sun_warrior_male\\sunwarrior_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_sunwarrior_male_beard_behind_oldage"
+		texturefile = "gfx\\characters\\sun_warrior_male\\sunwarrior_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	# GFX_water_tribe_hair*
+	spriteType = {
+		name = "GFX_water_tribe_hair"
+		texturefile = "gfx\\characters\\water_tribe_female\\water_tribe_female_hair.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_hair_behind"
+		texturefile = "gfx\\characters\\water_tribe_female\\water_tribe_female_hair.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_hair_midage"
+		texturefile = "gfx\\characters\\water_tribe_female\\water_tribe_female_hair.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_hair_behind_midage"
+		texturefile = "gfx\\characters\\water_tribe_female\\water_tribe_female_hair.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_hair_oldage"
+		texturefile = "gfx\\characters\\water_tribe_female\\water_tribe_female_hair.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_hair_behind_oldage"
+		texturefile = "gfx\\characters\\water_tribe_female\\water_tribe_female_hair.dds"
+		noOfFrames = 8
+		norefcount = yes
+	}
+	# GFX_water_tribe_male_hair*
+	spriteType = {
+		name = "GFX_water_tribe_male_hair"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_hair_behind"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_hair_midage"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_hair_behind_midage"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_hair_oldage"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_hair_behind_oldage"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_hair_1.dds"
+		noOfFrames = 10
+		norefcount = yes
+	}
+	# GFX_water_tribe_male_beard*
+	spriteType = {
+		name = "GFX_water_tribe_male_beard"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_beard_behind"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_beard_midage"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_beard_behind_midage"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_beard_oldage"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+	spriteType = {
+		name = "GFX_water_tribe_male_beard_behind_oldage"
+		texturefile = "gfx\\characters\\water_tribe_male\\water_tribe_male_beard_1.dds"
+		noOfFrames = 12
+		norefcount = yes
+	}
+}

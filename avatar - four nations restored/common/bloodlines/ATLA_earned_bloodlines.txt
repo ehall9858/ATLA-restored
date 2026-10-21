@@ -14,15 +14,11 @@ one_nation_bloodline = { #World Conquest
 	flags = { is_one_nation_bloodline created_bloodline }
 	
 	active = {
-		custom_tooltip = { #There are no other conditions. You killed all other conditions. You won, go home now.
-			text = bloodline_relative_or_dynasty_tt
-			OR = {
+		custom_tooltip = {
+			text = is_bloodline_founder
 				FROM = {
-					founder = { is_close_relative = ROOT }
-				}
-				FROM = {
-					founder = { dynasty = ROOT }
-				}
+				founder = { character = ROOT }
+				founder = { culture_group = ROOT }
 			}
 		}
 	}
@@ -45,8 +41,7 @@ firelord_bloodline = { #Form Fire Nation/Embrace Fire Imperialism TODO: Decide a
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -54,6 +49,9 @@ firelord_bloodline = { #Form Fire Nation/Embrace Fire Imperialism TODO: Decide a
 						founder = { dynasty = ROOT }
 					}
 				}
+			AND = {
+				culture_group = fire_nation_cultures
+				religion_group = fire_religions
 			}
 			culture = fire_imperial_culture
 			religion = fire_nation_imperialism
@@ -75,8 +73,7 @@ earth_king_bloodline = { ##Used in deprecated Mandate system #Probably intended 
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -84,8 +81,6 @@ earth_king_bloodline = { ##Used in deprecated Mandate system #Probably intended 
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = ba_sing_se_culture
 		}
 	}
 }
@@ -107,8 +102,7 @@ earth_uniter_bloodline = { #Unificationism bloodline for Continental Conquest
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -119,8 +113,7 @@ earth_uniter_bloodline = { #Unificationism bloodline for Continental Conquest
 			}
 			AND = {
 				culture_group = earth_kingdom_cultures
-				religion = unificationism
-			}
+			trait = earthbender
 		}
 	}
 }
@@ -141,14 +134,12 @@ great_emperor_bloodline = { ##Gained by Chinite who forms the EK without pre-exi
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
 					FROM = {
 						founder = { dynasty = ROOT }
-					}
 				}
 			}
 			AND = {
@@ -175,14 +166,12 @@ water_nation_bloodline = { #For those who unify North and South tribes
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
 					FROM = {
 						founder = { dynasty = ROOT }
-					}
 				}
 			}
 			AND = {
@@ -207,14 +196,12 @@ air_nation_bloodline = { #For those who unify all four air temples
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
 					FROM = {
 						founder = { dynasty = ROOT }
-					}
 				}
 			}
 			AND = {
@@ -243,14 +230,12 @@ sun_bloodline = { #Currently just requires you to own Atzlan. Maybe supposed to 
 		
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
 					FROM = {
 						founder = { dynasty = ROOT }
-					}
 				}
 			}
 			AND = {
@@ -281,14 +266,12 @@ metalbending_founder_bloodline = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
 					FROM = {
 						founder = { dynasty = ROOT }
-					}
 				}
 			}
 			culture_group = earth_kingdom_cultures
@@ -297,42 +280,51 @@ metalbending_founder_bloodline = {
 	}
 }
 
-avatar_killer_bloodline = { #Given to avatar killers, by any means
-	general_opinion = -25
-	followers_of_kyoshi_opinion = -25
-	way_of_chin_opinion = 30
-	equalism_opinion = 30
-	pirate_culture_opinion = 30
-	fire_nation_imperialism_opinion = 30
-	barbarian_culture_opinion = 30
+chin_kyoshi_killer_bloodline = {
+	martial = 1
+	general_opinion = -5
+	way_of_chin_opinion = 10
+	monthly_character_piety = -0.50
 	monthly_character_prestige = 0.50
-	global_revolt_risk = 0.05
-	combat_rating = 10
-	bloodline_effect_avatar_killer_consequences = 1
-	
-	#custom_tooltip = {
-	#	text = bloodline_avatar_killer_tt #Avatar-hostile faiths and cultures gain 30 opinion
-	#}
-	
 	
 	inheritance = all_descendants
 	allow_bastards = yes
 	picture = GFX_bloodlines_symbol_chin
-	flags = { is_avatar_killer_bloodline created_bloodline }
-	
+	flags = { is_chin_kyoshi_killer_bloodline is_earthbender_bloodline created_bloodline }
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
-					FROM = {
-						founder = { dynasty = ROOT }
+			}
+			AND = {
+				culture_group = earth_kingdom_cultures
+				religion = way_of_chin
 					}
 				}
 			}
 		}
+
+kyoshi_killer_bloodline = {
+	martial = 1
+	general_opinion = -5
+	monthly_character_piety = -0.50
+	monthly_character_prestige = 0.50
+	
+	inheritance = all_descendants
+	matrilineal_override = yes
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_chin
+	flags = { is_kyoshi_killer_bloodline is_earthbender_bloodline created_bloodline }
+	active = {
+		custom_tooltip = {
+			text = is_bloodline_founder
+			FROM = {
+				founder = { character = ROOT }
+				founder = { culture_group = ROOT }
+	}
+}
 	}
 }

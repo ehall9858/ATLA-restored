@@ -167,4 +167,54 @@ spriteTypes = {
       name = "GFX_go_to_pet_shop_decision"
       texturefile = "gfx\\interface\\decision_icon_celebrate_passover.dds"
     }
+
+    spriteType = {
+        name = "GFX_petPlatypusBear"
+        texturefile = "gfx/interface/inventory/ac_platypusbear.dds"
+    }
+    spriteType = {
+        name = "GFX_petPlatypusBear_small"
+        texturefile = "gfx/interface/inventory/ac_platypusbear_small.dds"
+    }
+    spriteType = {
+        name = "GFX_petSaberToothMooseLion"
+        texturefile = "gfx/interface/inventory/ac_sabertoothmooselion.dds"
+    }
+    spriteType = {
+        name = "GFX_petSaberToothMooseLion_small"
+        texturefile = "gfx/interface/inventory/ac_sabertoothmooselion_small.dds"
+    }
+    spriteType = {
+        name = "GFX_petBoarQPine"
+        texturefile = "gfx/interface/inventory/ac_boarqpine.dds"
+    }
+    spriteType = {
+        name = "GFX_petBoarQPine_small"
+        texturefile = "gfx/interface/inventory/ac_boarqpine_small.dds"
+    }
+    spriteType = {
+        name = "GFX_petShirshu"
+        texturefile = "gfx/interface/inventory/ac_shirshu.dds"
+    }
+    spriteType = {
+        name = "GFX_petShirshu_small"
+        texturefile = "gfx/interface/inventory/ac_shirshu_small.dds"
+    }
+    spriteType = {
+        name = "GFX_petBadgermole"
+        texturefile = "gfx/interface/inventory/ac_badgermole.dds"
+    }
+    spriteType = {
+        name = "GFX_petBadgermole_small"
+        texturefile = "gfx/interface/inventory/ac_badgermole_small.dds"
+    }
+    spriteType = { name = "GFX_petMongooseLizard" texturefile = "gfx/interface/inventory/ac_mongoose_lizard.dds" }
+    spriteType = { name = "GFX_petMongooseLizard_small" texturefile = "gfx/interface/inventory/ac_mongoose_lizard_small.dds" }
+    spriteType = { name = "GFX_petDragonMoose" texturefile = "gfx/interface/inventory/ac_dragon_moose.dds" }
+    spriteType = { name = "GFX_petDragonMoose_small" texturefile = "gfx/interface/inventory/ac_dragon_moose_small.dds" }
+    spriteType = { name = "GFX_petCatMonkey" texturefile = "gfx/interface/inventory/ac_cat_monkey.dds" }
+    spriteType = { name = "GFX_petCatMonkey_small" texturefile = "gfx/interface/inventory/ac_cat_monkey_small.dds" }
+    spriteType = { name = "GFX_petElephantRat" texturefile = "gfx/interface/inventory/ac_elephant_rat.dds" }
+    spriteType = { name = "GFX_petElephantRat_small" texturefile = "gfx/interface/inventory/ac_elephant_rat_small.dds" }
+
 }

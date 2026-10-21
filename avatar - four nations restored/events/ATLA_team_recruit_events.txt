@@ -1,0 +1,364 @@
+namespace = atla_team
+
+# ============================================================================
+#  Team Avatar - the Avatar picks their own companions
+# ============================================================================
+# The Avatar's teachers travel with them already (avatar.152 moves a master
+# into the Avatar's court), and rulers may send their children to the Avatar
+# with the send_child_to_avatar decision. What was missing was the Avatar
+# choosing companions for themselves.
+#
+# atla_team.1 runs on the yearly pulse while has_character_flag = avatar_journey
+# is set. Once every three years the Avatar is offered up to three unlanded
+# people they have met on the road, by name, and may invite one.
+#
+# atla_team.2 is the invited character's own window - they may refuse.
+# atla_team.5 / .6 tell the Avatar what was decided.
+# atla_team.30 turns the Avatar's companions into former_team_avatar when the
+# Avatar dies.
+#
+# The invite_to_team_avatar targeted decision (decisions/ATLA_team_avatar_decisions.txt)
+# lets the player right-click anyone unlanded and send the same invitation at
+# any time after the Avatar is revealed.
+
+# ---------------------------------------------------------- the offer
+character_event = {
+	id = atla_team.1
+	desc = atla_team.1.desc
+	picture = GFX_evt_travelling_warrior
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = avatar_journey
+		is_revealed_avatar_trigger = yes
+		NOT = { has_character_flag = atla_team_cooldown }
+		NOT = {
+			any_courtier = {
+				count >= 8
+				trait = team_avatar
+			}
+		}
+		any_character = {
+			is_alive = yes
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { character = ROOT }
+			NOT = { is_avatar_trigger = yes }
+			NOT = { is_close_relative = ROOT }
+			NOR = { trait = team_avatar trait = former_team_avatar }
+			is_ruler = no
+		}
+	}
+
+	immediate = {
+		save_event_target_as = atla_team_avatar
+		clr_character_flag = atla_team_cand_1_found
+		clr_character_flag = atla_team_cand_2_found
+		clr_character_flag = atla_team_cand_3_found
+		# Three years between offers, cleared by atla_team.3 below - the same
+		# flag-plus-delayed-cleanup pattern the courtship event uses.
+		set_character_flag = atla_team_cooldown
+		character_event = { id = atla_team.3 days = 1095 }
+
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { character = ROOT }
+				NOT = { is_avatar_trigger = yes }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_team_reserved }
+				NOR = { trait = team_avatar trait = former_team_avatar }
+				is_ruler = no
+			}
+			save_event_target_as = atla_team_cand_1
+			set_character_flag = atla_team_reserved
+			ROOT = { set_character_flag = atla_team_cand_1_found }
+		}
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { character = ROOT }
+				NOT = { is_avatar_trigger = yes }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_team_reserved }
+				NOR = { trait = team_avatar trait = former_team_avatar }
+				is_ruler = no
+			}
+			save_event_target_as = atla_team_cand_2
+			set_character_flag = atla_team_reserved
+			ROOT = { set_character_flag = atla_team_cand_2_found }
+		}
+		random_character = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				NOT = { character = ROOT }
+				NOT = { is_avatar_trigger = yes }
+				NOT = { is_close_relative = ROOT }
+				NOT = { has_character_flag = atla_team_reserved }
+				NOR = { trait = team_avatar trait = former_team_avatar }
+				is_ruler = no
+			}
+			save_event_target_as = atla_team_cand_3
+			set_character_flag = atla_team_reserved
+			ROOT = { set_character_flag = atla_team_cand_3_found }
+		}
+
+		if = {
+			limit = { has_character_flag = atla_team_cand_1_found }
+			event_target:atla_team_cand_1 = { clr_character_flag = atla_team_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_team_cand_2_found }
+			event_target:atla_team_cand_2 = { clr_character_flag = atla_team_reserved }
+		}
+		if = {
+			limit = { has_character_flag = atla_team_cand_3_found }
+			event_target:atla_team_cand_3 = { clr_character_flag = atla_team_reserved }
+		}
+	}
+
+	option = {
+		name = atla_team.1.opt1
+		trigger = { has_character_flag = atla_team_cand_1_found }
+		show_portrait = event_target:atla_team_cand_1
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:atla_team_cand_1 = {
+						is_alive = yes
+						is_adult = yes
+						NOT = { trait = incapable }
+						NOR = { trait = team_avatar trait = former_team_avatar }
+					}
+				}
+				event_target:atla_team_cand_1 = { character_event = { id = atla_team.2 days = 5 } }
+			}
+			else = {
+				character_event = { id = atla_team.7 }
+			}
+		}
+		clr_character_flag = atla_team_cand_1_found
+		clr_character_flag = atla_team_cand_2_found
+		clr_character_flag = atla_team_cand_3_found
+	}
+	option = {
+		name = atla_team.1.opt2
+		trigger = { has_character_flag = atla_team_cand_2_found }
+		show_portrait = event_target:atla_team_cand_2
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:atla_team_cand_2 = {
+						is_alive = yes
+						is_adult = yes
+						NOT = { trait = incapable }
+						NOR = { trait = team_avatar trait = former_team_avatar }
+					}
+				}
+				event_target:atla_team_cand_2 = { character_event = { id = atla_team.2 days = 5 } }
+			}
+			else = {
+				character_event = { id = atla_team.7 }
+			}
+		}
+		clr_character_flag = atla_team_cand_1_found
+		clr_character_flag = atla_team_cand_2_found
+		clr_character_flag = atla_team_cand_3_found
+	}
+	option = {
+		name = atla_team.1.opt3
+		trigger = { has_character_flag = atla_team_cand_3_found }
+		show_portrait = event_target:atla_team_cand_3
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:atla_team_cand_3 = {
+						is_alive = yes
+						is_adult = yes
+						NOT = { trait = incapable }
+						NOR = { trait = team_avatar trait = former_team_avatar }
+					}
+				}
+				event_target:atla_team_cand_3 = { character_event = { id = atla_team.2 days = 5 } }
+			}
+			else = {
+				character_event = { id = atla_team.7 }
+			}
+		}
+		clr_character_flag = atla_team_cand_1_found
+		clr_character_flag = atla_team_cand_2_found
+		clr_character_flag = atla_team_cand_3_found
+	}
+	option = {
+		name = atla_team.1.opt4
+		clr_character_flag = atla_team_cand_1_found
+		clr_character_flag = atla_team_cand_2_found
+		clr_character_flag = atla_team_cand_3_found
+	}
+}
+
+# Cooldown cleanup for the travelling-companions offer above.
+character_event = {
+	id = atla_team.3
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_character_flag = atla_team_cooldown
+	}
+}
+
+# ------------------------------------------------- the invited character
+character_event = {
+	id = atla_team.2
+	desc = atla_team.2.desc
+	picture = GFX_evt_courtiers_talking
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOR = { trait = team_avatar trait = former_team_avatar }
+	}
+
+	option = { # I will go
+		name = atla_team.2.opt1
+		trigger = {
+			event_target:atla_team_avatar = {
+				NOT = {
+					any_courtier = {
+						count >= 8
+						trait = team_avatar
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 85
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { prestige = 750 }
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { diplomacy = 12 }
+			}
+			modifier = {
+				factor = 0.75
+				any_child = { is_alive = yes }
+			}
+			modifier = {
+				factor = 0.75
+				OR = {
+					trait = content
+					trait = slothful
+				}
+			}
+		}
+		remove_trait = former_team_avatar
+		add_trait = team_avatar
+		set_character_flag = atla_team_volunteer
+		hidden_tooltip = {
+			move_character = event_target:atla_team_avatar
+			event_target:atla_team_avatar = { add_friend = ROOT }
+			event_target:atla_team_avatar = { character_event = { id = atla_team.5 } }
+		}
+	}
+	option = { # I will stay
+		name = atla_team.2.opt2
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 1.5
+				any_child = { is_alive = yes }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROM value = -25 }
+			}
+		}
+		hidden_tooltip = {
+			event_target:atla_team_avatar = { character_event = { id = atla_team.6 } }
+		}
+	}
+}
+
+# --------------------------------------------------- the Avatar hears back
+character_event = {
+	id = atla_team.5
+	title = atla_team.5.title
+	desc = atla_team.5.desc
+	picture = GFX_evt_camaraderie
+	portrait = FROM
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = atla_team.5.opt
+		prestige = 5
+	}
+}
+
+character_event = {
+	id = atla_team.6
+	title = atla_team.6.title
+	desc = atla_team.6.desc
+	picture = GFX_evt_recieve_letter
+	portrait = FROM
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = atla_team.6.opt
+	}
+}
+
+# The invitation never reached anyone - the person you meant to ask was already
+# gone, or past answering. Fired by the offer above and by the invitation
+# decision so that an invitation can never pass without word of what became of it.
+character_event = {
+	id = atla_team.7
+	desc = atla_team.7.desc
+	picture = GFX_evt_courier
+	is_triggered_only = yes
+
+	option = {
+		name = atla_team.7.opt
+	}
+}
+
+# ------------------------------------------- the Avatar dies - the team ends
+character_event = {
+	id = atla_team.30
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_avatar_trigger = yes
+		any_courtier = { trait = team_avatar }
+	}
+
+	immediate = {
+		any_courtier = {
+			limit = { trait = team_avatar }
+			remove_trait = team_avatar
+			add_trait = former_team_avatar
+		}
+	}
+
+	option = { }
+}

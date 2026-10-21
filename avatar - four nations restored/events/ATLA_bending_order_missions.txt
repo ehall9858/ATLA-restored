@@ -1,0 +1,363 @@
+########################################################################
+# ATLA Bending Orders - missions
+#
+# namespace: atla_bending_missions
+#
+#  atla_bending_missions.1    Waterbending Order - mission tombola
+#  atla_bending_missions.2    Earthbending Society - mission tombola
+#
+#  atla_bending_missions.10   water - Tend the Sick
+#  atla_bending_missions.11   water - A Hut by the Water
+#  atla_bending_missions.12   water - Bring a New Voice
+#
+#  atla_bending_missions.20   earth - Raise the Wall
+#  atla_bending_missions.21   earth - Stand the Trial
+#  atla_bending_missions.22   earth - Bring a New Pillar
+#
+#  atla_bending_missions.30   water - the work is done
+#  atla_bending_missions.31   earth - the work is done
+#  atla_bending_missions.32   water - the task is set aside
+#  atla_bending_missions.33   earth - the task is set aside
+#
+# The tombolas are hooked into on_society_bi_yearly_pulse. Missions are for
+# the player: the AI branch is switched off so that an AI member cannot take
+# a quest it will never finish and block its own future missions. Tasks are
+# completed from decisions/ATLA_bending_order_missions_decisions.txt.
+########################################################################
+
+namespace = atla_bending_missions
+
+# ------------------------------------------------------------------ tombolas
+
+character_event = {
+	id = atla_bending_missions.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+		prisoner = no
+		society_member_of = waterbending_order
+		is_society_grandmaster = no
+		has_any_quest = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { has_character_modifier = quest_cooldown_timer }
+	}
+
+	immediate = {
+		random_list = {
+			30 = {
+				society_quest_event = { id = atla_bending_missions.10 }
+			}
+			30 = {
+				society_quest_event = { id = atla_bending_missions.11 }
+			}
+			30 = {
+				society_quest_event = { id = atla_bending_missions.12 }
+			}
+			10 = { # the Order asks nothing of you this season
+			}
+		}
+	}
+}
+
+character_event = {
+	id = atla_bending_missions.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+		prisoner = no
+		society_member_of = earthbending_order
+		is_society_grandmaster = no
+		has_any_quest = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { has_character_modifier = quest_cooldown_timer }
+	}
+
+	immediate = {
+		random_list = {
+			30 = {
+				society_quest_event = { id = atla_bending_missions.20 }
+			}
+			30 = {
+				society_quest_event = { id = atla_bending_missions.21 }
+			}
+			30 = {
+				society_quest_event = { id = atla_bending_missions.22 }
+			}
+			10 = { # the Society asks nothing of you this season
+			}
+		}
+	}
+}
+
+# --------------------------------------------------------------- water offers
+
+# Tend the sick of your own household.
+society_quest_event = {
+	id = atla_bending_missions.10
+	desc = EVTDESC_ABM_10
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+
+	trigger = {
+		any_courtier = {
+			OR = {
+				trait = wounded
+				trait = stressed
+				trait = depressed
+			}
+		}
+	}
+
+	option = {
+		name = ACCEPT
+		set_quest = quest_wbo_tend_the_sick
+	}
+
+	option = {
+		name = DECLINE
+		hidden_effect = {
+			add_character_modifier = {
+				name = quest_cooldown_timer
+				hidden = yes
+				days = 1000
+			}
+		}
+	}
+}
+
+# Found a healing hut in your capital.
+society_quest_event = {
+	id = atla_bending_missions.11
+	desc = EVTDESC_ABM_11
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		capital_scope = {
+			NOT = { has_province_modifier = wbo_healing_hut }
+		}
+	}
+
+	option = {
+		name = ACCEPT
+		set_quest = quest_wbo_heal_hut
+	}
+
+	option = {
+		name = DECLINE
+		hidden_effect = {
+			add_character_modifier = {
+				name = quest_cooldown_timer
+				hidden = yes
+				days = 1000
+			}
+		}
+	}
+}
+
+# Bring another waterbender into the Order.
+society_quest_event = {
+	id = atla_bending_missions.12
+	desc = EVTDESC_ABM_12
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+
+	trigger = {
+		any_courtier = {
+			is_adult = yes
+			is_in_society = no
+			NOT = { trait = incapable }
+			trait = waterbender
+		}
+	}
+
+	option = {
+		name = ACCEPT
+		set_quest = quest_wbo_new_voice
+	}
+
+	option = {
+		name = DECLINE
+		hidden_effect = {
+			add_character_modifier = {
+				name = quest_cooldown_timer
+				hidden = yes
+				days = 1000
+			}
+		}
+	}
+}
+
+# --------------------------------------------------------------- earth offers
+
+# Raise a wall at your capital.
+society_quest_event = {
+	id = atla_bending_missions.20
+	desc = EVTDESC_ABM_20
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		capital_scope = {
+			NOT = { has_province_modifier = ebo_wall }
+		}
+	}
+
+	option = {
+		name = ACCEPT
+		set_quest = quest_ebo_raise_the_wall
+	}
+
+	option = {
+		name = DECLINE
+		hidden_effect = {
+			add_character_modifier = {
+				name = quest_cooldown_timer
+				hidden = yes
+				days = 1000
+			}
+		}
+	}
+}
+
+# Stand the Society's trial of endurance.
+society_quest_event = {
+	id = atla_bending_missions.21
+	desc = EVTDESC_ABM_21
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = ACCEPT
+		set_quest = quest_ebo_stand_the_trial
+	}
+
+	option = {
+		name = DECLINE
+		hidden_effect = {
+			add_character_modifier = {
+				name = quest_cooldown_timer
+				hidden = yes
+				days = 1000
+			}
+		}
+	}
+}
+
+# Bring another earthbender into the Society.
+society_quest_event = {
+	id = atla_bending_missions.22
+	desc = EVTDESC_ABM_22
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+
+	trigger = {
+		any_courtier = {
+			is_adult = yes
+			is_in_society = no
+			NOT = { trait = incapable }
+			trait = earthbender
+		}
+	}
+
+	option = {
+		name = ACCEPT
+		set_quest = quest_ebo_new_pillar
+	}
+
+	option = {
+		name = DECLINE
+		hidden_effect = {
+			add_character_modifier = {
+				name = quest_cooldown_timer
+				hidden = yes
+				days = 1000
+			}
+		}
+	}
+}
+
+# ---------------------------------------------------------------- completion
+
+# The Order hears that you have done what was asked.
+letter_event = {
+	id = atla_bending_missions.30
+	desc = {
+		trigger = { has_character_flag = wbo_mission_done_sick }
+		text = EVTDESC_ABM_30_SICK
+	}
+	desc = {
+		trigger = { has_character_flag = wbo_mission_done_hut }
+		text = EVTDESC_ABM_30_HUT
+	}
+	desc = {
+		trigger = { has_character_flag = wbo_mission_done_voice }
+		text = EVTDESC_ABM_30_VOICE
+	}
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_ABM_30
+		clr_character_flag = wbo_mission_done_sick
+		clr_character_flag = wbo_mission_done_hut
+		clr_character_flag = wbo_mission_done_voice
+	}
+}
+
+letter_event = {
+	id = atla_bending_missions.31
+	desc = {
+		trigger = { has_character_flag = ebo_mission_done_wall }
+		text = EVTDESC_ABM_31_WALL
+	}
+	desc = {
+		trigger = { has_character_flag = ebo_mission_done_trial }
+		text = EVTDESC_ABM_31_TRIAL
+	}
+	desc = {
+		trigger = { has_character_flag = ebo_mission_done_pillar }
+		text = EVTDESC_ABM_31_PILLAR
+	}
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_ABM_31
+		clr_character_flag = ebo_mission_done_wall
+		clr_character_flag = ebo_mission_done_trial
+		clr_character_flag = ebo_mission_done_pillar
+	}
+}
+
+# -------------------------------------------------------------- setting aside
+
+character_event = {
+	id = atla_bending_missions.32
+	desc = EVTDESC_ABM_32
+	picture = GFX_evt_northern_water_tribe_temple
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_ABM_32
+	}
+}
+
+character_event = {
+	id = atla_bending_missions.33
+	desc = EVTDESC_ABM_33
+	picture = GFX_evt_earth_temple
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_ABM_33
+	}
+}

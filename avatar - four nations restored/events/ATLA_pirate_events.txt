@@ -808,7 +808,7 @@ long_character_event = { #Trying to sell the Avatar into slavery
 	
 	option = {
 		name = SELL_AVATAR_OPTION
-		persistent_event_target:the_avatar = {
+		event_target:global_avatar = {
 			imprison = no
 		}
 	}

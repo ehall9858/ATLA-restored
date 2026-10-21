@@ -48,7 +48,7 @@ namespace = duel_in
 				# NOT = {
 					# OR = {
 						# trait = avatar
-						# trait = fully_realised_avatar
+						# trait = fullyrealisedavatar
 					# }
 				# }
 			# }
@@ -61,7 +61,7 @@ namespace = duel_in
 				# NOT = {
 					# OR = {
 						# trait = avatar
-						# trait = fully_realised_avatar
+						# trait = fullyrealisedavatar
 					# }
 				# }
 			# }
@@ -73,7 +73,7 @@ namespace = duel_in
 				# NOT = {
 					# OR = {
 						# trait = avatar
-						# trait = fully_realised_avatar
+						# trait = fullyrealisedavatar
 					# }
 				# }
 			# }
@@ -85,7 +85,7 @@ namespace = duel_in
 				# NOT = {
 					# OR = {
 						# trait = avatar
-						# trait = fully_realised_avatar
+						# trait = fullyrealisedavatar
 					# }
 				# }
 			# }
@@ -108,7 +108,7 @@ namespace = duel_in
 			# trigger = {
 				# OR = {
 					# trait = avatar
-					# trait = fully_realised_avatar
+					# trait = fullyrealisedavatar
 				# }
 			# }
 		# }

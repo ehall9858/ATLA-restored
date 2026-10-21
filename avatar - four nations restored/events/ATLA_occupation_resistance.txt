@@ -1,0 +1,162 @@
+namespace = occupation
+
+# Foreign occupation resistance: any independent ruler whose culture is
+# foreign to the Earth Kingdom or the Air Temples, yet holds land there,
+# faces grinding unrest and periodic liberation revolts. Checked yearly.
+character_event = {
+    id = occupation.1
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        is_landed = yes
+        independent = yes
+        OR = {
+            AND = {
+                NOR = { culture_group = earth_kingdom_cultures }
+                any_realm_province = { region = world_greater_earth_kingdom }
+            }
+            AND = {
+                NOR = { culture_group = air_nomad_cultures }
+                any_realm_province = { region = world_air_temples }
+            }
+        }
+    }
+    immediate = {
+        # Mark every occupied province: unrest, empty coffers, thin levies.
+        any_realm_province = {
+            limit = {
+                OR = {
+                    AND = {
+                        region = world_greater_earth_kingdom
+                        ROOT = { NOR = { culture_group = earth_kingdom_cultures } }
+                    }
+                    AND = {
+                        region = world_air_temples
+                        ROOT = { NOR = { culture_group = air_nomad_cultures } }
+                    }
+                }
+            }
+            add_province_modifier = { name = foreign_occupation duration = 730 }
+        }
+        prestige = -15
+        # Liberation roll: one occupied province rises in revolt.
+        random_list = {
+            75 = { }
+            25 = {
+                random_realm_province = {
+                    limit = {
+                        OR = {
+                            AND = {
+                                region = world_greater_earth_kingdom
+                                ROOT = { NOR = { culture_group = earth_kingdom_cultures } }
+                            }
+                            AND = {
+                                region = world_air_temples
+                                ROOT = { NOR = { culture_group = air_nomad_cultures } }
+                            }
+                        }
+                    }
+                    province_event = { id = occupation.2 }
+                }
+            }
+        }
+    }
+}
+
+# Liberation revolt. Fired on the occupied province (ROOT = province), using
+# the proven vanilla peasant-revolt skeleton: native leader, rebel title,
+# rebel stacks, and a peasant_revolt war against the occupier.
+province_event = {
+    id = occupation.2
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = { has_province_modifier = foreign_occupation }
+    immediate = {
+        create_character = {
+            random_traits = yes
+            dynasty = none
+            religion = ROOT
+            culture = ROOT
+            female = no
+            age = 25
+            attributes = {
+                martial = 5
+            }
+            trait = peasant_leader
+            trait = tough_soldier
+        }
+
+        new_character = {
+            create_title = {
+                tier = DUKE
+                landless = yes
+                temporary = yes
+                rebel = yes
+                culture = ROOT
+                name = "LIBERATION"
+                holder = THIS
+            }
+
+            wealth = 100
+
+            spawn_peasant_army_effect = yes
+            spawn_peasant_army_effect = yes
+
+            if = {
+                limit = {
+                    has_game_rule = {
+                        name = provincial_revolt_strength
+                        value = powerful
+                    }
+                }
+                spawn_peasant_army_effect = yes
+                wealth = 150
+            }
+
+            if = {
+                limit = {
+                    has_game_rule = {
+                        name = provincial_revolt_strength
+                        value = very_powerful
+                    }
+                }
+                spawn_peasant_army_effect = yes
+                spawn_peasant_army_effect = yes
+                spawn_peasant_army_effect = yes
+                wealth = 250
+            }
+
+            if = {
+                limit = {
+                    has_game_rule = {
+                        name = provincial_revolt_strength
+                        value = extremely_powerful
+                    }
+                }
+                spawn_peasant_army_effect = yes
+                spawn_peasant_army_effect = yes
+                spawn_peasant_army_effect = yes
+                spawn_peasant_army_effect = yes
+                spawn_peasant_army_effect = yes
+                wealth = 350
+            }
+
+            # DoW on the province top liege
+            ROOT = {
+                owner = {
+                    top_liege = {
+                        reverse_war = {
+                            target = PREVPREVPREV
+                            casus_belli = peasant_revolt
+                            thirdparty_title = ROOT
+                        }
+                        reverse_opinion = {
+                            who = PREVPREVPREV
+                            modifier = opinion_evil_tyrant
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

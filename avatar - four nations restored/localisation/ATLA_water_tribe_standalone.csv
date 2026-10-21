@@ -1,0 +1,24 @@
+NAFS.200.desc;A young waterbender places a carved betrothal necklace on your table. The pendant is bone and blue stone, shaped like a wave. Her family has already accepted a match with a wealthy hunter, but she has given her heart to a fisherman's son. The fisherman's son is waiting at the door with a net over his shoulder, as if he expects to be sent away.;;;;;;;;;x
+NAFS.200.a;Bless the match she chose.;;;;;;;;;x
+NAFS.200.b;Uphold the family's arrangement.;;;;;;;;;x
+NAFS.200.c;Let them wait a year and prove their intent.;;;;;;;;;x
+NAFS.201.desc;An ice shelf collapsed during a hunt, and the healing hut is full. The healers have run out of clean water and bandages, and a fisherman's wife is asking why her husband was treated after a hunter's son. The head healer asks whether the tribe's healing water should be shared with everyone, or kept for those who can pay.;;;;;;;;;x
+NAFS.201.a;Open the healing hut to everyone.;;;;;;;;;x
+NAFS.201.b;Keep the old rules of rank and payment.;;;;;;;;;x
+NAFS.201.c;Send the overflow to the next village.;;;;;;;;;x
+NAFS.202.desc;Hunters return from the outer ice with a discovery: a berg of blue ice, inside which stands a shrine untouched by wind or water. A carved moon disk hangs above a bowl of black water. The hunters swear the ice hums when the tide turns. The sages want the shrine brought to the temple. The hunters want to leave it where it lies.;;;;;;;;;x
+NAFS.202.a;Bring the shrine to the temple.;;;;;;;;;x
+NAFS.202.b;Study the ice and the black water.;;;;;;;;;x
+NAFS.202.c;Leave the shrine untouched and mark the site.;;;;;;;;;x
+NAFS.203.desc;A Fire Nation ship has anchored beyond the ice shelf. Its captain demands that every waterbender in the village be handed over, or the ship will burn the fleet and shell the huts. The village's benders are hidden in the fishing caves. The hunters have already loaded their spears, and the captain of the ship is waiting.;;;;;;;;;x
+NAFS.203.a;Hide the benders and deny everything.;;;;;;;;;x
+NAFS.203.b;Refuse and prepare to fight.;;;;;;;;;x
+NAFS.203.c;Pay tribute and swear neutrality.;;;;;;;;;x
+NAFS.204.desc;A trader offers a scroll stolen from a waterbending master's library. The scroll shows forms for pulling water from the air and freezing it into shields. The trader wants silver, and the tribe's young benders are already gathering to see it.;;;;;;;;;x
+NAFS.204.a;Buy the scroll for the tribe.;;;;;;;;;x
+NAFS.204.b;Return it to its master.;;;;;;;;;x
+NAFS.204.c;Burn it as stolen lore.;;;;;;;;;x
+NAFS.205.desc;A wealthy merchant asks leave to build a villa beyond the great ice wall. He says his ships will bring grain and steel, and his sons will marry into the tribe. The Water Sages warn that the spirits beyond the wall are not all friendly, and the city's captains do not want a rival stronghold at their door.;;;;;;;;;x
+NAFS.205.a;Allow the villa and welcome his ships.;;;;;;;;;x
+NAFS.205.b;Refuse and keep the wall closed.;;;;;;;;;x
+NAFS.205.c;Let the Water Sages decide.;;;;;;;;;x

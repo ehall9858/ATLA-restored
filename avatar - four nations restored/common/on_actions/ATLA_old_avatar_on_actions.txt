@@ -1,0 +1,78 @@
+# Old Avatar system hooks (restored from ATLA-restored 1.4.6)
+# CK2 merges on_action blocks of the same name across files.
+
+on_startup = {
+	events = {
+		ATLA.100 # Give Avatar Title
+		ATLA.101 # Avatar Action
+	}
+}
+
+on_chronicle_start = {
+	events = {
+		new_avatar_system.1 # Make an unlanded avatar loadable with a decision
+		avatar.1590 # Roku continues training
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		ATLA.101 # Avatar Event Handler
+		ATLA.100 # gives avatar the avatar title
+		team_avatar.1 # Team Avatar children grow up
+	}
+}
+
+on_yearly_childhood_pulse = {
+	events = {
+		new_avatar_fire_sages.1 # Fire sages tries to plant new avatar into fire lord court
+	}
+}
+
+on_birth = {
+	events = {
+		ATLA.2 # air
+		ATLA.6 # water
+		ATLA.7 # earth
+		ATLA.8 # fire
+		ATLA.9 # descendants of avatar gets trait
+	}
+}
+
+on_adulthood = {
+	events = {
+		new_avatar_general.1 # reveals the avatar when 16
+	}
+}
+
+on_assassination = {
+	events = {
+		ATLA.30 # Avatar Rebirth
+		avatar.204 # Avatar's Wrath
+	}
+}
+
+on_executed = {
+	events = {
+		avatar.204 # Avatar's Wrath
+	}
+}
+
+on_death = {
+	events = {
+		ATLA.30 # Avatar Rebirth
+		BLOODEV.4 # kyoshi dies in personal duel
+	}
+}
+
+on_forced_consort = {
+	events = {
+		avatar.207 # Avatar's Wrath
+	}
+}
+
+on_become_imprisoned_any_reason = {
+	events = {
+		ATLA.31 # Avatar retaliates
+	}
+}

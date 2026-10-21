@@ -1,0 +1,224 @@
+# Additional recurring life events for a revealed Avatar.
+# These are flavour and modest character development, not a replacement for the Avatar journey.
+# Written in the Avatar's own voice (first person), like the rest of the Avatar content.
+namespace = avatar_life
+
+character_event = {
+ id = avatar_life.1
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_1
+ desc = AVATAR_LIFE_DESC_1
+ picture = GFX_evt_council
+ option = { name = AVATAR_LIFE_OPT_1A prestige = 5 add_trait = charitable }
+ option = { name = AVATAR_LIFE_OPT_1B piety = 5 add_trait = patient }
+}
+character_event = {
+ id = avatar_life.2
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_2
+ desc = AVATAR_LIFE_DESC_2
+ picture = GFX_evt_bandits
+ option = { name = AVATAR_LIFE_OPT_2A piety = 10 }
+ option = { name = AVATAR_LIFE_OPT_2B prestige = 5 }
+}
+character_event = {
+ id = avatar_life.3
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_3
+ desc = AVATAR_LIFE_DESC_3
+ picture = GFX_evt_family
+ option = { name = AVATAR_LIFE_OPT_3A add_trait = diligent prestige = 5 }
+ option = { name = AVATAR_LIFE_OPT_3B add_trait = brave prestige = 5 }
+}
+character_event = {
+ id = avatar_life.4
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_4
+ desc = AVATAR_LIFE_DESC_4
+ picture = GFX_evt_feast
+ option = { name = AVATAR_LIFE_OPT_4A prestige = 10 piety = 5 }
+ option = { name = AVATAR_LIFE_OPT_4B wealth = 10 }
+}
+character_event = {
+ id = avatar_life.5
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_5
+ desc = AVATAR_LIFE_DESC_5
+ picture = GFX_evt_council
+ option = { name = AVATAR_LIFE_OPT_5A prestige = 10 add_trait = just }
+ option = { name = AVATAR_LIFE_OPT_5B prestige = 5 add_trait = kind }
+}
+character_event = {
+ id = avatar_life.6
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_6
+ desc = AVATAR_LIFE_DESC_6
+ picture = GFX_evt_council
+ option = { name = AVATAR_LIFE_OPT_6A piety = 10 add_trait = patient }
+ option = { name = AVATAR_LIFE_OPT_6B prestige = 5 add_trait = brave }
+}
+character_event = {
+ id = avatar_life.7
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_7
+ desc = AVATAR_LIFE_DESC_7
+ picture = GFX_evt_bandits
+ option = { name = AVATAR_LIFE_OPT_7A piety = 15 }
+ option = { name = AVATAR_LIFE_OPT_7B prestige = 5 }
+}
+character_event = {
+ id = avatar_life.8
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_8
+ desc = AVATAR_LIFE_DESC_8
+ picture = GFX_evt_bandits
+ option = { name = AVATAR_LIFE_OPT_8A prestige = 10 add_trait = brave }
+ option = { name = AVATAR_LIFE_OPT_8B piety = 5 add_trait = charitable }
+}
+character_event = {
+ id = avatar_life.9
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_9
+ desc = AVATAR_LIFE_DESC_9
+ picture = GFX_evt_feast
+ option = { name = AVATAR_LIFE_OPT_9A prestige = 5 add_trait = diligent }
+ option = { name = AVATAR_LIFE_OPT_9B piety = 10 add_trait = humble }
+}
+character_event = {
+ id = avatar_life.10
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_10
+ desc = AVATAR_LIFE_DESC_10
+ picture = GFX_evt_landscape_2
+ option = { name = AVATAR_LIFE_OPT_10A prestige = 10 }
+ option = { name = AVATAR_LIFE_OPT_10B wealth = 10 piety = 5 }
+}
+
+# --- Expanded adult life events (11-20). Same rules: flavour and modest
+# --- development, no fatal outcomes. Some carry a small chance of a wound.
+
+character_event = {
+ id = avatar_life.11
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_11
+ desc = AVATAR_LIFE_DESC_11
+ picture = GFX_evt_feast
+ option = { name = AVATAR_LIFE_OPT_11A prestige = 10 }
+ option = { name = AVATAR_LIFE_OPT_11B piety = 5 }
+}
+character_event = {
+ id = avatar_life.12
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_12
+ desc = AVATAR_LIFE_DESC_12
+ picture = GFX_evt_bandits
+ option = {
+  name = AVATAR_LIFE_OPT_12A
+  random_list = { 80 = { prestige = 15 } 20 = { add_trait = wounded } }
+ }
+ option = { name = AVATAR_LIFE_OPT_12B prestige = 5 }
+}
+character_event = {
+ id = avatar_life.13
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_13
+ desc = AVATAR_LIFE_DESC_13
+ picture = GFX_evt_landscape_2
+ option = { name = AVATAR_LIFE_OPT_13A piety = 10 }
+ option = { name = AVATAR_LIFE_OPT_13B prestige = 10 }
+}
+character_event = {
+ id = avatar_life.14
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_14
+ desc = AVATAR_LIFE_DESC_14
+ picture = GFX_evt_council
+ option = {
+  name = AVATAR_LIFE_OPT_14A
+  random_list = { 80 = { prestige = 20 } 20 = { add_trait = wounded } }
+ }
+ option = { name = AVATAR_LIFE_OPT_14B piety = 5 }
+}
+character_event = {
+ id = avatar_life.15
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_15
+ desc = AVATAR_LIFE_DESC_15
+ picture = GFX_evt_council
+ option = { name = AVATAR_LIFE_OPT_15A prestige = 10 }
+ option = { name = AVATAR_LIFE_OPT_15B piety = 10 }
+}
+character_event = {
+ id = avatar_life.16
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_16
+ desc = AVATAR_LIFE_DESC_16
+ picture = GFX_evt_northern_water_tribe_spirit_oasis
+ option = {
+  name = AVATAR_LIFE_OPT_16A
+  random_list = { 85 = { piety = 25 } 15 = { add_trait = ill } }
+ }
+ option = { name = AVATAR_LIFE_OPT_16B prestige = 10 }
+}
+character_event = {
+ id = avatar_life.17
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_17
+ desc = AVATAR_LIFE_DESC_17
+ picture = GFX_evt_family
+ option = { name = AVATAR_LIFE_OPT_17A piety = 10 }
+ option = { name = AVATAR_LIFE_OPT_17B prestige = 10 }
+}
+character_event = {
+ id = avatar_life.18
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_18
+ desc = AVATAR_LIFE_DESC_18
+ picture = GFX_evt_feast
+ option = { name = AVATAR_LIFE_OPT_18A piety = 10 prestige = 5 }
+ option = { name = AVATAR_LIFE_OPT_18B prestige = 10 }
+}
+character_event = {
+ id = avatar_life.19
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_19
+ desc = AVATAR_LIFE_DESC_19
+ picture = GFX_evt_battle
+ option = {
+  name = AVATAR_LIFE_OPT_19A
+  random_list = { 75 = { prestige = 25 } 25 = { add_trait = wounded } }
+ }
+ option = { name = AVATAR_LIFE_OPT_19B piety = 10 }
+}
+character_event = {
+ id = avatar_life.20
+ is_triggered_only = yes
+ trigger = { has_character_flag = avatar_revealed }
+ title = AVATAR_LIFE_TITLE_20
+ desc = AVATAR_LIFE_DESC_20
+ picture = GFX_evt_grassfire
+ option = {
+  name = AVATAR_LIFE_OPT_20A
+  random_list = { 80 = { prestige = 20 } 20 = { add_trait = wounded } }
+ }
+ option = { name = AVATAR_LIFE_OPT_20B piety = 15 }
+}

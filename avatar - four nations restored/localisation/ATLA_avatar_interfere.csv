@@ -1,0 +1,13 @@
+CODE;ENGLISH;;;;;;;;;;;x
+NAE.500.D;The Avatar has arrived in [From.GetTitledFirstName]'s court.;;;;;;;;;;;x
+NAE.517.D;The Avatar has exited withdrawal, performing their duties once again.;;;;;;;;;;;x
+NAE.551.OPTA;It was my honour to help.;;;;;;;;;;;x
+NAE.552.OPTA;So be it.;;;;;;;;;;;x
+NAE.213.TT;The Avatar will take service with you and train your young courtiers.;;;;;;;;;;;x
+DAMNATION;Damn them!;;;;;;;;;;;x
+NAE.230.D;You have publicly endorsed [avatar_interfere_target.GetTitledFirstName]. Your words lend their rule the weight of the Avatar's blessing.;;;;;;;;;;;x
+NAE.230.OPTA;Let it be known.;;;;;;;;;;;x
+NAE.231.D;You have publicly condemned [avatar_interfere_target.GetTitledFirstName]. The world has heard the Avatar's judgement.;;;;;;;;;;;x
+NAE.231.OPTA;Let them answer for it.;;;;;;;;;;;x
+NAE.232.D;You have turned your will upon the affairs of [avatar_interfere_target.GetTitledFirstName]. Where the Avatar acts, the world takes note.;;;;;;;;;;;x
+NAE.232.OPTA;So be it.;;;;;;;;;;;x

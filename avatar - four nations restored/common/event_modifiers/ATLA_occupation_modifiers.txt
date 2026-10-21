@@ -1,0 +1,10 @@
+# Unrest in provinces held by a foreign occupier (see occupation.1). Applied
+# to Earth Kingdom provinces held by non-EK rulers and Air Temple provinces
+# held by non-Air rulers; refreshed yearly while the occupation lasts.
+foreign_occupation = {
+	icon = 31
+	local_revolt_risk = 0.15
+	local_tax_modifier = -0.25
+	levy_size = -0.25
+	garrison_size = -0.25
+}

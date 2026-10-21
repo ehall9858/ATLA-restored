@@ -969,7 +969,7 @@ targetted_decisions = {
 								OR = {
 									immortal = yes
 									has_character_flag = demon_child
-									has_character_flag = is_avatar
+									is_avatar_trigger = yes
 									ROOT = { immortal = yes }
 									AND = {
 										ROOT = { controls_religion = yes }

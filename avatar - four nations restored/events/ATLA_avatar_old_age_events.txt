@@ -1,0 +1,411 @@
+# Old age for the Avatar.
+#
+# The avatar / fullyrealisedavatar traits carry health = 20.0, which made every
+# Avatar effectively immortal - they routinely passed 100 while their friends,
+# children and grandchildren died around them.
+#
+# This chain gives the years teeth:
+#   * from 60 the Avatar's health is whittled down stage by stage
+#     (60: -2, 70: -5, 80: -8, 90: -14 - see ATLA_avatar_old_age_modifiers.txt)
+#   * a reflection event in each season of life (60, 65, 70, 75, 80, 85)
+#   * from 80, a yearly chance that the cycle calls them home, rising with age
+#   * the call is never rolled in the same year as a reflection, so the two
+#     scenes never arrive together - the season of life comes first, and the
+#     Long Sleep can fall any year after it
+#   * one scene with a choice (let go / cling on), then it simply comes for them
+#   * the reflections never kill, but making peace with the spirits (the age 80
+#     one, or the last option at 85) doubles the chance the cycle calls:
+#     accepting the end brings it closer without ending it on the spot. The flag
+#     is avatar_accepted_the_cycle, and the option says so in its tooltip.
+#
+# All deaths here are natural (death_natural) - no assassins involved.
+# Applies to any character holding the Avatar traits or Avatar flags, revealed
+# or not: it is the body that ages, not the office.
+#
+#   avatar_oldage.1    hidden dispatcher, on the yearly pulse
+#   avatar_oldage.10   age 60 - the first cold morning
+#   avatar_oldage.11   age 65 - hair like ash
+#   avatar_oldage.12   age 70 - the mountain is further than it was
+#   avatar_oldage.13   age 75 - I have outlived my friends
+#   avatar_oldage.14   age 80 - the spirits stand close
+#   avatar_oldage.15   age 85 - one last journey
+#   avatar_oldage.30   the long sleep (with a last choice)
+#   avatar_oldage.31   you wake, weaker
+#   avatar_oldage.32   the long sleep returns (no choice this time)
+#
+namespace = avatar_oldage
+
+# ------------------------------------------------------------------ dispatcher
+
+character_event = {
+	id = avatar_oldage.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_avatar_trigger = yes
+		age = 60
+	}
+
+	immediate = {
+		# Cleared every pulse. Set below if a reflection fires this year, so the
+		# Long Sleep never lands on top of one - it comes in its own year, at
+		# any time after the Avatar has faced the season of life they are in.
+		clr_character_flag = avatar_just_reflected
+
+		# The body ages, once at each stage. Applied in order, so an Avatar who
+		# is already ancient catches up at once.
+		if = {
+			limit = {
+				age = 60
+				NOT = { has_character_flag = avatar_years_60 }
+			}
+			set_character_flag = avatar_years_60
+			add_character_modifier = { name = avatar_age_early_decline }
+		}
+		if = {
+			limit = {
+				age = 70
+				NOT = { has_character_flag = avatar_years_70 }
+			}
+			set_character_flag = avatar_years_70
+			add_character_modifier = { name = avatar_age_deepening }
+		}
+		if = {
+			limit = {
+				age = 80
+				NOT = { has_character_flag = avatar_years_80 }
+			}
+			set_character_flag = avatar_years_80
+			add_character_modifier = { name = avatar_age_frail }
+		}
+		if = {
+			limit = {
+				age = 90
+				NOT = { has_character_flag = avatar_years_90 }
+			}
+			set_character_flag = avatar_years_90
+			add_character_modifier = { name = avatar_age_ancient }
+		}
+
+		# One reflection per season of life. Each band is checked oldest first and
+		# is bounded above, so an Avatar who is already ancient - as most of the
+		# long-lived ones on an existing map are - gets the reflection that fits
+		# the years they are actually living, and never a stale earlier one.
+		if = {
+			limit = {
+				age = 85
+				NOT = { has_character_flag = avatar_reflect_85 }
+			}
+			set_character_flag = avatar_reflect_85
+			set_character_flag = avatar_just_reflected
+			character_event = { id = avatar_oldage.15 days = 1 }
+		}
+		else_if = {
+			limit = {
+				age = 80
+				NOT = { age = 85 }
+				NOT = { has_character_flag = avatar_reflect_80 }
+			}
+			set_character_flag = avatar_reflect_80
+			set_character_flag = avatar_just_reflected
+			character_event = { id = avatar_oldage.14 days = 1 }
+		}
+		else_if = {
+			limit = {
+				age = 75
+				NOT = { age = 80 }
+				NOT = { has_character_flag = avatar_reflect_75 }
+			}
+			set_character_flag = avatar_reflect_75
+			set_character_flag = avatar_just_reflected
+			character_event = { id = avatar_oldage.13 days = 1 }
+		}
+		else_if = {
+			limit = {
+				age = 70
+				NOT = { age = 75 }
+				NOT = { has_character_flag = avatar_reflect_70 }
+			}
+			set_character_flag = avatar_reflect_70
+			set_character_flag = avatar_just_reflected
+			character_event = { id = avatar_oldage.12 days = 1 }
+		}
+		else_if = {
+			limit = {
+				age = 65
+				NOT = { age = 70 }
+				NOT = { has_character_flag = avatar_reflect_65 }
+			}
+			set_character_flag = avatar_reflect_65
+			set_character_flag = avatar_just_reflected
+			character_event = { id = avatar_oldage.11 days = 1 }
+		}
+		else_if = {
+			limit = {
+				age = 60
+				NOT = { age = 65 }
+				NOT = { has_character_flag = avatar_reflect_60 }
+			}
+			set_character_flag = avatar_reflect_60
+			set_character_flag = avatar_just_reflected
+			character_event = { id = avatar_oldage.10 days = 1 }
+		}
+
+		# From eighty, the cycle begins to call. ~6%/year at 80, ~11% at 85,
+		# ~19% at 90, ~32% at 95 and ~59% at 100 - and CK2's own mortality roll
+		# is running on top of it, now that the health bonus is gone.
+		#
+		# The roll is skipped in any year a reflection fires (see the flag
+		# above), so the two scenes never arrive together: the season of life
+		# comes first, and the Long Sleep can fall any year after it.
+		if = {
+			limit = {
+				age = 80
+				NOT = { has_character_flag = avatar_just_reflected }
+			}
+			random_list = {
+				6 = {
+					trigger = {
+						NOT = { has_character_flag = avatar_survived_the_call }
+					}
+					character_event = { id = avatar_oldage.30 days = 1 }
+					# An Avatar who has made their peace is nearer the door.
+					modifier = {
+						factor = 2.0
+						has_character_flag = avatar_accepted_the_cycle
+					}
+					modifier = {
+						factor = 2.0
+						age = 85
+					}
+					modifier = {
+						factor = 2.0
+						age = 90
+					}
+					modifier = {
+						factor = 2.0
+						age = 95
+					}
+					modifier = {
+						factor = 3.0
+						age = 100
+					}
+				}
+				6 = {
+					trigger = {
+						has_character_flag = avatar_survived_the_call
+					}
+					character_event = { id = avatar_oldage.32 days = 1 }
+					modifier = {
+						factor = 2.0
+						age = 85
+					}
+					modifier = {
+						factor = 2.0
+						age = 90
+					}
+					modifier = {
+						factor = 2.0
+						age = 95
+					}
+					modifier = {
+						factor = 3.0
+						age = 100
+					}
+				}
+				100 = { }
+			}
+		}
+
+		# Backstop, for any Avatar the ordinary rules somehow miss.
+		if = {
+			limit = { age = 115 }
+			death = { death_reason = death_natural }
+		}
+	}
+}
+
+# ----------------------------------------------------------------- reflections
+
+character_event = {
+	id = avatar_oldage.10
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_10
+	desc = AVATAR_OLDAGE_DESC_10
+	picture = GFX_evt_landscape_2
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_10A
+		piety = 25
+	}
+	option = {
+		name = AVATAR_OLDAGE_OPT_10B
+		prestige = 25
+		health = 0.25
+	}
+}
+
+character_event = {
+	id = avatar_oldage.11
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_11
+	desc = AVATAR_OLDAGE_DESC_11
+	picture = GFX_evt_council
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_11A
+		piety = 25
+	}
+	option = {
+		name = AVATAR_OLDAGE_OPT_11B
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = avatar_oldage.12
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_12
+	desc = AVATAR_OLDAGE_DESC_12
+	picture = GFX_evt_landscape_2
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_12A
+		random_list = {
+			80 = { prestige = 30 }
+			20 = { add_trait = wounded }
+		}
+	}
+	option = {
+		name = AVATAR_OLDAGE_OPT_12B
+		piety = 30
+	}
+}
+
+character_event = {
+	id = avatar_oldage.13
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_13
+	desc = AVATAR_OLDAGE_DESC_13
+	picture = GFX_evt_family
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_13A
+		piety = 40
+	}
+	option = {
+		name = AVATAR_OLDAGE_OPT_13B
+		prestige = 40
+	}
+}
+
+character_event = {
+	id = avatar_oldage.14
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_14
+	desc = AVATAR_OLDAGE_DESC_14
+	picture = GFX_evt_northern_water_tribe_spirit_oasis
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_14A
+		custom_tooltip = { text = AVATAR_OLDAGE_OPT_ACCEPT_TIP }
+		piety = 75
+		# Acceptance is not free. Making peace with the spirits brings the end
+		# nearer without ending it on the spot - see the death roll in the
+		# dispatcher above, which doubles once this flag is set.
+		set_character_flag = avatar_accepted_the_cycle
+	}
+	option = {
+		name = AVATAR_OLDAGE_OPT_14B
+		prestige = 50
+	}
+}
+
+character_event = {
+	id = avatar_oldage.15
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_15
+	desc = AVATAR_OLDAGE_DESC_15
+	picture = GFX_evt_grassfire
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_15A
+		prestige = 75
+		health = 0.5
+	}
+	option = {
+		name = AVATAR_OLDAGE_OPT_15B
+		piety = 40
+	}
+	# The same acceptance as the age 80 reflection, for an Avatar who was
+	# already past eighty when the chain found them and so never saw it.
+	option = {
+		name = AVATAR_OLDAGE_OPT_15C
+		custom_tooltip = { text = AVATAR_OLDAGE_OPT_ACCEPT_TIP }
+		piety = 75
+		set_character_flag = avatar_accepted_the_cycle
+	}
+}
+
+# --------------------------------------------------------------- death
+
+# The one scene with a choice: let go, or cling on.
+character_event = {
+	id = avatar_oldage.30
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_30
+	desc = AVATAR_OLDAGE_DESC_30
+	picture = GFX_evt_beam_of_light
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_30A
+		piety = 100
+		prestige = 50
+		death = { death_reason = death_natural }
+	}
+	option = {
+		name = AVATAR_OLDAGE_OPT_30B
+		random_list = {
+			25 = {
+				add_trait = ill
+				prestige = 50
+				set_character_flag = avatar_survived_the_call
+				character_event = { id = avatar_oldage.31 days = 3 }
+			}
+			75 = {
+				death = { death_reason = death_natural }
+			}
+		}
+	}
+}
+
+# You refused the call - and were answered, for now.
+character_event = {
+	id = avatar_oldage.31
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_31
+	desc = AVATAR_OLDAGE_DESC_31
+	picture = GFX_evt_council
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_31A
+		piety = 25
+	}
+}
+
+# It comes again - and this time it does not ask.
+character_event = {
+	id = avatar_oldage.32
+	is_triggered_only = yes
+	title = AVATAR_OLDAGE_TITLE_32
+	desc = AVATAR_OLDAGE_DESC_32
+	picture = GFX_evt_beam_of_light
+
+	option = {
+		name = AVATAR_OLDAGE_OPT_32A
+		piety = 50
+		prestige = 100
+		death = { death_reason = death_natural }
+	}
+}

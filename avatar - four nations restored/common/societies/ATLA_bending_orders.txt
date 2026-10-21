@@ -1,0 +1,450 @@
+# Bending orders: written from scratch, structured like the Brotherhood of Agni Kai.
+#
+# The two societies are now proper orders rather than placeholders.
+# Each has a named ladder of four ranks, a rank-up decision in the Society view,
+# a recruitment decision, a sparring decision, and a set of society missions
+# (see decisions/ATLA_bending_order_society_decisions.txt and
+# events/ATLA_bending_order_missions.txt).
+#
+# Sub-bending arts are taught only to the head of the order (rank 4), exactly as
+# bak_learn_new_bending is the privilege of the Agni Kai's grandmaster.
+#
+# Rank ladder (loc keys waterbending_order_rank_N_*, earthbending_order_rank_N_*):
+#   Water: Still Water, Flowing Water, Deep Water, The Turning Tide
+#   Earth: Stone, Boulder, Crag, Mountain
+
+waterbending_order = { # The Order of Flowing Water
+	primary_attribute = learning
+	opinion_to_other_members = +5
+	opinion_per_rank_above = +10
+	sound = monastic_orders_interface
+	society_influence = no
+	society_ranks_gfx = monk_ranks
+	society_rank_up_decision = wbo_request_rank_up
+	non_interference = {
+		always = yes
+	}
+
+	active = {
+		always = yes
+	}
+	indestructible = no
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = {
+					society = waterbending_order
+					rank = 1
+				}
+			}
+		}
+		age = 16
+		trait = waterbender
+		hidden_trigger = {
+			NOT = { has_character_flag = society_join_block }
+		}
+	}
+	show_society = {
+		always = yes
+	}
+	potential = {
+		OR = {
+			trait = waterbender
+			religion_group = water_religions
+		}
+	}
+
+	society_rank = { # Still Water
+		level = 1
+		limit = 100
+		startup_limit = 10
+		modifier = {
+			monthly_character_piety = 0.05
+		}
+		decisions = {
+			wbo_practice
+		}
+		custom_tooltip = waterbending_order_rank_1_duty
+	}
+
+	society_rank = { # Flowing Water
+		level = 2
+		limit = 50
+		startup_limit = 6
+		modifier = {
+			monthly_character_piety = 0.1
+			health = 0.25
+		}
+		decisions = {
+			wbo_meditate
+			wbo_train_bending
+		}
+		custom_tooltip = waterbending_order_rank_2_duty
+	}
+
+	society_rank = { # Deep Water
+		level = 3
+		limit = 5
+		startup_limit = 3
+		modifier = {
+			monthly_character_piety = 0.2
+			health = 0.5
+		}
+		decisions = {
+			wbo_teach
+			wbo_instruct_bender
+		}
+		custom_tooltip = waterbending_order_rank_3_duty
+	}
+
+	society_rank = { # The Turning Tide
+		level = 4
+		limit = 1
+		startup_limit = 1
+		modifier = {
+			monthly_character_piety = 0.5
+			health = 1.0
+		}
+		decisions = {
+			wbo_convene
+			wbo_learn_subbending
+		}
+		custom_tooltip = waterbending_order_rank_4_duty
+	}
+
+	monthly_currency_gain = {
+		name = waterbending_order_currency
+
+		per_attribute = {
+			name = learning
+			value = 0.5
+		}
+		has_trait = {
+			trait = legendary_bender
+			value = 5
+		}
+		has_trait = {
+			trait = master_bender
+			value = 3
+		}
+		has_trait = {
+			trait = powerful_bender
+			value = 3
+		}
+		has_trait = {
+			trait = competent_bender
+			value = 2
+		}
+		has_trait = {
+			trait = incompetent_bender
+			value = 1
+		}
+		# The Order values what water is for: mending what is broken.
+		has_trait = {
+			trait = master_healer
+			value = 3
+		}
+		has_trait = {
+			trait = healer
+			value = 2
+		}
+		has_trait = {
+			trait = positive_jing
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = kind
+			value = 1
+		}
+		has_trait = {
+			trait = content
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+		modifier = {
+			trait = legendary_bender
+			factor = 5
+		}
+		modifier = {
+			trait = master_bender
+			factor = 1.3
+		}
+		modifier = {
+			trait = powerful_bender
+			factor = 1.3
+		}
+		modifier = {
+			trait = competent_bender
+			factor = 1.3
+		}
+		modifier = {
+			trait = master_healer
+			factor = 1.3
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.1
+		}
+		modifier = {
+			trait = kind
+			factor = 1.1
+		}
+	}
+
+	startup_populate = {
+		trigger = {
+			ai = yes
+			age = 16
+			trait = waterbender
+			is_in_society = no
+		}
+	}
+}
+
+earthbending_order = { # The Society of the Standing Stone
+	primary_attribute = martial
+	opinion_to_other_members = +5
+	opinion_per_rank_above = +10
+	sound = monastic_orders_interface
+	society_influence = no
+	society_ranks_gfx = monk_ranks
+	society_rank_up_decision = ebo_request_rank_up
+	non_interference = {
+		always = yes
+	}
+
+	active = {
+		always = yes
+	}
+	indestructible = no
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = {
+					society = earthbending_order
+					rank = 1
+				}
+			}
+		}
+		age = 16
+		trait = earthbender
+		hidden_trigger = {
+			NOT = { has_character_flag = society_join_block }
+		}
+	}
+	show_society = {
+		always = yes
+	}
+	potential = {
+		OR = {
+			trait = earthbender
+			religion_group = earth_religions
+		}
+	}
+
+	society_rank = { # Stone
+		level = 1
+		limit = 100
+		startup_limit = 10
+		modifier = {
+			monthly_character_piety = 0.05
+		}
+		decisions = {
+			ebo_practice
+		}
+		custom_tooltip = earthbending_order_rank_1_duty
+	}
+
+	society_rank = { # Boulder
+		level = 2
+		limit = 50
+		startup_limit = 6
+		modifier = {
+			monthly_character_piety = 0.1
+			health = 0.25
+		}
+		decisions = {
+			ebo_meditate
+			ebo_train_bending
+		}
+		custom_tooltip = earthbending_order_rank_2_duty
+	}
+
+	society_rank = { # Crag
+		level = 3
+		limit = 5
+		startup_limit = 3
+		modifier = {
+			monthly_character_piety = 0.2
+			health = 0.5
+		}
+		decisions = {
+			ebo_teach
+			ebo_instruct_bender
+		}
+		custom_tooltip = earthbending_order_rank_3_duty
+	}
+
+	society_rank = { # Mountain
+		level = 4
+		limit = 1
+		startup_limit = 1
+		modifier = {
+			monthly_character_piety = 0.5
+			health = 1.0
+		}
+		decisions = {
+			ebo_convene
+			ebo_learn_subbending
+		}
+		custom_tooltip = earthbending_order_rank_4_duty
+	}
+
+	monthly_currency_gain = {
+		name = earthbending_order_currency
+
+		per_attribute = {
+			name = martial
+			value = 0.5
+		}
+		has_trait = {
+			trait = legendary_bender
+			value = 5
+		}
+		has_trait = {
+			trait = master_bender
+			value = 3
+		}
+		has_trait = {
+			trait = powerful_bender
+			value = 3
+		}
+		has_trait = {
+			trait = competent_bender
+			value = 2
+		}
+		has_trait = {
+			trait = incompetent_bender
+			value = 1
+		}
+		# The Society counts the rarer earth arts as standing earned.
+		has_trait = {
+			trait = metalbender
+			value = 3
+		}
+		has_trait = {
+			trait = lavabender
+			value = 3
+		}
+		has_trait = {
+			trait = seismicsense
+			value = 2
+		}
+		has_trait = {
+			trait = sandbender
+			value = 2
+		}
+		has_trait = {
+			trait = positive_jing
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = stubborn
+			value = 1
+		}
+		has_trait = {
+			trait = just
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+		modifier = {
+			trait = legendary_bender
+			factor = 5
+		}
+		modifier = {
+			trait = master_bender
+			factor = 1.3
+		}
+		modifier = {
+			trait = powerful_bender
+			factor = 1.3
+		}
+		modifier = {
+			trait = competent_bender
+			factor = 1.3
+		}
+		modifier = {
+			trait = metalbender
+			factor = 1.3
+		}
+		modifier = {
+			trait = lavabender
+			factor = 1.3
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.1
+		}
+		modifier = {
+			trait = stubborn
+			factor = 1.1
+		}
+	}
+
+	startup_populate = {
+		trigger = {
+			ai = yes
+			age = 16
+			trait = earthbender
+			is_in_society = no
+		}
+	}
+}

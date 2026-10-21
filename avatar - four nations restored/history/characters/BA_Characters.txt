@@ -20986,6 +20986,7 @@
 		add_trait = elusive_shadow
 		remove_trait = incompetent_bender
 		add_trait = master_bender
+		set_character_flag = atla_earned_mastery
 		add_trait = diligent
 		add_trait = temperate
 		add_trait = deceitful

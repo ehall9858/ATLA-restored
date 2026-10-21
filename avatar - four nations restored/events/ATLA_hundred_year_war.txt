@@ -725,7 +725,17 @@ character_event = { # Death of Roku
 				# ROOT = {
 					# if = {
 						# limit = {
-							# has_character_flag = is_avatar
+							# NOT = { has_character_flag = avatar_unrevealed }
+							# NOT = { trait = avatar }
+							# NOT = { trait = fullyrealisedavatar }
+						# }
+						# death = { death_reason = death_murder killer = PREV }
+					# }
+					# if = {
+						# limit = {
+							# OR = {
+								# has_character_flag = avatar_unrevealed
+							# }
 						# }
 						# character_event = { id = ATLAE.38 }
 					# }
@@ -804,12 +814,26 @@ character_event = { # Ta Min
 
 	trigger = {
 		NOT = { year = 795 }
-		persistent_event_target:the_avatar = { has_character_flag = is_roku }
+		is_title_active = d_avatar
+		d_avatar = {
+			owner = {
+				has_character_flag = is_roku
+				NOT = {
+					has_character_flag = avatar_journey
+				}
+			}
+		}
 	}
 
-	immediate = {
+	option = {
+		hidden_tooltip = {
 		remove_trait = celibate
-		add_spouse = persistent_event_target:the_avatar
+			d_avatar = {
+				owner = {
+					add_spouse = ROOT
+				}
+			}
+		}
 	}
 }
 
@@ -1130,6 +1154,7 @@ character_event = { # Launch Air Temple Assault
 		# trigger = {
 			# NOT = { religion_group = earth_religions }
 			# NOT = { trait = avatar }
+			# NOT = { trait = fullyrealisedavatar }
 		# }
 	# }
 	
@@ -1138,6 +1163,7 @@ character_event = { # Launch Air Temple Assault
 		# trigger = {
 			# NOT = { religion_group = air_religions }
 			# NOT = { trait = avatar }
+			# NOT = { trait = fullyrealisedavatar }
 		# }
 	# }
 	
@@ -1145,6 +1171,7 @@ character_event = { # Launch Air Temple Assault
 		# name = EVTOPTAh.22
 		# trigger = {
 			# NOT = { trait = avatar }
+			# NOT = { trait = fullyrealisedavatar }
 		# }
 	# }
 	
@@ -1166,7 +1193,7 @@ character_event = { # Early Strike
 		trait = firelord
 		NOT = { has_character_flag = refused_strike }
 		has_global_flag = avatar_air
-		has_global_flag = avatar_interregnum
+		has_global_flag = avatar_unrevealed
 		has_game_rule = {
 			name = campaign_events
 			value = on

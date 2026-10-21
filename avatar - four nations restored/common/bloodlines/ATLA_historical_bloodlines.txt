@@ -16,8 +16,7 @@ blood_of_chin = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -25,8 +24,7 @@ blood_of_chin = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			religion = way_of_chin
+			culture_group = earth_kingdom_cultures
 		}
 	}
 }
@@ -47,8 +45,7 @@ hao_bloodline = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -56,8 +53,7 @@ hao_bloodline = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = ba_sing_se_culture
+			culture_group = earth_kingdom_cultures
 		}
 	}
 }
@@ -77,8 +73,7 @@ ting_bloodline = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -86,8 +81,7 @@ ting_bloodline = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = ba_sing_se_culture
+			culture_group = earth_kingdom_cultures
 		}
 	}
 }
@@ -109,8 +103,7 @@ houting_bloodline = { #add claim to Ba Sige Sa and/or Earthkingdom?
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -118,8 +111,7 @@ houting_bloodline = { #add claim to Ba Sige Sa and/or Earthkingdom?
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = ba_sing_se_culture
+			culture_group = earth_kingdom_cultures
 		}
 	}
 }
@@ -127,11 +119,9 @@ houting_bloodline = { #add claim to Ba Sige Sa and/or Earthkingdom?
 takahama_bloodline = { #Kyoshi's bloodline
 	monthly_character_prestige = 0.2
 	health = 1
-	combat_rating = 5
-	general_opinion = 5
-	
-	followers_of_kyoshi_opinion = 10
-	bloodline_effect_giant = 1 #Chance for characters to be born giant - Kyoshi was HUGE after all
+	martial = 1
+	combat_rating = 10
+	monthly_character_prestige = 0.5
 	bloodline_effect_enatic_cognatic = 1 #Kyoshi inspired a troop of all-women warriors, so let them be woman-centric
 
 	inheritance = all_descendants
@@ -143,8 +133,7 @@ takahama_bloodline = { #Kyoshi's bloodline
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -152,8 +141,10 @@ takahama_bloodline = { #Kyoshi's bloodline
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
+			AND = {
+				culture_group = earth_kingdom_cultures
 			religion = followers_of_kyoshi
+			}
 		}
 	}
 }
@@ -176,8 +167,7 @@ beifong_bloodline = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -185,6 +175,9 @@ beifong_bloodline = {
 						founder = { dynasty = ROOT }
 					}
 				}
+			AND = {
+				culture_group = earth_kingdom_cultures
+				is_republic = yes
 			}
 			culture = earth_islander
 		}
@@ -203,13 +196,12 @@ salai_bloodline = { #One of the prior Avatars
 	matrilineal_override = yes
 	allow_bastards = no
 	picture = GFX_bloodlines_symbol_avatar
-	flags = { historical_bloodline is_salai_bloodline is_avatar_bloodline bloodline_dismantle_factions }
+	flags = { historical_bloodline is_salai_bloodline is_avatar_bloodline }
 	
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -217,8 +209,7 @@ salai_bloodline = { #One of the prior Avatars
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			religion = earth_spirituality
+			culture_group = earth_kingdom_cultures
 		}
 	}
 }
@@ -240,8 +231,7 @@ mad_genius_bloodline = { #Bumi's bloodline
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -249,8 +239,7 @@ mad_genius_bloodline = { #Bumi's bloodline
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = omashuan ##TODO: Assess if should be changed to Omashuan Ethics when Earth faiths are fleshed out.
+			culture_group = earth_kingdom_cultures
 		}
 	}
 }
@@ -269,8 +258,7 @@ mechanist_bloodline = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -278,8 +266,7 @@ mechanist_bloodline = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = northern_earth_culture
+			culture_group = earth_kingdom_cultures
 		}
 	}
 }
@@ -304,8 +291,7 @@ kuruk_bloodline = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -313,8 +299,7 @@ kuruk_bloodline = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			religion = witchcraft #This is the 'original' form of north-centric water spirituality in modcanon. Since the player shouldn't be able to get it, it gets to be weird!
+			culture_group = water_tribe_cultures
 		}
 	}
 }
@@ -333,8 +318,7 @@ illaujait_bloodline = { #tribal water chiefs
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -342,8 +326,7 @@ illaujait_bloodline = { #tribal water chiefs
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = northern_water_culture
+			culture_group = water_tribe_cultures
 		}
 	}
 }
@@ -394,8 +377,7 @@ taima_bloodline = { #TODO: maybe add a chance for waterbenders of this bloodline
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -403,45 +385,10 @@ taima_bloodline = { #TODO: maybe add a chance for waterbenders of this bloodline
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = southern_water_culture
+			culture_group = water_tribe_cultures
 		}
 	}
 }
-
-korra_bloodline = {
-	monthly_character_prestige = 0.2
-	health = 1
-	combat_rating = 10
-	general_opinion = 5
-	
-	brave_opinion = 5
-	bloodline_effect_strong = 1 #Chance for characters to be born strong - Korra's THAT swole
-
-	inheritance = all_descendants
-	matrilineal_override = yes
-	allow_bastards = yes
-	picture = GFX_bloodlines_symbol_avatar
-	flags = { is_korra_bloodline is_avatar_bloodline }
-	
-	active = {
-		OR = {
-			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
-					FROM = {
-						founder = { is_close_relative = ROOT }
-					}
-					FROM = {
-						founder = { dynasty = ROOT }
-					}
-				}
-			}
-			religion = southern_spirituality
-		}
-	}
-}
-	
 
 #######################Air Nation bloodlines#######################
 
@@ -457,7 +404,7 @@ yangchen_bloodline = {
 	matrilineal_override = yes
 	allow_bastards = yes
 	picture = GFX_bloodlines_symbol_yangchen
-	flags = { is_yangchen_bloodline historical_bloodline is_avatar_bloodline theologian_saintly_bloodline }
+	flags = { is_yangchen_bloodline historical_bloodline is_avatar_bloodline }
 	active = {
 		OR = {
 			custom_tooltip = {
@@ -492,8 +439,7 @@ aang_bloodline = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -501,8 +447,7 @@ aang_bloodline = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = southern_air_nomad
+			culture_group = air_nomad_cultures
 			culture = republic_city
 #			culture = air_nation ##TODO: Assign appropriately when air nomad rework settles on what the new air nomads are called
 		}
@@ -522,8 +467,7 @@ guru_laghima_bloodline = { #this son of a bitch could fly
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -531,9 +475,7 @@ guru_laghima_bloodline = { #this son of a bitch could fly
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			religion = air_spirituality
-			religion = nomadic_nihilism
+			culture_group = air_nomad_cultures
 		}
 	}
 }
@@ -593,8 +535,7 @@ burning_curse_bloodline = { #Sozin's Bloodline
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -602,30 +543,29 @@ burning_curse_bloodline = { #Sozin's Bloodline
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
+			AND = {
+				culture_group = fire_nation_cultures
 			religion = fire_nation_imperialism
 		}
 	}
 }
+}
 
-szeto_bloodline = { #Szeto was a very unusual avatar, so he swaps combat_rating and general opinion for fire opinion and a stewardship increase
-	monthly_character_prestige = 0.2
-	health = 1
-	stewardship = 2
+szeto_bloodline = {
+	diplomacy = 5
+	stewardship = 5
 	fire_nation_cultures_opinion = 10
-	
-	bloodline_effect_endearing = 1 #Can apply to either home nation or foreigners - perfect for 'the diplomatic avatar'!
+	monthly_character_piety = 1.0
 
 	inheritance = all_descendants
 	matrilineal_override = yes
 	allow_bastards = yes
 	picture = GFX_bloodlines_symbol_avatar
-	flags = { is_szeto_bloodline is_avatar_bloodline historical_bloodline bloodline_endearing }
+	flags = { is_szeto_bloodline is_avatar_bloodline historical_bloodline }
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -633,8 +573,7 @@ szeto_bloodline = { #Szeto was a very unusual avatar, so he swaps combat_rating 
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			culture = fire_imperial_culture
+			culture_group = fire_nation_cultures
 		}
 	}
 }
@@ -665,10 +604,7 @@ toz_bloodline = { #Warlord in 643, a date that is apparently fully mapped but ha
 					founder = { dynasty = ROOT }
 				}
 			}
-			AND = { #Toz's whole goal is to unify the Fire Nation - he CANNOT be restricted by culture or faith, since those will change with the empire
 				culture_group = fire_nation_cultures 
-				religion_group = fire_religions
-			}
 		}
 	}
 }	
@@ -723,8 +659,7 @@ roku_bloodline = {
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -732,8 +667,7 @@ roku_bloodline = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			religion = fire_spirituality
+			culture_group = fire_nation_cultures
 		}
 	}
 }
@@ -754,8 +688,7 @@ deserter_bloodline = { #Jeong-Jeong
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -770,8 +703,7 @@ deserter_bloodline = { #Jeong-Jeong
 			}
 		}
 	}
-}
-swordmaster_bloodline = { #Piandao
+swordmaster_bloodline = { ##TODO: Would be fun to let a weapons master non-bender gain this somehow. If so, remove historical bloodline. - Liz
 	martial = 1
 	learning = 1
 	monthly_character_prestige = 0.1
@@ -789,8 +721,7 @@ swordmaster_bloodline = { #Piandao
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -798,13 +729,12 @@ swordmaster_bloodline = { #Piandao
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
-			is_bender_trigger = no
+			culture_group = fire_nation_cultures
 		}
 	}
 }
 
-#######################Avatar Bloodlines#######################
+#######################Avater bloodlines#######################
 
 bloodline_avatar_1 = {
 	monthly_character_prestige = 0.2
@@ -818,12 +748,11 @@ bloodline_avatar_1 = {
 	matrilineal_override = yes
 	allow_bastards = no
 	picture = GFX_bloodlines_symbol_avatar
-	flags = { is_avatar_bloodline bloodline_inspire_commanders }
+	flags = { is_avatar_bloodline }
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -831,7 +760,6 @@ bloodline_avatar_1 = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
 			FROM = {
 				founder = { culture = ROOT }
 			}
@@ -852,12 +780,11 @@ bloodline_avatar_2 = {
 	matrilineal_override = yes
 	allow_bastards = no
 	picture = GFX_bloodlines_symbol_avatar
-	flags = { is_avatar_bloodline battle_survivor_bloodline }
+	flags = { is_avatar_bloodline }
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -865,7 +792,6 @@ bloodline_avatar_2 = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
 			FROM = {
 				founder = { culture = ROOT }
 			}
@@ -885,12 +811,11 @@ bloodline_avatar_3 = {
 	matrilineal_override = yes
 	allow_bastards = no
 	picture = GFX_bloodlines_symbol_avatar
-	flags = { is_avatar_bloodline bloodline_drill }
+	flags = { is_avatar_bloodline }
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -898,7 +823,6 @@ bloodline_avatar_3 = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
 			FROM = {
 				founder = { culture = ROOT }
 			}
@@ -918,12 +842,11 @@ bloodline_avatar_4 = {
 	matrilineal_override = yes
 	allow_bastards = no
 	picture = GFX_bloodlines_symbol_avatar
-	flags = { is_avatar_bloodline bloodline_more_philosophers }
+	flags = { is_avatar_bloodline }
 	active = {
 		OR = {
 			custom_tooltip = {
-				text = bloodline_relative_or_dynasty_tt
-				OR = {
+				text = is_bloodline_founder
 					FROM = {
 						founder = { is_close_relative = ROOT }
 					}
@@ -931,7 +854,6 @@ bloodline_avatar_4 = {
 						founder = { dynasty = ROOT }
 					}
 				}
-			}
 			FROM = {
 				founder = { culture = ROOT }
 			}

@@ -1,0 +1,39 @@
+#################################
+# Avatar Sub-Bending Helpers    #
+#################################
+#
+# The Avatar holds avatar_<element>bender for every element they have learned,
+# and the plain <element>bender trait only for the element they were born to.
+# That is why none of the ordinary sub-bending paths (special.17/46/47, the
+# special.6 lightning event, the sandbender-culture adulthood event, the child
+# education chain bending.163, and the various societies) can ever reach them:
+# those all test for the plain traits.
+#
+# These helpers are used by the Avatar-specific sub-bending events in
+# events/ATLA_avatar_subbending_events.txt.
+#################################
+
+# A revealed, grown Avatar - deliberately NOT is_avatar_trigger, which also
+# matches avatar_unrevealed children. Childhood must never be able to reveal
+# or advance the Avatar.
+is_revealed_avatar_trigger = {
+	OR = {
+		has_character_flag = avatar_revealed
+		trait = avatar
+		trait = fullyrealisedavatar
+	}
+	NOT = {
+		has_character_flag = avatar_unrevealed
+	}
+}
+
+# Ready to be offered a sub-bending insight: a revealed Avatar who has pushed
+# their bending to the top tier.
+avatar_subbending_ready_trigger = {
+	is_revealed_avatar_trigger = yes
+	is_adult = yes
+	OR = {
+		trait = master_bender
+		trait = legendary_bender
+	}
+}

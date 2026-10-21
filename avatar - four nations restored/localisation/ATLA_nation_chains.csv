@@ -1,0 +1,61 @@
+NAFC.101.desc;A storm has snuffed the eternal flame in a provincial temple. The Fire Sages call it an omen, while a local general eyes the temple's stores. The temple's doors stand open, and the general has already posted guards at the granary.;;;;;;;;;x
+NAFC.101.a;Restore the flame with your own hands.;;;;;;;;;x
+NAFC.101.b;Seize the temple's stores for the army.;;;;;;;;;x
+NAFC.101.c;Broker a compromise between temple and garrison.;;;;;;;;;x
+NAFC.102.desc;A general proposes a punitive campaign against raiders on the frontier. A Fire Sage warns that the spirits are restless and urges a rite of purification instead. The general has already called his captains. The Fire Sage is waiting with the censer.;;;;;;;;;x
+NAFC.102.a;Authorize the campaign.;;;;;;;;;x
+NAFC.102.b;Hold the rite and send aid instead.;;;;;;;;;x
+NAFC.102.c;Send a small force and let the temples bless it.;;;;;;;;;x
+NAFC.103.desc;A Sun Warrior envoy arrives with a relic from the old dragon-hunting days. Some courtiers see a symbol of national destiny, while the sages see a trust that must be honored. The envoy has set the relic on the table between you.;;;;;;;;;x
+NAFC.103.a;Claim the relic as a symbol of the nation's destiny.;;;;;;;;;x
+NAFC.103.b;Return the relic to the temple.;;;;;;;;;x
+NAFC.103.c;Share the relic with the Sun Warriors and the sages.;;;;;;;;;x
+NAFC.103.d;Seal the relic away.;;;;;;;;;x
+NAFC.201.desc;The moon rises blood-red over the ice, and the tide fails in the harbor. Your waterbenders feel their bending gutter like a candle in the wind. The Water Sages say the Moon Spirit has turned its face away, while the hunters whisper that something beneath the ice has swallowed the light. The hunters have stopped talking. The sages are watching the sky.;;;;;;;;;x
+NAFC.201.a;Keep the old rites and call the Moon Spirit home.;;;;;;;;;x
+NAFC.201.b;Lead the waterbenders to the shore and raise a great tide.;;;;;;;;;x
+NAFC.201.c;Feed the tribe, mend the nets, and wait for dawn.;;;;;;;;;x
+NAFC.202.desc;A crack opens in the sea ice beyond the village. From the black water comes a voice like grinding floes: a spirit is bound in a harpoon of black iron, and its pain is pulling the moon from the sky. The sages demand a rite, your captains demand a guard, and the healers say the voice is not angry but afraid.;;;;;;;;;x
+NAFC.202.a;Dive into the black water with a rope and a blade.;;;;;;;;;x
+NAFC.202.b;Summon every waterbender to purify the crack.;;;;;;;;;x
+NAFC.202.c;Seal the crack with ice and post guards over it.;;;;;;;;;x
+NAFC.203.desc;The black water stills. The moon returns, and the tide comes back with it. A ribbon of light lies on the water, and the ice sings when the wind crosses it. The sages argue over what it means. The hunters will not go out.;;;;;;;;;x
+NAFC.203.a;Accept the Moon Spirit's blessing.;;;;;;;;;x
+NAFC.203.b;Bind the blessing to the tribe's healers.;;;;;;;;;x
+NAFC.203.c;Turn the tide into a weapon.;;;;;;;;;x
+NAFC.203.d;Let the sages keep the omen and say nothing more.;;;;;;;;;x
+NAFC.301.desc;The wells in the lower valley have turned to mud, and the rice terraces are cracking. The village elders say the ground has been uneasy since the new shaft was sunk. Your earthbenders can feel something moving beneath the stone, but none will name it. The harvest is three weeks away.;;;;;;;;;x
+NAFC.301.a;Order the earthbenders to sink a new shaft.;;;;;;;;;x
+NAFC.301.b;Call the Earth Sages to read the ground.;;;;;;;;;x
+NAFC.301.c;Shore up the old wells before the harvest.;;;;;;;;;x
+NAFC.302.desc;The work breaks into a hollow chamber. The air is cool and smells of wet clay. In the center, a ring of old stones circles a spring of black water. The earthbenders say it is the village's true well, and that something has been sleeping in it since before the village had a name. The Earth Sages warn that the spring is a spirit's bed, not a cistern.;;;;;;;;;x
+NAFC.302.a;Seal the chamber and sink a new well outside the ring.;;;;;;;;;x
+NAFC.302.b;Break the stone ring and draw the black water.;;;;;;;;;x
+NAFC.302.c;Hold a rite and ask the spirit to share the spring.;;;;;;;;;x
+NAFC.303.desc.seal;The new well comes in clean. The chamber is sealed, but at night the village can hear water moving behind the stone. The Earth Sages say the spirit is awake, not angry. The harvest will be saved, if the wells hold.;;;;;;;;;x
+NAFC.303.desc.break;The black water runs clear by noon, and the terraces drink. But the earthbenders who broke the ring will not go near the shaft, and the Earth Sages have left their blessings at the door. The village has water, and a debt it does not understand.;;;;;;;;;x
+NAFC.303.desc.rite;The spring rises gently and fills the old channels. The Earth Sages mark the stones with green clay and name the spring a shrine. The village brings the first sheaf of rice to the water, and the ground is quiet.;;;;;;;;;x
+NAFC.303.desc.default;The ground settles, and the wells fill. The village credits the Earth Sages, the earthbenders, or luck. No one agrees on which.;;;;;;;;;x
+NAFC.303.a;Keep the spring sealed and share the new well.;;;;;;;;;x
+NAFC.303.b;Claim the spring for the village and post guards.;;;;;;;;;x
+NAFC.303.c;Make the spring a shrine and let the Earth Sages tend it.;;;;;;;;;x
+NAFC.303.d;Let the elders keep the peace and return to your court.;;;;;;;;;x
+NAFC.401.desc;The great storm has been building over the eastern peak for three days. The temple's elders say it will break before dawn, and that the mountain has not seen its like in a generation. Your airbenders can meet it in the open sky, but a storm that size will not be argued with for long.;;;;;;;;;x
+NAFC.401.a;Send the airbenders to break the storm over the empty peak.;;;;;;;;;x
+NAFC.401.b;Guide the storm away from the temple and let it spend itself on the plains.;;;;;;;;;x
+NAFC.401.c;Send the young airbenders to warn the villages below.;;;;;;;;;x
+NAFC.402.desc.break;The airbenders broke the first wall of the storm, but the wind has turned toward the valley village. They are spent, and the temple's roofs are cracking.;;;;;;;;;x
+NAFC.402.desc.guide;The airbenders kept the storm on the plains through the night. Now it has turned toward the valley village, and they are too far from the temple to do both.;;;;;;;;;x
+NAFC.402.desc.warn;The young airbenders have warned the valley village. The people have moved their grain and animals, but the storm is turning toward their homes, and the temple's roofs are cracking.;;;;;;;;;x
+NAFC.402.desc.default;The storm turns toward the valley village. The airbenders are spent, and the temple's roofs are cracking.;;;;;;;;;x
+NAFC.402.a;Send every airbender to save the village.;;;;;;;;;x
+NAFC.402.b;Keep them at the temple and save the temple.;;;;;;;;;x
+NAFC.402.c;Split them between the village and the temple.;;;;;;;;;x
+NAFC.403.desc.village;The village is saved. The temple's eastern roof is gone, and the library is wet. The villagers bring what they can spare, and the elders say the Air Nomads have done what they were taught.;;;;;;;;;x
+NAFC.403.desc.temple;The temple stands. The village below is mud and broken roofs. The survivors come to the gate, and the elders will not meet their eyes.;;;;;;;;;x
+NAFC.403.desc.split;Both stand, neither whole. The village lost its granary, and the temple lost its eastern wing. The elders say the wind chose no side.;;;;;;;;;x
+NAFC.403.desc.default;The storm passes. The temple and the village count what remains.;;;;;;;;;x
+NAFC.403.a;Open the temple to the villagers and rebuild together.;;;;;;;;;x
+NAFC.403.b;Close the gates and repair the temple first.;;;;;;;;;x
+NAFC.403.c;Share the stores and rebuild both.;;;;;;;;;x
+NAFC.403.d;Thank the elders and return to your duties.;;;;;;;;;x

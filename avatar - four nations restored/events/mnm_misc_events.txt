@@ -96,6 +96,74 @@ character_event = {
 
 				random_list = {
 					700 = { } # Fall back dead weight
+					100 = { # waterbending_order
+						trigger = {
+							can_join_society = waterbending_order
+						}
+						modifier = {
+							factor = 3
+							trait = competent_bender
+						}
+						modifier = {
+							factor = 5
+							trait = powerful_bender
+						}
+						modifier = {
+							factor = 4
+							waterbending_order = { num_of_society_members < 25 }
+						}
+						modifier = {
+							factor = 4
+							waterbending_order = { num_of_society_members < 15 }
+						}
+						join_society = waterbending_order
+						if = {
+							limit = {
+								NOT = {
+									society = {
+										any_society_member = {
+											is_society_grandmaster = yes
+										}
+									}
+								}
+							}
+							set_society_grandmaster = yes
+						}
+					}
+					100 = { # earthbending_order
+						trigger = {
+							can_join_society = earthbending_order
+						}
+						modifier = {
+							factor = 3
+							trait = competent_bender
+						}
+						modifier = {
+							factor = 5
+							trait = powerful_bender
+						}
+						modifier = {
+							factor = 4
+							earthbending_order = { num_of_society_members < 25 }
+						}
+						modifier = {
+							factor = 4
+							earthbending_order = { num_of_society_members < 15 }
+						}
+						join_society = earthbending_order
+						if = {
+							limit = {
+								NOT = {
+									society = {
+										any_society_member = {
+											is_society_grandmaster = yes
+										}
+									}
+								}
+							}
+							set_society_grandmaster = yes
+						}
+					}
 					100 = {
 						trigger = {
                             can_join_society = five_seven_fiver_society

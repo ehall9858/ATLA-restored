@@ -1,0 +1,487 @@
+decisions = {
+
+	wbo_practice = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = waterbending_order
+			society_rank >= 1
+			OR = {
+				NOT = { has_character_flag = wbo_practice_done }
+				had_character_flag = { flag = wbo_practice_done days = 365 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			has_society_currency_tiny_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_tiny_effect = yes
+			piety = 10
+			add_character_modifier = { name = wbo_focus duration = 365 }
+			set_character_flag = wbo_practice_done
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
+	}
+
+	wbo_meditate = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = waterbending_order
+			society_rank >= 2
+			OR = {
+				NOT = { has_character_flag = wbo_meditate_done }
+				had_character_flag = { flag = wbo_meditate_done days = 730 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			has_society_currency_minor_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_minor_effect = yes
+			piety = 30
+			add_character_modifier = { name = wbo_serenity duration = 730 }
+			set_character_flag = wbo_meditate_done
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
+	}
+
+	wbo_teach = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = waterbending_order
+			society_rank >= 3
+			OR = {
+				NOT = { has_character_flag = wbo_teach_done }
+				had_character_flag = { flag = wbo_teach_done days = 1095 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			has_society_currency_medium_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_medium_effect = yes
+			prestige = 40
+			piety = 20
+			add_character_modifier = { name = wbo_renown duration = 1095 }
+			set_character_flag = wbo_teach_done
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
+	}
+
+	wbo_convene = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = waterbending_order
+			society_rank >= 4
+			OR = {
+				NOT = { has_character_flag = wbo_convene_done }
+				had_character_flag = { flag = wbo_convene_done days = 1825 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			has_society_currency_major_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_major_effect = yes
+			prestige = 100
+			piety = 60
+			add_character_modifier = { name = wbo_gathering duration = 1825 }
+			set_character_flag = wbo_convene_done
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
+	}
+
+	ebo_practice = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = earthbending_order
+			society_rank >= 1
+			OR = {
+				NOT = { has_character_flag = ebo_practice_done }
+				had_character_flag = { flag = ebo_practice_done days = 365 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			has_society_currency_tiny_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_tiny_effect = yes
+			piety = 10
+			add_character_modifier = { name = ebo_focus duration = 365 }
+			set_character_flag = ebo_practice_done
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
+	}
+
+	ebo_meditate = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = earthbending_order
+			society_rank >= 2
+			OR = {
+				NOT = { has_character_flag = ebo_meditate_done }
+				had_character_flag = { flag = ebo_meditate_done days = 730 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			has_society_currency_minor_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_minor_effect = yes
+			piety = 30
+			add_character_modifier = { name = ebo_serenity duration = 730 }
+			set_character_flag = ebo_meditate_done
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
+	}
+
+	ebo_teach = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = earthbending_order
+			society_rank >= 3
+			OR = {
+				NOT = { has_character_flag = ebo_teach_done }
+				had_character_flag = { flag = ebo_teach_done days = 1095 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			has_society_currency_medium_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_medium_effect = yes
+			prestige = 40
+			piety = 20
+			add_character_modifier = { name = ebo_renown duration = 1095 }
+			set_character_flag = ebo_teach_done
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
+	}
+
+	ebo_convene = {
+		ai_check_interval = 12
+		is_high_prio = yes
+		only_playable = yes
+
+		potential = {
+			society_member_of = earthbending_order
+			society_rank >= 4
+			OR = {
+				NOT = { has_character_flag = ebo_convene_done }
+				had_character_flag = { flag = ebo_convene_done days = 1825 }
+			}
+		}
+
+		allow = {
+			prisoner = no
+			NOT = { trait = incapable }
+			has_society_currency_major_trigger = yes
+		}
+
+		effect = {
+			detract_society_currency_major_effect = yes
+			prestige = 100
+			piety = 60
+			add_character_modifier = { name = ebo_gathering duration = 1825 }
+			set_character_flag = ebo_convene_done
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
+		}
+	}
+
+}

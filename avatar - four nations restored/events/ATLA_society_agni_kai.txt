@@ -6780,7 +6780,10 @@ character_event = {
 					trait = legendary_bender
 					AND = {
 						trait = master_bender
+						OR = {
+							trait = fullyrealisedavatar
 						trait = avatar
+						}
 					}
 				}
 			}
@@ -8177,8 +8180,9 @@ character_event = {
 			limit = {
 				trait = powerful_bender
 			}
-			remove_trait = powerful_bender 
-			add_trait = master_bender
+			try_become_master_bender_effect = yes
+			# The grandmasters push a rare bender past the rank itself.
+			try_become_legendary_bender_effect = yes
 		}
 		if = {
 			limit = {
@@ -9176,9 +9180,11 @@ character_event = {
 			limit = {
 				OR = {
 					trait = legendary_bender
-					AND = {
-						trait = master_bender
+               AND = {trait = master_bender
+                  OR = {
+                     trait = fullyrealisedavatar
 						trait = avatar
+                  }
 					}
 				}
 			}
@@ -9204,8 +9210,9 @@ character_event = {
 			limit = {
 				trait = powerful_bender
 			}
-			remove_trait = powerful_bender 
-			add_trait = master_bender
+			try_become_master_bender_effect = yes
+			# The grandmasters push a rare bender past the rank itself.
+			try_become_legendary_bender_effect = yes
 		}
 		if = {
 			limit = {
@@ -10681,6 +10688,10 @@ character_event = {
 					trait = legendary_bender
 					AND = {
 						trait = avatar
+						trait = master_bender
+					}
+					AND = {
+						trait = fullyrealisedavatar
 						trait = master_bender
 					}
 				}

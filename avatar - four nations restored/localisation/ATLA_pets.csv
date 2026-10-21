@@ -38,27 +38,27 @@ petPolarBearDog_desc;The Polar Bear Dog has been hunted by both the Northern and
 petCatDeer;Cat Deer;;;;;;;;;;;;x
 petCatDeer_desc;An animal that originated from the Spirit Wilds, not many are seen today. Considered extinct, having one is a true sight to see.;;;;;;;;;;;;x
 
-PET.1.D;Every animal, great and small, can make for an appropriate pet - but only a few are fit for a ruler such as myself. What kind of pet am I looking for?;;;;;;;;;;;;x
-PET.1.OPTA;Something normal;;;;;;;;;;;;x
-PET.1.OPTB;Something regional;;;;;;;;;;;;x
-PET.1.OPTC;Something truly rare;;;;;;;;;;;;x
-PET.1.OPTD;Actually, I don't want a pet right now;;;;;;;;;;;;x
-PET.2.D;One can't go wrong with a cat or a dog. They're the most classic companions of mankind for a reason! But an ostrich-horse can be just as fast a friend, if one raises it right.;;;;;;;;;;;;x
-PET.2.OPTA;I'll take a cat;;;;;;;;;;;;x
-PET.2.OPTB;I'll take a dog;;;;;;;;;;;;x
-PET.2.OPTC;I'll take an ostrich-horse;;;;;;;;;;;;x
-PET.2.OPTD;On second thought...;;;;;;;;;;;;x
-PET.3.D;There are so many strange and wonderful creatures through the world! But a ruler doesn't have time to keep a managerie. I'll have to content myself with...;;;;;;;;;;;;x
-PET.3.OPTA;A local specialty;;;;;;;;;;;;x
-PET.3.OPTB;An Arctic Camel;;;;;;;;;;;;x
-PET.3.OPTC;A Sky Bison, if I can find one;;;;;;;;;;;;x
-PET.3.OPTD;On second thought...;;;;;;;;;;;;x
-PET.4.D;There are legendary creatures through out the world. Those thought extinct, those thought unreal, and those thought untameable. If I could claim one as my pet, they could make for a valuable and trusted friend. Not to mention how impressive it would be! It will take a great deal of time and money, of course.;;;;;;;;;;;;x
-PET.4.OPTA;I'll find the extinct Cat-Deer!;;;;;;;;;;;;x
-PET.4.OPTB;I'll seek out an ordinary Bear!;;;;;;;;;;;;x
-PET.4.OPTC;I'll tame a mighty Dragon!;;;;;;;;;;;;x
-PET.4.OPTD;On second thought...;;;;;;;;;;;;x
-PETS_RARE_TT;You will begin the search for your legendary animal! It will take at least a few months, and could take years, assuming you ever find one. You'll be able to cancel your search if you want to, periodically.;;;;;;;;;;;;x
+PETS.1.D;Every animal, great and small, can make for an appropriate pet, but only a few are fit for a ruler such as myself. What kind of pet am I looking for?;;;;;;;;;;;;x
+PETS.1.OPTA;Something normal;;;;;;;;;;;;x
+PETS.1.OPTB;Something regional;;;;;;;;;;;;x
+PETS.1.OPTC;Something truly rare;;;;;;;;;;;;x
+PETS.1.OPTD;Actually, I don't want a pet right now;;;;;;;;;;;;x
+PETS.2.D;One can't go wrong with a cat or a dog. They're the most classic companions of mankind for a reason! But an ostrich-horse can be just as fast a friend, if one raises it right.;;;;;;;;;;;;x
+PETS.2.OPTA;I'll take a cat;;;;;;;;;;;;x
+PETS.2.OPTB;I'll take a dog;;;;;;;;;;;;x
+PETS.2.OPTC;I'll take an ostrich-horse;;;;;;;;;;;;x
+PETS.2.OPTD;On second thought...;;;;;;;;;;;;x
+PETS.3.D;There are so many strange and wonderful creatures through the world! But a ruler doesn't have time to keep a managerie. I'll have to content myself with...;;;;;;;;;;;;x
+PETS.3.OPTA;A local specialty;;;;;;;;;;;;x
+PETS.3.OPTB;An Arctic Camel;;;;;;;;;;;;x
+PETS.3.OPTC;A Sky Bison, if I can find one;;;;;;;;;;;;x
+PETS.3.OPTD;On second thought...;;;;;;;;;;;;x
+PETS.4.D;There are legendary creatures through out the world. Those thought extinct, those thought unreal, and those thought untameable. If I could claim one as my pet, they could make for a valuable and trusted friend. Not to mention how impressive it would be! It will take a great deal of time and money, of course.;;;;;;;;;;;;x
+PETS.4.OPTA;I'll find the extinct Cat-Deer!;;;;;;;;;;;;x
+PETS.4.OPTB;I'll seek out an ordinary Bear!;;;;;;;;;;;;x
+PETS.4.OPTC;I'll tame a mighty Dragon!;;;;;;;;;;;;x
+PETS.4.OPTD;On second thought...;;;;;;;;;;;;x
+PETS.RARE.TT;You will begin the search for your legendary animal! It will take at least a few months, and could take years, assuming you ever find one. You'll be able to cancel your search if you want to, periodically.;;;;;;;;;;;;x
 PETS.6.D;My search for a legendary pet is still proving fruitless. Is it worth carrying on?;;;;;;;;;;;;x
 PETS.6.OPTA;I'll keep up the search;;;;;;;;;;;;x
 PETS.6.OPTB;I should stop while I can, and recoup some costs;;;;;;;;;;;;x
@@ -76,3 +76,35 @@ PETS.9.OPTE;A state funeral for my companion;;;;;;;;;;;;x
 go_to_pet_shop_decision;Go to a Pet Shop;;;;;;;;;;;;x
 go_to_pet_shop_decision_desc;Go shopping for a pet;;;;;;;;;;;;x
 PET_SHOP_TT;Cannot be currently looking for a pet;;;;;;;;;;;;x
+petPlatypusBear;Platypus Bear;;;;;;;;;;;;x
+petPlatypusBear_desc;A sturdy Earth Kingdom hybrid known for its strength and stubborn temperament.;;;;;;;;;;;;x
+
+petSaberToothMooseLion;Saber-tooth Moose Lion;;;;;;;;;;;;x
+petSaberToothMooseLion_desc;A powerful predator with enormous antlers and saber-like fangs.;;;;;;;;;;;;x
+
+petBoarQPine;Boar-q-pine;;;;;;;;;;;;x
+petBoarQPine_desc;A prickly, tusked forest creature that is difficult to approach.;;;;;;;;;;;;x
+
+petShirshu;Shirshu;;;;;;;;;;;;x
+petShirshu_desc;A huge, keen-scented creature whose tongue can paralyze its prey.;;;;;;;;;;;;x
+
+petBadgermole;Badgermole;;;;;;;;;;;;x
+petBadgermole_desc;A powerful burrowing animal known for sensing vibrations through the earth.;;;;;;;;;;;;x
+PETS.EK.PlatypusBear;I want a Platypus Bear;;;;;;;;;;;;x
+PETS.EK.SaberToothMooseLion;I want a Saber-tooth Moose Lion;;;;;;;;;;;;x
+PETS.EK.BoarQPine;I want a Boar-q-pine;;;;;;;;;;;;x
+PETS.EK.Shirshu;I want a Shirshu;;;;;;;;;;;;x
+PETS.EK.Badgermole;I want a Badgermole;;;;;;;;;;;;x
+
+petMongooseLizard;Mongoose Lizard;;;;;;;;;;;;x
+petMongooseLizard_desc;A quick, sharp-eyed reptilian companion native to the Fire Nation.;;;;;;;;;;;;x
+petDragonMoose;Dragon Moose;;;;;;;;;;;;x
+petDragonMoose_desc;A formidable antlered beast with a dark mane and powerful build.;;;;;;;;;;;;x
+petCatMonkey;Cat Monkey;;;;;;;;;;;;x
+petCatMonkey_desc;A clever, agile companion with a feline face and nimble limbs.;;;;;;;;;;;;x
+petElephantRat;Elephant Rat;;;;;;;;;;;;x
+petElephantRat_desc;A large-eared, long-tailed creature that makes an unusual but loyal companion.;;;;;;;;;;;;x
+PETS.FIRE.MongooseLizard;I want a Mongoose Lizard;;;;;;;;;;;;x
+PETS.FIRE.DragonMoose;I want a Dragon Moose;;;;;;;;;;;;x
+PETS.SHARED.CatMonkey;I want a Cat Monkey;;;;;;;;;;;;x
+PETS.SHARED.ElephantRat;I want an Elephant Rat;;;;;;;;;;;;x

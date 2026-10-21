@@ -1,0 +1,280 @@
+namespace = NAFE
+
+# Small, repeatable nation-flavor events. These deliberately use no canon characters.
+
+character_event = {
+	id = NAFE.1
+	desc = NAFE.1.desc
+	picture = GFX_evt_landscape_2
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		OR = { culture = northern_water_culture culture = southern_water_culture }
+	}
+	option = {
+		name = NAFE.1.a
+		change_stewardship = 1
+		prestige = 10
+	}
+	option = {
+		name = NAFE.1.b
+		prestige = 20
+		piety = 5
+	}
+}
+
+character_event = {
+	id = NAFE.2
+	desc = NAFE.2.desc
+	picture = GFX_evt_firebenders_fight
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = fire_nation_cultures
+	}
+	option = {
+		name = NAFE.2.a
+		prestige = 15
+		change_martial = 1
+	}
+	option = {
+		name = NAFE.2.b
+		scaled_wealth = { value = -0.25 min = -30 }
+		prestige = 30
+	}
+}
+
+character_event = {
+	id = NAFE.3
+	desc = NAFE.3.desc
+	picture = GFX_evt_chinese_bureaucrat
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = earth_kingdom_cultures
+	}
+	option = {
+		name = NAFE.3.a
+		change_stewardship = 1
+		prestige = 10
+	}
+	option = {
+		name = NAFE.3.b
+		prestige = 20
+		piety = 5
+	}
+}
+
+character_event = {
+	id = NAFE.4
+	desc = NAFE.4.desc
+	picture = GFX_evt_landscape_2
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = air_nomad_cultures
+	}
+	option = {
+		name = NAFE.4.a
+		change_learning = 1
+		piety = 15
+	}
+	option = {
+		name = NAFE.4.b
+		piety = 25
+		prestige = 10
+	}
+}
+
+# Additional nation-specific flavor events. No canon characters are referenced.
+character_event = {
+	id = NAFE.5
+	desc = NAFE.5.desc
+	picture = GFX_evt_landscape_2
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		OR = { culture = northern_water_culture culture = southern_water_culture }
+	}
+	option = {
+		name = NAFE.5.a
+		change_stewardship = 1
+		prestige = 10
+	}
+	option = {
+		name = NAFE.5.b
+		piety = 10
+		prestige = 10
+	}
+}
+
+character_event = {
+	id = NAFE.6
+	desc = NAFE.6.desc
+	picture = GFX_evt_battle
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = fire_nation_cultures
+	}
+	option = {
+		name = NAFE.6.a
+		change_martial = 1
+		prestige = 10
+	}
+	option = {
+		name = NAFE.6.b
+		prestige = 20
+		piety = 5
+	}
+}
+
+character_event = {
+	id = NAFE.7
+	desc = NAFE.7.desc
+	picture = GFX_evt_landscape_2
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = earth_kingdom_cultures
+	}
+	option = {
+		name = NAFE.7.a
+		change_stewardship = 1
+		prestige = 10
+	}
+	option = {
+		name = NAFE.7.b
+		scaled_wealth = { value = -0.10 min = -20 }
+		prestige = 20
+	}
+}
+
+character_event = {
+	id = NAFE.8
+	desc = NAFE.8.desc
+	picture = GFX_evt_monk
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = air_nomad_cultures
+	}
+	option = {
+		name = NAFE.8.a
+		change_learning = 1
+		piety = 10
+	}
+	option = {
+		name = NAFE.8.b
+		piety = 20
+		prestige = 10
+	}
+}
+
+character_event = {
+	id = NAFE.9
+	desc = NAFE.9.desc
+	picture = GFX_evt_landscape_2
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		OR = { culture = northern_water_culture culture = southern_water_culture }
+	}
+	option = {
+		name = NAFE.9.a
+		change_diplomacy = 1
+		prestige = 10
+	}
+	option = {
+		name = NAFE.9.b
+		piety = 15
+	}
+}
+
+character_event = {
+	id = NAFE.10
+	desc = NAFE.10.desc
+	picture = GFX_evt_feast
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = fire_nation_cultures
+	}
+	option = {
+		name = NAFE.10.a
+		change_diplomacy = 1
+		prestige = 10
+	}
+	option = {
+		name = NAFE.10.b
+		scaled_wealth = { value = -0.10 min = -20 }
+		prestige = 20
+	}
+}
+
+character_event = {
+	id = NAFE.11
+	desc = NAFE.11.desc
+	picture = GFX_evt_chinese_bureaucrat
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = earth_kingdom_cultures
+	}
+	option = {
+		name = NAFE.11.a
+		change_diplomacy = 1
+		prestige = 10
+	}
+	option = {
+		name = NAFE.11.b
+		change_stewardship = 1
+		prestige = 5
+	}
+}
+
+character_event = {
+	id = NAFE.12
+	desc = NAFE.12.desc
+	picture = GFX_evt_monk
+	is_triggered_only = yes
+	only_playable = yes
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		culture_group = air_nomad_cultures
+	}
+	option = {
+		name = NAFE.12.a
+		change_learning = 1
+		piety = 10
+	}
+	option = {
+		name = NAFE.12.b
+		prestige = 15
+		piety = 5
+	}
+}
+

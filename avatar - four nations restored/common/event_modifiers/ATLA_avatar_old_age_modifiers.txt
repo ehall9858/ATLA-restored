@@ -1,0 +1,32 @@
+# Avatar old age - the health decay that lets an Avatar finally die.
+#
+# The avatar / fullyrealisedavatar traits carry health = 20.0 each, which in
+# practice made every Avatar immortal: they outlived their children, their
+# grandchildren, and the game's own mortality, and the map was full of
+# hundred-year-old Avatars.
+#
+# These modifiers are applied by events/ATLA_avatar_old_age_events.txt stage by
+# stage (60, 70, 80, 90) so the years do their work again. Cumulative penalty
+# by 90: -29 health, which offsets the Avatar's +20 and then some.
+#
+# Used by: events/ATLA_avatar_old_age_events.txt (avatar_oldage.1)
+
+avatar_age_early_decline = { # 60 - the first cold mornings
+	icon = 19
+	health = -2
+}
+
+avatar_age_deepening = { # 70 - the body begins to argue
+	icon = 19
+	health = -5
+}
+
+avatar_age_frail = { # 80 - the frame grows thin
+	icon = 19
+	health = -8
+}
+
+avatar_age_ancient = { # 90 - the cycle stands close
+	icon = 19
+	health = -14
+}

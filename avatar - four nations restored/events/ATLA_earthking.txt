@@ -105,6 +105,7 @@ character_event = {
 		OR = {
 			trait = earthkingpuppet
 			trait = earthking
+			trait = earthkingconstitution
 		}
 		OR = {
 			AND = {
@@ -125,41 +126,178 @@ character_event = {
 	option = {
 		remove_trait = earthkingpuppet
 		remove_trait = earthking
+		remove_trait = earthkingconstitution
 		remove_character_modifier = supporting_the_earth_kingdom
 	}
 }
 
-# character_event = { # Dai Li retake control
-	# id = earthking.3
-	# desc = "EVTDESCEK.3"
-	# is_triggered_only = yes
-	# picture = "GFX_evt_dai_li_3"
-	# hide_window = no
-	
-	# option = {
-		# name = EVTOPTEK.3
-		# clr_global_flag = earthking_in_power
-		# clr_global_flag = restoration_ambition
-		# clr_global_flag = restoration_ambition_0
-		# clr_global_flag = restoration_ambition_1
-		# clr_global_flag = restoration_ambition_2
-		# clr_global_flag = restoration_ambition_3
-		# clr_global_flag = restoration_ambition_4
-		# clr_global_flag = restoration_ambition_5
-		# remove_trait = earthking
-		# add_trait = earthkingpuppet
-		# regent = {
-			# remove_title = title_regent
-		# }
-		# d_dai_li = {
-			# holder_scope = {
-				# give_minor_title = title_appointed_regent
-				# give_job_title = job_spymaster
-				# set_defacto_liege = ROOT
-			# }
-		# }
-	# }
-# }
+# The Dai Li retake control - the mirror of the restoration chain (ATLAE.245).
+#
+# Fires from the yearly pulse while the Grand Secretariat still has a leader
+# and the crown looks weak enough to be taken back. Submit, and the King is a
+# figurehead for the rest of his reign; the trigger can no longer be met, and
+# his heirs are puppets again by default. Defy them and win, and the Dai Li
+# are broken for good.
+character_event = {
+	id = earthking.3
+	desc = "EVTDESCEK.3"
+	picture = "GFX_evt_dai_li_3"
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		OR = {
+			has_landed_title = e_earth_kingdom
+			has_landed_title = k_earth_kingdom
+		}
+		independent = yes
+		OR = {
+			trait = earthking
+			trait = earthkingconstitution
+		}
+		# The Dai Li have to still be standing to make a move.
+		is_title_active = d_dai_li
+		d_dai_li = {
+			has_holder = yes
+		}
+		NOT = { d_dai_li = { holder_scope = { character = ROOT } } }
+		# And the crown has to look worth taking.
+		OR = {
+			is_adult = no
+			trait = incapable
+			trait = imbecile
+			check_variable = { which = global_royalAuthority value <= -25 }
+			AND = {
+				stewardship <= 6
+				diplomacy <= 6
+			}
+			AND = {
+				OR = {
+					stewardship <= 4
+					diplomacy <= 4
+					intrigue <= 4
+				}
+				d_dai_li = {
+					holder_scope = { intrigue = 15 }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		d_dai_li = {
+			holder_scope = { save_event_target_as = dai_li_chief }
+		}
+	}
+
+	# Submit to the court
+	option = {
+		name = EVTOPTEK.3
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 3
+				OR = {
+					is_adult = no
+					trait = incapable
+					trait = imbecile
+				}
+			}
+			modifier = {
+				factor = 2
+				AND = {
+					stewardship <= 4
+					diplomacy <= 4
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = brave
+					trait = proud
+					trait = stubborn
+				}
+			}
+		}
+		make_earth_king_a_puppet_effect = yes
+		prestige = -50
+		hidden_tooltip = {
+			event_target:dai_li_chief = { prestige = 100 }
+		}
+	}
+
+	# Defy them
+	option = {
+		name = EVTOPTB_EK.3
+		custom_tooltip = { text = EVTOPTB_EK.3_TOOLTIP }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 3
+				is_adult = yes
+				OR = {
+					martial = 12
+					intrigue = 12
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = brave
+					trait = proud
+					trait = stubborn
+				}
+			}
+			modifier = {
+				factor = 0.25
+				OR = {
+					trait = craven
+					trait = content
+				}
+			}
+		}
+		random_list = {
+			55 = {
+				modifier = {
+					factor = 1.5
+					is_adult = yes
+					intrigue = 8
+				}
+				modifier = {
+					factor = 0.5
+					is_adult = no
+				}
+				# The Dai Li are broken in the attempt
+				event_target:dai_li_chief = {
+					death = { death_reason = death_execution_hanging killer = ROOT }
+				}
+				d_dai_li = {
+					destroy_landed_title = THIS
+				}
+				activate_title = { title = d_dai_li status = no }
+				set_global_flag = dai_li_disbanded
+				prestige = 150
+				piety = 50
+				change_variable = { which = global_royalAuthority value = 25 }
+			}
+			45 = {
+				modifier = {
+					factor = 2
+					OR = {
+						trait = incapable
+						trait = imbecile
+					}
+				}
+				# The Grand Secretariat prevails anyway
+				make_earth_king_a_puppet_effect = yes
+				prestige = -100
+				hidden_tooltip = {
+					event_target:dai_li_chief = { prestige = 100 }
+				}
+			}
+		}
+	}
+}
 
 # Noble complains of Banditry
 character_event = {

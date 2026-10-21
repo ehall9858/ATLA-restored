@@ -1,0 +1,22 @@
+namespace = team_avatar
+
+# Children sent to travel with the Avatar become Former Team Avatar as adults
+character_event = {
+	id = team_avatar.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		trait = team_avatar
+		age = 18
+		# Only the children rulers sent to the Avatar (the send_child_to_avatar
+		# decision) grow out of the trait at adulthood. Adults who answered the
+		# Avatar's own invitation keep it until the Avatar dies (atla_team.30).
+		has_character_flag = sent_to_avatar
+	}
+
+	immediate = {
+		remove_trait = team_avatar
+		add_trait = former_team_avatar
+	}
+}

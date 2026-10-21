@@ -1,0 +1,6 @@
+# A villain who has submitted or accepted the Avatar's mercy. Blocks a fresh
+# declaration for as long as it lasts, so a submitting villain cannot be
+# declared again the same day for another purse of prestige.
+villain_reprieved = {
+	icon = 1
+}

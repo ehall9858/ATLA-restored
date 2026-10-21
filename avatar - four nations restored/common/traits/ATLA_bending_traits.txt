@@ -67,7 +67,7 @@ legendary_bender = { #True prodigies like Azula, Ozai or Toph - above and beyond
 		powerful_bender
 		master_bender
 		avatar
-		fully_realised_avatar
+		fullyrealisedavatar
 	}
 	combat_rating = 100
 	command_modifier = {
@@ -142,7 +142,7 @@ avatar_waterbender = {
 	
 	opposites = {
 		waterbender
-		fully_realised_avatar
+		fullyrealisedavatar
 	}
 	
 	water_religions_opinion = 20
@@ -163,7 +163,7 @@ avatar_earthbender = {
 	
 	opposites = {
 		earthbender
-		fully_realised_avatar
+		fullyrealisedavatar
 	}
 	
 	earth_religions_opinion = 20
@@ -184,7 +184,7 @@ avatar_firebender = {
 	
 	opposites = {
 		firebender
-		fully_realised_avatar
+		fullyrealisedavatar
 	}
 	
 	fire_religions_opinion = 20
@@ -206,7 +206,7 @@ avatar_airbender = {
 	
 	opposites = {
 		airbender
-		fully_realised_avatar
+		fullyrealisedavatar
 	}
 	
 	air_religions_opinion = 20

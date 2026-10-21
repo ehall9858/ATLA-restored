@@ -50,7 +50,7 @@ is_specialist_bender_trigger = {
 is_great_fire_duelist_trigger = {
 	OR = {
 		trait = avatar_firebender
-		trait = fully_realised_avatar
+		trait = fullyrealisedavatar
 		trait = firelord
 		trait = lightningbender
 		trait = master_bender
@@ -328,5 +328,51 @@ fire_island_trade_post_trigger = {
 				province_id = 70 #Jooshima
 			}
 		}
+	}
+}
+
+# Single source of truth for "this ruler can be named a Villain of the world".
+# Used by the yearly warning (avatar_villain.1) and the denounce_villain
+# decision, so the two can never drift apart. ROOT must be the candidate.
+is_villain_candidate_trigger = {
+	is_landed = yes
+	is_adult = yes
+	NOT = { trait = villain }
+	NOT = { has_character_modifier = villain_reprieved }
+	OR = {
+		any_realm_province = {
+			OR = {
+				has_province_modifier = colony_1
+				has_province_modifier = colony_2
+				has_province_modifier = colony_3
+			}
+		}
+		AND = {
+			NOR = { culture_group = earth_kingdom_cultures }
+			any_realm_province = { region = world_greater_earth_kingdom }
+		}
+		AND = {
+			NOR = { culture_group = air_nomad_cultures }
+			any_realm_province = { region = world_air_temples }
+		}
+		trait = kinslayer
+		trait = conqueror
+		trait = tyrannical
+		trait = irredeemable
+		trait = warlord_of_chin
+		AND = {
+			is_hostile_to_avatar_trigger = yes
+			realm_size >= 25
+		}
+	}
+}
+
+# Interference cooldown gate. Lives in the decisions' allow blocks so the
+# interference options stay visible (and explain themselves) while the
+# cooldown runs, instead of vanishing from the menu entirely.
+can_use_avatar_interference_trigger = {
+	custom_tooltip = {
+		text = avatar_interfere_cooldown_tt
+		NOT = { has_character_modifier = avatar_interfere_cooldown }
 	}
 }

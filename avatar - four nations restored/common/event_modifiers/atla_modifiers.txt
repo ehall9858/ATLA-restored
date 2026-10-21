@@ -354,6 +354,11 @@ chin_fall_modifier = {
 	icon = 31
 }
 
+condemned_by_avatar = {
+	icon = 21
+	diplomacy = -1
+}
+
 royal_army_decay_overgrowth = {
 	icon = 19
 	levy_reinforce_rate = -0.25
@@ -720,6 +725,8 @@ angry_serpent = {
 }
 
 ##Avatar System modifiers##
+# Carried over from the base mod together with the Avatar interference
+# decisions and events (endorse/condemn and the rest of the world-meddling kit).
 
 avatars_peace = {
 	global_revolt_risk = -0.02

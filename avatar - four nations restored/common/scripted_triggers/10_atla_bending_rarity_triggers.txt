@@ -1,0 +1,60 @@
+# Bending rarity - what it takes to be called a master, or a legend.
+#
+#	This file does NOT cap how many masters the world may hold. It sets the bar a
+#	character has to clear. Masters should be made from formidable benders who were
+#	taught, not from whoever happened to grind ordinary training for a century.
+#
+#	Used by:
+#	  common/scripted_effects/10_atla_bending_rarity_effects.txt
+#	  common/scripted_effects/09_atla_scripted_effects.txt  (upgrade_bending_effect)
+#
+#	Note on combat_rating: master_bender itself carries 80 and legendary_bender 100,
+#	so a bar quoted against a character who *already* holds the rank is deliberately
+#	set above that - it is asking what the character is worth beyond the rank.
+#
+#	Note on the training decision: train_your_bending never consults these bars,
+#	because it can no longer reach master or legendary at all. It tops out at
+#	powerful_bender. See events/ATLA_bending_training_events.txt.
+
+# The makings of a master: a bender who is formidable in their own right.
+# Deliberately not a formality - most powerful benders never qualify.
+is_master_material_bender_trigger = {
+	NOT = { trait = incapable }
+	age = 18
+	OR = {
+		combat_rating = 80
+		martial = 15
+		learning = 15
+		trait = genius
+		trait = strong
+		AND = {
+			trait = quick
+			OR = {
+				trait = brave
+				trait = diligent
+				trait = ambitious
+			}
+		}
+	}
+}
+
+# The makings of a legend: the kind of bender the world tells stories about.
+is_legendary_material_bender_trigger = {
+	NOT = { trait = incapable }
+	is_adult = yes
+	OR = {
+		combat_rating = 115
+		trait = genius
+		AND = {
+			OR = {
+				trait = strong
+				trait = quick
+			}
+			OR = {
+				trait = brave
+				trait = diligent
+				trait = ambitious
+			}
+		}
+	}
+}

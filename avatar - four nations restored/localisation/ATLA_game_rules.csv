@@ -4,7 +4,7 @@ RULE_AVATAR_SYSTEM;§RFour Nations:§! Avatar System;;;;;;;;;;;;;x
 RULE_AVATAR_SYSTEM_OPTION_CANON;Canon Avatars;;;;;;;;;;;;;x
 RULE_AVATAR_SYSTEM_CANON_DESC;When an Avatar dies, the next Avatar in the timeline of the series will be born in an appropriate location, up until the death of Avatar Korra.;;;;;;;;;;;;;x
 RULE_AVATAR_SYSTEM_OPTION_RANDOM;Random Avatars;;;;;;;;;;;;;x
-RULE_AVATAR_SYSTEM_RANDOM_DESC;When the Avatar dies, they will be reincarnated into a random character. Most often this will be nobody of importance, unnoticed until they are recognised as Avatar, but there's a very small chance this could be an existing noble character - even your own dynasty!;;;;;;;;;;;;;x
+RULE_AVATAR_SYSTEM_RANDOM_DESC;When the Avatar dies, they will be reincarnated into a random character. Most often this will be nobody of importance, unnoticed until they are recognised as Avatar, but there's a very small chance this could be an existing noble character, even your own dynasty!;;;;;;;;;;;;;x
 RULE_CAMPAIGN_EVENTS;§RFour Nations:§! Campaign Events;;;;;;;;;;;;;x
 RULE_CAMPAIGN_EVENTS_OPTION_ON;Campaign;;;;;;;;;;;;;x
 RULE_CAMPAIGN_EVENTS_OPTION_OFF;Sandbox;;;;;;;;;;;;;x

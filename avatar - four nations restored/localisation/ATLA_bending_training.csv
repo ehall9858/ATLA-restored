@@ -1,0 +1,9 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+train_your_bending;Train Your Bending;;;;;;;;;;;;x
+train_your_bending_desc;Devote yourself to honing the art you were born to. Practice will sharpen an ordinary bender towards the top of their craft, but the last step, from gifted to truly masterful, is not won alone.;;;;;;;;;;;;x
+EVTDESCatla_bending_training.2;You have drilled the same form a thousand times, and today your body finally understands what your mind has been telling it. The art comes easier now. You have grown.;;;;;;;;;;;;x
+EVTOPTAatla_bending_training.2;I have grown stronger.;;;;;;;;;;;;x
+EVTDESCatla_bending_training.3;You spend the day in practice until your limbs ache and your robes are soaked through. The art does not yield to you today, but the effort is not wasted.;;;;;;;;;;;;x
+EVTOPTAatla_bending_training.3;Practice makes perfect.;;;;;;;;;;;;x
+EVTDESCatla_bending_training.4;You push past your limits before you are ready, and the bending turns wild in your hands. By the time you regain control the afternoon is gone and nothing has been gained.;;;;;;;;;;;;x
+EVTOPTAatla_bending_training.4;Perhaps I will rest.;;;;;;;;;;;;x

@@ -1,4 +1,4 @@
-#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+﻿#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 DYN1_DESC;With a score of $SCORE$ you$FAILED$ beat the Hou-Ting Dynasty, the founders of the vast city of Ba Sing Se, and the family who ruled the Earth Kingdom from the beginning to bitter end.;;;;;;;;;;;;x
 DYN2_DESC;With a score of $SCORE$ you$FAILED$ beat the Hong Dynasty, who long ago united the Fire Islands and forged them into a nation that would very nearly conquer the entire world.;;;;;;;;;;;;x
 DYN3_DESC;With a score of $SCORE$ you$FAILED$ beat the Beifong Dynasty, a well known and famous family throughout the Earth Kingdom before and after the advent of Metalbending;;;;;;;;;;;;x
@@ -63,6 +63,8 @@ colony_3;Colony III;;;;;;;;;;;;x
 colony_1_desc;This province is in the early stages of colonisation, with a few colonists arriving from the homeland as occupying forces still clash with local resistance. As the colony prospers, it will grow in size.;;;;;;;;;;;;x
 colony_2_desc;This province is undergoing rapid colonisation, with more colonists flowing in to join those already well settled. There is still a great deal of resistance from the original populace. As the colony prospers, it will grow in size.;;;;;;;;;;;;x
 colony_3_desc;This province is the advanced stages of colonisation, with colonists well settled into their new homes, and the local populace either being integrated or dispersed. As the colony prospers, it will grow in size.;;;;;;;;;;;;x
+foreign_occupation;Foreign Occupation;;;;;;;;;;;;x
+foreign_occupation_desc;Foreign soldiers collect the taxes here, and everyone knows it. The locals dream of the day their true rulers return, and more than dream - they sharpen their blades.;;;;;;;;;;;;x
 ATLADESC.9002;We are getting good news, our colony in [From.GetName] is growing by the day. As it does, our grip on the region grows tighter and more of our people are willing to migrate, steadily increasing the colony's population.;;;;;;;;;;;;x
 ATLADESC.9003;Reports suggest that our colony in [From.GetName] is prospering, bringing in more and more colonists seeking wealth and land. If this keeps up at the current rate, soon our people will outnumber the native [From.Culture.GetName] population.;;;;;;;;;;;;x
 ATLADESC.9004;Devastating news is coming in that our colony in [From.GetName] has been destroyed. The surviving colonists have packed up and returned to our homeland, abandoning their efforts to settle there.;;;;;;;;;;;;x

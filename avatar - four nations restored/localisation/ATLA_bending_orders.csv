@@ -1,0 +1,61 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+waterbending_order;The Order of Flowing Water;;;;;;;;;;;x
+waterbending_order_desc;The Order of the Flowing Water draws waterbenders from all across the planet. In the order, they practice old forms using scrolls and the teachings of their masters. The order values the calm of the water, whether it be swamp, ocean, or fresh. They meet semi-annually to exchange ideas and techniques. The oldest and greatest masters are said to whisper ancient and dark techniques.;;;;;;;;;;;x
+waterbending_order_leader_desc;Grandmaster of the Flowing Water;;;;;;;;;;;x
+waterbending_order_currency;Balance;;;;;;;;;;;x
+waterbending_order_rank_1_male;Still Water;;;;;;;;;;;x
+waterbending_order_rank_1_female;Still Water;;;;;;;;;;;x
+waterbending_order_rank_2_male;Flowing Water;;;;;;;;;;;x
+waterbending_order_rank_2_female;Flowing Water;;;;;;;;;;;x
+waterbending_order_rank_3_male;Deep Water;;;;;;;;;;;x
+waterbending_order_rank_3_female;Deep Water;;;;;;;;;;;x
+waterbending_order_rank_4_male;The Turning Tide;;;;;;;;;;;x
+waterbending_order_rank_4_female;The Turning Tide;;;;;;;;;;;x
+wbo_practice;Practice Waterbending;;;;;;;;;;;x
+wbo_practice_desc;Train your forms and sharpen your control alongside fellow waterbenders.;;;;;;;;;;;x
+wbo_practice_power_desc;Enables a decision to practice with fellow members, improving your learning for a time.;;;;;;;;;;;x
+wbo_meditate;Meditate by the Water;;;;;;;;;;;x
+wbo_meditate_desc;Reflect on patience, flow and balance.;;;;;;;;;;;x
+wbo_meditate_power_desc;Enables a decision to meditate, improving your health and diplomacy for a time.;;;;;;;;;;;x
+wbo_teach;Teach the Next Generation;;;;;;;;;;;x
+wbo_teach_desc;Pass the Order's traditions on to those who will follow.;;;;;;;;;;;x
+wbo_teach_power_desc;Enables a decision to teach the traditions of the Order, earning prestige.;;;;;;;;;;;x
+wbo_convene;Convene the Order;;;;;;;;;;;x
+wbo_convene_desc;Call the Order together to renew its vows and share its knowledge.;;;;;;;;;;;x
+wbo_convene_power_desc;Enables the Grandmaster to convene the whole Order, earning great prestige and piety.;;;;;;;;;;;x
+wbo_focus;Focused Forms;;;;;;;;;;;x
+wbo_serenity;Tranquil Waters;;;;;;;;;;;x
+wbo_renown;Renowned Teacher;;;;;;;;;;;x
+wbo_gathering;Order Convened;;;;;;;;;;;x
+earthbending_order;The Society of the Standing Stone;;;;;;;;;;;x
+earthbending_order_desc;The Society of the Standing Stone is an order of earthbenders who believe the point of their bending art is to stand your ground, keep your word, and wait for the right moment instead of rushing into action. The order's members meet in old quarries and walled yards across the Earth Kingdom, where there is room to have bouts and practice. Old masters are believed to harbor ancient techniques, few even believing that some of the hidden old masters can master metal itself.;;;;;;;;;;;x
+earthbending_order_leader_desc;Grandmaster of the Standing Stone;;;;;;;;;;;x
+earthbending_order_currency;Standing;;;;;;;;;;;x
+earthbending_order_rank_1_male;Stone;;;;;;;;;;;x
+earthbending_order_rank_1_female;Stone;;;;;;;;;;;x
+earthbending_order_rank_2_male;Boulder;;;;;;;;;;;x
+earthbending_order_rank_2_female;Boulder;;;;;;;;;;;x
+earthbending_order_rank_3_male;Crag;;;;;;;;;;;x
+earthbending_order_rank_3_female;Crag;;;;;;;;;;;x
+earthbending_order_rank_4_male;Mountain;;;;;;;;;;;x
+earthbending_order_rank_4_female;Mountain;;;;;;;;;;;x
+ebo_practice;Practice Earthbending;;;;;;;;;;;x
+ebo_practice_desc;Hold your stance and drill your forms alongside fellow earthbenders.;;;;;;;;;;;x
+ebo_practice_power_desc;Enables a decision to practice with fellow members, improving your martial skill for a time.;;;;;;;;;;;x
+ebo_meditate;Stand Like the Mountain;;;;;;;;;;;x
+ebo_meditate_desc;Learn patience and listening from the stone beneath you.;;;;;;;;;;;x
+ebo_meditate_power_desc;Enables a decision to meditate, improving your stewardship and piety for a time.;;;;;;;;;;;x
+ebo_teach;Teach the Next Generation;;;;;;;;;;;x
+ebo_teach_desc;Pass the Society's traditions on to those who will follow.;;;;;;;;;;;x
+ebo_teach_power_desc;Enables a decision to teach the traditions of the Society, earning prestige.;;;;;;;;;;;x
+ebo_convene;Convene the Society;;;;;;;;;;;x
+ebo_convene_desc;Call the Society together to renew its vows and share its knowledge.;;;;;;;;;;;x
+ebo_convene_power_desc;Enables the Grandmaster to convene the whole Society, earning great prestige and piety.;;;;;;;;;;;x
+ebo_focus;Steady Stance;;;;;;;;;;;x
+ebo_serenity;Patient as Stone;;;;;;;;;;;x
+ebo_renown;Renowned Teacher;;;;;;;;;;;x
+ebo_gathering;Society Convened;;;;;;;;;;;x
+bending_order_water_join_letter;A letter sealed with blue wax: the Order of Flowing Water has received your request to join.;;;;;;;;;;;x
+bending_order_earth_join_letter;A letter sealed with grey wax: the Society of the Standing Stone has received your request to join.;;;;;;;;;;;x
+bending_order_join_accept;Accept and join the order;;;;;;;;;;;x
+bending_order_join_decline;Decline;;;;;;;;;;;x

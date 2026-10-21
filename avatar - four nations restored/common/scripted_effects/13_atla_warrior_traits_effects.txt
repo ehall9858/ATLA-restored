@@ -1,0 +1,108 @@
+# Warrior ladder - handing out a rank.
+#
+#	The weight shifts with the character. A capable soldier is usually just a
+#	Fighter; a genuine master-at-arms is a rare thing at any martial score, and a
+#	Grandmaster rarer still. This is a starting spread, not a ceiling - later
+#	systems can call the effect again or add ranks directly.
+
+grant_starting_warrior_tier_effect = {
+	if = {
+		limit = {
+			martial = 20
+		}
+		random_list = {
+			45 = { } # no rank - plenty of able fighters are simply soldiers
+			28 = { add_trait = atla_fighter }
+			17 = { add_trait = atla_warrior }
+			8 = { add_trait = atla_master }
+			2 = { add_trait = atla_grandmaster }
+		}
+	}
+	else_if = {
+		limit = {
+			martial = 15
+		}
+		random_list = {
+			70 = { }
+			20 = { add_trait = atla_fighter }
+			8 = { add_trait = atla_warrior }
+			2 = { add_trait = atla_master }
+		}
+	}
+	else = {
+		random_list = {
+			90 = { }
+			8 = { add_trait = atla_fighter }
+			2 = { add_trait = atla_warrior }
+		}
+	}
+}
+
+# Step one rung up the ladder. Used by later training and tournament work.
+upgrade_warrior_tier_effect = {
+	trigger_switch = {
+		on_trigger = trait
+		atla_fighter = { add_trait = atla_warrior }
+		atla_warrior = { add_trait = atla_master }
+		atla_master = { add_trait = atla_grandmaster }
+		fallback = { add_trait = atla_fighter }
+	}
+}
+
+# Create the XP variable on first use, so change_variable never has to guess
+# what an unset variable means.
+atla_warrior_init_xp_effect = {
+	if = {
+		limit = {
+			NOT = { has_character_flag = atla_warrior_xp_initialised }
+		}
+		set_variable = { which = atla_warrior_xp value = 0 }
+		set_character_flag = atla_warrior_xp_initialised
+	}
+}
+
+# Spend banked experience on the next rung when the threshold is met. One rank
+# per call - any surplus stays banked for the next battle or training season.
+# Thresholds: 100 to Fighter, 150 to Warrior, 250 to Master, 400 to Grandmaster.
+atla_warrior_check_rank_effect = {
+	if = {
+		limit = { NOT = { has_warrior_tier_trigger = yes } }
+		if = {
+			limit = { check_variable = { which = atla_warrior_xp value = 100 } }
+			change_variable = { which = atla_warrior_xp value = -100 }
+			add_trait = atla_fighter
+			character_event = { id = ATLAW.33 }
+		}
+	}
+	else_if = {
+		limit = { trait = atla_fighter }
+		if = {
+			limit = { check_variable = { which = atla_warrior_xp value = 150 } }
+			change_variable = { which = atla_warrior_xp value = -150 }
+			add_trait = atla_warrior
+			character_event = { id = ATLAW.34 }
+		}
+	}
+	else_if = {
+		limit = { trait = atla_warrior }
+		if = {
+			limit = { check_variable = { which = atla_warrior_xp value = 250 } }
+			change_variable = { which = atla_warrior_xp value = -250 }
+			add_trait = atla_master
+			character_event = { id = ATLAW.35 }
+		}
+	}
+	else_if = {
+		limit = { trait = atla_master }
+		if = {
+			limit = { check_variable = { which = atla_warrior_xp value = 400 } }
+			change_variable = { which = atla_warrior_xp value = -400 }
+			add_trait = atla_grandmaster
+			character_event = { id = ATLAW.36 }
+		}
+	}
+	else = {
+		# Already a Grandmaster - there is nothing left to buy.
+		set_variable = { which = atla_warrior_xp value = 0 }
+	}
+}

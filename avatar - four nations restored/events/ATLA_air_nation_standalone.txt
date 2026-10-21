@@ -1,0 +1,670 @@
+#########################################
+# ATLA standalone nation events
+#
+# NAFS.100-199  Fire Nation
+# NAFS.200-299  Water Tribe
+# NAFS.300-399  Earth Kingdom
+# NAFS.400-499  Air Nomads
+#########################################
+
+namespace = NAFS
+
+# Hidden yearly dispatcher for the Air Nomad standalone events. The on_action
+# slot is guaranteed; this trigger and chance keep the events rare.
+character_event = {
+	id = NAFS.499
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = air_nomad_cultures
+		religion_group = air_religions
+		NOT = { culture = colonial_air_fire }
+		NOT = { culture = colonial_air_earth }
+		NOT = { culture = colonial_air_water }
+		OR = {
+			NOT = { has_character_flag = nafs_air_poachers_done }
+			NOT = { has_character_flag = nafs_air_orchard_done }
+			NOT = { has_character_flag = nafs_air_warlord_done }
+			AND = {
+				NOT = { year = 830 }
+				NOT = { has_character_flag = nafs_air_lostbender_done }
+			}
+			NOT = { has_character_flag = nafs_air_glider_done }
+			NOT = { has_character_flag = nafs_air_hermit_done }
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = 20
+			random_list = {
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_air_poachers_done } }
+					character_event = { id = NAFS.400 }
+				}
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_air_orchard_done } }
+					character_event = { id = NAFS.401 }
+				}
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_air_warlord_done } }
+					character_event = { id = NAFS.402 }
+				}
+				100 = {
+					trigger = {
+						NOT = { year = 830 }
+						NOT = { has_character_flag = nafs_air_lostbender_done }
+					}
+					character_event = { id = NAFS.403 }
+				}
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_air_glider_done } }
+					character_event = { id = NAFS.404 }
+				}
+				100 = {
+					trigger = { NOT = { has_character_flag = nafs_air_hermit_done } }
+					character_event = { id = NAFS.405 }
+				}
+			}
+		}
+	}
+}
+
+# The Poachers' Calf
+character_event = {
+	id = NAFS.400
+	desc = NAFS.400.desc
+	picture = GFX_evt_air_west
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = air_nomad_cultures
+		religion_group = air_religions
+		NOT = { culture = colonial_air_fire }
+		NOT = { culture = colonial_air_earth }
+		NOT = { culture = colonial_air_water }
+		NOT = { has_character_flag = nafs_air_poachers_done }
+	}
+
+	option = {
+		name = NAFS.400.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		wealth = -30
+		prestige = 20
+		piety = 20
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_poachers_done }
+	}
+
+	option = {
+		name = NAFS.400.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+		prestige = 30
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = brave } }
+			hidden_tooltip = { remove_trait = craven }
+			add_trait = brave
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_poachers_done }
+	}
+
+	option = {
+		name = NAFS.400.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		prestige = 10
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_poachers_done }
+	}
+}
+
+# The Temple Orchard
+character_event = {
+	id = NAFS.401
+	desc = NAFS.401.desc
+	picture = GFX_evt_air_temple
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = air_nomad_cultures
+		religion_group = air_religions
+		NOT = { culture = colonial_air_fire }
+		NOT = { culture = colonial_air_earth }
+		NOT = { culture = colonial_air_water }
+		NOT = { has_character_flag = nafs_air_orchard_done }
+	}
+
+	option = {
+		name = NAFS.401.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+		}
+		wealth = -30
+		piety = 30
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_orchard_done }
+	}
+
+	option = {
+		name = NAFS.401.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+		}
+		wealth = 20
+		prestige = 10
+		piety = -10
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			hidden_tooltip = { remove_trait = just }
+			add_trait = arbitrary
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_orchard_done }
+	}
+
+	option = {
+		name = NAFS.401.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+		}
+		piety = 20
+		change_stewardship = 1
+		if = {
+			limit = { NOT = { trait = diligent } }
+			hidden_tooltip = { remove_trait = slothful }
+			add_trait = diligent
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_orchard_done }
+	}
+}
+
+# The Warlord's Envoy
+character_event = {
+	id = NAFS.402
+	desc = NAFS.402.desc
+	picture = GFX_evt_air_temple_sanctuary_gates
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = air_nomad_cultures
+		religion_group = air_religions
+		NOT = { culture = colonial_air_fire }
+		NOT = { culture = colonial_air_earth }
+		NOT = { culture = colonial_air_water }
+		NOT = { has_character_flag = nafs_air_warlord_done }
+	}
+
+	option = {
+		name = NAFS.402.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+		}
+		prestige = 20
+		piety = 20
+		if = {
+			limit = { NOT = { trait = just } }
+			hidden_tooltip = { remove_trait = arbitrary }
+			add_trait = just
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_warlord_done }
+	}
+
+	option = {
+		name = NAFS.402.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+		}
+		piety = 30
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_warlord_done }
+	}
+
+	option = {
+		name = NAFS.402.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+		}
+		prestige = 30
+		change_martial = 1
+		if = {
+			limit = { NOT = { trait = ambitious } }
+			hidden_tooltip = { remove_trait = content }
+			add_trait = ambitious
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_warlord_done }
+	}
+}
+
+# The Lost Airbender
+character_event = {
+	id = NAFS.403
+	desc = NAFS.403.desc
+	picture = GFX_evt_airbending_gates
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = air_nomad_cultures
+		religion_group = air_religions
+		NOT = { culture = colonial_air_fire }
+		NOT = { culture = colonial_air_earth }
+		NOT = { culture = colonial_air_water }
+		NOT = { year = 830 }
+		NOT = { has_character_flag = nafs_air_lostbender_done }
+	}
+
+	option = {
+		name = NAFS.403.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+		}
+		piety = 30
+		prestige = 20
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_lostbender_done }
+	}
+
+	option = {
+		name = NAFS.403.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+		}
+		piety = 20
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_lostbender_done }
+	}
+
+	option = {
+		name = NAFS.403.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = cynical
+			}
+		}
+		prestige = 10
+		piety = -20
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			hidden_tooltip = { remove_trait = just }
+			add_trait = arbitrary
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_lostbender_done }
+	}
+}
+
+# The Broken Glider
+character_event = {
+	id = NAFS.404
+	desc = NAFS.404.desc
+	picture = GFX_evt_air_north
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = air_nomad_cultures
+		religion_group = air_religions
+		NOT = { culture = colonial_air_fire }
+		NOT = { culture = colonial_air_earth }
+		NOT = { culture = colonial_air_water }
+		NOT = { has_character_flag = nafs_air_glider_done }
+	}
+
+	option = {
+		name = NAFS.404.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+		}
+		prestige = 20
+		piety = 10
+		if = {
+			limit = { NOT = { trait = brave } }
+			hidden_tooltip = { remove_trait = craven }
+			add_trait = brave
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_glider_done }
+	}
+
+	option = {
+		name = NAFS.404.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		piety = 30
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_glider_done }
+	}
+
+	option = {
+		name = NAFS.404.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+		}
+		piety = 20
+		prestige = 5
+		if = {
+			limit = { NOT = { trait = zealous } }
+			hidden_tooltip = { remove_trait = cynical }
+			add_trait = zealous
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_glider_done }
+	}
+}
+
+# The Hermit on the Peak
+character_event = {
+	id = NAFS.405
+	desc = NAFS.405.desc
+	picture = GFX_evt_monks_meditate
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		is_landed = yes
+		higher_real_tier_than = BARON
+		is_adult = yes
+		is_incapable = no
+		NOT = { prisoner = yes }
+		culture_group = air_nomad_cultures
+		religion_group = air_religions
+		NOT = { culture = colonial_air_fire }
+		NOT = { culture = colonial_air_earth }
+		NOT = { culture = colonial_air_water }
+		NOT = { has_character_flag = nafs_air_hermit_done }
+	}
+
+	option = {
+		name = NAFS.405.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+		}
+		piety = 20
+		prestige = 20
+		if = {
+			limit = { NOT = { trait = kind } }
+			hidden_tooltip = {
+				remove_trait = cruel
+				remove_trait = envious
+			}
+			add_trait = kind
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_hermit_done }
+	}
+
+	option = {
+		name = NAFS.405.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+		}
+		piety = 30
+		prestige = 10
+		if = {
+			limit = { NOT = { trait = patient } }
+			hidden_tooltip = { remove_trait = wroth }
+			add_trait = patient
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_hermit_done }
+	}
+
+	option = {
+		name = NAFS.405.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = cynical
+			}
+		}
+		prestige = 10
+		piety = -10
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			hidden_tooltip = { remove_trait = just }
+			add_trait = arbitrary
+		}
+		hidden_tooltip = { set_character_flag = nafs_air_hermit_done }
+	}
+}

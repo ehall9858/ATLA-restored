@@ -1,0 +1,50 @@
+CODE;ENGLISH;;;;;;;;;;;x
+villain;Villain;;;;;;;;;;;x
+villain_desc;This character has caused great strife in the world through invasion, tyranny, or notorious cruelty, and has been declared a Villain. They are powerful enough to rival even the Avatar.;;;;;;;;;;;x
+denounce_villain;Declare a Villain;;;;;;;;;;;x
+denounce_villain_desc;Declare this ruler a Villain of the world for their crimes.;;;;;;;;;;;x
+avatar_villain.1.t;A Villain Rises;;;;;;;;;;;x
+avatar_villain.1.desc;Word reaches me of [villain_candidate.GetTitledFirstName], whose deeds have brought suffering to many: conquest, cruelty, and contempt for balance. The world cannot ignore this. I could denounce them as a Villain, and if words fail, settle it in single combat.;;;;;;;;;;;x
+avatar_villain.1.a;Denounce them as a Villain;;;;;;;;;;;x
+avatar_villain.1.b;Denounce them, and challenge them to combat;;;;;;;;;;;x
+avatar_villain.1.c;Not yet;;;;;;;;;;;x
+avatar_villain.2.t;Denounce as Villain;;;;;;;;;;;x
+avatar_villain.2.desc;[villain_candidate.GetTitledFirstName] has earned the condemnation of the world through conquest and cruelty. I can denounce them as a Villain, and if they will not yield, face them in single combat.;;;;;;;;;;;x
+avatar_villain.2.a;Denounce them as a Villain;;;;;;;;;;;x
+avatar_villain.2.b;Denounce them, and challenge them to combat;;;;;;;;;;;x
+avatar_villain.2.c;Stay my hand;;;;;;;;;;;x
+avatar_villain.3.t;The Villain Falls;;;;;;;;;;;x
+avatar_villain.3.desc;[villain_vanquished.GetTitledFirstName] lies defeated. Their reign of strife ends today. The only question is what becomes of everything they built.;;;;;;;;;;;x
+avatar_villain.3.a;Show no mercy;;;;;;;;;;;x
+avatar_villain.3.b;Kill them and shatter the realm;;;;;;;;;;;x
+avatar_villain.3.c;Imprison them and shatter the realm;;;;;;;;;;;x
+avatar_villain.3.d;Depose them in favour of their heir and imprison them;;;;;;;;;;;x
+avatar_villain.1.d;Offer them a way back;;;;;;;;;;;x
+avatar_villain.2.d;Offer them a way back;;;;;;;;;;;x
+avatar_villain.desc.kinslayer;The case against [villain_candidate.GetTitledFirstName] is beyond argument. They have shed the blood of their own kin, and no title, no victory and no amount of time washes that away.\n\nThe world cannot ignore this. I could denounce them as a Villain, and if words fail, settle it in single combat.;;;;;;;;;;;x
+avatar_villain.desc.chin;The case against [villain_candidate.GetTitledFirstName] is beyond argument. They march under the banner of Chin the Conqueror, and they mean to finish what he began: one world, one boot, and no one left to disagree.\n\nThe world cannot ignore this. I could denounce them as a Villain, and if words fail, settle it in single combat.;;;;;;;;;;;x
+avatar_villain.desc.earth;The case against [villain_candidate.GetTitledFirstName] is beyond argument. They hold Earth Kingdom land by force of arms, and their soldiers treat it as a country to be emptied rather than governed.\n\nThe world cannot ignore this. I could denounce them as a Villain, and if words fail, settle it in single combat.;;;;;;;;;;;x
+avatar_villain.desc.temples;The case against [villain_candidate.GetTitledFirstName] is beyond argument. They have seized the temples of the air nomads, the last quiet places in the world, and turned them into garrisons.\n\nThe world cannot ignore this. I could denounce them as a Villain, and if words fail, settle it in single combat.;;;;;;;;;;;x
+avatar_villain.desc.colonies;The case against [villain_candidate.GetTitledFirstName] is beyond argument. They have carved colonies out of country that was never theirs, and the people there are made to work for a flag they never chose.\n\nThe world cannot ignore this. I could denounce them as a Villain, and if words fail, settle it in single combat.;;;;;;;;;;;x
+avatar_villain.desc.tyrant;The case against [villain_candidate.GetTitledFirstName] is beyond argument. Their own people have named them tyrant. The courts are silent, the prisons are full, and no one in their lands dares speak plainly.\n\nThe world cannot ignore this. I could denounce them as a Villain, and if words fail, settle it in single combat.;;;;;;;;;;;x
+avatar_villain.desc.hostile;The case against [villain_candidate.GetTitledFirstName] is beyond argument. They have set themselves against the Avatar and everything the Avatar stands for, and their realm is great enough that this is more than a boast.\n\nThe world cannot ignore this. I could denounce them as a Villain, and if words fail, settle it in single combat.;;;;;;;;;;;x
+avatar_villain.6.t;The Villain Answers;;;;;;;;;;;x
+avatar_villain.6.desc;[villain_declarer.GetTitledFirstName] has named me a Villain before the whole world. Every court from the poles to the Fire Capital will be reading that word tomorrow, and every one of them will be waiting to see what I do about it.\n\nI can bow my head and let the storm pass, or I can spit in the Avatar's eye and make them come and take it.;;;;;;;;;;;x
+avatar_villain.6.a;Bend the knee;;;;;;;;;;;x
+avatar_villain.6.b;Defy the Avatar;;;;;;;;;;;x
+avatar_villain.7.t;The Villain Bends the Knee;;;;;;;;;;;x
+avatar_villain.7.desc;[villain_declared.GetTitledFirstName] has answered my judgement, not with steel, but with submission. They have renounced the name I gave them, and the courts of the world have seen it.\n\nIt is not justice. But it is the world made quieter, and that is worth something.;;;;;;;;;;;x
+avatar_villain.7.a;The world is quieter for it;;;;;;;;;;;x
+avatar_villain.8.t;The Villain Will Not Bend;;;;;;;;;;;x
+avatar_villain.8.desc;[villain_declared.GetTitledFirstName] has heard my judgement and thrown it back in my face. They will not submit, and they will not be forgotten.\n\nA declared Villain who refuses the Avatar has made a choice, and the world will hold them to it.;;;;;;;;;;;x
+avatar_villain.8.a;Then it will be settled another way;;;;;;;;;;;x
+avatar_villain.9.t;An Offer of Mercy;;;;;;;;;;;x
+avatar_villain.9.desc;[villain_declarer.GetTitledFirstName] has named me a Villain before the whole world, and then, instead of the sword, offered me a way back. No chains, no shattered realm. Only the demand that I set down what I have done and be something else.\n\nIt would cost me my pride. It might cost me more than that.;;;;;;;;;;;x
+avatar_villain.9.a;Accept the Avatar's mercy;;;;;;;;;;;x
+avatar_villain.9.b;Refuse. I am what I am;;;;;;;;;;;x
+opinion_declared_villain;Declared Villain;;;;;;;;;;;x
+opinion_villain_liege;Villain of the World;;;;;;;;;;;x
+opinion_avatar_champion;Champion of the World;;;;;;;;;;;x
+opinion_villain_submitted;Submitted to the Avatar;;;;;;;;;;;x
+opinion_villain_reprieved;Shown Mercy by the Avatar;;;;;;;;;;;x
+villain_candidate_tt;They must have earned the name through conquest, tyranny or cruelty, or by making war on the Avatar and the world.;;;;;;;;;;;x

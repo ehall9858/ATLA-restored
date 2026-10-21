@@ -57,6 +57,7 @@ narrative_event = {
 		name = found_healing_hut_north
 		add_trait = healer
 		add_trait = master_bender
+		set_character_flag = atla_earned_mastery
 	}
 }
 

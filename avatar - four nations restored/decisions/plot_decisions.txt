@@ -461,4 +461,46 @@ plot_decisions = {
 			}
 		}
 	}
+
+	# ATLA - the Earth King's court moves against him
+	plot_make_the_earth_king_a_figurehead_decision = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 12
+
+		potential = {
+			has_plot = plot_make_the_earth_king_a_figurehead
+			NOT = { has_character_flag = plot_make_the_earth_king_a_figurehead_decision_taken }
+		}
+		allow = {
+			plot_power = 0.75
+			num_of_plot_backers = 3
+			plot_target_char = {
+				prisoner = no
+				OR = {
+					trait = earthking
+					trait = earthkingconstitution
+				}
+			}
+			will_liege_enforce_peace = no
+			has_liege_enforced_peace = no
+		}
+		effect = {
+			plot_target_char = {
+				character_event = { id = atla_ek_plot.1 days = 2 }
+			}
+			hidden_tooltip = {
+				set_character_flag = plot_make_the_earth_king_a_figurehead_decision_taken
+				activate_plot = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { plot_power = 0.9 }
+			}
+		}
+	}
 }

@@ -1,0 +1,160 @@
+namespace = atla_ek_plot
+
+# The conspirators present their demands to the Earth King.
+# Fired from the plot decision: ROOT = the Earth King, FROM = the plotter.
+character_event = {
+	id = atla_ek_plot.1
+	desc = "EVTDESCatla_ek_plot.1"
+	picture = "GFX_evt_dai_li_4"
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = { save_event_target_as = ek_court_plotter }
+	}
+
+	# Bow to the court
+	option = {
+		name = EVTOPTAatla_ek_plot.1
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 3
+				OR = {
+					is_adult = no
+					trait = incapable
+					trait = imbecile
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = { trait = brave }
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = brave
+					trait = proud
+				}
+			}
+		}
+		make_earth_king_a_puppet_effect = yes
+		prestige = -75
+		hidden_tooltip = {
+			event_target:ek_court_plotter = {
+				set_character_flag = plot_success
+				prestige = 200
+				character_event = { id = atla_ek_plot.2 days = 3 }
+			}
+		}
+	}
+
+	# Defy them
+	option = {
+		name = EVTOPTBatla_ek_plot.1
+		custom_tooltip = { text = EVTOPTBatla_ek_plot.1_TOOLTIP }
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 3
+				is_adult = yes
+				OR = {
+					martial = 12
+					intrigue = 12
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = brave
+					trait = proud
+					trait = stubborn
+				}
+			}
+			modifier = {
+				factor = 0.25
+				trait = craven
+			}
+		}
+		random_list = {
+			55 = {
+				modifier = {
+					factor = 1.5
+					is_adult = yes
+					intrigue = 8
+				}
+				modifier = {
+					factor = 0.5
+					is_adult = no
+				}
+				# The plot breaks against the throne
+				prestige = 100
+				change_variable = { which = global_royalAuthority value = 15 }
+				event_target:ek_court_plotter = {
+					set_character_flag = abort_plot
+					prestige = -150
+					any_plot_backer = {
+						reverse_opinion = {
+							modifier = opinion_recent_plot
+							who = ROOT
+							months = 120
+						}
+					}
+				}
+			}
+			45 = {
+				modifier = {
+					factor = 2
+					OR = {
+						trait = incapable
+						trait = imbecile
+					}
+				}
+				# They take the reins anyway
+				make_earth_king_a_puppet_effect = yes
+				prestige = -150
+				event_target:ek_court_plotter = {
+					set_character_flag = plot_success
+					prestige = 200
+					character_event = { id = atla_ek_plot.2 days = 3 }
+				}
+			}
+		}
+	}
+
+	# Buy them off
+	option = {
+		name = EVTOPTCatla_ek_plot.1
+		trigger = { treasury = 300 }
+		treasury = -300
+		prestige = -50
+		event_target:ek_court_plotter = {
+			set_character_flag = abort_plot
+			prestige = 100
+			reverse_opinion = {
+				modifier = opinion_grateful
+				who = ROOT
+				years = 10
+			}
+		}
+	}
+}
+
+# The plotters' account of how the coup went.
+# ROOT = the plotter, FROM = the Earth King.
+character_event = {
+	id = atla_ek_plot.2
+	desc = "EVTDESCatla_ek_plot.2"
+	picture = "GFX_evt_dai_li_5"
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAatla_ek_plot.2
+		any_plot_backer = {
+			reverse_opinion = {
+				modifier = opinion_grateful
+				who = ROOT
+				years = 10
+			}
+		}
+	}
+}

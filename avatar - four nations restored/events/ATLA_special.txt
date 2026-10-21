@@ -981,20 +981,23 @@ narrative_event = { #learning flight - TODO: Needs to be expanded by more events
 	
 	trigger = {
 		trait = airbender
+		# Lighter than air is the rarest airbending art there is: the old
+		# trigger also accepted master_bender, so flight became ordinary.
+		# Now it takes a legendary airbender, grown, and deeply spiritual.
+		trait = legendary_bender
+		is_adult = yes
+		NOT = { is_incapable = yes }
+		NOT = { trait = levitation }
 		OR = {
-			trait = legendary_bender
-			trait = master_bender
-		}
-		OR = {
-			piety = 300
+			piety = 750
 			AND = {
 				trait = kind
 				trait = humble
 				trait = patient
 				trait = chaste
+				trait = enlightened
 			}
 		}
-		NOT = { trait = levitation }
 	}
 	option = {
 		name = EVTOPTspecial.46

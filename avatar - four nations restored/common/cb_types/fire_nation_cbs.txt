@@ -323,6 +323,11 @@ fire_expansion = {
 
 	ai_will_do = {
 		factor = 1
+		modifier = {
+			factor = 0.1 # Any living Avatar strongly discourages AI colonial wars against the Earth Kingdom
+			has_global_flag = avatar_revealed
+			FROM = { culture_group = earth_kingdom_cultures }
+		}
 	}
 }
 

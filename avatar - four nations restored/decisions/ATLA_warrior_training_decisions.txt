@@ -1,0 +1,195 @@
+########################################################################
+# ATLA Warrior Training
+#
+#	The counterpart to train_your_bending, for the non-bender ladder: a parent
+#	or guardian takes their charge out into the yard and drills them.
+#
+#	A student can climb as high as their teacher has climbed, and no further:
+#	a Fighter (or an unranked veteran with martial 12) can only make a Fighter,
+#	a Warrior can make a Warrior, and only a Grandmaster can make another
+#	Grandmaster. This is deliberate - the top of the ladder should be earned
+#	from someone who has stood there.
+#
+#	Training can be attempted once a year (the atla_warrior_training flag).
+#	Outcomes are in events/ATLA_warrior_traits.txt (ATLAW.11-13).
+########################################################################
+
+targetted_decisions = {
+
+	train_child_in_warfare = {
+		filter = court
+		ai_target_filter = court
+		ai_check_interval = 12
+
+		from_potential = {
+			is_adult = yes
+			NOT = { trait = incapable }
+			prisoner = no
+			NOT = { is_any_bender_trigger = yes }
+			OR = {
+				has_warrior_tier_trigger = yes
+				martial = 12
+			}
+		}
+
+		potential = {
+			age = 6
+			NOT = { trait = incapable }
+			NOT = { is_any_bender_trigger = yes }
+			OR = {
+				mother = { character = FROM }
+				father = { character = FROM }
+				educator = { character = FROM }
+				guardian = { character = FROM }
+			}
+			NOT = { has_character_flag = atla_warrior_training }
+		}
+
+		allow = {
+			NOT = { trait = infirm }
+			NOT = { trait = wounded }
+			NOT = { trait = severely_injured }
+
+			# The student must still have somewhere to climb, and the teacher must be
+			# standing on the rung above them.
+			OR = {
+				AND = {
+					FROM = { trait = atla_grandmaster }
+					NOT = { trait = atla_grandmaster }
+				}
+				AND = {
+					FROM = { trait = atla_master }
+					NOR = { trait = atla_master trait = atla_grandmaster }
+				}
+				AND = {
+					FROM = { trait = atla_warrior }
+					NOR = {
+						trait = atla_warrior
+						trait = atla_master
+						trait = atla_grandmaster
+					}
+				}
+				AND = {
+					FROM = {
+						OR = {
+							trait = atla_fighter
+							AND = {
+								NOT = { has_warrior_tier_trigger = yes }
+								martial = 12
+							}
+						}
+					}
+					NOT = { has_warrior_tier_trigger = yes }
+				}
+			}
+		}
+
+		effect = {
+			set_character_flag = atla_warrior_training
+			clr_character_flag = atla_warrior_training_success
+			character_event = { id = ATLAW.13 days = 365 }
+
+			if = { # Untrained - the first rung is the easiest one
+				limit = { NOT = { has_warrior_tier_trigger = yes } }
+				random_list = {
+					55 = {
+						add_trait = atla_fighter
+						set_character_flag = atla_warrior_training_success
+					}
+					25 = {
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										trait = atla_warrior
+										trait = atla_master
+										trait = atla_grandmaster
+									}
+								}
+							}
+							add_trait = atla_warrior
+							set_character_flag = atla_warrior_training_success
+						}
+					}
+					20 = { }
+				}
+			}
+			else_if = { # A Fighter
+				limit = { trait = atla_fighter }
+				random_list = {
+					35 = {
+						add_trait = atla_warrior
+						set_character_flag = atla_warrior_training_success
+					}
+					10 = {
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										trait = atla_master
+										trait = atla_grandmaster
+									}
+								}
+							}
+							add_trait = atla_master
+							set_character_flag = atla_warrior_training_success
+						}
+					}
+					55 = { }
+				}
+			}
+			else_if = { # A Warrior
+				limit = { trait = atla_warrior }
+				random_list = {
+					18 = {
+						add_trait = atla_master
+						set_character_flag = atla_warrior_training_success
+					}
+					4 = {
+						if = {
+							limit = { FROM = { trait = atla_grandmaster } }
+							add_trait = atla_grandmaster
+							set_character_flag = atla_warrior_training_success
+						}
+					}
+					78 = { }
+				}
+			}
+			else_if = { # Already a Master - only a Grandmaster can take them further
+				limit = { trait = atla_master }
+				random_list = {
+					8 = {
+						add_trait = atla_grandmaster
+						set_character_flag = atla_warrior_training_success
+					}
+					92 = { }
+				}
+			}
+
+			if = {
+				limit = { has_character_flag = atla_warrior_training_success }
+				clr_character_flag = atla_warrior_training_success
+				FROM = {
+					prestige = 5
+					character_event = { id = ATLAW.11 }
+				}
+			}
+			else = {
+				FROM = { character_event = { id = ATLAW.12 } }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0.1
+
+			modifier = {
+				factor = 2.0
+				FROM = { trait = atla_grandmaster }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { trait = diligent }
+			}
+		}
+	}
+}

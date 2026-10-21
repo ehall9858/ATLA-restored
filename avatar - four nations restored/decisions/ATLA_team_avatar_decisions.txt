@@ -1,0 +1,79 @@
+# ============================================================================
+#  Invite a companion into Team Avatar
+# ============================================================================
+# Right-click an unlanded adult and ask them to travel with the Avatar.
+# They answer for themselves (atla_team.2) and may refuse.
+#
+# from_potential = the Avatar (the decision taker). potential = the character
+# who was right-clicked. FROM = the Avatar inside potential/allow/effect.
+#
+# Player-only. An AI Avatar still builds a team through the atla_team.1
+# journey event, which needs no decision.
+targeted_decisions = {
+
+	invite_to_team_avatar = {
+		filter = all
+		ai = no
+
+		from_potential = {
+			ai = no
+			is_revealed_avatar_trigger = yes
+			is_incapable = no
+			OR = {
+				has_character_flag = avatar_journey
+				trait = fullyrealisedavatar
+			}
+		}
+
+		potential = {
+			is_alive = yes
+			is_adult = yes
+			is_ruler = no
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { is_avatar_trigger = yes }
+			NOR = {
+				trait = team_avatar
+				trait = former_team_avatar
+			}
+		}
+
+		allow = {
+			is_incapable = no
+			custom_tooltip = {
+				text = atla_team_has_room_tt
+				FROM = {
+					NOT = {
+						any_courtier = {
+							count >= 8
+							trait = team_avatar
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			# Bare character_event: fires on the character you right-clicked, exactly
+			# as vanilla's warrior-lodge recruitment does. They answer for themselves
+			# in atla_team.2. Save the Avatar as an event target so the answer always
+			# reaches them, however the invitation was sent.
+			FROM = { save_event_target_as = atla_team_avatar }
+			if = {
+				limit = {
+					is_alive = yes
+					is_adult = yes
+					NOT = { trait = incapable }
+					NOR = {
+						trait = team_avatar
+						trait = former_team_avatar
+					}
+				}
+				character_event = { id = atla_team.2 days = 3 }
+			}
+			else = {
+				FROM = { character_event = { id = atla_team.7 } }
+			}
+		}
+	}
+}

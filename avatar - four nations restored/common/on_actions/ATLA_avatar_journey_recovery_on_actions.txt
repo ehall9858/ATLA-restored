@@ -1,0 +1,8 @@
+# Avatar element-journey recovery watchdog
+# CK2 merges on_action blocks of the same name across files, so this only
+# adds atla_avatar_recovery.1 to the existing on_yearly_pulse list.
+on_yearly_pulse = {
+	events = {
+		atla_avatar_recovery.1 # unsticks an abandoned element-training chain
+	}
+}

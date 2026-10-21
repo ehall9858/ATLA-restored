@@ -1,0 +1,8 @@
+# "Master My Weapon" - the yearly training event for the warrior ambition.
+# CK2 merges on_action blocks of the same name across files, so this adds
+# ATLAW.32 to the existing on_yearly_pulse list without touching it.
+on_yearly_pulse = {
+	events = {
+		ATLAW.32
+	}
+}

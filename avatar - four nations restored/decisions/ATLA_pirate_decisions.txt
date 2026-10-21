@@ -69,6 +69,34 @@ decisions = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.1
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.75
+				trait = content
+			}
+			modifier = {
+				factor = 0.75
+				trait = humble
+			}
 		}
 	}
 

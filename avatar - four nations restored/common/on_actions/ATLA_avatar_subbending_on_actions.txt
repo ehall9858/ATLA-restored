@@ -1,0 +1,8 @@
+# Avatar sub-bending: deferred sandbender payoff
+# CK2 merges on_action blocks of the same name across files, so this only adds
+# atla_avatar_sub.2 to the existing on_yearly_pulse list.
+on_yearly_pulse = {
+	events = {
+		atla_avatar_sub.2 # an Avatar who studied with the sandbenders comes good
+	}
+}

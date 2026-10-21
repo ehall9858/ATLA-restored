@@ -39,6 +39,57 @@ feudal_governments = {
 		vassal_limit = -30
 		court_size_modifier = 5
 	}
+
+	avatar_team_government = {
+		preferred_holdings = { }
+		allowed_holdings = { }
+		accepts_liege_governments = {
+			feudal_government
+			feudal_government_earth_kingdom
+			fire_feudal_government
+			fire_imperial_government
+			feudal_government_air_nomad
+			#feudal_government_city
+			feudal_government_temple
+			theocracy_government
+		}
+		free_revoke_on_governments = { }
+		free_revoke_on_tiers = { }
+
+		forced_contract = { }
+
+		frame_suffix = "_avatar"
+		title_prefix = "avatar_"
+
+		potential = {
+			primary_title = {
+				OR = {
+					title = d_avatar
+					title = d_avatar_unrevealed
+				}
+			}
+		}
+
+		color = { 169 169 169 }
+
+		can_build_tribal = no
+		can_build_city = no
+		can_build_castle = no
+		can_build_forts = no
+		can_build_temple = no
+		can_build_hospitals = no
+
+		have_gender_laws = no
+		can_create_kingdoms = no
+		can_create_empires = no
+		can_imprison_without_reason = no
+		can_revoke_without_reason = no
+		dukes_called_kings = no
+		can_usurp_kingdoms_and_empires = no
+		can_grant_kingdoms_and_empires_to_other_government = no
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+		can_inherit = no
+	}
 	
 	pirate_cartel = {
 		preferred_holdings = { CASTLE }

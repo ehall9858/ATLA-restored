@@ -1,0 +1,29 @@
+atla_fighter;Fighter;;;;;;;;;x
+atla_fighter_desc;This person has been drilled in the basics of combat and can hold their own in a brawl or a press of soldiers, but they are no champion.;;;;;;;;;x
+atla_warrior;Warrior;;;;;;;;;x
+atla_warrior_desc;This person is a seasoned fighter, blooded in real fighting rather than the training yard. They are the sort of soldier others follow into a breach.;;;;;;;;;x
+atla_master;Master;;;;;;;;;x
+atla_master_desc;This person has mastered the warrior's craft. Few who face them in single combat walk away, and their name carries weight among soldiers.;;;;;;;;;x
+atla_grandmaster;Grandmaster;;;;;;;;;x
+atla_grandmaster_desc;This person is one of the finest warriors of their age, a name that soldiers speak with awe. Without bending, they have still made themselves a legend of the battlefield.;;;;;;;;;x
+train_child_in_warfare;Train in the Warrior's Arts;;;;;;;;;x
+train_child_in_warfare_desc;Take this child out to the yard and drill them in the craft of arms. They can climb as high as you have climbed and no further. Only a Grandmaster can make another.;;;;;;;;;x
+obj_master_my_weapon_title;Master My Weapon;;;;;;;;;x
+obj_master_my_weapon_desc;[This.GetTitledFirstName] means to master the craft of arms. Every drill, every bout, every battle is a lesson, and [This.GetSheHe] will climb as high as a non-bender can.;;;;;;;;;x
+ATLAW.32.DESC;The ambition consumes your days. Every free hour finds you in the yard, and the household guard have learned to give you room when you are in a mind to drill.;;;;;;;;;x
+ATLAW.32.OPTA;Drill until your arms ache.;;;;;;;;;x
+ATLAW.32.OPTB;Push yourself past exhaustion.;;;;;;;;;x
+ATLAW.32.OPTC;There are other matters to see to.;;;;;;;;;x
+ATLAW.33.DESC;The drills have finally taken hold. You can hold your own in a press now, a Fighter by any honest reckoning.;;;;;;;;;x
+ATLAW.33.OPTA;It is a start.;;;;;;;;;x
+ATLAW.34.DESC;What the yard could not teach, hard fighting has. You are a Warrior now, the sort of soldier others follow into a breach.;;;;;;;;;x
+ATLAW.34.OPTA;Good.;;;;;;;;;x
+ATLAW.35.DESC;Few in the realm can match you blade to blade. You have become a Master of the warrior's craft, and your name carries weight among soldiers.;;;;;;;;;x
+ATLAW.35.OPTA;Let them come.;;;;;;;;;x
+ATLAW.36.DESC;There is no one left who can teach you anything about killing. You are a Grandmaster, a legend of the battlefield, made without a drop of bending.;;;;;;;;;x
+ATLAW.36.OPTA;They will sing of this.;;;;;;;;;x
+ATLAW.11.DESC;The yard has paid for itself. Your pupil's strikes come faster and truer than they did a season ago, and the lessons have finally begun to stick.;;;;;;;;;x
+ATLAW.11.OPTA;They are coming along.;;;;;;;;;x
+ATLAW.12.DESC;A season of hard drilling, and little to show for it. Your pupil learns the forms well enough, but they have not yet become instinct.;;;;;;;;;x
+ATLAW.12.OPTA;Keep at it.;;;;;;;;;x
+

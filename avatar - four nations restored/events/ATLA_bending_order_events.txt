@@ -1,0 +1,374 @@
+########################################################################
+# ATLA Bending Orders - events
+#
+# namespace: atla_bending_order
+#
+#  atla_bending_order.1    training - the masters test what you can do
+#  atla_bending_order.10   sub-bending - choose what to study (rank 4 only)
+#  atla_bending_order.11   water - healing
+#  atla_bending_order.12   water - master healing
+#  atla_bending_order.13   water - bloodbending (forbidden)
+#  atla_bending_order.14   earth - metalbending
+#  atla_bending_order.15   earth - seismic sense
+#  atla_bending_order.16   earth - sandbending
+#  atla_bending_order.17   earth - lavabending
+#  atla_bending_order.40   a child is instructed (sent to the child)
+#  atla_bending_order.41   the instructor hears how it went
+#
+# Fired by decisions/ATLA_bending_order_training_decisions.txt
+#
+# There are no random outcomes and no prestige rewards here. A rank of the
+# order buys you teaching; what you make of it is settled by the bending
+# rarity effects, not by a dice roll on a letter.
+########################################################################
+
+namespace = atla_bending_order
+
+# --------------------------------------------------------------- training
+
+# The masters take you in hand and find out what you are worth.
+character_event = {
+	id = atla_bending_order.1
+	picture = GFX_evt_kyoshi_training
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				trait = waterbender
+				trait = avatar_waterbender
+			}
+		}
+		text = EVTDESC_BO_1_W
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				OR = {
+					trait = waterbender
+					trait = avatar_waterbender
+				}
+			}
+		}
+		text = EVTDESC_BO_1_E
+	}
+
+	option = {
+		name = EVTOPTA_BO_1
+		if = {
+			limit = { is_bender_trigger = no }
+			add_trait = incompetent_bender
+		}
+		else = {
+			upgrade_bending_effect = yes
+		}
+	}
+}
+
+# ------------------------------------------------------------- sub-bending
+
+# The head of the order is taught one of the arts the order keeps back.
+# Each option is offered only if the character does not already have that art,
+# and the decision that fires this event will not appear for a character who
+# has nothing left to learn.
+character_event = {
+	id = atla_bending_order.10
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				trait = waterbender
+				trait = avatar_waterbender
+			}
+		}
+		text = EVTDESC_BO_10_W
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				OR = {
+					trait = waterbender
+					trait = avatar_waterbender
+				}
+			}
+		}
+		text = EVTDESC_BO_10_E
+	}
+
+	option = { # Healing
+		name = EVTOPTA_BO_10
+		trigger = {
+			OR = {
+				trait = waterbender
+				trait = avatar_waterbender
+			}
+			NOT = { trait = healer }
+			NOT = { trait = master_healer }
+		}
+		hidden_tooltip = {
+			character_event = { id = atla_bending_order.11 days = 21 }
+		}
+	}
+
+	option = { # Perfect your healing
+		name = EVTOPTC_BO_10
+		trigger = {
+			OR = {
+				trait = waterbender
+				trait = avatar_waterbender
+			}
+			trait = healer
+			NOT = { trait = master_healer }
+		}
+		hidden_tooltip = {
+			character_event = { id = atla_bending_order.12 days = 21 }
+		}
+	}
+
+	option = { # Bloodbending
+		name = EVTOPTD_BO_10
+		trigger = {
+			OR = {
+				trait = waterbender
+				trait = avatar_waterbender
+			}
+			NOT = { trait = bloodbender }
+		}
+		hidden_tooltip = {
+			character_event = { id = atla_bending_order.13 days = 21 }
+		}
+	}
+
+	option = { # Metalbending
+		name = EVTOPTE_BO_10
+		trigger = {
+			OR = {
+				trait = earthbender
+				trait = avatar_earthbender
+			}
+			NOT = { trait = metalbender }
+		}
+		hidden_tooltip = {
+			character_event = { id = atla_bending_order.14 days = 21 }
+		}
+	}
+
+	option = { # Seismic sense
+		name = EVTOPTF_BO_10
+		trigger = {
+			OR = {
+				trait = earthbender
+				trait = avatar_earthbender
+			}
+			NOT = { trait = seismicsense }
+			NOT = { trait = seismicsense_nonblind }
+		}
+		hidden_tooltip = {
+			character_event = { id = atla_bending_order.15 days = 21 }
+		}
+	}
+
+	option = { # Sandbending
+		name = EVTOPTG_BO_10
+		trigger = {
+			OR = {
+				trait = earthbender
+				trait = avatar_earthbender
+			}
+			NOT = { trait = sandbender }
+		}
+		hidden_tooltip = {
+			character_event = { id = atla_bending_order.16 days = 21 }
+		}
+	}
+
+	option = { # Lavabending
+		name = EVTOPTH_BO_10
+		trigger = {
+			OR = {
+				trait = earthbender
+				trait = avatar_earthbender
+			}
+			NOT = { trait = lavabender }
+		}
+		hidden_tooltip = {
+			character_event = { id = atla_bending_order.17 days = 21 }
+		}
+	}
+}
+
+# Water - healing
+character_event = {
+	id = atla_bending_order.11
+	desc = EVTDESC_BO_11
+	picture = GFX_evt_waterbending_sparring_fail
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BO_11
+		add_trait = healer
+	}
+}
+
+# Water - master healing
+character_event = {
+	id = atla_bending_order.12
+	desc = EVTDESC_BO_12
+	picture = GFX_evt_beam_of_light
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BO_12
+		add_trait = master_healer
+	}
+}
+
+# Water - the forbidden art
+character_event = {
+	id = atla_bending_order.13
+	desc = EVTDESC_BO_13
+	picture = GFX_evt_beam_of_light
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = { # Learn it
+		name = EVTOPTA_BO_13
+		add_trait = bloodbender
+		piety = -100
+	}
+
+	option = { # Refuse it
+		name = EVTOPTB_BO_13
+		trigger = {
+			ai = no
+		}
+		piety = 50
+		clr_character_flag = wbo_subbending_done
+	}
+}
+
+# Earth - metalbending
+character_event = {
+	id = atla_bending_order.14
+	desc = EVTDESC_BO_14
+	picture = GFX_evt_kyoshi_training
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BO_14
+		add_trait = metalbender
+	}
+}
+
+# Earth - seismic sense
+character_event = {
+	id = atla_bending_order.15
+	desc = EVTDESC_BO_15
+	picture = GFX_evt_kyoshi_training
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BO_15
+		if = {
+			limit = {
+				OR = {
+					trait = blind
+					trait = blinded
+				}
+			}
+			add_trait = seismicsense
+		}
+		else = {
+			add_trait = seismicsense_nonblind
+		}
+	}
+}
+
+# Earth - sandbending
+character_event = {
+	id = atla_bending_order.16
+	desc = EVTDESC_BO_16
+	picture = GFX_evt_kyoshi_training
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BO_16
+		add_trait = sandbender
+	}
+}
+
+# Earth - lavabending
+character_event = {
+	id = atla_bending_order.17
+	desc = EVTDESC_BO_17
+	picture = GFX_evt_beam_of_light
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BO_17
+		add_trait = lavabender
+	}
+}
+
+# ------------------------------------------------------------- instruction
+
+# Sent to the child who is being instructed.
+character_event = {
+	id = atla_bending_order.40
+	picture = GFX_evt_kyoshi_training
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				trait = waterbender
+				trait = avatar_waterbender
+			}
+		}
+		text = EVTDESC_BO_40_W
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				OR = {
+					trait = waterbender
+					trait = avatar_waterbender
+				}
+			}
+		}
+		text = EVTDESC_BO_40_E
+	}
+
+	option = { # Better than yesterday
+		name = EVTOPTA_BO_40
+		hidden_tooltip = {
+			FROMFROM = {
+				character_event = { id = atla_bending_order.41 }
+			}
+		}
+	}
+}
+
+# The instructor hears how the lesson went.
+character_event = {
+	id = atla_bending_order.41
+	desc = EVTDESC_BO_41
+	picture = GFX_evt_library
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+
+	option = { # Very well indeed
+		name = EVTOPTA_BO_41
+	}
+}

@@ -91,7 +91,7 @@
 			factor = 0
 			OR = {
 				NOT = { culture_group = fire_nation_cultures }
-				culture = sun_warrior
+				culture = sun_warrior 
 			}
 		}
 		modifier = {
@@ -125,7 +125,7 @@
 			factor = 0
 			OR = {
 				NOT = { culture_group = fire_nation_cultures }
-				culture = sun_warrior
+				culture = sun_warrior 
 			}
 		}
 		modifier = {
@@ -152,7 +152,7 @@
 			factor = 0
 			OR = {
 				NOT = { culture_group = fire_nation_cultures }
-				culture = sun_warrior
+				culture = sun_warrior 
 			}
 		}
 	}
@@ -318,12 +318,13 @@
 		modifier = { # Adult Roku
 			factor = 0
 			has_character_flag = is_roku
+			# has_character_flag = avatar_journey
 			age < 30
 			OR = {
-				trait = fully_realised_avatar
-				trait = roku_learning_airbending
-				trait = roku_learning_earthbending
-				trait = roku_learning_waterbending
+				trait = fullyrealisedavatar
+				trait = avatar_learning_airbending
+				trait = avatar_learning_waterbending
+				trait = avatar_learning_earthbending
 			}
 		}
 		modifier = { # Midage Roku at Wedding
@@ -344,11 +345,13 @@
 		modifier = { # Roku airbending training
 			factor = 100
 			has_character_flag = is_roku
-			trait = roku_learning_airbending
+			has_character_flag = avatar_journey
+			trait = avatar_learning_airbending
 		}
 		modifier = { # Midage Roku after his ultimatum
 			factor = 100
 			has_character_flag = is_roku
+			# has_character_flag = roku_made_ultimatum
 			age >= 40
 		}
 		modifier = { # Adult Ta Min
@@ -358,12 +361,13 @@
 			age < 30
 		}
 	}
-	2 = {
+	2 = { 
 		factor = 1
 		modifier = { # Roku waterbending training
 			factor = 100
 			has_character_flag = is_roku
-			trait = roku_learning_waterbending
+			has_character_flag = avatar_journey
+			trait = avatar_learning_waterbending
 		}
 	}
 	3 = {
@@ -371,7 +375,8 @@
 		modifier = { # Roku earthbending training
 			factor = 100
 			has_character_flag = is_roku
-			trait = roku_learning_earthbending
+			has_character_flag = avatar_journey
+			trait = avatar_learning_earthbending
 		}
 	}
 	4 = {
@@ -379,7 +384,7 @@
 		modifier = { # Roku after return
 			factor = 100
 			has_character_flag = is_roku
-			trait = fully_realised_avatar
+			trait = fullyrealisedavatar
 			is_married = no
 		}
 	}
@@ -969,7 +974,10 @@
 		}
 		modifier = {
 			factor = 0
-			trait = avatar
+			OR = {
+				trait = avatar
+				trait = fullyrealisedavatar
+			}
 		}
 		modifier = {
 			factor = 0
@@ -1075,13 +1083,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_1
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1093,13 +1101,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_2
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1111,13 +1119,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_3
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1129,13 +1137,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_4
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1146,13 +1154,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_5
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1163,13 +1171,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_6
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1180,13 +1188,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_7
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1197,13 +1205,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_8
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1214,13 +1222,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_9
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1231,13 +1239,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = {
+			NOT = { 
 				trait = scarred_type_10
 			}
 		}
 		modifier = {
 			factor = 0
-			OR = {
+			OR = { 
 				trait = scarred_mid
 				trait = scarred_high
 				NOT = { trait = scarred }
@@ -1352,8 +1360,8 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			OR = {
-				trait = disfigured
+			OR = { 
+				trait = disfigured 
 				has_character_modifier = attending_masquerade
 				has_character_modifier = forced_mask
 			}
@@ -1364,8 +1372,8 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOR = {
-				trait = disfigured
+			NOR = { 
+				trait = disfigured 
 				has_character_modifier = attending_masquerade
 				has_character_modifier = forced_mask
 			}

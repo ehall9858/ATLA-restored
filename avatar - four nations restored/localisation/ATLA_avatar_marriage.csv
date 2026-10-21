@@ -1,0 +1,8 @@
+CODE;ENGLISH;;;;;;;;;;;x
+seek_avatar_spouse;Seek a Spouse;;;;;;;;;;;x
+seek_avatar_spouse_desc;Find love among remarkable people across the world.;;;;;;;;;;;x
+avatar_marriage.1.desc;In the course of my duties I have heard of remarkable people across the world: brave, kind, and free to marry. I could send for one of them, and perhaps find love.;;;;;;;;;;;x
+avatar_marriage.1.a;Marry [avatar_spouse_candidate_1.GetTitledFirstName];;;;;;;;;;;x
+avatar_marriage.1.b;Marry [avatar_spouse_candidate_2.GetTitledFirstName];;;;;;;;;;;x
+avatar_marriage.1.c;Marry [avatar_spouse_candidate_3.GetTitledFirstName];;;;;;;;;;;x
+avatar_marriage.1.d;None of them move my heart;;;;;;;;;;;x

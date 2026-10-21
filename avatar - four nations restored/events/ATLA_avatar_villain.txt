@@ -1,0 +1,632 @@
+namespace = avatar_villain
+
+# A villain candidate: an independent landed adult ruler causing great
+# strife - colonizer, foreign occupier, high tyrant, Chin warlord, great
+# hostile power, or notorious murderer - who has not yet been declared.
+# The test itself lives in is_villain_candidate_trigger (scripted triggers),
+# shared with the denounce_villain decision so the two cannot drift apart.
+
+# The Avatar is warned every few years when such a ruler exists. Fires on
+# the Avatar; the candidate is saved as event_target:villain_candidate.
+character_event = {
+    id = avatar_villain.1
+    title = avatar_villain.1.t
+    # The most specific charge against them decides the wording. Each block is
+    # tested in order; the plain key at the end is the fallback.
+    desc = {
+        trigger = { event_target:villain_candidate = { trait = kinslayer } }
+        text = avatar_villain.desc.kinslayer
+    }
+    desc = {
+        trigger = { event_target:villain_candidate = { trait = warlord_of_chin } }
+        text = avatar_villain.desc.chin
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                AND = {
+                    NOR = { culture_group = earth_kingdom_cultures }
+                    any_realm_province = { region = world_greater_earth_kingdom }
+                }
+            }
+        }
+        text = avatar_villain.desc.earth
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                AND = {
+                    NOR = { culture_group = air_nomad_cultures }
+                    any_realm_province = { region = world_air_temples }
+                }
+            }
+        }
+        text = avatar_villain.desc.temples
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                any_realm_province = {
+                    OR = {
+                        has_province_modifier = colony_1
+                        has_province_modifier = colony_2
+                        has_province_modifier = colony_3
+                    }
+                }
+            }
+        }
+        text = avatar_villain.desc.colonies
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                OR = {
+                    trait = conqueror
+                    trait = tyrannical
+                    trait = irredeemable
+                }
+            }
+        }
+        text = avatar_villain.desc.tyrant
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                AND = {
+                    is_hostile_to_avatar_trigger = yes
+                    realm_size >= 25
+                }
+            }
+        }
+        text = avatar_villain.desc.hostile
+    }
+    desc = {
+        trigger = { always = yes }
+        text = avatar_villain.1.desc
+    }
+    picture = GFX_evt_council
+    is_triggered_only = yes
+    trigger = {
+        is_avatar_trigger = yes
+        trait = fullyrealisedavatar
+        NOT = { has_character_flag = avatar_villain_cooldown }
+        any_independent_ruler = {
+            is_villain_candidate_trigger = yes
+            NOT = { character = ROOT }
+        }
+    }
+    immediate = {
+        random_independent_ruler = {
+            limit = {
+                is_villain_candidate_trigger = yes
+                NOT = { character = ROOT }
+            }
+            save_event_target_as = villain_candidate
+        }
+    }
+    option = {
+        name = avatar_villain.1.a
+        trigger = { event_target:villain_candidate = { is_alive = yes } }
+        ai_chance = {
+            factor = 30
+            modifier = { factor = 2 trait = just }
+            modifier = { factor = 2 trait = ambitious }
+            modifier = { factor = 1.5 trait = wroth }
+        }
+        event_target:villain_candidate = {
+            add_trait = villain
+            prestige = -25
+        }
+        save_event_target_as = villain_declarer
+        declared_villain_reaction_effect = yes
+        prestige = 25
+        piety = 10
+        set_character_flag = avatar_villain_cooldown
+        # The villain gets to answer the declaration (avatar_villain.6).
+        event_target:villain_candidate = { character_event = { id = avatar_villain.6 days = 3 } }
+        character_event = { id = avatar_villain.4 days = 2190 }
+        clear_event_target = villain_candidate
+    }
+    option = {
+        name = avatar_villain.1.b
+        trigger = { event_target:villain_candidate = { is_alive = yes } }
+        ai_chance = {
+            factor = 20
+            modifier = { factor = 2 trait = brave }
+            modifier = { factor = 1.5 trait = wroth }
+        }
+        event_target:villain_candidate = { add_trait = villain }
+        save_event_target_as = villain_declarer
+        declared_villain_reaction_effect = yes
+        # Mark this duel's stake and register both combatants. The stake is
+        # settled by the avatar_villain hook in ADUEL.28; villain_candidate
+        # is consumed there, so it is NOT cleared here.
+        set_character_flag = avatar_villain_duel
+        save_event_target_as = combatant_1
+        event_target:villain_candidate = { save_event_target_as = combatant_2 }
+        # Enter the duel loop at ADUEL.13. Deliberately do NOT prep the Avatar
+        # here: an unprepped Avatar makes the defiant party take the Ping
+        # branch, which saves event_target:other_hostile - the tribute the
+        # turn loop needs for its very first action. Prepping upfront skips
+        # the Ping and deadlocks the loop with no hostile set. ADUEL.13's
+        # own immediate preps whoever receives it.
+        clr_character_flag = preparedForDuel
+        clr_character_flag = used_earthquake
+        clr_character_flag = has_used_fireball
+        event_target:villain_candidate = { character_event = { id = ADUEL.13 days = 3 } }
+        add_character_modifier = {
+            modifier = recent_duel_timer
+            duration = 90
+            hidden = yes
+        }
+        set_character_flag = avatar_villain_cooldown
+        character_event = { id = avatar_villain.4 days = 2190 }
+    }
+    option = {
+        name = avatar_villain.1.c
+        ai_chance = { factor = 20 }
+        set_character_flag = avatar_villain_cooldown
+        character_event = { id = avatar_villain.4 days = 2190 }
+        clear_event_target = villain_candidate
+    }
+    # A fourth way: neither denounce nor fight, but offer them a road back.
+    # The candidate decides for themselves in avatar_villain.9, so a player
+    # Villain is never written into a redemption they did not choose.
+    option = {
+        name = avatar_villain.1.d
+        trigger = {
+            event_target:villain_candidate = {
+                is_alive = yes
+                NOT = { trait = irredeemable }
+                NOT = { trait = kinslayer }
+            }
+        }
+        ai_chance = {
+            factor = 15
+            modifier = { factor = 2 trait = kind }
+            modifier = { factor = 2 trait = spiritually_focused_avatar }
+            modifier = { factor = 0.5 trait = wroth }
+            modifier = { factor = 0.5 trait = cruel }
+        }
+        save_event_target_as = villain_declarer
+        event_target:villain_candidate = { character_event = { id = avatar_villain.9 days = 3 } }
+        set_character_flag = avatar_villain_cooldown
+        character_event = { id = avatar_villain.4 days = 2190 }
+    }
+}
+
+# Manual confirmation for the denounce_villain decision. Fires on the Avatar;
+# villain_candidate was saved by the decision. Same options as above.
+character_event = {
+    id = avatar_villain.2
+    title = avatar_villain.2.t
+    desc = {
+        trigger = { event_target:villain_candidate = { trait = kinslayer } }
+        text = avatar_villain.desc.kinslayer
+    }
+    desc = {
+        trigger = { event_target:villain_candidate = { trait = warlord_of_chin } }
+        text = avatar_villain.desc.chin
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                AND = {
+                    NOR = { culture_group = earth_kingdom_cultures }
+                    any_realm_province = { region = world_greater_earth_kingdom }
+                }
+            }
+        }
+        text = avatar_villain.desc.earth
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                AND = {
+                    NOR = { culture_group = air_nomad_cultures }
+                    any_realm_province = { region = world_air_temples }
+                }
+            }
+        }
+        text = avatar_villain.desc.temples
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                any_realm_province = {
+                    OR = {
+                        has_province_modifier = colony_1
+                        has_province_modifier = colony_2
+                        has_province_modifier = colony_3
+                    }
+                }
+            }
+        }
+        text = avatar_villain.desc.colonies
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                OR = {
+                    trait = conqueror
+                    trait = tyrannical
+                    trait = irredeemable
+                }
+            }
+        }
+        text = avatar_villain.desc.tyrant
+    }
+    desc = {
+        trigger = {
+            event_target:villain_candidate = {
+                AND = {
+                    is_hostile_to_avatar_trigger = yes
+                    realm_size >= 25
+                }
+            }
+        }
+        text = avatar_villain.desc.hostile
+    }
+    desc = {
+        trigger = { always = yes }
+        text = avatar_villain.2.desc
+    }
+    picture = GFX_evt_council
+    is_triggered_only = yes
+    trigger = {
+        is_avatar_trigger = yes
+        trait = fullyrealisedavatar
+        event_target:villain_candidate = {
+            is_alive = yes
+            is_landed = yes
+        }
+    }
+    option = {
+        name = avatar_villain.2.a
+        event_target:villain_candidate = {
+            add_trait = villain
+            prestige = -25
+        }
+        save_event_target_as = villain_declarer
+        declared_villain_reaction_effect = yes
+        prestige = 25
+        piety = 10
+        set_character_flag = avatar_villain_cooldown
+        # The villain gets to answer the declaration (avatar_villain.6).
+        event_target:villain_candidate = { character_event = { id = avatar_villain.6 days = 3 } }
+        character_event = { id = avatar_villain.4 days = 2190 }
+        clear_event_target = villain_candidate
+    }
+    option = {
+        name = avatar_villain.2.b
+        set_character_flag = avatar_villain_duel
+        save_event_target_as = combatant_1
+        event_target:villain_candidate = { add_trait = villain }
+        save_event_target_as = villain_declarer
+        declared_villain_reaction_effect = yes
+        event_target:villain_candidate = { save_event_target_as = combatant_2 }
+        # Enter the duel loop at ADUEL.13. Deliberately do NOT prep the Avatar
+        # here: an unprepped Avatar makes the defiant party take the Ping
+        # branch, which saves event_target:other_hostile - the tribute the
+        # turn loop needs for its very first action. Prepping upfront skips
+        # the Ping and deadlocks the loop with no hostile set. ADUEL.13's
+        # own immediate preps whoever receives it.
+        clr_character_flag = preparedForDuel
+        clr_character_flag = used_earthquake
+        clr_character_flag = has_used_fireball
+        event_target:villain_candidate = { character_event = { id = ADUEL.13 days = 3 } }
+        add_character_modifier = {
+            modifier = recent_duel_timer
+            duration = 90
+            hidden = yes
+        }
+        set_character_flag = avatar_villain_cooldown
+        character_event = { id = avatar_villain.4 days = 2190 }
+    }
+    option = {
+        name = avatar_villain.2.c
+        set_character_flag = avatar_villain_cooldown
+        character_event = { id = avatar_villain.4 days = 2190 }
+        clear_event_target = villain_candidate
+    }
+    # A fourth way: neither denounce nor fight, but offer them a road back.
+    # The candidate decides for themselves in avatar_villain.9, so a player
+    # Villain is never written into a redemption they did not choose.
+    option = {
+        name = avatar_villain.2.d
+        trigger = {
+            event_target:villain_candidate = {
+                is_alive = yes
+                NOT = { trait = irredeemable }
+                NOT = { trait = kinslayer }
+            }
+        }
+        save_event_target_as = villain_declarer
+        event_target:villain_candidate = { character_event = { id = avatar_villain.9 days = 3 } }
+        set_character_flag = avatar_villain_cooldown
+        character_event = { id = avatar_villain.4 days = 2190 }
+    }
+}
+
+# Victory stakes. Fired on the Avatar when the villain forfeits the duel
+# (ADUEL.8 / ADUEL.9); the defeated villain is event_target:villain_vanquished.
+# The won-duel path shows the same four stakes inline in ADUEL.28 - both call
+# the shared villain_stake_* effects, so keep the option lists in step.
+character_event = {
+    id = avatar_villain.3
+    title = avatar_villain.3.t
+    desc = avatar_villain.3.desc
+    picture = GFX_evt_battle
+    is_triggered_only = yes
+    trigger = {
+        event_target:villain_vanquished = { is_alive = yes }
+    }
+    option = {
+        name = avatar_villain.3.a
+        ai_chance = {
+            factor = 20
+            modifier = { factor = 3 trait = martial_avatar }
+            modifier = { factor = 2 trait = wroth }
+            modifier = { factor = 0.5 trait = spiritually_focused_avatar }
+        }
+        # No mercy, and no further work: the villain dies by the Avatar's hand
+        # and their realm passes to whoever can hold it.
+        event_target:villain_vanquished = { villain_stake_kill_effect = yes }
+        prestige = 60
+        piety = -10
+        clr_character_flag = avatar_villain_duel
+        event_target:combatant_1 = { clr_character_flag = avatar_villain_duel }
+        event_target:combatant_2 = { clr_character_flag = avatar_villain_duel }
+        clear_event_target = villain_candidate
+        clear_event_target = villain_vanquished
+        clear_event_target = villain_declarer
+        clear_event_target = villain_declared
+    }
+    option = {
+        name = avatar_villain.3.b
+        ai_chance = {
+            factor = 25
+            modifier = { factor = 2 trait = martial_avatar }
+            modifier = { factor = 1.5 trait = politically_focused_avatar }
+            modifier = { factor = 1.5 trait = wroth }
+            modifier = { factor = 0.5 trait = spiritually_focused_avatar }
+        }
+        # End them and the thing they built. The titles come down while they
+        # still hold them, so there is nothing left for an heir to inherit.
+        event_target:villain_vanquished = { villain_stake_kill_and_dismantle_effect = yes }
+        prestige = 120
+        piety = -15
+        clr_character_flag = avatar_villain_duel
+        event_target:combatant_1 = { clr_character_flag = avatar_villain_duel }
+        event_target:combatant_2 = { clr_character_flag = avatar_villain_duel }
+        clear_event_target = villain_candidate
+        clear_event_target = villain_vanquished
+        clear_event_target = villain_declarer
+        clear_event_target = villain_declared
+    }
+    option = {
+        name = avatar_villain.3.c
+        ai_chance = {
+            factor = 30
+            modifier = { factor = 2 trait = politically_focused_avatar }
+            modifier = { factor = 1.5 trait = just }
+            modifier = { factor = 0.5 trait = wroth }
+        }
+        # Chains and a broken realm, but no blood on the Avatar's hands.
+        event_target:villain_vanquished = { villain_stake_imprison_and_dismantle_effect = yes }
+        prestige = 100
+        piety = 10
+        clr_character_flag = avatar_villain_duel
+        event_target:combatant_1 = { clr_character_flag = avatar_villain_duel }
+        event_target:combatant_2 = { clr_character_flag = avatar_villain_duel }
+        clear_event_target = villain_candidate
+        clear_event_target = villain_vanquished
+        clear_event_target = villain_declarer
+        clear_event_target = villain_declared
+    }
+    option = {
+        name = avatar_villain.3.d
+        ai_chance = {
+            factor = 40
+            modifier = { factor = 2 trait = spiritually_focused_avatar }
+            modifier = { factor = 1.5 trait = wandering_avatar }
+            modifier = { factor = 0.5 trait = martial_avatar }
+        }
+        # Depose, do not dismantle: the villain abdicates in favour of their
+        # heir, so the realm passes on intact under new leadership, and then
+        # they are taken in chains. Their vassals and titles stay where they
+        # are - only the ruler changes.
+        event_target:villain_vanquished = { villain_stake_depose_and_imprison_effect = yes }
+        prestige = 75
+        piety = 25
+        clr_character_flag = avatar_villain_duel
+        event_target:combatant_1 = { clr_character_flag = avatar_villain_duel }
+        event_target:combatant_2 = { clr_character_flag = avatar_villain_duel }
+        clear_event_target = villain_candidate
+        clear_event_target = villain_vanquished
+        clear_event_target = villain_declarer
+        clear_event_target = villain_declared
+    }
+}
+
+# Cooldown cleanup. Deliberately does NOT clear villain_candidate or
+# villain_vanquished: this event is scheduled six years ahead, and a player
+# can declare again before it fires, so clearing them here could wipe a later
+# declaration's target out from under a running stake. Every path that saves
+# those targets clears them itself.
+character_event = {
+    id = avatar_villain.4
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        clr_character_flag = avatar_villain_cooldown
+    }
+}
+
+# --- The villain answers ----------------------------------------------------
+# Fired three days after a denunciation that was not settled by duel. ROOT is
+# the Villain; event_target:villain_declarer is the Avatar who named them.
+character_event = {
+    id = avatar_villain.6
+    title = avatar_villain.6.t
+    desc = avatar_villain.6.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+
+    trigger = {
+        is_alive = yes
+        trait = villain
+    }
+
+    option = { # Submit
+        name = avatar_villain.6.a
+        ai_chance = {
+            factor = 30
+            modifier = { factor = 0.2 trait = brave }
+            modifier = { factor = 0.3 trait = ambitious }
+            modifier = { factor = 0.5 trait = proud }
+            modifier = { factor = 0.5 trait = wroth }
+            modifier = { factor = 2 trait = craven }
+            modifier = { factor = 2 trait = content }
+            modifier = { factor = 2 trait = humble }
+        }
+        remove_trait = villain
+        prestige = -100
+        opinion = { modifier = opinion_villain_submitted who = event_target:villain_declarer years = 20 }
+        # Keeps the Avatar from simply declaring them again the same day for
+        # another purse of prestige. Expires after five years.
+        add_character_modifier = { modifier = villain_reprieved duration = 1825 hidden = yes }
+        save_event_target_as = villain_declared
+        event_target:villain_declarer = { character_event = { id = avatar_villain.7 days = 1 } }
+        clear_event_target = villain_candidate
+        clear_event_target = villain_declarer
+    }
+
+    option = { # Defy
+        name = avatar_villain.6.b
+        ai_chance = {
+            factor = 50
+            modifier = { factor = 2 trait = brave }
+            modifier = { factor = 2 trait = ambitious }
+            modifier = { factor = 2 trait = proud }
+            modifier = { factor = 1.5 trait = wroth }
+            modifier = { factor = 0.2 trait = craven }
+        }
+        prestige = 75
+        add_rival = event_target:villain_declarer
+        save_event_target_as = villain_declared
+        event_target:villain_declarer = { character_event = { id = avatar_villain.8 days = 1 } }
+        clear_event_target = villain_candidate
+        clear_event_target = villain_declarer
+    }
+}
+
+# The Avatar is told that the villain submitted (also used when they accept
+# the offer of mercy in avatar_villain.9).
+character_event = {
+    id = avatar_villain.7
+    title = avatar_villain.7.t
+    desc = avatar_villain.7.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+
+    option = {
+        name = avatar_villain.7.a
+        prestige = 50
+        piety = 25
+        clear_event_target = villain_declared
+    }
+}
+
+# The Avatar is told that the villain will not bend - either defying the
+# declaration outright or refusing the offer of mercy.
+character_event = {
+    id = avatar_villain.8
+    title = avatar_villain.8.t
+    desc = avatar_villain.8.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+
+    option = {
+        name = avatar_villain.8.a
+        prestige = 10
+        piety = -10
+        clear_event_target = villain_declared
+    }
+}
+
+# The offer of mercy. Fires on the candidate, so a player Villain gets to
+# decide for themselves rather than being written into a redemption. ROOT is
+# the candidate; event_target:villain_declarer is the Avatar.
+character_event = {
+    id = avatar_villain.9
+    title = avatar_villain.9.t
+    desc = avatar_villain.9.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+
+    trigger = { is_alive = yes }
+
+    option = { # Accept
+        name = avatar_villain.9.a
+        ai_chance = {
+            factor = 40
+            modifier = { factor = 2 trait = just }
+            modifier = { factor = 2 trait = honest }
+            modifier = { factor = 1.5 trait = content }
+            modifier = { factor = 0.3 trait = ambitious }
+            modifier = { factor = 0.3 trait = cruel }
+            modifier = { factor = 0.5 trait = proud }
+            modifier = { factor = 0.5 trait = zealous }
+        }
+        prestige = -75
+        opinion = { modifier = opinion_villain_reprieved who = event_target:villain_declarer years = 30 }
+        add_friend = event_target:villain_declarer
+        add_character_modifier = { modifier = villain_reprieved duration = 1825 hidden = yes }
+        save_event_target_as = villain_declared
+        event_target:villain_declarer = { character_event = { id = avatar_villain.7 days = 1 } }
+        clear_event_target = villain_candidate
+        clear_event_target = villain_declarer
+    }
+
+    option = { # Refuse
+        name = avatar_villain.9.b
+        ai_chance = {
+            factor = 60
+            modifier = { factor = 2 trait = ambitious }
+            modifier = { factor = 2 trait = cruel }
+            modifier = { factor = 2 trait = proud }
+            modifier = { factor = 0.3 trait = content }
+        }
+        add_trait = villain
+        prestige = 75
+        add_rival = event_target:villain_declarer
+        # They have just made themselves a Villain in public. The world reacts
+        # exactly as it would to a formal declaration.
+        declared_villain_reaction_effect = yes
+        save_event_target_as = villain_declared
+        event_target:villain_declarer = { character_event = { id = avatar_villain.8 days = 1 } }
+        clear_event_target = villain_candidate
+        clear_event_target = villain_declarer
+    }
+}
+
+# Declared Villains do not sit still. Every two years their name hardens:
+# tyranny rises, and the existing morality ladder (ATLA.7000) decides whether
+# they slip another rung toward irredeemable.
+character_event = {
+    id = avatar_villain.11
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        trait = villain
+        is_landed = yes
+        is_adult = yes
+    }
+
+    immediate = {
+        change_variable = { which = tyranny value = 5 }
+        character_event = { id = ATLA.7000 days = 1 }
+    }
+}

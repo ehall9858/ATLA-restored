@@ -1,0 +1,20 @@
+# The Avatar is only ever "the Avatar" - see events/ATLA_nickname_events.txt
+# CK2 merges on_action blocks of the same name across files.
+
+on_acquire_nickname = {
+	events = {
+		atla_nickname.1 # take it straight back off the Avatar
+	}
+}
+
+on_startup = {
+	events = {
+		atla_nickname.2 # clear a nickname left over in an older save
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		atla_nickname.2
+	}
+}

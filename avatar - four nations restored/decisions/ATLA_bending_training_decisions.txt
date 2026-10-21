@@ -1,0 +1,89 @@
+########################################################################
+# ATLA Bending Training
+#
+# The lone grind, available to any bender in the world. It sharpens an
+# untrained bender towards the top of ordinary skill - somewhat rarely
+# climbing to powerful - and stops there. It can never produce a master or
+# a legendary: those come from being taught (the bending orders, the Agni
+# Kai, the Avatar's own journey). See
+# common/scripted_effects/10_atla_bending_rarity_effects.txt and
+# events/ATLA_bending_training_events.txt.
+#
+# The AI only drills when it is actually chasing obj_master_your_bending,
+# and it weighs the decision every three years rather than every year.
+########################################################################
+
+decisions = {
+
+	train_your_bending = {
+		ai_check_interval = 36
+
+		potential = {
+			is_bender_trigger = yes
+			NOT = { trait = legendary_bender }
+			NOT = { is_avatar_trigger = yes }
+			OR = {
+				NOT = { is_top_tier_bender_trigger = yes }
+				has_ambition = obj_become_legendary_bender
+			}
+			is_adult = yes
+			NOT = { trait = incapable }
+			prisoner = no
+			OR = {
+				NOT = { has_character_flag = atla_bending_training }
+				had_character_flag = { flag = atla_bending_training days = 730 }
+			}
+		}
+
+		allow = {
+			NOT = { trait = infirm }
+			NOT = { trait = wounded }
+			NOT = { trait = severely_injured }
+		}
+
+		effect = {
+			set_character_flag = atla_bending_training
+			character_event = { id = atla_bending_training.1 }
+		}
+
+		ai_will_do = {
+			factor = 0.25
+
+			# The AI drills for a purpose, not for the sake of the exercise.
+			modifier = {
+				factor = 0
+				NOT = { has_ambition = obj_master_your_bending }
+			}
+			# And it stops bothering once it has already reached the ceiling of
+			# what drilling alone can give it.
+			modifier = {
+				factor = 0
+				OR = {
+					trait = powerful_bender
+					trait = master_bender
+					trait = legendary_bender
+				}
+			}
+			modifier = {
+				factor = 2.0
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = patient
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.25
+				trait = content
+			}
+		}
+	}
+}

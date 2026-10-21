@@ -203,7 +203,12 @@ character_event = {
 		name = EVTOPTAbending.2		#Watch out! It's hot!
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -283,8 +288,8 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
+					trait = fullyrealisedavatar
 					trait = firebender
-					has_character_flag = is_avatar
 					trait = enlightened
 					has_lifestyle_learning_trigger = yes
 					has_education_learning_trigger = yes
@@ -399,7 +404,12 @@ character_event = {
 		name = EVTOPTAbending.6		#You will learn later
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -441,9 +451,9 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
+					trait = fullyrealisedavatar
 					trait = firebender
 					trait = enlightened
-					has_character_flag = is_avatar
 					has_lifestyle_learning_trigger = yes
 					has_education_learning_trigger = yes
 				}
@@ -526,7 +536,12 @@ character_event = {
 		name = EVTOPTAbending.10		#You see, the sun gives....
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -568,7 +583,7 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
-					has_character_flag = is_avatar
+					trait = fullyrealisedavatar
 					trait = firebender
 					trait = enlightened
 					has_lifestyle_learning_trigger = yes
@@ -599,7 +614,12 @@ character_event = {
 		name = EVTOPTCbending.10		#I will not tell you!
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -872,7 +892,14 @@ character_event = {
 		name = EVTOPTCbending.32		#Watch out! It's hot!
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						OR = {
+							has_character_flag = avatar_unrevealed
+							has_character_flag = avatar_revealed
+						}
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -917,7 +944,7 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
-					has_character_flag = is_avatar
+					trait = fullyrealisedavatar
 					trait = firebender
 					trait = enlightened
 					has_lifestyle_learning_trigger = yes
@@ -1053,7 +1080,12 @@ character_event = {
 		name = EVTOPTAbending.36		#You will learn later
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -1097,7 +1129,7 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
-					trait = avatar
+					trait = fullyrealisedavatar
 					trait = firebender
 					trait = enlightened
 					has_lifestyle_learning_trigger = yes
@@ -1177,7 +1209,12 @@ character_event = {
 		name = EVTOPTAbending.40		#You see, the sun gives....
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -1217,7 +1254,7 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
-					has_character_flag = is_avatar
+					trait = fullyrealisedavatar
 					trait = firebender
 					trait = enlightened
 					has_lifestyle_learning_trigger = yes
@@ -1246,7 +1283,10 @@ character_event = {
 		name = EVTOPTCbending.40		#I will not tell you!
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOR = {
+					has_character_flag = avatar_unrevealed
+					has_character_flag = avatar_revealed
+				}
 			}
 		}
 		ai_chance = {
@@ -1429,7 +1469,12 @@ character_event = {
 		name = EVTOPTAbending.62
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -1474,7 +1519,7 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
-					has_character_flag = is_avatar
+					trait = fullyrealisedavatar
 					trait = firebender
 					trait = enlightened
 					has_lifestyle_learning_trigger = yes
@@ -1610,7 +1655,12 @@ character_event = {
 		name = EVTOPTAbending.66		#You will learn later
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -1652,7 +1702,7 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
-					has_character_flag = is_avatar
+					trait = fullyrealisedavatar
 					trait = firebender
 					trait = enlightened
 					has_lifestyle_learning_trigger = yes
@@ -1732,7 +1782,12 @@ character_event = {
 		name = EVTOPTAbending.70		#You see, the sun gives....
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -1772,7 +1827,7 @@ character_event = {
 			modifier = {
 				factor = 3
 				OR = {
-					has_character_flag = is_avatar
+					trait = fullyrealisedavatar
 					trait = firebender
 					trait = enlightened
 					has_lifestyle_learning_trigger = yes
@@ -1803,7 +1858,12 @@ character_event = {
 		name = EVTOPTCbending.70		#I will not tell you!
 		trigger = {
 			FROM = {
-				NOT = { has_character_flag = is_avatar }
+				NOT = {
+					OR = {
+						has_character_flag = avatar_unrevealed
+						has_character_flag = avatar_revealed
+					}
+				}
 			}
 		}
 		ai_chance = {
@@ -2236,8 +2296,28 @@ character_event = {
 	is_triggered_only = yes
 	min_age = 2
 	max_age = 8
-	
-	trigger = { is_bender_trigger = no 
+	trigger = {
+		NOT = {
+			trait = waterbender
+		}
+		NOT = {
+			trait = earthbender
+		}
+		NOT = {
+			trait = firebender
+		}
+		NOT = {
+			trait = airbender
+		}
+		NOT = {
+			has_character_flag = avatar_unrevealed
+		}
+		NOT = {
+			has_character_flag = avatar_revealed
+		}
+		NOT = {
+			has_character_flag = special_bender
+		}
 	}
 	option = {
 		random_list = {
@@ -2352,17 +2432,12 @@ character_event = {
 					trait = quick
 				}
 				modifier = {
-					factor = 2
-					OR = {
-						mother_even_if_dead = { trait = avatar }
-						father_even_if_dead = { trait = avatar }
-						mother_even_if_dead = { trait = fully_realised_avatar }
-						father_even_if_dead = { trait = fully_realised_avatar }
-					}
+					factor = 4
+					trait = directdescendantavatar
 				}
 				modifier = {
 					factor = 2
-					any_owned_bloodline = { has_bloodline_flag = is_avatar_bloodline }
+					trait = descendantavatar
 				}
 				random_list = {
 					70 = {
@@ -2512,17 +2587,12 @@ character_event = {
 					trait = shy
 				}
 				modifier = {
-					factor = 2
-					OR = {
-						mother_even_if_dead = { trait = avatar }
-						father_even_if_dead = { trait = avatar }
-						mother_even_if_dead = { trait = fully_realised_avatar }
-						father_even_if_dead = { trait = fully_realised_avatar }
-					}
+					factor = 4
+					trait = directdescendantavatar
 				}
 				modifier = {
 					factor = 2
-					any_owned_bloodline = { has_bloodline_flag = is_avatar_bloodline }
+					trait = descendantavatar
 				}
 				random_list = {
 					68 = {
@@ -2693,17 +2763,12 @@ character_event = {
 					trait = shy
 				}
 				modifier = {
-					factor = 2
-					OR = {
-						mother_even_if_dead = { trait = avatar }
-						father_even_if_dead = { trait = avatar }
-						mother_even_if_dead = { trait = fully_realised_avatar }
-						father_even_if_dead = { trait = fully_realised_avatar }
-					}
+					factor = 4
+					trait = directdescendantavatar
 				}
 				modifier = {
 					factor = 2
-					any_owned_bloodline = { has_bloodline_flag = is_avatar_bloodline }
+					trait = descendantavatar
 				}
 				random_list = {
 					70 = {
@@ -2853,17 +2918,12 @@ character_event = {
 					trait = shy
 				}
 				modifier = {
-					factor = 2
-					OR = {
-						mother_even_if_dead = { trait = avatar }
-						father_even_if_dead = { trait = avatar }
-						mother_even_if_dead = { trait = fully_realised_avatar }
-						father_even_if_dead = { trait = fully_realised_avatar }
-					}
+					factor = 4
+					trait = directdescendantavatar
 				}
 				modifier = {
 					factor = 2
-					any_owned_bloodline = { has_bloodline_flag = is_avatar_bloodline }
+					trait = descendantavatar
 				}
 				random_list = {
 					# All airnomads are benders
@@ -3061,9 +3121,21 @@ character_event = {
 	min_age = 6
 	max_age = 16
 	trigger = {
-		is_bender_trigger = yes
-		is_specialist_bender_trigger = no
-		NOT = { has_character_flag = is_avatar }
+		OR = {
+			trait = waterbender
+			trait = earthbender
+			trait = firebender
+			trait = airbender
+			NOT = {
+				has_character_flag = avatar_unrevealed
+			}
+			NOT = {
+				has_character_flag = avatar_revealed
+			}
+			NOT = {
+				has_character_flag = special_bender
+			}
+		}
 	}
 	immediate = {
 		random_list = {
@@ -3752,8 +3824,9 @@ character_event = {
 				}
 			}
 			FROM = {
-				remove_trait = powerful_bender
-				add_trait = master_bender
+				# Mastery is not ordinary training - see
+				# common/scripted_triggers/10_atla_bending_rarity_triggers.txt
+				try_become_master_bender_effect = yes
 			}
 		}
 		if = {
@@ -4018,8 +4091,7 @@ character_event = {
 			limit = {
 				trait = powerful_bender
 			}
-			remove_trait = powerful_bender
-			add_trait = master_bender
+			try_become_master_bender_effect = yes
 		}
 		if = {
 			limit = {

@@ -24,6 +24,7 @@ ingenious = {
 			trait = earthbender
 			trait = airbender
 			trait = avatar
+			trait = fullyrealisedavatar
 		}
 		learning = 8
 	}
@@ -186,4 +187,87 @@ snowmobile = {
 		satomobile
 		cabbagecar
 	}
+}
+
+
+# ---------------------------------------------------------------------------
+# Avatar interference traits.
+# KEEP THESE AT THE VERY END OF THE LAST TRAIT FILE.
+# CK2 assigns trait ids by load order (files alphabetical, then top-to-bottom).
+# Adding a trait earlier in the load order shifts every later trait id and
+# corrupts existing save games. Appending here gives them fresh ids (505/506)
+# and leaves all pre-existing trait ids untouched.
+# ---------------------------------------------------------------------------
+
+# Avatar whose conduct has been condemned by the world (used by Avatar interference)
+bad_avatar = {
+	customizer = no
+	random = no
+
+	general_opinion = -30
+	monthly_character_piety = -1
+	monthly_character_prestige = -1
+}
+
+# A ruler who accepted the Avatar's peace (used by Avatar interference)
+avatars_peace_trait = {
+	customizer = no
+	random = no
+	hidden = yes
+
+	ai_ambition = -50
+	ai_zeal = -30
+}
+
+# ---------------------------------------------------------------------------
+# Avatar focus mastery traits (avatar_focus.214-.217).
+# APPENDED HERE FOR THE SAME SAVE-COMPATIBILITY REASON AS THE TRAITS ABOVE:
+# CK2 assigns trait ids by load order, so these must stay at the very end.
+# ---------------------------------------------------------------------------
+
+# Granted at the summit of the spiritual path.
+focus_master_spiritual = {
+	customizer = no
+	random = no
+
+	learning = 2
+	monthly_character_piety = 1.0
+	ai_zeal = 20
+}
+
+# Granted at the summit of the political path.
+focus_master_political = {
+	customizer = no
+	random = no
+
+	diplomacy = 2
+	stewardship = 1
+	monthly_character_prestige = 1.0
+	general_opinion = 10
+	ai_rationality = 20
+}
+
+# Granted at the summit of the wandering path.
+focus_master_wandering = {
+	customizer = no
+	random = no
+
+	diplomacy = 1
+	martial = 1
+	health = 1
+	monthly_character_prestige = 0.5
+	general_opinion = 5
+	ai_honor = 20
+}
+
+# Granted at the summit of the martial path.
+focus_master_martial = {
+	customizer = no
+	random = no
+
+	martial = 2
+	combat_rating = 10
+	monthly_character_prestige = 1.0
+	vassal_opinion = 5
+	ai_ambition = 20
 }

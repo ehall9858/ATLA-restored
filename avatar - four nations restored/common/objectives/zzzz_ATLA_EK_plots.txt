@@ -1,0 +1,198 @@
+########################################################################
+# ATLA - The Earth King's court seizes the reins
+#
+# A way back into the Grand Secretariat's pocket for a restored Earth
+# King, driven by his own vassals rather than by the yearly mandate.5
+# check. Mirrors the plot conventions in 00_plots.txt:
+#
+#   potential        - the plotter
+#   target_potential - who the plot UI offers as a target
+#   allow            - the target, ROOT = target, FROM = plotter
+#   chance           - AI willingness, bare scope = target, FROM = plotter
+#   success/effect   - ROOT = target, FROM = plotter
+########################################################################
+
+plot_make_the_earth_king_a_figurehead = {
+	type = realm_characters # everyone in the realm, the liege included
+	vassal_intrigue_plot = yes
+
+	# Plotter scope
+	potential = {
+		prisoner = no
+		is_adult = yes
+		is_incapable = no
+		is_ruler = yes
+		independent = no
+		NOT_mythical_creature_trigger = yes
+		liege = {
+			independent = yes
+			OR = {
+				has_landed_title = e_earth_kingdom
+				has_landed_title = k_earth_kingdom
+			}
+			OR = {
+				trait = earthking
+				trait = earthkingconstitution
+			}
+		}
+		OR = {
+			intrigue = 8
+			has_job_title = job_spymaster
+			tier = DUKE
+		}
+		OR = {
+			NOR = {
+				trait = honest
+				trait = kind
+				trait = just
+				trait = content
+			}
+			trait = ambitious
+			trait = deceitful
+			trait = cruel
+		}
+	}
+
+	target_potential = {
+		OR = {
+			has_landed_title = e_earth_kingdom
+			has_landed_title = k_earth_kingdom
+		}
+	}
+
+	# Target scope - the Earth King himself
+	allow = {
+		independent = yes
+		OR = {
+			has_landed_title = e_earth_kingdom
+			has_landed_title = k_earth_kingdom
+		}
+		OR = {
+			trait = earthking
+			trait = earthkingconstitution
+		}
+		is_liege_of = FROM
+		# The crown has to look worth taking.
+		OR = {
+			is_adult = no
+			trait = incapable
+			trait = imbecile
+			check_variable = { which = global_royalAuthority value <= -25 }
+			AND = {
+				stewardship <= 6
+				diplomacy <= 6
+			}
+		}
+	}
+
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			FROM = { NOT = { intrigue = 8 } }
+		}
+		modifier = {
+			factor = 1.5
+			FROM = { trait = ambitious }
+		}
+		modifier = {
+			factor = 1.5
+			FROM = { trait = cruel }
+		}
+		modifier = {
+			factor = 1.5
+			FROM = { trait = envious }
+		}
+		modifier = {
+			factor = 0.5
+			FROM = { trait = content }
+		}
+		modifier = {
+			factor = 0
+			FROM = {
+				OR = {
+					trait = honest
+					trait = kind
+					trait = just
+				}
+				NOT = { trait = lunatic }
+				NOT = { trait = possessed }
+			}
+		}
+		# A vassal who likes his King has no reason to move against him.
+		modifier = {
+			factor = 0.25
+			reverse_opinion = { who = FROM value = 40 }
+		}
+		modifier = {
+			factor = 2
+			is_adult = no
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = incapable
+				trait = imbecile
+			}
+		}
+		modifier = {
+			factor = 0.3
+			NOT = {
+				OR = {
+					is_adult = no
+					trait = incapable
+					trait = imbecile
+					check_variable = { which = global_royalAuthority value <= -25 }
+				}
+			}
+		}
+	}
+
+	success = {
+		FROM = { has_character_flag = plot_success }
+		custom_tooltip = { text = EK_COURT_PLOT_SUCCESS_TT }
+	}
+
+	abort = {
+		OR = {
+			is_alive = no
+			FROM = { is_alive = no }
+			FROM = { independent = yes }
+			FROM = { prisoner = yes }
+			FROM = { trait = incapable }
+			FROM = { has_character_flag = abort_plot }
+			FROM = { liege = { NOT = { character = ROOT } } }
+			NOT = {
+				OR = {
+					has_landed_title = e_earth_kingdom
+					has_landed_title = k_earth_kingdom
+				}
+			}
+		}
+	}
+
+	abort_effect = {
+		FROM = {
+			hidden_tooltip = {
+				clr_character_flag = abort_plot
+				clr_character_flag = plot_make_the_earth_king_a_figurehead_decision_taken
+			}
+		}
+	}
+
+	effect = {
+		FROM = {
+			hidden_tooltip = {
+				clr_character_flag = plot_success
+				clr_character_flag = plot_make_the_earth_king_a_figurehead_decision_taken
+			}
+			any_plot_backer = {
+				reverse_opinion = {
+					modifier = opinion_grateful
+					who = FROM
+					years = 5
+				}
+			}
+		}
+	}
+}

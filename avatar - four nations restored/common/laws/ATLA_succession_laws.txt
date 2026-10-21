@@ -1,5 +1,24 @@
 succession_laws = {
 
+	# Avatar titles pass on by reincarnation (restored from the original mod)
+	succ_avatar_reincarnation = {
+		potential = {
+			OR = {
+				title = d_avatar
+				title = d_avatar_unrevealed
+			}
+			holder_scope = {
+				is_avatar_trigger = yes
+				is_landed = no
+			}
+		}
+		effect = {
+			succession = open_elective
+		}
+		
+	}
+
+
 	# Titles revert back to the liege on death
 
 	succ_air_nomad_elective = {

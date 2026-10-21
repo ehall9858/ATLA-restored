@@ -1,0 +1,21 @@
+NAFS.100.desc;A dragon keeper from the northern sanctuary kneels before your court. Poachers have been seen near the last clutch of dragon eggs, and she asks for soldiers and silver to guard the hatchery. Your courtiers whisper that dragons are a relic of a defeated age, but the keeper does not rise.;;;;;;;;;x
+NAFS.100.a;Guard the hatchery and fund the keeper.;;;;;;;;;x
+NAFS.100.b;Bring the eggs to your court as a symbol of the nation.;;;;;;;;;x
+NAFS.100.c;Entrust the eggs to the Fire Sages.;;;;;;;;;x
+NAFS.101.desc;An engineer from the royal workshops unveils a war balloon in your courtyard. The canvas envelope hisses as it rises above the walls, and the crowd gasps. Your captains want a fleet of them, your treasurer wants a cost, and a Fire Sage asks what such a machine will do to the spirits of the air.;;;;;;;;;x
+NAFS.101.a;Fund a fleet for your armies.;;;;;;;;;x
+NAFS.101.b;Use the design for transport and relief.;;;;;;;;;x
+NAFS.101.c;Lock the design away until the war is over.;;;;;;;;;x
+NAFS.102.desc;A masked opera troupe performs 'The Comet's Promise' before your court. The audience cheers as the heroes drive the nation's enemies from the stage, but the script mocks the Fire Sages and calls for a new campaign. The lead performer waits for your patronage.;;;;;;;;;x
+NAFS.102.a;Sponsor the opera and let it tour your lands.;;;;;;;;;x
+NAFS.102.b;Order the troupe to honor the Fire Sages.;;;;;;;;;x
+NAFS.102.c;Commission a new opera about the cost of war.;;;;;;;;;x
+NAFS.103.desc;A convoy carrying tax silver from the Fire Nation colonies passes through your lands. The governor demands a larger garrison, the local merchants say the tax will ruin them, and a Fire Sage warns that the colony's spirits are unsettled.;;;;;;;;;x
+NAFS.103.a;Approve the tax and reinforce the convoy.;;;;;;;;;x
+NAFS.103.b;Lower the tax and fund a joint market.;;;;;;;;;x
+NAFS.103.c;Send a warning and let the governor decide.;;;;;;;;;x
+NAFS.104.desc.early;The festival of the Great Comet approaches. Hardliners demand a military parade through your lands, the Fire Sages call for a purification rite, and the merchants want a public festival. The parade marshal is already measuring the route.;;;;;;;;;x
+NAFS.104.desc;The anniversary of Sozin's Comet approaches. Hardliners demand a military parade through your lands, the Fire Sages call for a purification rite, and the merchants want a public festival. The temples have begun lighting the beacons.;;;;;;;;;x
+NAFS.104.a;Hold a grand military parade.;;;;;;;;;x
+NAFS.104.b;Hold a purification rite at the temples.;;;;;;;;;x
+NAFS.104.c;Open your lands to a public festival.;;;;;;;;;x

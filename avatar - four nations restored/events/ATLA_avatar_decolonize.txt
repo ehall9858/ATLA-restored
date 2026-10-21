@@ -1,0 +1,142 @@
+namespace = avatar_decolonize
+
+# The Avatar's demand: abandon all colonial holdings. Fired on the targeted
+# ruler (ROOT) by the demand_decolonization decision; FROM is the Avatar.
+character_event = {
+    id = avatar_decolonize.1
+    title = avatar_decolonize.1.t
+    desc = avatar_decolonize.1.desc
+    picture = GFX_evt_council
+    is_triggered_only = yes
+    trigger = {
+        is_landed = yes
+        any_realm_province = {
+            OR = {
+                has_province_modifier = colony_1
+                has_province_modifier = colony_2
+                has_province_modifier = colony_3
+            }
+        }
+    }
+    option = {
+        name = avatar_decolonize.1.a
+        ai_chance = {
+            factor = 40
+            modifier = { factor = 2 trait = craven }
+            modifier = { factor = 1.5 trait = kind }
+            modifier = { factor = 1.5 trait = just }
+            modifier = { factor = 0.5 trait = ambitious }
+            modifier = { factor = 0.5 trait = proud }
+            modifier = { factor = 0.5 trait = greedy }
+        }
+        any_realm_province = {
+            limit = {
+                OR = {
+                    has_province_modifier = colony_1
+                    has_province_modifier = colony_2
+                    has_province_modifier = colony_3
+                }
+            }
+            remove_province_modifier = colony_1
+            remove_province_modifier = colony_2
+            remove_province_modifier = colony_3
+        }
+        prestige = -25
+        FROM = {
+            prestige = 50
+            piety = 25
+            set_character_flag = avatar_decolonize_cooldown
+            character_event = { id = avatar_decolonize.3 days = 1095 }
+        }
+    }
+    option = {
+        name = avatar_decolonize.1.b
+        ai_chance = {
+            factor = 60
+            modifier = { factor = 2 trait = brave }
+            modifier = { factor = 2 trait = proud }
+            modifier = { factor = 1.5 trait = ambitious }
+            modifier = { factor = 1.5 trait = wroth }
+            modifier = { factor = 0.5 trait = craven }
+        }
+        save_event_target_as = decolonize_defiant
+        FROM = { character_event = { id = avatar_decolonize.2 } }
+    }
+}
+
+# Trial by combat. Fired on the Avatar; event_target:decolonize_defiant is
+# the ruler who refused. Backing down costs face; fighting resolves at once.
+character_event = {
+    id = avatar_decolonize.2
+    title = avatar_decolonize.2.t
+    desc = avatar_decolonize.2.desc
+    picture = GFX_evt_battle
+    is_triggered_only = yes
+    trigger = {
+        is_avatar_trigger = yes
+        trait = fullyrealisedavatar
+        event_target:decolonize_defiant = { is_alive = yes }
+    }
+    option = {
+        name = avatar_decolonize.2.a
+        ai_chance = {
+            factor = 70
+            modifier = { factor = 2 trait = brave }
+            modifier = { factor = 1.5 trait = wroth }
+            modifier = { factor = 0.5 trait = craven }
+        }
+        # Mark this duel's stake and register both combatants. Victory is
+        # settled by the avatar_decolonize hook in ADUEL.28. The
+        # decolonize_defiant target is consumed there, so it must NOT be
+        # cleared here.
+        set_character_flag = avatar_decolonize_duel
+        save_event_target_as = combatant_1
+        event_target:decolonize_defiant = { save_event_target_as = combatant_2 }
+        # Enter the duel loop at ADUEL.13. Deliberately do NOT prep the Avatar
+        # here: an unprepped Avatar makes the defiant party take the Ping
+        # branch, which saves event_target:other_hostile - the tribute the
+        # turn loop needs for its very first action. Prepping upfront skips
+        # the Ping and deadlocks the loop with no hostile set. ADUEL.13's
+        # own immediate preps whoever receives it.
+        clr_character_flag = preparedForDuel
+        clr_character_flag = used_earthquake
+        clr_character_flag = has_used_fireball
+        event_target:decolonize_defiant = { character_event = { id = ADUEL.13 days = 3 } }
+        add_character_modifier = {
+            modifier = recent_duel_timer
+            duration = 90
+            hidden = yes
+        }
+        set_character_flag = avatar_decolonize_cooldown
+        character_event = { id = avatar_decolonize.3 days = 1095 }
+    }
+    option = {
+        name = avatar_decolonize.2.b
+        ai_chance = {
+            factor = 30
+            modifier = { factor = 2 trait = craven }
+            modifier = { factor = 0.5 trait = brave }
+        }
+        prestige = -25
+        set_character_flag = avatar_decolonize_cooldown
+        character_event = { id = avatar_decolonize.3 days = 1095 }
+        clear_event_target = decolonize_defiant
+    }
+}
+
+# Cooldown and stake cleanup for the decolonization demand above. Also the
+# backstop: if a duel fizzles without reaching ADUEL.28/8/9, this releases
+# the marker and target so no later duel can inherit the stake.
+character_event = {
+    id = avatar_decolonize.3
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        clr_character_flag = avatar_decolonize_cooldown
+        # Backstop for the stake target. The marker flag needs no backstop:
+        # without decolonize_defiant the ADUEL.28 hook can never fire, so a
+        # leaked marker alone is inert. (Clearing combatant flags here could
+        # friendly-fire an unrelated later duel, so it is left to the hooks.)
+        clear_event_target = decolonize_defiant
+    }
+}

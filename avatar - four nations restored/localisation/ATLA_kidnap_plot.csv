@@ -1,0 +1,77 @@
+# Kidnap plots and event chain (ported from CK2+)
+
+plot_kidnap_character_title;Kidnap [This.GetBestName];;;;;;;;;;x
+plot_kidnap_character_desc;[From.GetTitledFirstName] wants to see [This.GetTitledFirstName] brought in chains before [From.GetHerHim].;;;;;;;;;;x
+plot_kidnap_character_short;Plot to Kidnap;;;;;;;;;;x
+
+plot_kidnap_liege_title;Kidnap [This.GetBestName];;;;;;;;;;x
+plot_kidnap_liege_desc;[From.GetTitledFirstName] has decided that kidnapping is the only way to make [This.GetTitledFirstName] give up some of [This.GetHerHis] land.;;;;;;;;;;x
+plot_kidnap_liege_short;Plot to Kidnap;;;;;;;;;;x
+
+EVTDESC_Plus_150_transit;Finally, an opportunity has arisen to abduct [Root.PlotTarget.GetTitledName] when [Root.PlotTarget.GetSheHe] takes a planned journey from [Root.PlotTarget.Location.GetName] to a nearby town. Shall I tell my co-conspirators to begin their preparations?;;;;;;;;;;x
+EVTDESC_Plus_150_bed;Finally, an opportunity to abduct [Root.PlotTarget.GetTitledName] has arisen. One of the [Root.PlotTarget.PrimaryTitle.GetRulerTitle]'s personal guard has proven amenable to bribery, allowing for the opportunity to take [Root.PlotTarget.GetHerHim] while [Root.PlotTarget.GetSheHe] sleeps. Shall I tell my co-conspirators to begin their preparations?;;;;;;;;;;x
+EVTDESC_Plus_150_hunting;Finally, an opportunity has arisen to abduct [Root.PlotTarget.GetTitledName] when [Root.PlotTarget.GetSheHe] goes on a planned hunting trip over a week from now. The perfect chance to catch [Root.PlotTarget.GetHerHim] away from court! Shall I tell my co-conspirators to begin their preparations?;;;;;;;;;;x
+EVTDESC_Plus_150_carouse;Finally, an opportunity to abduct [Root.PlotTarget.GetTitledName] has arisen. The [Root.PlotTarget.GetManWoman]'s amourous nature has betrayed [Root.PlotTarget.GetHerHim]. A planned trip to a brothel in [Root.PlotTarget.Location.GetName] will prove the perfect chance, if we move quickly. Shall I tell my co-conspirators to begin their preparations?;;;;;;;;;;x
+EVTOPTA_Plus_150;We must proceed with the plan!;;;;;;;;;;x
+EVTOPTB_Plus_150;Not yet, this is too risky;;;;;;;;;;x
+
+EVTDESC_Plus_151;At last, after having watched our target here in [Root.Location.GetName] for so long, an opportunity for abduction has arisen. I must tell the others at once!;;;;;;;;;;x
+EVTOPTA_Plus_151;With luck, this will be over soon;;;;;;;;;;x
+
+EVTDESC_Plus_152;My dear [Root.GetTitledFirstNameNoRegnal],\nIt seems the opportunity to abduct [From.PlotTarget.GetTitledFirstNameNoRegnal] is finally upon us. I ask that you stand ready to make your move. If we fail this chance, it will not come again quickly.\n\nMy thanks,\n[From.GetTitledName];;;;;;;;;;x
+
+CUSTOMTOOLTIP_KIDNAP1;The kidnapping is a success\n;;;;;;;;;;x
+CUSTOMTOOLTIP_KIDNAP2;We fail, but are not discovered\n;;;;;;;;;;x
+CUSTOMTOOLTIP_KIDNAP3;Disaster strikes: the plot fails and we are found out\n;;;;;;;;;;x
+
+KIDNAP_DEMAND_TITLE;Demand that [demanded_title.GetName] be turned over to you, or face the consequences;;;;;;;;;;x
+KIDNAP_DEMAND_VASSAL;Demand that [demanded_vassal.GetTitledFirstNameNoRegnal] be turned over to you, or face the consequences;;;;;;;;;;x
+
+EVTDESC_Plus_215;Success! [kidnap_victim.GetTitledFirstNameNoRegnal] has been delivered in a sack to an abandoned keep near [kidnap_victim.Location.GetName]. There [kidnap_victim.GetSheHe] is at my mercy, and no-one can hear [kidnap_victim.GetHerHis] screams. All that remains is to decide what to do with [kidnap_victim.GetHerHim].;;;;;;;;;;x
+EVTOPTA_Plus_215;[kidnap_victim.GetSheHeCap] will give me the [demanded_title.GetFullName], or else!;;;;;;;;;;x
+EVTOPTB_Plus_215;[kidnap_victim.GetSheHeCap] will name [demanded_vassal.GetTitledName] my vassal, or else!;;;;;;;;;;x
+EVTOPTC_Plus_215;Bring [kidnap_victim.GetHerHim] to my dungeon. I will decide later;;;;;;;;;;x
+EVTOPTD_Plus_215;Now [kidnap_victim.GetSheHe] dies, quietly;;;;;;;;;;x
+
+EVTDESC_Plus_216;You are sleeping quite soundly in your bed when you are suddenly rudely awoken by a bag being thrust over your head! You struggle, but it is no use. Your captors are strong, and it is not long before you find yourself in the dungeons of [From.GetTitledName]. There, [From.GetSheHe] informs you, you shall remain until [From.GetSheHe] decides otherwise.;;;;;;;;;;x
+EVTOPTA_Plus_216;[From.GetSheHeCap] will pay for this outrage!;;;;;;;;;;x
+
+EVTDESC_Plus_217;[From.GetTitledName] recently went missing, and after a frantic search by [From.GetHerHis] guards, it seemed as if [From.GetSheHe] had simply vanished into thin air! Not so, apparently. It turns out [From.GetSheHe] was forcibly abducted by agents of [FromFrom.GetTitledName], who intends to keep [From.GetHerHim] in [FromFrom.GetHerHis] dungeons until [FromFrom.GetSheHe] decides otherwise.;;;;;;;;;;x
+
+EVTDESC_Plus_218;You are sleeping quite soundly in your bed when you are suddenly rudely awoken by a bag being thrust over your head! You struggle, but it is no use. Your captors are strong, and it is not long before you find yourself in a dungeon. There, [From.GetTitledFirstNameNoRegnal] reveals [From.GetHerHim]self as your captor, and states you have only to hand over the [demanded_title.GetFullName] to achieve your freedom.;;;;;;;;;;x
+EVTOPTA_Plus_218;Take it! Just let me go!;;;;;;;;;;x
+EVTOPTB_Plus_218;[From.GetSheHeCap] will get nothing from me!;;;;;;;;;;x
+
+EVTDESC_Plus_219;[From.GetTitledFirstNameNoRegnal] clearly did not like it, but then again you left [From.GetHerHim] little choice. The [demanded_title.GetFullName] is yours. [From.GetTitledFirstNameNoRegnal] has not told anyone exactly how you got the title, of course, but there are whispers. Even so, what does it matter now?;;;;;;;;;;x
+
+EVTDESC_Plus_220;While [From.GetTitledFirstNameNoRegnal] earlier seemed to have no intention of granting the [demanded_title.GetFullName] to anyone, suddenly [From.GetSheHe] changed [From.GetHerHis] mind and granted it to [FromFrom.GetTitledFirstName]. Could this have something to do with [From.GetTitledFirstNameNoRegnal]'s recent unexplained absence from [From.Location.GetName]? No-one appears to know for certain.;;;;;;;;;;x
+
+EVTDESC_Plus_221;'You will get nothing from me! Do your worst!' [From.GetTitledFirstNameNoRegnal] spits in your face, refusing to give into your demands...though you can clearly see the fear in [From.GetHerHis] face. The [From.GetManWoman] is brave, evidently. So now what?;;;;;;;;;;x
+EVTOPTA_Plus_221;Now [From.GetSheHe] rots in my dungeon;;;;;;;;;;x
+EVTOPTB_Plus_221;Now [From.GetSheHe] dies, quietly;;;;;;;;;;x
+EVTOPTC_Plus_221;I am not going to kill [From.GetHerHim]! Just...let [From.GetHerHim] go;;;;;;;;;;x
+
+EVTDESC_Plus_222;'Then you will remain a guest in my dungeon until I decide just what to do with you,' [From.GetTitledFirstNameNoRegnal] says with a shrug. With that, [From.GetSheHe] leaves, and you are left in the dark and the cold to wonder whether that was the wisest choice...;;;;;;;;;;x
+
+EVTDESC_Plus_223;After recently vanishing without a trace from [FromFrom.GetHerHis] court, [FromFrom.GetTitledName]'s lifeless corpse was discovered soon afterwards on the bank of a nearby river. People throughout [Root.TopLiege.PrimaryTitle.GetName] are shocked by the scandal, which gets worse when it is revealed that [From.GetTitledName] was behind the deed!;;;;;;;;;;x
+
+EVTDESC_Plus_224;While [From.GetSheHe] appears torn, it turns out that [From.GetSheHe] cannot, in fact, order your death. [From.GetSheHe] turns and walks out, swearing, and some time later you are discovered by a passing peasant and released. You are unharmed!;;;;;;;;;;x
+EVTOPTA_Plus_224;A relief, but still...;;;;;;;;;;x
+
+EVTDESC_Plus_225;You are sleeping quite soundly in your bed when you are suddenly rudely awoken by a bag being thrust over your head! You struggle, but it is no use. Your captors are strong, and it is not long before you find yourself in a dungeon. There, [From.GetTitledFirstNameNoRegnal] reveals [From.GetHerHim]self as your captor, and states you have only to make [demanded_vassal.GetTitledName] [From.GetHerHis] vassal to achieve your freedom.;;;;;;;;;;x
+EVTOPTA_Plus_225;Take the vassal, just let me go!;;;;;;;;;;x
+
+EVTDESC_Plus_226;[Root.GetTitledFirstNameNoRegnal],\nI cannot tell you the reasons behind my decision. Simply trust that they exist. With that in mind, I have elected to transfer your vassalage to [FromFrom.GetTitledName], effective immediately. May [From.Religion.GetHighGodName] have mercy upon us all.\n\nSincerely,\n[From.GetTitledName];;;;;;;;;;x
+
+EVTDESC_Plus_227;[From.GetTitledFirstNameNoRegnal] clearly did not like it, but then again you left [From.GetHerHim] little choice. [demanded_vassal.GetTitledName] is now your vassal. [From.GetTitledFirstNameNoRegnal] has not told anyone exactly how this arrangement came to be, of course, but there are whispers. Even so, what does it matter now?;;;;;;;;;;x
+
+EVTDESC_Plus_228;While [From.GetTitledFirstNameNoRegnal] earlier seemed to have no intention of surrendering any of [From.GetHerHis] vassals to [FromFrom.GetTitledFirstNameNoRegnal], suddenly [From.GetSheHe] changed [From.GetHerHis] mind and granted [FromFrom.GetHerHim] lordship over [demanded_vassal.GetTitledName]. Could this have something to do with [From.GetTitledFirstNameNoRegnal]'s recent unexplained absence from [From.Location.GetName]? No-one appears to know for certain.;;;;;;;;;;x
+
+EVTDESC_Plus_229;Alas, [Root.PlotTarget.GetTitledFirstNameNoRegnal] surprised the kidnappers with the ferocity of [Root.PlotTarget.GetHerHis] struggle, and they were forced to flee when [Root.PlotTarget.GetHerHis] guards came running. While an investigation is underway, currently no-one is aware that you were behind the assault.;;;;;;;;;;x
+
+EVTDESC_Plus_230;You are sleeping quite soundly in your bed when you are suddenly rudely awoken by a bag being thrust over your head! Outraged, you struggle, well enough that guards come running, and your kidnappers are forced to flee. Sadly, they escaped...meaning you have no idea who was behind this assault on your person.;;;;;;;;;;x
+EVTOPTA_Plus_230;Surely SOMEONE must know the truth?!;;;;;;;;;;x
+
+EVTDESC_Plus_231;Disaster! [Root.PlotTarget.GetTitledFirstNameNoRegnal] surprised the kidnappers with the ferocity of [Root.PlotTarget.GetHerHis] struggle, and while they fled when guards came running, they were quickly caught. Even worse, the men gave up your name as their employer! You have denied it, naturally, but [Root.PlotTarget.GetTitledFirstNameNoRegnal] clearly does not believe you.;;;;;;;;;;x
+
+EVTDESC_Plus_232;You are sleeping quite soundly in your bed when you are suddenly rudely awoken by a bag being thrust over your head! Outraged, you struggle, well enough that guards come running, and your kidnappers are forced to flee. They are quickly caught, and upon questioning give up [From.GetTitledName] as their employer. [From.GetSheHeCap] tried to have you abducted!;;;;;;;;;;x

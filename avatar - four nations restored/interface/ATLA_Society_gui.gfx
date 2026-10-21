@@ -164,4 +164,33 @@ spriteTypes = {
 		texturefile = "gfx\\interface\\societies\\society_currency_the_cold_ones.dds"
 	}
 	
+
+	spriteType = {
+		name = "GFX_society_main_background_waterbending_order"
+		texturefile = "gfx\\interface\\societies\\society_bg_waterbending_society.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_small_waterbending_order"
+		texturefile = "gfx\\interface\\societies\\symbol_small_waterbending_society.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_society_main_background_earthbending_order"
+		texturefile = "gfx\\interface\\societies\\society_bg_earth_rumble.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_small_earthbending_order"
+		texturefile = "gfx\\interface\\societies\\symbol_small_earth_rumble.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_society_expansion_background_waterbending_order"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_agni_kai.dds"
+	}
+	spriteType = {
+		name = "GFX_society_expansion_background_earthbending_order"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_agni_kai.dds"
+	}
 }
