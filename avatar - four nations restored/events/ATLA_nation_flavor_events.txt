@@ -15,7 +15,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.1.a
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 10
 	}
 	option = {
@@ -39,7 +45,13 @@ character_event = {
 	option = {
 		name = NAFE.2.a
 		prestige = 15
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 	}
 	option = {
 		name = NAFE.2.b
@@ -61,7 +73,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.3.a
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 10
 	}
 	option = {
@@ -84,7 +102,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.4.a
-		change_learning = 1
+		random_list = {
+			60 = {
+				change_learning = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		piety = 15
 	}
 	option = {
@@ -108,7 +132,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.5.a
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 10
 	}
 	option = {
@@ -131,7 +161,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.6.a
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 10
 	}
 	option = {
@@ -154,7 +190,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.7.a
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 10
 	}
 	option = {
@@ -177,7 +219,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.8.a
-		change_learning = 1
+		random_list = {
+			60 = {
+				change_learning = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		piety = 10
 	}
 	option = {
@@ -200,7 +248,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.9.a
-		change_diplomacy = 1
+		random_list = {
+			60 = {
+				change_diplomacy = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 10
 	}
 	option = {
@@ -222,7 +276,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.10.a
-		change_diplomacy = 1
+		random_list = {
+			60 = {
+				change_diplomacy = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 10
 	}
 	option = {
@@ -245,12 +305,24 @@ character_event = {
 	}
 	option = {
 		name = NAFE.11.a
-		change_diplomacy = 1
+		random_list = {
+			60 = {
+				change_diplomacy = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 10
 	}
 	option = {
 		name = NAFE.11.b
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 5
 	}
 }
@@ -268,7 +340,13 @@ character_event = {
 	}
 	option = {
 		name = NAFE.12.a
-		change_learning = 1
+		random_list = {
+			60 = {
+				change_learning = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		piety = 10
 	}
 	option = {

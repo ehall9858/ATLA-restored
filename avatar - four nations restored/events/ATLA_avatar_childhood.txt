@@ -93,12 +93,24 @@ character_event = {
     is_triggered_only = yes
     option = {
         name = avatar_child.2.a
-        add_trait = kind
+        random_list = {
+            60 = {
+                add_trait = kind
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         prestige = 5
     }
     option = {
         name = avatar_child.2.b
-        add_trait = brave
+        random_list = {
+            60 = {
+                add_trait = brave
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         piety = 5
     }
 }
@@ -131,13 +143,25 @@ character_event = {
     is_triggered_only = yes
     option = {
         name = avatar_child.4.a
-        add_trait = curious
+        random_list = {
+            60 = {
+                add_trait = curious
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         set_character_flag = avatar_child_wild_talent
     }
     option = {
         name = avatar_child.4.b
         piety = 10
-        add_trait = patient
+        random_list = {
+            60 = {
+                add_trait = patient
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
     }
 }
 
@@ -156,7 +180,13 @@ character_event = {
     option = {
         name = avatar_child.5.b
         piety = 5
-        add_trait = just
+        random_list = {
+            60 = {
+                add_trait = just
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
     }
 }
 
@@ -169,12 +199,24 @@ character_event = {
     is_triggered_only = yes
     option = {
         name = avatar_child.6.a
-        add_trait = brave
+        random_list = {
+            60 = {
+                add_trait = brave
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         prestige = 10
     }
     option = {
         name = avatar_child.6.b
-        add_trait = kind
+        random_list = {
+            60 = {
+                add_trait = kind
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         piety = 10
     }
 }
@@ -207,12 +249,24 @@ character_event = {
     is_triggered_only = yes
     option = {
         name = avatar_child.8.a
-        add_trait = patient
+        random_list = {
+            60 = {
+                add_trait = patient
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         piety = 10
     }
     option = {
         name = avatar_child.8.b
-        add_trait = craven
+        random_list = {
+            60 = {
+                add_trait = craven
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         prestige = 5
     }
 }
@@ -226,12 +280,24 @@ character_event = {
     is_triggered_only = yes
     option = {
         name = avatar_child.9.a
-        add_trait = zealous
+        random_list = {
+            60 = {
+                add_trait = zealous
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         piety = 15
     }
     option = {
         name = avatar_child.9.b
-        add_trait = charitable
+        random_list = {
+            60 = {
+                add_trait = charitable
+            }
+            25 = { prestige = 5 }
+            15 = { piety = 5 }
+        }
         prestige = 10
     }
 }

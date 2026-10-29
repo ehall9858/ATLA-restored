@@ -174,7 +174,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = just } }
 			hidden_tooltip = { remove_trait = arbitrary }
-			add_trait = just
+			random_list = {
+				60 = {
+					add_trait = just
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_magistrate_done }
 	}
@@ -197,7 +203,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = arbitrary } }
 			hidden_tooltip = { remove_trait = just }
-			add_trait = arbitrary
+			random_list = {
+				60 = {
+					add_trait = arbitrary
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_magistrate_done }
 	}
@@ -220,7 +232,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_magistrate_done }
 	}
@@ -269,7 +287,13 @@ character_event = {
 				remove_trait = cruel
 				remove_trait = envious
 			}
-			add_trait = kind
+			random_list = {
+				60 = {
+					add_trait = kind
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_granary_done }
 	}
@@ -292,7 +316,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = arbitrary } }
 			hidden_tooltip = { remove_trait = just }
-			add_trait = arbitrary
+			random_list = {
+				60 = {
+					add_trait = arbitrary
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_granary_done }
 	}
@@ -311,11 +341,23 @@ character_event = {
 			}
 		}
 		prestige = 15
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = diligent } }
 			hidden_tooltip = { remove_trait = slothful }
-			add_trait = diligent
+			random_list = {
+				60 = {
+					add_trait = diligent
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_granary_done }
 	}
@@ -356,11 +398,23 @@ character_event = {
 			}
 		}
 		prestige = 20
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = just } }
 			hidden_tooltip = { remove_trait = arbitrary }
-			add_trait = just
+			random_list = {
+				60 = {
+					add_trait = just
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_wall_done }
 	}
@@ -383,7 +437,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = proud } }
 			hidden_tooltip = { remove_trait = humble }
-			add_trait = proud
+			random_list = {
+				60 = {
+					add_trait = proud
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_wall_done }
 	}
@@ -402,11 +462,23 @@ character_event = {
 			}
 		}
 		prestige = 10
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_wall_done }
 	}
@@ -456,7 +528,13 @@ character_event = {
 				remove_trait = cruel
 				remove_trait = envious
 			}
-			add_trait = kind
+			random_list = {
+				60 = {
+					add_trait = kind
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_refugees_done }
 	}
@@ -480,7 +558,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = arbitrary } }
 			hidden_tooltip = { remove_trait = just }
-			add_trait = arbitrary
+			random_list = {
+				60 = {
+					add_trait = arbitrary
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_refugees_done }
 	}
@@ -499,11 +583,23 @@ character_event = {
 			}
 		}
 		prestige = 20
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_refugees_done }
 	}
@@ -557,7 +653,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = just } }
 			hidden_tooltip = { remove_trait = arbitrary }
-			add_trait = just
+			random_list = {
+				60 = {
+					add_trait = just
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_desert_done }
 	}
@@ -576,11 +678,23 @@ character_event = {
 			}
 		}
 		prestige = 25
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = proud } }
 			hidden_tooltip = { remove_trait = humble }
-			add_trait = proud
+			random_list = {
+				60 = {
+					add_trait = proud
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_desert_done }
 	}
@@ -599,11 +713,23 @@ character_event = {
 			}
 		}
 		prestige = 5
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_desert_done }
 	}
@@ -650,11 +776,23 @@ character_event = {
 			}
 		}
 		prestige = 25
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = just } }
 			hidden_tooltip = { remove_trait = arbitrary }
-			add_trait = just
+			random_list = {
+				60 = {
+					add_trait = just
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_kyoshi_done }
 	}
@@ -677,7 +815,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = ambitious } }
 			hidden_tooltip = { remove_trait = content }
-			add_trait = ambitious
+			random_list = {
+				60 = {
+					add_trait = ambitious
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_kyoshi_done }
 	}
@@ -696,11 +840,23 @@ character_event = {
 			}
 		}
 		prestige = 10
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = proud } }
 			hidden_tooltip = { remove_trait = humble }
-			add_trait = proud
+			random_list = {
+				60 = {
+					add_trait = proud
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_earth_kyoshi_done }
 	}

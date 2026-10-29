@@ -85,7 +85,13 @@ narrative_event = {
 	
 	option = { #"Peaceful"
 		name = ekunitybywords
-		add_trait = just
+		random_list = {
+			60 = {
+				add_trait = just
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		add_trait = virtuous
 		set_global_flag = ek_choose_peace
 		character_event = { id = ekstory.2 }

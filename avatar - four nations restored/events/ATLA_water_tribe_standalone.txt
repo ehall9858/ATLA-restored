@@ -138,7 +138,13 @@ character_event = {
 				remove_trait = cruel
 				remove_trait = envious
 			}
-			add_trait = kind
+			random_list = {
+				60 = {
+					add_trait = kind
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_betrothal_done }
 	}
@@ -161,7 +167,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = proud } }
 			hidden_tooltip = { remove_trait = humble }
-			add_trait = proud
+			random_list = {
+				60 = {
+					add_trait = proud
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_betrothal_done }
 	}
@@ -184,7 +196,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_betrothal_done }
 	}
@@ -233,7 +251,13 @@ character_event = {
 				remove_trait = cruel
 				remove_trait = envious
 			}
-			add_trait = kind
+			random_list = {
+				60 = {
+					add_trait = kind
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_healing_done }
 	}
@@ -256,7 +280,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = proud } }
 			hidden_tooltip = { remove_trait = humble }
-			add_trait = proud
+			random_list = {
+				60 = {
+					add_trait = proud
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_healing_done }
 	}
@@ -274,13 +304,25 @@ character_event = {
 				trait = content
 			}
 		}
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 5
 		piety = 5
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_healing_done }
 	}
@@ -327,7 +369,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = zealous } }
 			hidden_tooltip = { remove_trait = cynical }
-			add_trait = zealous
+			random_list = {
+				60 = {
+					add_trait = zealous
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_iceberg_done }
 	}
@@ -345,12 +393,24 @@ character_event = {
 				trait = patient
 			}
 		}
-		change_learning = 1
+		random_list = {
+			60 = {
+				change_learning = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		prestige = 20
 		if = {
 			limit = { NOT = { trait = diligent } }
 			hidden_tooltip = { remove_trait = slothful }
-			add_trait = diligent
+			random_list = {
+				60 = {
+					add_trait = diligent
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_iceberg_done }
 	}
@@ -373,7 +433,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_iceberg_done }
 	}
@@ -419,7 +485,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_raiders_done }
 	}
@@ -438,11 +510,23 @@ character_event = {
 			}
 		}
 		prestige = 40
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = brave } }
 			hidden_tooltip = { remove_trait = craven }
-			add_trait = brave
+			random_list = {
+				60 = {
+					add_trait = brave
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_raiders_done }
 	}
@@ -466,7 +550,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = content } }
 			hidden_tooltip = { remove_trait = ambitious }
-			add_trait = content
+			random_list = {
+				60 = {
+					add_trait = content
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_raiders_done }
 	}
@@ -509,11 +599,23 @@ character_event = {
 		}
 		wealth = -30
 		prestige = 20
-		change_learning = 1
+		random_list = {
+			60 = {
+				change_learning = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = diligent } }
 			hidden_tooltip = { remove_trait = slothful }
-			add_trait = diligent
+			random_list = {
+				60 = {
+					add_trait = diligent
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_scroll_done }
 	}
@@ -536,7 +638,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = just } }
 			hidden_tooltip = { remove_trait = arbitrary }
-			add_trait = just
+			random_list = {
+				60 = {
+					add_trait = just
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_scroll_done }
 	}
@@ -559,7 +667,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = zealous } }
 			hidden_tooltip = { remove_trait = cynical }
-			add_trait = zealous
+			random_list = {
+				60 = {
+					add_trait = zealous
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_scroll_done }
 	}
@@ -600,11 +714,23 @@ character_event = {
 		}
 		wealth = 30
 		prestige = 30
-		change_stewardship = 1
+		random_list = {
+			60 = {
+				change_stewardship = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = { NOT = { trait = ambitious } }
 			hidden_tooltip = { remove_trait = content }
-			add_trait = ambitious
+			random_list = {
+				60 = {
+					add_trait = ambitious
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_wall_done }
 	}
@@ -627,7 +753,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = content } }
 			hidden_tooltip = { remove_trait = ambitious }
-			add_trait = content
+			random_list = {
+				60 = {
+					add_trait = content
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_wall_done }
 	}
@@ -650,7 +782,13 @@ character_event = {
 		if = {
 			limit = { NOT = { trait = patient } }
 			hidden_tooltip = { remove_trait = wroth }
-			add_trait = patient
+			random_list = {
+				60 = {
+					add_trait = patient
+				}
+				25 = { prestige = 5 }
+				15 = { piety = 5 }
+			}
 		}
 		hidden_tooltip = { set_character_flag = nafs_water_wall_done }
 	}

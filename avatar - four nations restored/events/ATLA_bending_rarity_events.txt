@@ -33,6 +33,12 @@ character_event = {
 	option = {
 		name = ATLA_RARITY_OPT_11A
 		prestige = 250
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 	}
 }

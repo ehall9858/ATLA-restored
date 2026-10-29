@@ -1156,7 +1156,13 @@ character_event = { # AVATAR TRAINING: Good Progress
 
 	option = {
 		name = EVTOPTbending.171
-		add_trait = diligent
+		random_list = {
+			60 = {
+				add_trait = diligent
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		hidden_tooltip = {
 			if = {
 				limit = {
@@ -1199,7 +1205,13 @@ character_event = { # AVATAR TRAINING: Progress
 
 	option = {
 		name = EVTOPTbending.172
-		add_trait = patient
+		random_list = {
+			60 = {
+				add_trait = patient
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		hidden_tooltip = {
 			FROM = { character_event = { id = avatar.177 days = 60 random = 90 } }
 		}

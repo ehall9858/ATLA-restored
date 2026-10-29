@@ -3,6 +3,10 @@ namespace = occupation
 # Foreign occupation resistance: any independent ruler whose culture is
 # foreign to the Earth Kingdom or the Air Temples, yet holds land there,
 # faces grinding unrest and periodic liberation revolts. Checked yearly.
+# Provinces whose own culture matches the ruler are never counted as
+# occupied - otherwise native cultures outside the earth_kingdom_cultures /
+# air_nomad_cultures groups (swampfolk, pirates, colonial cultures, the
+# northern air nomads in the temple duchies) flag their own starting land.
 character_event = {
     id = occupation.1
     hide_window = yes
@@ -13,11 +17,17 @@ character_event = {
         OR = {
             AND = {
                 NOR = { culture_group = earth_kingdom_cultures }
-                any_realm_province = { region = world_greater_earth_kingdom }
+                any_realm_province = {
+                    region = world_greater_earth_kingdom
+                    NOT = { culture = ROOT }
+                }
             }
             AND = {
                 NOR = { culture_group = air_nomad_cultures }
-                any_realm_province = { region = world_air_temples }
+                any_realm_province = {
+                    region = world_air_temples
+                    NOT = { culture = ROOT }
+                }
             }
         }
     }
@@ -29,10 +39,12 @@ character_event = {
                     AND = {
                         region = world_greater_earth_kingdom
                         ROOT = { NOR = { culture_group = earth_kingdom_cultures } }
+                        NOT = { culture = ROOT }
                     }
                     AND = {
                         region = world_air_temples
                         ROOT = { NOR = { culture_group = air_nomad_cultures } }
+                        NOT = { culture = ROOT }
                     }
                 }
             }
@@ -49,10 +61,12 @@ character_event = {
                             AND = {
                                 region = world_greater_earth_kingdom
                                 ROOT = { NOR = { culture_group = earth_kingdom_cultures } }
+                                NOT = { culture = ROOT }
                             }
                             AND = {
                                 region = world_air_temples
                                 ROOT = { NOR = { culture_group = air_nomad_cultures } }
+                                NOT = { culture = ROOT }
                             }
                         }
                     }

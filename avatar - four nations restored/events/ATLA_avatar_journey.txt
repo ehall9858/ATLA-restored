@@ -259,7 +259,13 @@ character_event = {
 	}
 	option = {
 		name = EVTOPT_new_avatar_2_asceticism		# I am very grateful, but as you said, I will no longer need worldly things.
-		add_trait = charitable
+		random_list = {
+			60 = {
+				add_trait = charitable
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		clear_wealth = yes
 	}
 	option = {
@@ -272,8 +278,14 @@ character_event = {
 				has_focus = focus_intrigue
 			}
 		}
-		add_trait = proud
-		add_trait = greedy
+		random_list = {
+			60 = {
+				add_trait = proud
+				add_trait = greedy
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		piety = -50
 		wealth = 100
 	}
@@ -404,7 +416,13 @@ character_event = {
 				has_global_flag = avatar_air
 			}
 		}
-		add_trait = humble
+		random_list = {
+			60 = {
+				add_trait = humble
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		custom_tooltip = {
 			text = new_avatar_3_tooltip_fishing_boat			# Slow but practical
 		}
@@ -416,7 +434,13 @@ character_event = {
 				has_global_flag = avatar_air
 			}
 		}
-		add_trait = patient
+		random_list = {
+			60 = {
+				add_trait = patient
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		wealth = -15
 		custom_tooltip = {
 			text = new_avatar_3_tooltip_merchant_ship			# Fast and maneuverable
@@ -429,7 +453,13 @@ character_event = {
 				has_global_flag = avatar_air
 			}
 		}
-		add_trait = proud
+		random_list = {
+			60 = {
+				add_trait = proud
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		wealth = -25
 		custom_tooltip = {
 			text = new_avatar_3_tooltip_nobleman_ship			# Luxury and fast
@@ -448,8 +478,14 @@ character_event = {
 				}
 			}
 		}
-		add_trait = proud
-		add_trait = ambitious
+		random_list = {
+			60 = {
+				add_trait = proud
+				add_trait = ambitious
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		find_firelord_effect = yes
 		add_favor = event_target:firelord
 		custom_tooltip = {
@@ -967,7 +1003,13 @@ narrative_event = {
 	option = {
 		name = new_avatar_journey.106.opt
 		piety = 50
-		change_learning = 1
+		random_list = {
+			60 = {
+				change_learning = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		character_event = {
 			id = new_avatar_journey.107
 			days = 30
@@ -1005,7 +1047,13 @@ narrative_event = {
 			text = new_avatar_journey.108.tooltip
 		}
 		piety = 100
-		change_learning = 2
+		random_list = {
+			60 = {
+				change_learning = 2
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		add_character_modifier = {
 			name = spirit_oasis_wisdom
 			months = 12
@@ -1422,7 +1470,13 @@ narrative_event = {
 	option = {
 		name = EVTOPT_new_avatar_journey_408_join_sacrifice		# Join sacrifice
 		set_secret_religion = nomadic_nihilism
-		add_trait = cynical
+		random_list = {
+			60 = {
+				add_trait = cynical
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		show_trait = cynical
 		character_event = {
 			id = new_avatar_journey.410
@@ -1431,7 +1485,13 @@ narrative_event = {
 	}
 	option = {
 		name = EVTOPT_new_avatar_journey_408_join_prayer		# Join prayer
-		add_trait = cynical
+		random_list = {
+			60 = {
+				add_trait = cynical
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		show_trait = cynical
 		character_event = {
 			id = new_avatar_journey.410
@@ -1506,8 +1566,14 @@ narrative_event = {
 		}
 		piety = 500
 		prestige = 1000
-		add_trait = just
-		add_trait = ambitious
+		random_list = {
+			60 = {
+				add_trait = just
+				add_trait = ambitious
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		character_event = {
 			id = new_avatar_journey.410
 			days = 1
@@ -1668,7 +1734,13 @@ character_event = {
 	is_triggered_only = yes
 	option = {
 		name = EVTOPT_new_avatar_journey_415		# I've learned a lot.
-		change_learning = 2
+		random_list = {
+			60 = {
+				change_learning = 2
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 	}
 	after = {
 		character_event = {
@@ -1687,7 +1759,13 @@ character_event = {
 	is_triggered_only = yes
 	option = {
 		name = EVTOPT_new_avatar_journey_416		# Honestly, my feet are aching
-		change_martial = 1
+		random_list = {
+			60 = {
+				change_martial = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 	}
 	after = {
 		character_event = {
@@ -1755,7 +1833,13 @@ character_event = {
 	is_triggered_only = yes
 	option = {
 		name = EVTOPT_new_avatar_journey_418		# What now?
-		change_martial = 2
+		random_list = {
+			60 = {
+				change_martial = 2
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 	}
 	after = {
 		character_event = {
@@ -1842,7 +1926,13 @@ character_event = {
 	is_triggered_only = yes
 	option = {
 		name = EVTOPT_new_avatar_journey_421		# Hopefully we'll talk soon;
-		change_learning = 2
+		random_list = {
+			60 = {
+				change_learning = 2
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 	}
 	after = {
 		character_event = {
@@ -1867,14 +1957,26 @@ character_event = {
 				has_character_flag = is_roku
 			}
 		}
-		change_learning = 1
+		random_list = {
+			60 = {
+				change_learning = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 	}
 	option = {
 		name = EVTOPT_new_avatar_journey_425_bye_gyatso		# Bye, Gyatso!
 		trigger = {
 			has_character_flag = is_roku
 		}
-		change_learning = 1
+		random_list = {
+			60 = {
+				change_learning = 1
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 	}
 	after = {
 		# character_event = {

@@ -10,8 +10,8 @@ character_event = {
  title = AVATAR_LIFE_TITLE_1
  desc = AVATAR_LIFE_DESC_1
  picture = GFX_evt_council
- option = { name = AVATAR_LIFE_OPT_1A prestige = 5 add_trait = charitable }
- option = { name = AVATAR_LIFE_OPT_1B piety = 5 add_trait = patient }
+ option = { name = AVATAR_LIFE_OPT_1A prestige = 5 random_list = { 60 = { add_trait = charitable } 25 = { prestige = 5 } 15 = { piety = 5 } } }
+ option = { name = AVATAR_LIFE_OPT_1B piety = 5 random_list = { 60 = { add_trait = patient } 25 = { prestige = 5 } 15 = { piety = 5 } } }
 }
 character_event = {
  id = avatar_life.2
@@ -30,8 +30,8 @@ character_event = {
  title = AVATAR_LIFE_TITLE_3
  desc = AVATAR_LIFE_DESC_3
  picture = GFX_evt_family
- option = { name = AVATAR_LIFE_OPT_3A add_trait = diligent prestige = 5 }
- option = { name = AVATAR_LIFE_OPT_3B add_trait = brave prestige = 5 }
+ option = { name = AVATAR_LIFE_OPT_3A random_list = { 60 = { add_trait = diligent } 25 = { prestige = 5 } 15 = { piety = 5 } } prestige = 5 }
+ option = { name = AVATAR_LIFE_OPT_3B random_list = { 60 = { add_trait = brave } 25 = { prestige = 5 } 15 = { piety = 5 } } prestige = 5 }
 }
 character_event = {
  id = avatar_life.4
@@ -50,8 +50,8 @@ character_event = {
  title = AVATAR_LIFE_TITLE_5
  desc = AVATAR_LIFE_DESC_5
  picture = GFX_evt_council
- option = { name = AVATAR_LIFE_OPT_5A prestige = 10 add_trait = just }
- option = { name = AVATAR_LIFE_OPT_5B prestige = 5 add_trait = kind }
+ option = { name = AVATAR_LIFE_OPT_5A prestige = 10 random_list = { 60 = { add_trait = just } 25 = { prestige = 5 } 15 = { piety = 5 } } }
+ option = { name = AVATAR_LIFE_OPT_5B prestige = 5 random_list = { 60 = { add_trait = kind } 25 = { prestige = 5 } 15 = { piety = 5 } } }
 }
 character_event = {
  id = avatar_life.6
@@ -60,8 +60,8 @@ character_event = {
  title = AVATAR_LIFE_TITLE_6
  desc = AVATAR_LIFE_DESC_6
  picture = GFX_evt_council
- option = { name = AVATAR_LIFE_OPT_6A piety = 10 add_trait = patient }
- option = { name = AVATAR_LIFE_OPT_6B prestige = 5 add_trait = brave }
+ option = { name = AVATAR_LIFE_OPT_6A piety = 10 random_list = { 60 = { add_trait = patient } 25 = { prestige = 5 } 15 = { piety = 5 } } }
+ option = { name = AVATAR_LIFE_OPT_6B prestige = 5 random_list = { 60 = { add_trait = brave } 25 = { prestige = 5 } 15 = { piety = 5 } } }
 }
 character_event = {
  id = avatar_life.7
@@ -80,8 +80,8 @@ character_event = {
  title = AVATAR_LIFE_TITLE_8
  desc = AVATAR_LIFE_DESC_8
  picture = GFX_evt_bandits
- option = { name = AVATAR_LIFE_OPT_8A prestige = 10 add_trait = brave }
- option = { name = AVATAR_LIFE_OPT_8B piety = 5 add_trait = charitable }
+ option = { name = AVATAR_LIFE_OPT_8A prestige = 10 random_list = { 60 = { add_trait = brave } 25 = { prestige = 5 } 15 = { piety = 5 } } }
+ option = { name = AVATAR_LIFE_OPT_8B piety = 5 random_list = { 60 = { add_trait = charitable } 25 = { prestige = 5 } 15 = { piety = 5 } } }
 }
 character_event = {
  id = avatar_life.9
@@ -90,8 +90,8 @@ character_event = {
  title = AVATAR_LIFE_TITLE_9
  desc = AVATAR_LIFE_DESC_9
  picture = GFX_evt_feast
- option = { name = AVATAR_LIFE_OPT_9A prestige = 5 add_trait = diligent }
- option = { name = AVATAR_LIFE_OPT_9B piety = 10 add_trait = humble }
+ option = { name = AVATAR_LIFE_OPT_9A prestige = 5 random_list = { 60 = { add_trait = diligent } 25 = { prestige = 5 } 15 = { piety = 5 } } }
+ option = { name = AVATAR_LIFE_OPT_9B piety = 10 random_list = { 60 = { add_trait = humble } 25 = { prestige = 5 } 15 = { piety = 5 } } }
 }
 character_event = {
  id = avatar_life.10

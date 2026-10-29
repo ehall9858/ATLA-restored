@@ -582,7 +582,13 @@ character_event = { # Dragon - Dragon Slain
 	option = {
 		name = "EVTOPTAATLAR.19"
 		prestige = 500
-		add_trait = proud
+		random_list = {
+			60 = {
+				add_trait = proud
+			}
+			25 = { prestige = 5 }
+			15 = { piety = 5 }
+		}
 		if = {
 			limit = {
 				trait = firebender
