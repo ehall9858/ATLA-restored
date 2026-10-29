@@ -26,7 +26,10 @@ character_event = {
             event_target:villain_candidate = {
                 AND = {
                     NOR = { culture_group = earth_kingdom_cultures }
-                    any_realm_province = { region = world_greater_earth_kingdom }
+                    any_realm_province = {
+                        region = world_greater_earth_kingdom
+                        NOT = { culture = PREV }
+                    }
                 }
             }
         }
@@ -37,7 +40,10 @@ character_event = {
             event_target:villain_candidate = {
                 AND = {
                     NOR = { culture_group = air_nomad_cultures }
-                    any_realm_province = { region = world_air_temples }
+                    any_realm_province = {
+                        region = world_air_temples
+                        NOT = { culture = PREV }
+                    }
                 }
             }
         }
@@ -213,7 +219,10 @@ character_event = {
             event_target:villain_candidate = {
                 AND = {
                     NOR = { culture_group = earth_kingdom_cultures }
-                    any_realm_province = { region = world_greater_earth_kingdom }
+                    any_realm_province = {
+                        region = world_greater_earth_kingdom
+                        NOT = { culture = PREV }
+                    }
                 }
             }
         }
@@ -224,7 +233,10 @@ character_event = {
             event_target:villain_candidate = {
                 AND = {
                     NOR = { culture_group = air_nomad_cultures }
-                    any_realm_province = { region = world_air_temples }
+                    any_realm_province = {
+                        region = world_air_temples
+                        NOT = { culture = PREV }
+                    }
                 }
             }
         }

@@ -349,11 +349,17 @@ is_villain_candidate_trigger = {
 		}
 		AND = {
 			NOR = { culture_group = earth_kingdom_cultures }
-			any_realm_province = { region = world_greater_earth_kingdom }
+			any_realm_province = {
+				region = world_greater_earth_kingdom
+				NOT = { culture = ROOT }
+			}
 		}
 		AND = {
 			NOR = { culture_group = air_nomad_cultures }
-			any_realm_province = { region = world_air_temples }
+			any_realm_province = {
+				region = world_air_temples
+				NOT = { culture = ROOT }
+			}
 		}
 		trait = kinslayer
 		trait = conqueror
